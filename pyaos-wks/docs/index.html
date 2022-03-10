@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Syllabus &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
+    <title>教學綱要（中文） &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -51,8 +51,7 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="電腦環境設置與Python安裝" href="00_setup.html" />
-    <link rel="prev" title="教學綱要（中文）" href="00_syllabus.html" />
+    <link rel="next" title="Syllabus" href="00_syllabus_eng.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -83,15 +82,15 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
    教學綱要（中文）
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_syllabus_eng.html">
    Syllabus
   </a>
  </li>
@@ -220,7 +219,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/00_syllabus_eng.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/00_syllabus.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -236,11 +235,11 @@
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
-            href="https://gitlab.com/wyhtsai/2022pyaos-wks"><button type="button" class="btn btn-secondary topbarbtn"
+            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/repo/"><button type="button" class="btn btn-secondary topbarbtn"
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://gitlab.com/wyhtsai/2022pyaos-wks/issues/new?title=Issue%20on%20page%20%2F00_syllabus_eng.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/repo//issues/new?title=Issue%20on%20page%20%2F00_syllabus.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         
@@ -267,33 +266,33 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#python-for-atmosphere-and-ocean-science-pyaos">
-   Python for Atmosphere and Ocean Science (PyAOS)
+  <a class="reference internal nav-link" href="#python">
+   Python在大氣和海洋科學上的應用
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-objectives">
-     Course Objectives
+    <a class="reference internal nav-link" href="#id2">
+     教學目標
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#course-outline">
-     Course Outline
+    <a class="reference internal nav-link" href="#id3">
+     教學內容
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grading">
-     Grading
+    <a class="reference internal nav-link" href="#id4">
+     評量方法
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
+    <a class="reference internal nav-link" href="#id5">
+     參考書目及網站
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prerequisite">
-     Prerequisite
+    <a class="reference internal nav-link" href="#id6">
+     事前預備
     </a>
    </li>
   </ul>
@@ -309,71 +308,75 @@
         
               <div>
                 
-  <div class="section" id="syllabus">
-<h1>Syllabus<a class="headerlink" href="#syllabus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="python-for-atmosphere-and-ocean-science-pyaos">
-<h2>Python for Atmosphere and Ocean Science (PyAOS)<a class="headerlink" href="#python-for-atmosphere-and-ocean-science-pyaos" title="Permalink to this headline">¶</a></h2>
-<p><strong>Wayne Yuan-Huai Tsai, Department of Atmospheric Scisnces,</strong><br />
-<strong>National Taiwan University, Taipei, Taiwan</strong><br />
-<strong>Time:</strong> 2022/1/18, 25 (Tue.)<br />
-<strong>Place:</strong> Rm. C309</p>
-<div class="section" id="course-objectives">
-<h3>Course Objectives<a class="headerlink" href="#course-objectives" title="Permalink to this headline">¶</a></h3>
+  <div class="section" id="id1">
+<h1>教學綱要（中文）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>Python在大氣和海洋科學上的應用<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p><strong>國立台灣大學大氣科學系 蔡元懷</strong><br />
+<strong>時間</strong> 2022/1/18, 25 (Tue.)<br />
+<strong>地點</strong> 台大大氣C309教室</p>
+<div class="section" id="id2">
+<h3>教學目標<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
-<li><p>Participants can understand the fundamental methods and functions in PyAOS libraries.</p></li>
-<li><p>Participants can be familiar with reading netCDF files, analysis and plotting methods using xarray.</p></li>
-<li><p>Participants can apply PyAOS libraries to climate analysis and atmospheric studies.</p></li>
+<li><p>認識以xarray為主的PyAOS工具的基本指令。</p></li>
+<li><p>熟練用xarray套件讀取netCDF檔案、分析資料及繪圖。</p></li>
+<li><p>將PyAOS套件應用至氣象資料分析及研究工作。</p></li>
 </ol>
 </div>
-<div class="section" id="course-outline">
-<h3>Course Outline<a class="headerlink" href="#course-outline" title="Permalink to this headline">¶</a></h3>
-<p>PyAOS is a suite of high level Python libraries which were developed to meet the needs of atmopheric and oceanic scientists. These libraries are designed to analyze and visualize the high dimensional data with easy steps. The workshop introduces how to read netCDF files, analyze data and plot results using PyAOS libraries especially xarray with detailed explainations and sufficient hands-on practices on various examples and exercises. Most of all, the course materials and examples are based on real-world data and the frequently-used methods of climate analysis strategies (e.g., climatology and anomaly fields, and some simple statistics). Hopefully, the participants can be familiar with the PyAOS tools and eventually apply them to further studies.</p>
-<p>The agenda of the workshop is listed as follows:</p>
+<div class="section" id="id3">
+<h3>教學內容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式套件集，針對大氣和海洋科學的需求而發展出的，用以方便使用者分析netCDF檔案 (或多維度資料)，產出分析結果。本工作坊將以氣候分析方法為導向，介紹如何以PyAOS的套件讀取資料檔、分析資料 (計算氣候平均、距平、統計計算)、繪製結果，特以xarray為主軸，採取講解和實作並重，希望工作坊後能夠容易地使用PyAOS套件工具，最後能應用在研究工作上。
+預定的單元如下 (得依實際情況彈性調整之)：</p>
 <p><strong>2022/1/18 (Tue.) 15:30-17:20</strong></p>
 <ol class="simple">
-<li><p>Introduction: environment setup / What is PyAOS / The procedures and strategies in climate studies (20 mins).</p></li>
-<li><p>Reading NetCDF files (25 mins).</p></li>
-<li><p>xarray Plotting (I): plot the monthly mean OLR in December 2017 (35 mins).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code> object and datetime conditional control (10 mins).</p></li>
-<li><p>Manually creation of DataArray.</p></li>
-<li><p>Calculate monthly climatology and anomaly (30 mins).</p></li>
+<li><p>導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。</p></li>
+<li><p>利用xarray讀取NetCDF資料。(25 mins).</p></li>
+<li><p>xarray繪圖 (I)：繪製2017/12月區域平均OLR。(35 mins).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>物件與時間條件控制。 (10 mins).</p></li>
+<li><p>手動創建DataArray。</p></li>
+<li><p>計算氣候場與距平值－月氣候場與距平值 (30 mins).</p></li>
 </ol>
 <p><strong>2022/1/25 (Tue.) 10:20-12:10</strong></p>
 <ol class="simple">
-<li><p>Calculate daily climatology and anomaly (15 mins).</p></li>
-<li><p>Advanced calculations and analysis methods: interpolation, correlation, vorticity, divergence, streamfunction and velocity potential with <code class="docutils literal notranslate"><span class="pre">metpy</span></code>, <code class="docutils literal notranslate"><span class="pre">scipy</span></code>, and <code class="docutils literal notranslate"><span class="pre">windspharm</span></code>, etc (30 mins).</p></li>
-<li><p>xarray plotting (II): 1-D data (15 mins).</p></li>
-<li><p>xarray plotting (III): n-D data - global map, maps with various projection methods, Hovmöller diagrams, contour plots, quiver plots, streamline, FacetGrid objects, etc. (50 mins)。</p></li>
+<li><p>計算氣候場與距平值－日氣候場與距平值  (15 mins).</p></li>
+<li><p>進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).</p></li>
+<li><p>xarray繪圖 (II)：1D資料繪圖 (15 mins).</p></li>
+<li><p>xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (50 mins)。</p></li>
 </ol>
 <p><strong>Other Topics on PyAOS (TBD)</strong></p>
 <ol class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: visualization of statistical results.</p></li>
-<li><p>Climate Data Operator (CDO).</p></li>
-<li><p>Dask.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>：統計圖表繪製。</p></li>
+<li><p>Climate Data Operator (CDO)。</p></li>
+<li><p>優化作業流程：Dask。</p></li>
 </ol>
 </div>
-<div class="section" id="grading">
-<h3>Grading<a class="headerlink" href="#grading" title="Permalink to this headline">¶</a></h3>
-<p>Two assignments (upload the results and the code to Google Classroom).</p>
+<div class="section" id="id4">
+<h3>評量方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>請完成指定習題 (共2次)，將結果的圖以及程式碼上傳到Google Classroom網站。</p>
 </div>
-<div class="section" id="references">
-<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h3>參考書目及網站<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Handout：<a class="reference external" href="http://homepage.ntu.edu.tw/~wyhtsai/">http://homepage.ntu.edu.tw/~wyhtsai/</a>.</p></li>
-<li><p>PyAOS official website：<a class="reference external" href="https://pyaos.github.io">https://pyaos.github.io</a>.</p></li>
-<li><p>xarray official website：<a class="reference external" href="https://xarray.pydata.org/en/stable/">https://xarray.pydata.org/en/stable/</a>.</p></li>
-<li><p>pandas official website：<a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a>.</p></li>
-<li><p>cartopy official website：<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a>.</p></li>
-<li><p>Dask official website：<a class="reference external" href="https://dask.org">https://dask.org</a>。</p></li>
+<li><p>課程講義：<a class="reference external" href="http://homepage.ntu.edu.tw/~wyhtsai/">http://homepage.ntu.edu.tw/~wyhtsai/</a>.</p></li>
+<li><p>PyAOS官方網站：<a class="reference external" href="https://pyaos.github.io">https://pyaos.github.io</a>.</p></li>
+<li><p>xarray官方網站：<a class="reference external" href="https://xarray.pydata.org/en/stable/">https://xarray.pydata.org/en/stable/</a>.</p></li>
+<li><p>pandas官方網站：<a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a>.</p></li>
+<li><p>cartopy官方網站：<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a>.</p></li>
+<li><p>Dask官方網站：<a class="reference external" href="https://dask.org">https://dask.org</a>。</p></li>
 <li><p>Esmaili, R. B., 2021: Earth Observation using Python: A Practical Programming Guide. American Geophysical Union, 304 p.p., ISBN: 978-1-119-60688-8.</p></li>
 </ul>
 </div>
-<div class="section" id="prerequisite">
-<h3>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>事前預備<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li><p>Please download sample data files from Google Drive beforehand: <a class="reference external" href="https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing">https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing</a>.</p></li>
+<li><p>請自備電腦！</p></li>
+<li><p>如果使用LCCS實驗室主機，請使用ssh://140.112.67.64預設的conda環境Mt。本工作坊會使用到的資料放在/data3/USERS/waynetsai/pyaos_wks_samples/。若使用自己的筆電運算，請從Google drive下載範例資料檔：<a class="reference external" href="https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing">https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing</a>.</p></li>
+<li><p>如果在自己的筆電進行運算，請按照「<a class="reference external" href="http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html">電腦環境設置與Python安裝</a>」單元設置Python運算環境。</p></li>
+<li><p>如果對Python的基本指令不熟悉，建議先閱讀 <a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/%E3%80%82(%E9%9D%9E%E5%BF%85%E9%9C%80)">https://kopu.chat/2017/01/18/一小時python入門-part-1/。(非必需)</a></p></li>
 </ul>
 <p><strong>Acknowledgement:</strong> The logo of the PyAOS workshop was designed and provided by Mr. Sianyun Wang.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 </div>
 </div>
@@ -403,8 +406,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="00_syllabus.html" title="previous page">教學綱要（中文）</a>
-    <a class='right-next' id="next-link" href="00_setup.html" title="next page">電腦環境設置與Python安裝</a>
+    <a class='right-next' id="next-link" href="00_syllabus_eng.html" title="next page">Syllabus</a>
 
         </div>
         
