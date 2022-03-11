@@ -461,6 +461,30 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">cat</span></code>: Concatenates all input datasets and appends the result to the end of outfile.</p></li>
 </ul>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>如果資料太大時 (e.g. 解析度太高導致資料太大……)，先做<code class="docutils literal notranslate"><span class="pre">mergetime</span></code>再選擇時間，可能會導致合併後的副產品太大而記憶體無法負荷。因此，也可以寫一個程式帶有<code class="docutils literal notranslate"><span class="pre">for</span></code>迴圈，先每一年選擇月份並輸出資料，最後再把這些中間產品全部合併起來。</p>
+</div>
+<p><strong>Example 3 選擇特定區域的資料：</strong> 使用<code class="docutils literal notranslate"><span class="pre">sellonlatbox</span></code>選擇40˚-180˚E、20˚S-30˚N區域的資料。</p>
+<p><strong>1. Command Line:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="n">sellonlatbox</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span> <span class="n">data</span><span class="o">/</span><span class="n">olr</span><span class="o">.</span><span class="n">nc</span> <span class="n">olr_selbox</span><span class="o">.</span><span class="n">nc</span>
+</pre></div>
+</div>
+<p><strong>2. Python:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span><span class="o">.</span><span class="n">sellonlatbox</span><span class="p">(</span><span class="s1">&#39;40,180,-20,30&#39;</span><span class="p">,</span>
+                 <span class="nb">input</span><span class="o">=</span><span class="s1">&#39;data/olr.nc&#39;</span><span class="p">,</span>
+                 <span class="n">output</span><span class="o">=</span><span class="s1">&#39;data/olr_selbox.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data/olr_selbox.nc&#39;
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="statistics">
 <h2>統計 (Statistics)<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
@@ -474,7 +498,7 @@
 <li><p>E.g.: the mean of 1, 2, miss and 3 is (1+2+3)/3 = 2, whereas the average is (1+2+miss+3)/4 = miss/4 = miss. If there are no missing values in the sample, the average and the mean are identical.</p></li>
 </ul>
 </div>
-<p><strong>Example 3:</strong> 利用CDO計算1998-2018年OLR降水資料十二月的長期平均。</p>
+<p><strong>Example 4:</strong> 利用CDO計算1998-2018年OLR降水資料十二月的長期平均。</p>
 <p><strong>1. Command Line:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="n">timmean</span> <span class="o">-</span><span class="n">select</span><span class="p">,</span><span class="n">year</span><span class="o">=</span><span class="mi">1998</span><span class="o">/</span><span class="mi">2018</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="mi">12</span> <span class="n">data</span><span class="o">/</span><span class="n">olr</span><span class="o">.</span><span class="n">nc</span> <span class="n">olr_dec_ltm</span><span class="o">.</span><span class="n">nc</span> 
 </pre></div>
@@ -492,7 +516,7 @@
 </div>
 </div>
 </div>
-<p><strong>Example 4: 計算日氣候平均</strong> 計算<code class="docutils literal notranslate"><span class="pre">olr.nc</span></code>的日氣候平均。</p>
+<p><strong>Example 5: 計算日氣候平均</strong> 計算<code class="docutils literal notranslate"><span class="pre">olr.nc</span></code>的日氣候平均。</p>
 <p><strong>1. Command Line:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="n">ydaymean</span> <span class="n">data</span><span class="o">/</span><span class="n">olr</span><span class="o">.</span><span class="n">nc</span> <span class="n">data</span><span class="o">/</span><span class="n">olr_dayClim</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
@@ -514,7 +538,7 @@
 <div class="section" id="arithmetics">
 <h2>算術 (Arithmetics)<a class="headerlink" href="#arithmetics" title="Permalink to this headline">¶</a></h2>
 <p>cdo的算術(以<code class="docutils literal notranslate"><span class="pre">EXPR</span></code>的operator表示)包括<code class="docutils literal notranslate"><span class="pre">=</span></code> (assignment)、加 (<code class="docutils literal notranslate"><span class="pre">x+y</span></code>)、減 (<code class="docutils literal notranslate"><span class="pre">x-y</span></code>)、乘 (<code class="docutils literal notranslate"><span class="pre">x*y</span></code>)、除 (<code class="docutils literal notranslate"><span class="pre">x/y</span></code>)、絕對值<code class="docutils literal notranslate"><span class="pre">abs(x)</span></code>、開根號<code class="docutils literal notranslate"><span class="pre">sqr(x)</span></code>、取指數<code class="docutils literal notranslate"><span class="pre">exp(x)</span></code>等。</p>
-<p><strong>Example 5:</strong> NCEP MSLP資料原先單位是Pa，利用cdo將資料轉換成hPa。</p>
+<p><strong>Example 6:</strong> NCEP MSLP資料原先單位是Pa，利用cdo將資料轉換成hPa。</p>
 <p><strong>1. Command Line:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="n">expr</span><span class="p">,</span><span class="s1">&#39;mslp=mslp/100&#39;</span> <span class="n">mslp</span><span class="mf">.2021</span><span class="o">.</span><span class="n">nc</span> <span class="n">mslp</span><span class="o">.</span><span class="n">hpa</span><span class="mf">.2021</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
@@ -572,7 +596,7 @@
 </pre></div>
 </div>
 <p>以上的檔案包含了網格型態、網格數、起始點等資訊。將這個網格資訊檔放入目前的資料夾中(取名為<code class="docutils literal notranslate"><span class="pre">ncep_grid</span></code>)，就可以使用它來進行網格內插了。</p>
-<p><strong>Example 6:</strong> 將CMORPH資料 (解析度0.25度) 內插到NCEP R2網格。</p>
+<p><strong>Example 7:</strong> 將CMORPH資料 (解析度0.25度) 內插到NCEP R2網格。</p>
 <p><strong>1. Command Line:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="n">remapbil</span><span class="p">,</span><span class="n">ncep_grid</span> <span class="n">data</span><span class="o">/</span><span class="n">cmorph_sample</span><span class="o">.</span><span class="n">nc</span> <span class="n">data</span><span class="o">/</span><span class="n">cmorph_remap</span><span class="o">.</span><span class="n">nc</span>
 </pre></div>
