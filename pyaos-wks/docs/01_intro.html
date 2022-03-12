@@ -295,7 +295,7 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id2">
-   安裝函式庫
+   引入函式庫
   </a>
  </li>
 </ul>
@@ -337,20 +337,13 @@
 <p><strong>小提示：</strong> 如果對Python的基本指令還不熟悉 (e.g. 變數種類、變數定義、if分支結構、for迴圈、函數/副程式⋯⋯等)，可以先上網站搜尋入門教學，再來學習本文的內容喔！(例如：<a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/">一小時Python入門網頁</a>，其實網路上資源非常多也容易讀)</p>
 </div>
 <div class="section" id="id2">
-<h2>安裝函式庫<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>在本文中，需要的函式庫有 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>、<code class="docutils literal notranslate"><span class="pre">xarray</span></code>、<code class="docutils literal notranslate"><span class="pre">pandas</span></code>、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>……等，如果電腦中還沒有安裝這些套件，建議可以利用Anaconda安裝。
-接著在空白的Python程式 (<a class="reference external" href="http://%E5%89%AF%E6%AA%94%E5%90%8D.py">副檔名.py</a>) 加入以下指令，就可以引入所需要的資源庫。以下為本文會使用的函式庫：</p>
+<h2>引入函式庫<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在本文中，需要的函式庫有 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>、<code class="docutils literal notranslate"><span class="pre">xarray</span></code>、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>……等，在空白的Python程式 (<a class="reference external" href="http://%E5%89%AF%E6%AA%94%E5%90%8D.py">副檔名.py</a>) 加入以下指令，就可以引入所需要的資源庫。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> 
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">import</span> <span class="nn">cartopy</span>
-<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>   
-<span class="kn">from</span> <span class="nn">cartopy.mpl.gridliner</span> <span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">cmaps</span> 
 </pre></div>
 </div>
 </div>
@@ -370,13 +363,13 @@
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "python399jvsc74a57bd08e905df1d4d920326545d879dea538d50859be77412bc9bf54949dad3bde9dd6",
             path: "./."
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python399jvsc74a57bd08e905df1d4d920326545d879dea538d50859be77412bc9bf54949dad3bde9dd6'</script>
 
               </div>
               
