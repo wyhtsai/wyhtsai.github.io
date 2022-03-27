@@ -34,7 +34,7 @@ PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式�
 
 1.  `pandas`和`seaborn`：統計圖表繪製。
 2.  Climate Data Operator (CDO)。
-3.  優化作業流程：Dask。
+3.  大型資料處理。
 
 ### 評量方法
 請完成指定習題 (共2次)，將結果的圖以及程式碼上傳到Google Classroom網站。  

@@ -36,7 +36,7 @@ The agenda of the workshop is listed as follows:
 
 1.  `pandas` and `seaborn`: visualization of statistical results.
 2.  Climate Data Operator (CDO).
-3.  Dask.
+3.  Large Datasets Processing.
 
 ### Grading  
 Two assignments (upload the results and the code to Google Classroom).
