@@ -42,7 +42,7 @@ The agenda of the workshop is listed as follows:
 Two assignments (upload the results and the code to Google Classroom).
 
 ### References
-* Handout：http://homepage.ntu.edu.tw/~wyhtsai/. 
+* Handout：https://wyhtsai.github.io/pyaos-wks/docs/index.html. 
 * PyAOS official website：https://pyaos.github.io. 
 * xarray official website：https://xarray.pydata.org/en/stable/.
 * pandas official website：https://pandas.pydata.org.

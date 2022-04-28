@@ -2,8 +2,8 @@
 
 ## Python在大氣和海洋科學上的應用 
 **國立台灣大學大氣科學系 蔡元懷**  
-**時間** 2022/1/18, 25 (Tue.)   
-**地點** 台大大氣C309教室
+**時間：** 2022/5/16, 23 (Mon.) 10:20-13:30   
+**地點：** 師大分部理圖802教室
 
 ### 教學目標
 1. 認識以xarray為主的PyAOS工具的基本指令。
@@ -14,33 +14,32 @@
 PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式套件集，針對大氣和海洋科學的需求而發展出的，用以方便使用者分析netCDF檔案 (或多維度資料)，產出分析結果。本工作坊將以氣候分析方法為導向，介紹如何以PyAOS的套件讀取資料檔、分析資料 (計算氣候平均、距平、統計計算)、繪製結果，特以xarray為主軸，採取講解和實作並重，希望工作坊後能夠容易地使用PyAOS套件工具，最後能應用在研究工作上。
 預定的單元如下 (得依實際情況彈性調整之)：
 
-**2022/1/18 (Tue.) 15:30-17:20**
+**2022/5/16 (Mon.) 10:20-13:30**
 
-1. 導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。 
-2. 利用xarray讀取NetCDF資料。(25 mins).
-3. xarray繪圖 (I)：繪製2017/12月區域平均OLR。(35 mins).
+1. 導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。 (10 mins)
+2. NetCDF資料格式簡介/大氣與海洋科學資料從哪裡來？利用xarray讀取NetCDF資料。(30 mins).
+3. xarray繪圖 (I)：繪製2017/12月區域平均OLR。(40 mins).
 4. `datetime`物件與時間條件控制。 (10 mins).
-5. 手動創建DataArray。
-6. 計算氣候場與距平值－月氣候場與距平值 (30 mins). 
+5. 手動創建DataArray。(10 mins)
+6. 計算氣候場與距平值 (40 mins). 
 
-**2022/1/25 (Tue.) 10:20-12:10**
+**2022/5/23 (Mon.) 10:20-13:30**  
 
-1. 計算氣候場與距平值－日氣候場與距平值  (15 mins).
-2. 進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).
-3.  xarray繪圖 (II)：1D資料繪圖 (15 mins).
-4.  xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (50 mins)。
+7. 進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).  
+8.  xarray繪圖 (II)：1D資料繪圖 (20 mins).  
+9.  xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (60 mins)。
+10.  `pandas`和`seaborn`：統計圖表繪製。(如果有時間的話)
 
 **Other Topics on PyAOS (TBD)**
 
-1.  `pandas`和`seaborn`：統計圖表繪製。
-2.  Climate Data Operator (CDO)。
-3.  大型資料處理。
+11.  Climate Data Operator (CDO)。
+12.  大型資料處理。
 
 ### 評量方法
-請完成指定習題 (共2次)，將結果的圖以及程式碼上傳到Google Classroom網站。  
+請完成指定習題 (共1次)，將結果的圖以及程式碼上傳到Moodle學習平台。  
 
 ### 參考書目及網站
-* 課程講義：http://homepage.ntu.edu.tw/~wyhtsai/. 
+* 課程講義：https://wyhtsai.github.io/pyaos-wks/docs/index.html. 
 * PyAOS官方網站：https://pyaos.github.io. 
 * xarray官方網站：https://xarray.pydata.org/en/stable/.
 * pandas官方網站：https://pandas.pydata.org.
@@ -50,8 +49,8 @@ PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式�
 
 ### 事前預備
 * 請自備電腦！
-* 如果使用LCCS實驗室主機，請使用ssh://140.112.67.64預設的conda環境Mt。本工作坊會使用到的資料放在/data3/USERS/waynetsai/pyaos_wks_samples/。若使用自己的筆電運算，請從Google drive下載範例資料檔：https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing. 
-* 如果在自己的筆電進行運算，請按照「[電腦環境設置與Python安裝](http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html)」單元設置Python運算環境。
+* 請從Google drive下載範例資料檔：https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing. 
+* 請於課堂開始前，按照「[電腦環境設置與Python安裝](http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html)」單元設置Python運算環境。
 * 如果對Python的基本指令不熟悉，建議先閱讀 https://kopu.chat/2017/01/18/一小時python入門-part-1/。(非必需) 
 
 

@@ -296,6 +296,18 @@
   <a class="reference internal nav-link" href="#id2">
    大型氣象資料處理
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dask-array">
+     Dask Array輸出
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     使用dask的一些好習慣
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -337,7 +349,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_8607</span><span class="o">/</span><span class="mf">1835696110.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17844</span><span class="o">/</span><span class="mf">1835696110.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">uds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="s1">&#39;/data4/USERS/waynetsai/data/ERA5/ERA5_U_daily_????.nc&#39;</span><span class="p">,</span>
@@ -359,7 +371,8 @@
 <p>會有這樣的情形是因為要分析的資料量已經超過電腦記憶體 (RAM) 的負荷，更別提氣象上的計算實際上複雜許多。那要如何避免這個情形發生呢？</p>
 <div class="section" id="dask">
 <h2>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">¶</a></h2>
-<p>Dask是一套Python的套件，可以用電腦多核心(core)來進行平行運算，因此可以提升效率。為了理解dask如何在xarray上運作，我們先以一組1000 × 4000大小的矩陣來示範。</p>
+<p>Dask是一套Python的套件，可以用電腦多核心(core)來進行平行運算，因此可以提升效率。在計算時，程式不會完全讀入所有的資料，而是以符號的方式先進行運算，這個過程稱為 “lazy computation”，也因此運算的過程不會耗費大量的記憶體 RAM。</p>
+<p>為了理解dask如何在xarray上運作，我們先以一組1000 × 4000大小的矩陣來示範。</p>
 <p><strong>1. Numpy矩陣</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -453,7 +466,6 @@
     </tr>
 </table></div></div>
 </div>
-<p>從以上例子我們可以知道，dask矩陣囊括了我們熟知的numpy套件中的函數。其實dask也囊括了xarray的函數，這對於我們要使用dask輔助處理大氣科學中大型資料是非常有利的。那麼dask怎麼幫助我們加速資料處理呢？</p>
 <p><img alt="" src="https://docs.dask.org/en/latest/_images/dask-array.svg" /></p>
 <p>Dask會把矩陣分成許多子矩陣，這些子矩陣稱為”chunk”。在dask中，我們可以指定chunks的大小。</p>
 <div class="cell docutils container">
@@ -582,7 +594,8 @@
 <p>計算過程如下：</p>
 <p><img alt="" src="https://earth-env-data-science.github.io/_images/dask_arrays_16_0.png" /></p>
 <p>也就是chunk本身會在各自的核心中先進行計算，然後最後再合併一起成為最終的結果。</p>
-<p>以上可以大致理解dask的計算原理，更進階的用法可以參閱dask的官方網站說明。</p>
+<p>由以上的計算過程，我們可以大致理解dask的計算原理，更進階的用法可以參閱dask的官方網站說明。</p>
+<p>從以上例子我們可以知道，dask矩陣囊括了我們熟知的numpy套件中的函數。其實dask也囊括了xarray的函數，這對於我們要使用dask輔助處理大氣科學中大型資料是非常有利的。那麼dask怎麼幫助我們加速資料處理呢？</p>
 </div>
 <div class="section" id="id2">
 <h2>大型氣象資料處理<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
@@ -2074,6 +2087,22 @@ Coordinates:
 </table></div></div></li><li class='xr-section-item'><input id='section-c5129f54-68d3-43c9-a165-41a76c482bb6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5129f54-68d3-43c9-a165-41a76c482bb6' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.25 0.5 ... 359.2 359.5 359.8</div><input id='attrs-00e05e6f-90de-4b9d-aa23-78a5328061a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-00e05e6f-90de-4b9d-aa23-78a5328061a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cea1b459-901b-41c9-8dbd-859a4ce8b0a1' class='xr-var-data-in' type='checkbox'><label for='data-cea1b459-901b-41c9-8dbd-859a4ce8b0a1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([0.0000e+00, 2.5000e-01, 5.0000e-01, ..., 3.5925e+02, 3.5950e+02,
        3.5975e+02], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.75 89.5 ... -89.75 -90.0</div><input id='attrs-99339e66-5801-4dcc-8a30-afb58f51d9a4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-99339e66-5801-4dcc-8a30-afb58f51d9a4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5583572f-c3e0-4f79-a1e9-2f77831f8b58' class='xr-var-data-in' type='checkbox'><label for='data-5583572f-c3e0-4f79-a1e9-2f77831f8b58' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90.  ,  89.75,  89.5 , ..., -89.5 , -89.75, -90.  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-44a8160a-4de6-4864-93a7-eb970cf7c9c6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-44a8160a-4de6-4864-93a7-eb970cf7c9c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9f40b3c6-f424-4ef5-a440-f8867b60e991' class='xr-var-data-in' type='checkbox'><label for='data-9f40b3c6-f424-4ef5-a440-f8867b60e991' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array(850.)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3808fba9-edf4-4900-bc8e-ae4bec38dd86' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3808fba9-edf4-4900-bc8e-ae4bec38dd86' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
+<div class="section" id="dask-array">
+<h3>Dask Array輸出<a class="headerlink" href="#dask-array" title="Permalink to this headline">¶</a></h3>
+<p>在前面我們提過，利用dask運算時程式會以 “lazy computation” 的方式計算，也就是在算的過程中程式還沒有真正將資料的數值給代入。因此如果在上面這個階段就執行 <code class="docutils literal notranslate"><span class="pre">ws.to_netcdf()</span></code> ，會發現檔案裡面的內容全部是空白的。因此計算結果到最後的時候，我們必須加上<code class="docutils literal notranslate"><span class="pre">load()</span></code>函數，把最終的計算結果讀入記憶體。</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">xarray.Dataset.load</span></code>: Manually trigger loading and/or computation of this dataset’s data from disk or a remote source into memory and return this dataset.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h3>使用dask的一些好習慣<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>目前dask在<code class="docutils literal notranslate"><span class="pre">resample()</span></code> or <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>兩個函數並沒有做很好的效率最佳化，因此建議在這之前就先進行<code class="docutils literal notranslate"><span class="pre">load()</span></code>的動作，以避免非常大量的計算。從上面的範例就可以看到從頭計算到ws這個動作，就要花費2279930 tasks，必然要花費很多時間！</p></li>
+<li><p>把一些初步的結果先儲存成netCDF檔案，然後重新讀進來，會比較節省時間。</p></li>
+<li><p>空間上切越小的chunks越好 (e.g., chunks={‘latitude’: 10, ‘longitude’: 10})。</p></li>
+<li><p>xarray官方網站建議開啟多個檔案時，設定<code class="docutils literal notranslate"><span class="pre">engine='h5netcdf'</span></code>，會比 <code class="docutils literal notranslate"><span class="pre">engine='netcdf4'</span></code>快。</p></li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -2117,7 +2146,7 @@ Coordinates:
             &copy; Copyright 2021-2022.<br/>
           <div class="extra_footer">
             <p>
-Last updated: 2022-03-27
+Last updated: 2022-04-28
 </p>
           </div>
       </p>
