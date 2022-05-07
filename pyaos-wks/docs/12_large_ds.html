@@ -170,7 +170,7 @@
      seaborn
     </span>
    </code>
-   ：統計圖表繪製
+   : 統計圖表繪製
   </a>
  </li>
  <li class="toctree-l1">
@@ -349,7 +349,7 @@
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17844</span><span class="o">/</span><span class="mf">1835696110.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_37371</span><span class="o">/</span><span class="mf">1835696110.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">uds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="s1">&#39;/data4/USERS/waynetsai/data/ERA5/ERA5_U_daily_????.nc&#39;</span><span class="p">,</span>
@@ -368,6 +368,7 @@
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">MemoryError:</span> <span class="pre">Unable</span> <span class="pre">to</span> <span class="pre">allocate</span> <span class="pre">52.2</span> <span class="pre">GiB</span> <span class="pre">for</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">with</span> <span class="pre">shape</span> <span class="pre">(365,</span> <span class="pre">37,</span> <span class="pre">721,</span> <span class="pre">1440)</span> <span class="pre">and</span> <span class="pre">data</span> <span class="pre">type</span> <span class="pre">float32</span></code></p>
 <p>會有這樣的情形是因為要分析的資料量已經超過電腦記憶體 (RAM) 的負荷，更別提氣象上的計算實際上複雜許多。那要如何避免這個情形發生呢？</p>
 <div class="section" id="dask">
 <h2>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">¶</a></h2>
@@ -419,13 +420,13 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 30.52 MiB </td>
                         <td> 30.52 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (1000, 4000) </td>
@@ -489,13 +490,13 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 30.52 MiB </td>
                         <td> 7.63 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (1000, 4000) </td>
@@ -560,13 +561,13 @@
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 8 B </td>
                         <td> 8.0 B </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> () </td>
@@ -586,7 +587,7 @@
             </table>
         </td>
         <td>
-
+        
         </td>
     </tr>
 </table></div></div>
@@ -1014,13 +1015,13 @@ Attributes:
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 56.51 GiB </td>
                         <td> 23.63 MiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (14610, 721, 1440) </td>
@@ -1524,13 +1525,13 @@ Coordinates:
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 1.42 GiB </td>
                         <td> 132.23 kiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (366, 721, 1440) </td>
@@ -2029,13 +2030,13 @@ Coordinates:
                     </tr>
                 </thead>
                 <tbody>
-
+                    
                     <tr>
                         <th> Bytes </th>
                         <td> 3.96 MiB </td>
                         <td> 132.23 kiB </td>
                     </tr>
-
+                    
                     <tr>
                         <th> Shape </th>
                         <td> (721, 1440) </td>
@@ -2146,7 +2147,7 @@ Coordinates:
             &copy; Copyright 2021-2022.<br/>
           <div class="extra_footer">
             <p>
-Last updated: 2022-04-28
+Last updated: 2022-05-07
 </p>
           </div>
       </p>
