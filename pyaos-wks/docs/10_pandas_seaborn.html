@@ -346,18 +346,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#scatter-plot">
-   繪製散布圖 (scatter plot) 以及回歸分析
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multi-index-dataframe">
-   多層次標籤 (Multi-index) 的 DataFrame
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#wide-formseaborn">
-   Wide Form的Seaborn製圖
+  <a class="reference internal nav-link" href="#multi-index-dataframelong-form">
+   多層次標籤 (Multi-index) 的 DataFrame與Long Form繪圖
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -387,11 +377,21 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wide-long-form">
-     Wide/Long form互相轉換：
+    <a class="reference internal nav-link" href="#scatter-plot">
+     範例：繪製散布圖 (scatter plot) 以及回歸分析
     </a>
    </li>
   </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wide-formseaborn">
+   Wide Form的Seaborn製圖
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wide-long-form">
+   Wide/Long form互相轉換：
+  </a>
  </li>
 </ul>
 
@@ -430,11 +430,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    1.629312
-b   -0.694289
-c   -1.625157
-d    2.409966
-e   -0.983439
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.424738
+b    1.194017
+c   -0.798792
+d   -1.564253
+e   -0.132128
 dtype: float64
 </pre></div>
 </div>
@@ -483,33 +483,33 @@ dtype: float64
   <tbody>
     <tr>
       <th>a</th>
-      <td>1.527226</td>
-      <td>-1.086502</td>
-      <td>2.646507</td>
+      <td>-0.351669</td>
+      <td>-0.040852</td>
+      <td>1.979691</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>-0.240751</td>
-      <td>-0.867822</td>
-      <td>0.274620</td>
+      <td>0.184583</td>
+      <td>0.447831</td>
+      <td>-0.720852</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>0.084571</td>
-      <td>-1.334878</td>
-      <td>0.710658</td>
+      <td>-0.645875</td>
+      <td>-0.406533</td>
+      <td>-0.950459</td>
     </tr>
     <tr>
       <th>d</th>
-      <td>1.503179</td>
-      <td>-0.702219</td>
-      <td>-1.231651</td>
+      <td>0.336670</td>
+      <td>-0.237619</td>
+      <td>-0.110742</td>
     </tr>
     <tr>
       <th>e</th>
-      <td>0.520095</td>
-      <td>-0.406861</td>
-      <td>-0.193269</td>
+      <td>0.416163</td>
+      <td>0.980818</td>
+      <td>0.630363</td>
     </tr>
   </tbody>
 </table>
@@ -556,73 +556,73 @@ dtype: float64
   <tbody>
     <tr>
       <th>1998</th>
-      <td>-0.263568</td>
-      <td>-0.541094</td>
-      <td>-0.042999</td>
-      <td>0.058413</td>
+      <td>-0.586949</td>
+      <td>0.965324</td>
+      <td>0.250742</td>
+      <td>-0.335259</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>-0.000846</td>
-      <td>1.080378</td>
-      <td>0.675239</td>
-      <td>-0.587041</td>
+      <td>-0.209782</td>
+      <td>1.158029</td>
+      <td>0.551615</td>
+      <td>-0.345616</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>1.444559</td>
-      <td>-0.959734</td>
-      <td>0.839118</td>
-      <td>0.662550</td>
+      <td>-0.809811</td>
+      <td>3.196511</td>
+      <td>0.584522</td>
+      <td>1.220341</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>1.358115</td>
-      <td>1.240701</td>
-      <td>0.872368</td>
-      <td>1.563898</td>
+      <td>0.168825</td>
+      <td>1.999744</td>
+      <td>-1.239413</td>
+      <td>-0.183614</td>
     </tr>
     <tr>
       <th>2002</th>
-      <td>1.009838</td>
-      <td>-1.067274</td>
-      <td>-1.354329</td>
-      <td>1.636363</td>
+      <td>1.302295</td>
+      <td>-0.812599</td>
+      <td>1.354723</td>
+      <td>1.281059</td>
     </tr>
     <tr>
       <th>2003</th>
-      <td>-0.160828</td>
-      <td>-1.263914</td>
-      <td>-2.419525</td>
-      <td>0.679502</td>
+      <td>1.834469</td>
+      <td>-1.536600</td>
+      <td>0.661028</td>
+      <td>-0.506291</td>
     </tr>
     <tr>
       <th>2004</th>
-      <td>0.049700</td>
-      <td>-0.165164</td>
-      <td>-0.322723</td>
-      <td>-1.667201</td>
+      <td>0.343317</td>
+      <td>1.158241</td>
+      <td>-2.506437</td>
+      <td>2.228620</td>
     </tr>
     <tr>
       <th>2005</th>
-      <td>-0.146296</td>
-      <td>1.160587</td>
-      <td>-0.171205</td>
-      <td>0.015654</td>
+      <td>-1.004137</td>
+      <td>0.183348</td>
+      <td>-0.555614</td>
+      <td>-3.547150</td>
     </tr>
     <tr>
       <th>2006</th>
-      <td>-0.380868</td>
-      <td>1.251136</td>
-      <td>0.651332</td>
-      <td>-0.489697</td>
+      <td>0.793169</td>
+      <td>-1.624766</td>
+      <td>-1.222509</td>
+      <td>-1.374963</td>
     </tr>
     <tr>
       <th>2007</th>
-      <td>-0.491379</td>
-      <td>-1.463577</td>
-      <td>-0.452293</td>
-      <td>0.771654</td>
+      <td>-0.422871</td>
+      <td>0.095730</td>
+      <td>0.885404</td>
+      <td>-0.065153</td>
     </tr>
   </tbody>
 </table>
@@ -756,11 +756,285 @@ dtype: float64
 </div>
 </div>
 </div>
+<div class="section" id="multi-index-dataframelong-form">
+<h2>多層次標籤 (Multi-index) 的 DataFrame與Long Form繪圖<a class="headerlink" href="#multi-index-dataframelong-form" title="Permalink to this headline">¶</a></h2>
+<p><strong>Example 2:</strong> 分析S2S模式在15個預報時 (lead time, <code class="docutils literal notranslate"><span class="pre">lt=15</span></code>) 以及11個系集成員 (ensemble members, <code class="docutils literal notranslate"><span class="pre">ens=11</span></code>)在分為Hindcast、Forecast兩種cases的情形下，某變數<code class="docutils literal notranslate"><span class="pre">value</span></code>的分佈情形。</p>
+<p>由於<code class="docutils literal notranslate"><span class="pre">value</span></code>分類的層次較多，所以必須用<code class="docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code>建立起<code class="docutils literal notranslate"><span class="pre">(lead_time,</span> <span class="pre">number,</span> <span class="pre">case)</span></code>的索引。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lt</span> <span class="o">=</span> <span class="mi">15</span> 
+<span class="n">ens</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">iterables</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lt</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ens</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s2">&quot;Hindcast&quot;</span><span class="p">,</span> <span class="s2">&quot;Forecast&quot;</span><span class="p">]]</span>
+<span class="n">tuples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="n">iterables</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lead_time&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span><span class="s2">&quot;case&quot;</span><span class="p">])</span>  
+         <span class="c1"># from_product 是將iterables中的標籤相乘，形成各lead time、number、case的組合。</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">lt</span><span class="o">*</span><span class="n">ens</span><span class="o">*</span><span class="mi">2</span><span class="p">)},</span> <span class="n">index</span><span class="o">=</span><span class="n">tuples</span><span class="p">)</span>  
+       <span class="c1"># 先以亂數代表資料。資料取名為&#39;value&#39;。</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>value</th>
+    </tr>
+    <tr>
+      <th>lead_time</th>
+      <th>number</th>
+      <th>case</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="5" valign="top">1</th>
+      <th rowspan="2" valign="top">1</th>
+      <th>Hindcast</th>
+      <td>-0.848341</td>
+    </tr>
+    <tr>
+      <th>Forecast</th>
+      <td>-0.200089</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">2</th>
+      <th>Hindcast</th>
+      <td>0.104793</td>
+    </tr>
+    <tr>
+      <th>Forecast</th>
+      <td>-0.228452</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <th>Hindcast</th>
+      <td>0.697248</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>我們發現表頭被分為兩行，這是因為在<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>結構中， <code class="docutils literal notranslate"><span class="pre">lead_time</span></code>、<code class="docutils literal notranslate"><span class="pre">number</span></code>、<code class="docutils literal notranslate"><span class="pre">case</span></code>稱為 <strong>Index</strong>，<code class="docutils literal notranslate"><span class="pre">value</span></code> 稱為 <strong>Column</strong>，如果直接放到<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>函數中，coulmns的名稱是無法使用的。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> 
+                    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
+                    <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;silver&#39;</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PR_RMSE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_7969</span><span class="o">/</span><span class="mf">774566885.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>                     <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
+
+<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/_decorators.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="p">)</span>
+<span class="nn">     45         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
+<span class="ne">---&gt; </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">inner_f</span>
+<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+
+<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3790</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">_CategoricalPlotter</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3791</span>     <span class="n">p</span><span class="o">.</span><span class="n">require_numeric</span> <span class="o">=</span> <span class="n">plotter_class</span><span class="o">.</span><span class="n">require_numeric</span>
+<span class="ne">-&gt; </span><span class="mi">3792</span>     <span class="n">p</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3793</span>     <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3794</span>         <span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+
+<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>                     <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span> 
+<span class="g g-Whitespace">    </span><span class="mi">155</span>             <span class="c1"># Figure out the plotting orientation</span>
+
+<span class="ne">ValueError</span>: Could not interpret input &#39;lead_time&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>要讓這個<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>變成<code class="docutils literal notranslate"><span class="pre">seaborn</span></code> 可讀取的long form格式，必須加上<code class="docutils literal notranslate"><span class="pre">data.reset_index()</span></code>，就會轉變成理想中的DataFrame了。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>lead_time</th>
+      <th>number</th>
+      <th>case</th>
+      <th>value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Hindcast</td>
+      <td>-0.426472</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>1</td>
+      <td>Forecast</td>
+      <td>1.277017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Hindcast</td>
+      <td>-0.437499</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>2</td>
+      <td>Forecast</td>
+      <td>0.002919</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>3</td>
+      <td>Hindcast</td>
+      <td>1.562215</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>15</td>
+      <td>2</td>
+      <td>Forecast</td>
+      <td>2.074004</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>15</td>
+      <td>3</td>
+      <td>Hindcast</td>
+      <td>-0.182615</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>15</td>
+      <td>3</td>
+      <td>Forecast</td>
+      <td>-0.092137</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>15</td>
+      <td>4</td>
+      <td>Hindcast</td>
+      <td>-0.322854</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>15</td>
+      <td>4</td>
+      <td>Forecast</td>
+      <td>0.360733</td>
+    </tr>
+  </tbody>
+</table>
+<p>120 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
+                    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> 
+                    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
+                    <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;silver&#39;</span><span class="p">],</span>
+                    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/10_pandas_seaborn_19_0.png" src="_images/10_pandas_seaborn_19_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="xarray-dataarraypandas-dataframe">
+<h2>將<code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code>轉換至<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#xarray-dataarraypandas-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="xarray-to-pandas">
+<h3>利用<code class="docutils literal notranslate"><span class="pre">xarray.to_pandas</span></code><a class="headerlink" href="#xarray-to-pandas" title="Permalink to this headline">¶</a></h3>
+<p>根據<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.to_pandas.html">API reference</a>的說明，轉換後的格式和給定DataArray的維度有關。</p>
+<blockquote>
+<div><p>Convert this array into a pandas object with the same shape.
+The type of the returned object depends on the number of DataArray dimensions:<br />
+0D -&gt; <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code><br />
+1D -&gt; <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><br />
+2D -&gt; <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><br />
+Only works for arrays with 2 or fewer dimensions.</p>
+</div></blockquote>
+</div>
 <div class="section" id="scatter-plot">
-<h2>繪製散布圖 (scatter plot) 以及回歸分析<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example 2:</strong> 將夏季(五至七月)候平均副高指標和長江流域(105.5˚-122˚E, 27˚-33.5˚N)降雨資料在散布圖上，並且計算回歸線。副高指數定義為</p>
+<h3>範例：繪製散布圖 (scatter plot) 以及回歸分析<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h3>
+<p><strong>Example 3:</strong> 將夏季(五至七月)候平均副高指標和長江流域(105.5˚-122˚E, 27˚-33.5˚N)降雨資料在散布圖上，並且計算回歸線。副高指數定義為</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{WPSH} = U_{850}\left[ (115˚-140˚\mathrm{E}, 28˚-30˚\mathrm{N})\right] − U_{850}\left[(115˚-140˚\mathrm{E}, 15˚-17˚\mathrm{N})\right]\]</div>
+<p>我們要了解降雨和副高兩個變量之間的關係，最常使用散佈圖來表示。兩個變量會用DataArray儲存，將兩個變量合併成一個Dataset，再轉換成pandas.DataFrame，就可以放到seaborn去作圖了。</p>
 <p><strong>Step 1:</strong> 讀取風場和降雨資料檔案。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,10 +1409,10 @@ Attributes:
     standard_name:  lwe_precipitation_rate
     long_name:      NOAA Climate Data Record (CDR) of CPC Morphing Technique ...
     units:          mm/day
-    comment:        !!! CMORPH estimate is rainrate !!!</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'cmorph'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 7670</li><li><span class='xr-has-index'>lat</span>: 12</li><li><span class='xr-has-index'>lon</span>: 66</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9f45e682-d6e6-46e5-b49f-562c2b3165aa' class='xr-array-in' type='checkbox' checked><label for='section-9f45e682-d6e6-46e5-b49f-562c2b3165aa' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[6074640 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-89325cd4-de65-4ee0-a6b0-cc64ebf90f2b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-89325cd4-de65-4ee0-a6b0-cc64ebf90f2b' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2018-12-31</div><input id='attrs-c1f2b986-5401-4e72-b255-0cbbf0d26555' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c1f2b986-5401-4e72-b255-0cbbf0d26555' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1bf76f34-db2e-4c0b-81fd-e172ac2bae25' class='xr-var-data-in' type='checkbox'><label for='data-1bf76f34-db2e-4c0b-81fd-e172ac2bae25' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>starting point of time period</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+    comment:        !!! CMORPH estimate is rainrate !!!</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'cmorph'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 7670</li><li><span class='xr-has-index'>lat</span>: 12</li><li><span class='xr-has-index'>lon</span>: 66</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-2b221741-1959-4fe1-ba28-900ec69d7032' class='xr-array-in' type='checkbox' checked><label for='section-2b221741-1959-4fe1-ba28-900ec69d7032' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>...</span></div><div class='xr-array-data'><pre>[6074640 values with dtype=float32]</pre></div></div></li><li class='xr-section-item'><input id='section-b8941e19-075b-457e-82d5-f42f42666cf8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b8941e19-075b-457e-82d5-f42f42666cf8' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2018-12-31</div><input id='attrs-7e600477-1a4e-4747-b736-374f11eaace6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e600477-1a4e-4747-b736-374f11eaace6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3e4ad05-6c7e-43e8-9f5a-7c67c424fb56' class='xr-var-data-in' type='checkbox'><label for='data-b3e4ad05-6c7e-43e8-9f5a-7c67c424fb56' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>starting point of time period</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2018-12-29T00:00:00.000000000&#x27;,
        &#x27;2018-12-30T00:00:00.000000000&#x27;, &#x27;2018-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>105.6 105.9 106.1 ... 121.6 121.9</div><input id='attrs-2e90f5df-9be5-4b27-a543-4da03cae52f0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e90f5df-9be5-4b27-a543-4da03cae52f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65a6c846-1a36-4bf4-9822-fefa8c842276' class='xr-var-data-in' type='checkbox'><label for='data-65a6c846-1a36-4bf4-9822-fefa8c842276' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude of center of grid box</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([105.625, 105.875, 106.125, 106.375, 106.625, 106.875, 107.125, 107.375,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>105.6 105.9 106.1 ... 121.6 121.9</div><input id='attrs-e18f8849-3ed0-4d5a-8ae9-362bd5fe255d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e18f8849-3ed0-4d5a-8ae9-362bd5fe255d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-776f3644-748e-42d8-b15b-6ca80d1dfb0c' class='xr-var-data-in' type='checkbox'><label for='data-776f3644-748e-42d8-b15b-6ca80d1dfb0c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude of center of grid box</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([105.625, 105.875, 106.125, 106.375, 106.625, 106.875, 107.125, 107.375,
        107.625, 107.875, 108.125, 108.375, 108.625, 108.875, 109.125, 109.375,
        109.625, 109.875, 110.125, 110.375, 110.625, 110.875, 111.125, 111.375,
        111.625, 111.875, 112.125, 112.375, 112.625, 112.875, 113.125, 113.375,
@@ -1146,8 +1420,8 @@ Attributes:
        115.625, 115.875, 116.125, 116.375, 116.625, 116.875, 117.125, 117.375,
        117.625, 117.875, 118.125, 118.375, 118.625, 118.875, 119.125, 119.375,
        119.625, 119.875, 120.125, 120.375, 120.625, 120.875, 121.125, 121.375,
-       121.625, 121.875], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>27.12 27.38 27.62 ... 29.62 29.88</div><input id='attrs-b55cf5f1-fd6c-491a-8cf0-2aa14952203a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b55cf5f1-fd6c-491a-8cf0-2aa14952203a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d0405c29-1afb-450d-af0f-754b066e7bde' class='xr-var-data-in' type='checkbox'><label for='data-d0405c29-1afb-450d-af0f-754b066e7bde' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude of center of grid box</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([27.125, 27.375, 27.625, 27.875, 28.125, 28.375, 28.625, 28.875, 29.125,
-       29.375, 29.625, 29.875], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-930798be-0a95-4f7c-8723-c99c01649d39' class='xr-section-summary-in' type='checkbox'  checked><label for='section-930798be-0a95-4f7c-8723-c99c01649d39' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record (CDR) of CPC Morphing Technique (CMORPH) High Resolution Global Precipitation Estimates</dd><dt><span>units :</span></dt><dd>mm/day</dd><dt><span>comment :</span></dt><dd>!!! CMORPH estimate is rainrate !!!</dd></dl></div></li></ul></div></div></div></div>
+       121.625, 121.875], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>27.12 27.38 27.62 ... 29.62 29.88</div><input id='attrs-fe1fbfa0-7a2f-45d1-ad5f-0e7c5c02f71b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fe1fbfa0-7a2f-45d1-ad5f-0e7c5c02f71b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c6d51bdf-5fb6-4ae5-88c2-a2967c49ed47' class='xr-var-data-in' type='checkbox'><label for='data-c6d51bdf-5fb6-4ae5-88c2-a2967c49ed47' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude of center of grid box</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([27.125, 27.375, 27.625, 27.875, 28.125, 28.375, 28.625, 28.875, 29.125,
+       29.375, 29.625, 29.875], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8b82012f-f543-42b0-92fc-31bffe8caccb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8b82012f-f543-42b0-92fc-31bffe8caccb' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>lwe_precipitation_rate</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record (CDR) of CPC Morphing Technique (CMORPH) High Resolution Global Precipitation Estimates</dd><dt><span>units :</span></dt><dd>mm/day</dd><dt><span>comment :</span></dt><dd>!!! CMORPH estimate is rainrate !!!</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1537,7 +1811,7 @@ Attributes:
     level_desc:            Pressure Levels
     statistic:             Mean
     parent_stat:           Individual Obs
-    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 7670</li><li><span class='xr-has-index'>lat</span>: 7</li><li><span class='xr-has-index'>lon</span>: 11</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-6a7ba060-0d96-4290-a068-fbd46f5075eb' class='xr-array-in' type='checkbox' checked><label for='section-6a7ba060-0d96-4290-a068-fbd46f5075eb' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(365, 7, 11), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 7670</li><li><span class='xr-has-index'>lat</span>: 7</li><li><span class='xr-has-index'>lon</span>: 11</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-40fc836e-8f98-4aa5-8b11-9df86459123d' class='xr-array-in' type='checkbox' checked><label for='section-40fc836e-8f98-4aa5-8b11-9df86459123d' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(365, 7, 11), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table>
@@ -1653,11 +1927,11 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-6f6fb014-bf5e-410c-b228-48417f8dfaa0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6f6fb014-bf5e-410c-b228-48417f8dfaa0' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2018-12-31</div><input id='attrs-b1e9f1a5-bb2c-4777-83e9-96baad683282' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b1e9f1a5-bb2c-4777-83e9-96baad683282' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d97f35b7-325a-4843-8d45-19570bc3b074' class='xr-var-data-in' type='checkbox'><label for='data-d97f35b7-325a-4843-8d45-19570bc3b074' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-583d535c-2ac0-475a-951c-07982317ef7d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-583d535c-2ac0-475a-951c-07982317ef7d' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2018-12-31</div><input id='attrs-7de326e2-6db4-45c2-afe5-3d802e533a17' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7de326e2-6db4-45c2-afe5-3d802e533a17' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-caecd526-1044-42d7-80d8-f641a46214ba' class='xr-var-data-in' type='checkbox'><label for='data-caecd526-1044-42d7-80d8-f641a46214ba' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2018-12-29T00:00:00.000000000&#x27;,
        &#x27;2018-12-30T00:00:00.000000000&#x27;, &#x27;2018-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>115.0 117.5 120.0 ... 137.5 140.0</div><input id='attrs-8fd5db42-9e55-408b-a16e-54bf49b29162' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8fd5db42-9e55-408b-a16e-54bf49b29162' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-94fdd7ee-1cc7-43f4-b617-1259997d5a28' class='xr-var-data-in' type='checkbox'><label for='data-94fdd7ee-1cc7-43f4-b617-1259997d5a28' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([115. , 117.5, 120. , 122.5, 125. , 127.5, 130. , 132.5, 135. , 137.5,
-       140. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 27.5 25.0 22.5 20.0 17.5 15.0</div><input id='attrs-b8bc9e5d-b96e-4f87-a521-c0b71d1e7668' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b8bc9e5d-b96e-4f87-a521-c0b71d1e7668' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a2e55aa-48e1-4d5a-8328-d8c6688667a4' class='xr-var-data-in' type='checkbox'><label for='data-6a2e55aa-48e1-4d5a-8328-d8c6688667a4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([30. , 27.5, 25. , 22.5, 20. , 17.5, 15. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-6c96dfb2-e464-4b9a-ad34-976666f2035b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6c96dfb2-e464-4b9a-ad34-976666f2035b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c0f33804-394b-484a-8758-e9224e272ae9' class='xr-var-data-in' type='checkbox'><label for='data-c0f33804-394b-484a-8758-e9224e272ae9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-403f985a-1f63-4841-a30f-473e1b557d52' class='xr-section-summary-in' type='checkbox'  ><label for='section-403f985a-1f63-4841-a30f-473e1b557d52' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>115.0 117.5 120.0 ... 137.5 140.0</div><input id='attrs-d26b3956-9db6-42b9-9c23-82689622a90a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d26b3956-9db6-42b9-9c23-82689622a90a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fa050dda-f809-4c83-b989-6de934e20d04' class='xr-var-data-in' type='checkbox'><label for='data-fa050dda-f809-4c83-b989-6de934e20d04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([115. , 117.5, 120. , 122.5, 125. , 127.5, 130. , 132.5, 135. , 137.5,
+       140. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 27.5 25.0 22.5 20.0 17.5 15.0</div><input id='attrs-ab979b9c-6404-43b2-995a-6aa173e3d3c9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab979b9c-6404-43b2-995a-6aa173e3d3c9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fbf88e0e-cc7a-47a1-aad2-e3d33a368e8e' class='xr-var-data-in' type='checkbox'><label for='data-fbf88e0e-cc7a-47a1-aad2-e3d33a368e8e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([30. , 27.5, 25. , 22.5, 20. , 17.5, 15. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-e527209f-84da-4976-91cf-38ff5981220a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e527209f-84da-4976-91cf-38ff5981220a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dbcf3026-3584-4817-91a9-5685ba237c5e' class='xr-var-data-in' type='checkbox'><label for='data-dbcf3026-3584-4817-91a9-5685ba237c5e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c7527815-e0a7-417d-87f6-665666b73356' class='xr-section-summary-in' type='checkbox'  ><label for='section-c7527815-e0a7-417d-87f6-665666b73356' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p><strong>Step 2:</strong> 計算候降雨區域平均和副高指標，並且取出所需要的季節。</p>
 <div class="cell docutils container">
@@ -2066,7 +2340,7 @@ array([ 6.1119447 ,  7.571944  ,  9.226313  ,  1.109394  ,  5.3176517 ,
         7.2206063 ,  3.9626517 , 15.497324  ,  9.463485  ,  2.8450253 ,
         0.19522728,  2.8943431 ,  3.5896213 ,  6.607399  ], dtype=float32)
 Coordinates:
-  * time     (time) datetime64[ns] 1998-05-01 1998-05-06 ... 2018-07-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'cmorph'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 399</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3862bca3-71ef-43d9-bc3d-66b4b1d70c8b' class='xr-array-in' type='checkbox' checked><label for='section-3862bca3-71ef-43d9-bc3d-66b4b1d70c8b' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>6.112 7.572 9.226 1.109 5.318 2.271 ... 2.845 0.1952 2.894 3.59 6.607</span></div><div class='xr-array-data'><pre>array([ 6.1119447 ,  7.571944  ,  9.226313  ,  1.109394  ,  5.3176517 ,
+  * time     (time) datetime64[ns] 1998-05-01 1998-05-06 ... 2018-07-30</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'cmorph'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 399</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c01c52e3-1bc9-46e4-9028-2c15edab8868' class='xr-array-in' type='checkbox' checked><label for='section-c01c52e3-1bc9-46e4-9028-2c15edab8868' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>6.112 7.572 9.226 1.109 5.318 2.271 ... 2.845 0.1952 2.894 3.59 6.607</span></div><div class='xr-array-data'><pre>array([ 6.1119447 ,  7.571944  ,  9.226313  ,  1.109394  ,  5.3176517 ,
         2.2713385 ,  4.5563893 ,  5.548586  , 20.215153  , 19.05255   ,
        19.18139   , 11.589319  ,  5.768939  ,  0.8520454 ,  2.0018182 ,
         7.1484594 , 16.180103  , 15.215152  ,  9.107071  ,  2.5040152 ,
@@ -2106,10 +2380,10 @@ Coordinates:
         5.241363  ,  5.9827776 ,  2.3927524 , 12.155732  ,  6.2022223 ,
         7.9329047 ,  3.525303  ,  5.64601   ,  4.1817927 ,  5.8839903 ,
         7.2206063 ,  3.9626517 , 15.497324  ,  9.463485  ,  2.8450253 ,
-        0.19522728,  2.8943431 ,  3.5896213 ,  6.607399  ], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-11f80649-da02-4d01-b148-74786b9e7600' class='xr-section-summary-in' type='checkbox'  checked><label for='section-11f80649-da02-4d01-b148-74786b9e7600' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-05-01 ... 2018-07-30</div><input id='attrs-54aaef6f-b9a0-4d2c-8d52-bd8c81dd0d95' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54aaef6f-b9a0-4d2c-8d52-bd8c81dd0d95' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3ac9c18-24c6-4305-a264-11a346e8240e' class='xr-var-data-in' type='checkbox'><label for='data-c3ac9c18-24c6-4305-a264-11a346e8240e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>starting point of time period</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-05-01T00:00:00.000000000&#x27;, &#x27;1998-05-06T00:00:00.000000000&#x27;,
+        0.19522728,  2.8943431 ,  3.5896213 ,  6.607399  ], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-c76b3485-1abc-4f56-b1a5-964b6f28a465' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c76b3485-1abc-4f56-b1a5-964b6f28a465' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-05-01 ... 2018-07-30</div><input id='attrs-34b0446d-40eb-4bd0-8ff1-e6db3f0519cd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-34b0446d-40eb-4bd0-8ff1-e6db3f0519cd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2e3adce4-a6e3-4683-8a01-29d568c714a7' class='xr-var-data-in' type='checkbox'><label for='data-2e3adce4-a6e3-4683-8a01-29d568c714a7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>starting point of time period</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-05-01T00:00:00.000000000&#x27;, &#x27;1998-05-06T00:00:00.000000000&#x27;,
        &#x27;1998-05-11T00:00:00.000000000&#x27;, ..., &#x27;2018-07-20T00:00:00.000000000&#x27;,
        &#x27;2018-07-25T00:00:00.000000000&#x27;, &#x27;2018-07-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b83e8530-abd2-4cf2-a1ac-b69daf7ea45d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b83e8530-abd2-4cf2-a1ac-b69daf7ea45d' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3fa49b54-9b84-45ce-be1a-6fc93163e2b0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3fa49b54-9b84-45ce-be1a-6fc93163e2b0' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2479,7 +2753,7 @@ dl.xr-attrs {
 dask.array&lt;getitem, shape=(399,), dtype=float32, chunksize=(19,), chunktype=numpy.ndarray&gt;
 Coordinates:
   * time     (time) datetime64[ns] 1998-05-01 1998-05-06 ... 2018-07-30
-    level    float32 850.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 399</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-45b80b4e-59f5-402d-8f03-577f19fe175a' class='xr-array-in' type='checkbox' checked><label for='section-45b80b4e-59f5-402d-8f03-577f19fe175a' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(19,), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    level    float32 850.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 399</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-559a2d88-e148-48d6-af1d-4bac8a0829d2' class='xr-array-in' type='checkbox' checked><label for='section-559a2d88-e148-48d6-af1d-4bac8a0829d2' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(19,), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table>
@@ -2554,12 +2828,12 @@ Coordinates:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-c636b0dd-1a14-403c-8ab2-1d553e0cc796' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c636b0dd-1a14-403c-8ab2-1d553e0cc796' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-05-01 ... 2018-07-30</div><input id='attrs-3b0ff9cf-1b44-491c-8a07-56e49d6e902c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b0ff9cf-1b44-491c-8a07-56e49d6e902c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-74affd2e-9629-4b8b-9ea8-1333950902e4' class='xr-var-data-in' type='checkbox'><label for='data-74affd2e-9629-4b8b-9ea8-1333950902e4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-05-01T00:00:00.000000000&#x27;, &#x27;1998-05-06T00:00:00.000000000&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-0bf1db1f-982a-428e-9f3a-7fed8e8d28cd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0bf1db1f-982a-428e-9f3a-7fed8e8d28cd' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-05-01 ... 2018-07-30</div><input id='attrs-9e753245-31e1-40da-a50b-0689f97e52bb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9e753245-31e1-40da-a50b-0689f97e52bb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-924a70c8-9d00-4515-854c-1a0ae9626801' class='xr-var-data-in' type='checkbox'><label for='data-924a70c8-9d00-4515-854c-1a0ae9626801' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-05-01T00:00:00.000000000&#x27;, &#x27;1998-05-06T00:00:00.000000000&#x27;,
        &#x27;1998-05-11T00:00:00.000000000&#x27;, ..., &#x27;2018-07-20T00:00:00.000000000&#x27;,
        &#x27;2018-07-25T00:00:00.000000000&#x27;, &#x27;2018-07-30T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-d94e7dda-df6b-4497-8171-8e4f2d4cc2eb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d94e7dda-df6b-4497-8171-8e4f2d4cc2eb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-979b3239-4668-40f4-b889-3097516aeb72' class='xr-var-data-in' type='checkbox'><label for='data-979b3239-4668-40f4-b889-3097516aeb72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-49a6dc14-a1f4-4f41-89a0-415c98df991f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-49a6dc14-a1f4-4f41-89a0-415c98df991f' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-d3cf9c9e-2778-4fd3-b4d4-f141f9e6b5f0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d3cf9c9e-2778-4fd3-b4d4-f141f9e6b5f0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5d8c0653-a6a2-4bba-bf3b-f6256c89f698' class='xr-var-data-in' type='checkbox'><label for='data-5d8c0653-a6a2-4bba-bf3b-f6256c89f698' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a2b83e6f-374e-4c0c-b12e-841beb8e5ae7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a2b83e6f-374e-4c0c-b12e-841beb8e5ae7' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
-<p><strong>Step 3:</strong> 轉換成DataFrame的Long Form形式，並送入<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>繪圖函數繪圖。繪製散布圖以及對應的迴歸線，使用<a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot"><code class="docutils literal notranslate"><span class="pre">seaborn.regplot</span></code></a>這個函數。</p>
+<p><strong>Step 3:</strong> 轉換成DataFrame的Long Form形式，並送入<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>繪圖函數繪圖。繪製散布圖以及對應的迴歸線，使用<a class="reference external" href="https://seaborn.pydata.org/generated/seaborn.regplot.html#seaborn.regplot"><code class="docutils literal notranslate"><span class="pre">seaborn.regplot</span></code></a>這個函數。記得將dataset轉換成Long Form的DataFrame時，要加上<code class="docutils literal notranslate"><span class="pre">reset_index()</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scatter_df</span> <span class="o">=</span> <span class="p">(</span><span class="n">xr</span><span class="o">.</span><span class="n">merge</span><span class="p">([</span><span class="n">pcp_ptd_mjj</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;pcp&#39;</span><span class="p">),</span> <span class="n">us_ptd_mjj</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s1">&#39;ushear&#39;</span><span class="p">)])</span>
@@ -2689,7 +2963,7 @@ Coordinates:
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="n">plt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;ushear&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pcp&quot;</span><span class="p">,</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;ushear&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;pcp&quot;</span><span class="p">,</span>
                   <span class="n">data</span><span class="o">=</span><span class="n">scatter_df</span><span class="p">,</span>
                   <span class="n">ci</span><span class="o">=</span><span class="mi">95</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span> <span class="c1"># ci是信心水準</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;$R=$ </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s1">5.3f</span><span class="si">}</span><span class="s1">, $p=$ </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s1">8.2e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;right&#39;</span> <span class="p">)</span>
@@ -2700,272 +2974,14 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(1.0, 1.0, &#39;$R=$ 0.316, $p=$ 1.09e-10&#39;)
 </pre></div>
 </div>
-<img alt="_images/10_pandas_seaborn_21_1.png" src="_images/10_pandas_seaborn_21_1.png" />
+<img alt="_images/10_pandas_seaborn_29_1.png" src="_images/10_pandas_seaborn_29_1.png" />
 </div>
-</div>
-</div>
-<div class="section" id="multi-index-dataframe">
-<h2>多層次標籤 (Multi-index) 的 DataFrame<a class="headerlink" href="#multi-index-dataframe" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example 2:</strong> 分析S2S模式在15個預報時 (lead time, <code class="docutils literal notranslate"><span class="pre">lt=15</span></code>) 以及11個系集成員 (ensemble members, <code class="docutils literal notranslate"><span class="pre">ens=11</span></code>)在分為Hindcast、Forecast兩種cases的情形下，某變數<code class="docutils literal notranslate"><span class="pre">value</span></code>的分佈情形。</p>
-<p>由於<code class="docutils literal notranslate"><span class="pre">value</span></code>分類的層次較多，所以必須用<code class="docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code>建立起<code class="docutils literal notranslate"><span class="pre">(lead_time,</span> <span class="pre">number,</span> <span class="pre">case)</span></code>的索引。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lt</span> <span class="o">=</span> <span class="mi">15</span> 
-<span class="n">ens</span> <span class="o">=</span> <span class="mi">4</span>
-
-<span class="n">iterables</span> <span class="o">=</span> <span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">lt</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ens</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="p">[</span><span class="s2">&quot;Hindcast&quot;</span><span class="p">,</span> <span class="s2">&quot;Forecast&quot;</span><span class="p">]]</span>
-<span class="n">tuples</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">(</span><span class="n">iterables</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;lead_time&quot;</span><span class="p">,</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span><span class="s2">&quot;case&quot;</span><span class="p">])</span>  
-         <span class="c1"># from_product 是將iterables中的標籤相乘，形成各lead time、number、case的組合。</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">lt</span><span class="o">*</span><span class="n">ens</span><span class="o">*</span><span class="mi">2</span><span class="p">)},</span> <span class="n">index</span><span class="o">=</span><span class="n">tuples</span><span class="p">)</span>  
-       <span class="c1"># 先以亂數代表資料。資料取名為&#39;value&#39;。</span>
-<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th></th>
-      <th>value</th>
-    </tr>
-    <tr>
-      <th>lead_time</th>
-      <th>number</th>
-      <th>case</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th rowspan="5" valign="top">1</th>
-      <th rowspan="2" valign="top">1</th>
-      <th>Hindcast</th>
-      <td>0.881626</td>
-    </tr>
-    <tr>
-      <th>Forecast</th>
-      <td>-0.270596</td>
-    </tr>
-    <tr>
-      <th rowspan="2" valign="top">2</th>
-      <th>Hindcast</th>
-      <td>-0.217535</td>
-    </tr>
-    <tr>
-      <th>Forecast</th>
-      <td>0.028883</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <th>Hindcast</th>
-      <td>0.814458</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-<p>我們發現表頭被分為兩行，這是因為在<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>結構中， <code class="docutils literal notranslate"><span class="pre">lead_time</span></code>、<code class="docutils literal notranslate"><span class="pre">number</span></code>、<code class="docutils literal notranslate"><span class="pre">case</span></code>稱為 <strong>Index</strong>，<code class="docutils literal notranslate"><span class="pre">value</span></code> 稱為 <strong>Column</strong>，如果直接放到<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>函數中，coulmns的名稱是無法使用的。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-                    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> 
-                    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
-                    <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;silver&#39;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PR_RMSE&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_37237</span><span class="o">/</span><span class="mf">774566885.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                     <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
-
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/_decorators.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="p">)</span>
-<span class="nn">     45         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
-<span class="ne">---&gt; </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">inner_f</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
-
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3790</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">_CategoricalPlotter</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">3791</span>     <span class="n">p</span><span class="o">.</span><span class="n">require_numeric</span> <span class="o">=</span> <span class="n">plotter_class</span><span class="o">.</span><span class="n">require_numeric</span>
-<span class="ne">-&gt; </span><span class="mi">3792</span>     <span class="n">p</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3793</span>     <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3794</span>         <span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span>                     <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">153</span>                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> 
-<span class="g g-Whitespace">    </span><span class="mi">155</span>             <span class="c1"># Figure out the plotting orientation</span>
-
-<span class="ne">ValueError</span>: Could not interpret input &#39;lead_time&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<p>要讓這個<code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>變成<code class="docutils literal notranslate"><span class="pre">seaborn</span></code> 可讀取的long form格式，必須加上<code class="docutils literal notranslate"><span class="pre">data.reset_index()</span></code>，就會轉變成理想中的DataFrame了。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>lead_time</th>
-      <th>number</th>
-      <th>case</th>
-      <th>value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>1</td>
-      <td>Hindcast</td>
-      <td>1.396480</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>1</td>
-      <td>Forecast</td>
-      <td>0.008717</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>1</td>
-      <td>2</td>
-      <td>Hindcast</td>
-      <td>0.010264</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>1</td>
-      <td>2</td>
-      <td>Forecast</td>
-      <td>2.114629</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>1</td>
-      <td>3</td>
-      <td>Hindcast</td>
-      <td>-0.544349</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>115</th>
-      <td>15</td>
-      <td>2</td>
-      <td>Forecast</td>
-      <td>0.246512</td>
-    </tr>
-    <tr>
-      <th>116</th>
-      <td>15</td>
-      <td>3</td>
-      <td>Hindcast</td>
-      <td>-0.869584</td>
-    </tr>
-    <tr>
-      <th>117</th>
-      <td>15</td>
-      <td>3</td>
-      <td>Forecast</td>
-      <td>0.232134</td>
-    </tr>
-    <tr>
-      <th>118</th>
-      <td>15</td>
-      <td>4</td>
-      <td>Hindcast</td>
-      <td>-0.233773</td>
-    </tr>
-    <tr>
-      <th>119</th>
-      <td>15</td>
-      <td>4</td>
-      <td>Forecast</td>
-      <td>1.181219</td>
-    </tr>
-  </tbody>
-</table>
-<p>120 rows × 4 columns</p>
-</div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
-                    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> 
-                    <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
-                    <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;silver&#39;</span><span class="p">],</span>
-                    <span class="n">aspect</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_pandas_seaborn_28_0.png" src="_images/10_pandas_seaborn_28_0.png" />
 </div>
 </div>
 </div>
 <div class="section" id="wide-formseaborn">
 <h2>Wide Form的Seaborn製圖<a class="headerlink" href="#wide-formseaborn" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example 3:</strong> 繪製台灣－北南海 (18˚-24˚N, 116˚-126˚E) 區域平均 1998-2020 各年四至十一月逐候 (pentad) 累積降雨百分等級 (PR) 的Heat Map。氣候基期為 1998-2017 年。</p>
+<p><strong>Example 4:</strong> 繪製台灣－北南海 (18˚-24˚N, 116˚-126˚E) 區域平均 1998-2020 各年四至十一月逐候 (pentad) 累積降雨百分等級 (PR) 的Heat Map。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 台灣</span>
@@ -2990,11 +3006,8 @@ Coordinates:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 建立降雨的氣候基期</span>
-<span class="n">base</span> <span class="o">=</span> <span class="n">pcp_season</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="p">((</span><span class="n">pcp_season</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">&gt;=</span> <span class="mi">1998</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pcp_season</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span><span class="o">&lt;=</span><span class="mi">2017</span><span class="p">)))</span>
-<span class="n">base_rank</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="n">base</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># 排序資料</span>
-<span class="n">pct_increment</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">base_rank</span><span class="p">)</span>                <span class="c1"># 將基期資料百分化</span>
-<span class="n">pcp_rank</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">base_rank</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">v</span><span class="o">=</span><span class="n">pcp_season</span><span class="p">))</span> <span class="o">*</span> <span class="n">pct_increment</span> <span class="o">*</span> <span class="mf">100.</span>  <span class="c1"># 換算成pr值</span>
-<span class="n">pcp_rank_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pcp_rank</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">49</span><span class="p">),</span>
+<span class="n">pcp_rank</span> <span class="o">=</span> <span class="n">pcp_season</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="n">pct</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">*</span> <span class="mf">100.</span>  <span class="c1"># 利用DataArray.rank計算排名，pct=True可將排名百分化</span>
+<span class="n">pcp_rank_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">pcp_rank</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">23</span><span class="p">,</span><span class="mi">49</span><span class="p">),</span>  <span class="c1"># reshape將矩陣重塑成(year, pentad)的形狀</span>
                         <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;pentad&quot;</span><span class="p">],</span>
                         <span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
                                    <span class="n">year</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1998</span><span class="p">,</span><span class="mi">2021</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
@@ -3358,74 +3371,38 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;precip&#x27; (year: 23, pentad: 49)&gt;
-array([[23.7755102 ,  0.71428571, 72.24489796, ..., 66.42857143,
-        83.26530612, 35.81632653],
-       [39.28571429, 18.26530612, 60.20408163, ..., 27.14285714,
-        12.75510204, 69.89795918],
-       [42.55102041, 34.18367347, 45.6122449 , ..., 63.16326531,
-        43.87755102,  6.02040816],
+array([[2.40461402e+01, 7.98580302e-01, 7.22271517e+01, ...,
+        6.67258208e+01, 8.33185448e+01, 3.62910382e+01],
+       [3.99290151e+01, 1.87222715e+01, 6.03371783e+01, ...,
+        2.72404614e+01, 1.30434783e+01, 7.00976043e+01],
+       [4.31233363e+01, 3.47826087e+01, 4.62289264e+01, ...,
+        6.34427684e+01, 4.42768412e+01, 6.29991127e+00],
        ...,
-       [ 0.10204082, 33.87755102, 40.51020408, ..., 15.30612245,
-        54.3877551 , 30.        ],
-       [42.55102041,  0.20408163, 53.7755102 , ..., 91.32653061,
-        31.2244898 , 11.93877551],
-       [42.34693878, 49.89795918, 27.14285714, ..., 14.59183673,
-        12.55102041, 45.30612245]])
+       [8.87311446e-02, 3.44276841e+01, 4.09937888e+01, ...,
+        1.56166815e+01, 5.49245785e+01, 3.02573203e+01],
+       [4.30346051e+01, 2.66193434e-01, 5.42147294e+01, ...,
+        9.13930790e+01, 3.16770186e+01, 1.20674357e+01],
+       [4.27684117e+01, 5.04880213e+01, 2.71517303e+01, ...,
+        1.48181012e+01, 1.27772848e+01, 4.57852706e+01]])
 Coordinates:
   * year     (year) int64 1998 1999 2000 2001 2002 ... 2016 2017 2018 2019 2020
-  * pentad   (pentad) int64 19 20 21 22 23 24 25 26 ... 60 61 62 63 64 65 66 67</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>year</span>: 23</li><li><span class='xr-has-index'>pentad</span>: 49</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-63e989f3-a601-403d-bdc3-bd1a2d9e22d1' class='xr-array-in' type='checkbox' checked><label for='section-63e989f3-a601-403d-bdc3-bd1a2d9e22d1' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>23.78 0.7143 72.24 77.04 31.73 68.16 ... 76.43 77.76 14.59 12.55 45.31</span></div><div class='xr-array-data'><pre>array([[23.7755102 ,  0.71428571, 72.24489796, ..., 66.42857143,
-        83.26530612, 35.81632653],
-       [39.28571429, 18.26530612, 60.20408163, ..., 27.14285714,
-        12.75510204, 69.89795918],
-       [42.55102041, 34.18367347, 45.6122449 , ..., 63.16326531,
-        43.87755102,  6.02040816],
+  * pentad   (pentad) int64 19 20 21 22 23 24 25 26 ... 60 61 62 63 64 65 66 67</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'precip'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>year</span>: 23</li><li><span class='xr-has-index'>pentad</span>: 49</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-13148f02-3e30-4675-aeea-a5d595d2a55e' class='xr-array-in' type='checkbox' checked><label for='section-13148f02-3e30-4675-aeea-a5d595d2a55e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>24.05 0.7986 72.23 77.11 32.48 68.41 ... 76.13 77.82 14.82 12.78 45.79</span></div><div class='xr-array-data'><pre>array([[2.40461402e+01, 7.98580302e-01, 7.22271517e+01, ...,
+        6.67258208e+01, 8.33185448e+01, 3.62910382e+01],
+       [3.99290151e+01, 1.87222715e+01, 6.03371783e+01, ...,
+        2.72404614e+01, 1.30434783e+01, 7.00976043e+01],
+       [4.31233363e+01, 3.47826087e+01, 4.62289264e+01, ...,
+        6.34427684e+01, 4.42768412e+01, 6.29991127e+00],
        ...,
-       [ 0.10204082, 33.87755102, 40.51020408, ..., 15.30612245,
-        54.3877551 , 30.        ],
-       [42.55102041,  0.20408163, 53.7755102 , ..., 91.32653061,
-        31.2244898 , 11.93877551],
-       [42.34693878, 49.89795918, 27.14285714, ..., 14.59183673,
-        12.55102041, 45.30612245]])</pre></div></div></li><li class='xr-section-item'><input id='section-4d7f3b4a-0f60-4bb8-8afb-483ac06a6b10' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4d7f3b4a-0f60-4bb8-8afb-483ac06a6b10' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>year</span></div><div class='xr-var-dims'>(year)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1998 1999 2000 ... 2018 2019 2020</div><input id='attrs-1738687c-31b1-486f-ab4e-2e4c048b0ed5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1738687c-31b1-486f-ab4e-2e4c048b0ed5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5ba5053-2446-4182-8424-7075dc4c66d5' class='xr-var-data-in' type='checkbox'><label for='data-d5ba5053-2446-4182-8424-7075dc4c66d5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
-       2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>pentad</span></div><div class='xr-var-dims'>(pentad)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>19 20 21 22 23 ... 63 64 65 66 67</div><input id='attrs-b9487a59-41da-4c87-ada8-1639b524753f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b9487a59-41da-4c87-ada8-1639b524753f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6ff32681-a4d6-454a-bfa3-bb20afa17948' class='xr-var-data-in' type='checkbox'><label for='data-6ff32681-a4d6-454a-bfa3-bb20afa17948' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
+       [8.87311446e-02, 3.44276841e+01, 4.09937888e+01, ...,
+        1.56166815e+01, 5.49245785e+01, 3.02573203e+01],
+       [4.30346051e+01, 2.66193434e-01, 5.42147294e+01, ...,
+        9.13930790e+01, 3.16770186e+01, 1.20674357e+01],
+       [4.27684117e+01, 5.04880213e+01, 2.71517303e+01, ...,
+        1.48181012e+01, 1.27772848e+01, 4.57852706e+01]])</pre></div></div></li><li class='xr-section-item'><input id='section-fb36716f-eefe-4168-b08e-5c8883cc34da' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fb36716f-eefe-4168-b08e-5c8883cc34da' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>year</span></div><div class='xr-var-dims'>(year)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1998 1999 2000 ... 2018 2019 2020</div><input id='attrs-ae8c3610-5ffa-4803-bd09-17746b71176b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ae8c3610-5ffa-4803-bd09-17746b71176b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-29d09dcc-133d-407a-a423-4258736beaa1' class='xr-var-data-in' type='checkbox'><label for='data-29d09dcc-133d-407a-a423-4258736beaa1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+       2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>pentad</span></div><div class='xr-var-dims'>(pentad)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>19 20 21 22 23 ... 63 64 65 66 67</div><input id='attrs-3c047bad-2f24-439a-9f33-87250e78389d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3c047bad-2f24-439a-9f33-87250e78389d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-eeb816c4-0d1b-48be-a118-1a3ee2c02fd5' class='xr-var-data-in' type='checkbox'><label for='data-eeb816c4-0d1b-48be-a118-1a3ee2c02fd5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36,
        37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54,
-       55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0887e4c4-50fe-40ad-abb7-5a9da17a523c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0887e4c4-50fe-40ad-abb7-5a9da17a523c' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+       55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-02973168-a5f8-4566-80e4-4b3c04e5136e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-02973168-a5f8-4566-80e4-4b3c04e5136e' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pcp_rank_da</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">(),</span>
-                 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet_r&#39;</span><span class="p">,</span>
-                 <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                 <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-                 <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;extend&#39;</span><span class="p">:</span><span class="s1">&#39;neither&#39;</span><span class="p">},</span>
-                 <span class="n">xticklabels</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Pentad&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Years&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Taiwan-Northern SCS, April to November&quot;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;pcp_pr_heatmap_obs_chn.png&quot;</span><span class="p">,</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;portrait&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/10_pandas_seaborn_32_0.png" src="_images/10_pandas_seaborn_32_0.png" />
-</div>
-</div>
-</div>
-<div class="section" id="xarray-dataarraypandas-dataframe">
-<h2>將<code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code>轉換至<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#xarray-dataarraypandas-dataframe" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="xarray-to-pandas">
-<h3>利用<code class="docutils literal notranslate"><span class="pre">xarray.to_pandas</span></code><a class="headerlink" href="#xarray-to-pandas" title="Permalink to this headline">¶</a></h3>
-<p>根據<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.to_pandas.html">API reference</a>的說明，轉換後的格式和給定DataArray的維度有關。</p>
-<blockquote>
-<div><p>Convert this array into a pandas object with the same shape.
-The type of the returned object depends on the number of DataArray dimensions:<br />
-0D -&gt; <code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code><br />
-1D -&gt; <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code><br />
-2D -&gt; <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><br />
-Only works for arrays with 2 or fewer dimensions.</p>
-</div></blockquote>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pcp_rank_df</span> <span class="o">=</span> <span class="n">pcp_rank_da</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
@@ -3502,564 +3479,588 @@ Only works for arrays with 2 or fewer dimensions.</p>
   <tbody>
     <tr>
       <th>1998</th>
-      <td>23.775510</td>
-      <td>0.714286</td>
-      <td>72.244898</td>
-      <td>77.040816</td>
-      <td>31.734694</td>
-      <td>68.163265</td>
-      <td>50.612245</td>
-      <td>25.918367</td>
-      <td>45.102041</td>
-      <td>86.938776</td>
+      <td>24.046140</td>
+      <td>0.798580</td>
+      <td>72.227152</td>
+      <td>77.107365</td>
+      <td>32.475599</td>
+      <td>68.411713</td>
+      <td>51.197870</td>
+      <td>26.086957</td>
+      <td>45.519077</td>
+      <td>86.867791</td>
       <td>...</td>
-      <td>95.102041</td>
-      <td>42.755102</td>
-      <td>98.265306</td>
-      <td>15.204082</td>
-      <td>65.714286</td>
-      <td>51.836735</td>
-      <td>20.204082</td>
-      <td>66.428571</td>
-      <td>83.265306</td>
-      <td>35.816327</td>
+      <td>94.942325</td>
+      <td>43.300799</td>
+      <td>98.225377</td>
+      <td>15.527950</td>
+      <td>66.104703</td>
+      <td>52.440106</td>
+      <td>20.585626</td>
+      <td>66.725821</td>
+      <td>83.318545</td>
+      <td>36.291038</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>39.285714</td>
-      <td>18.265306</td>
-      <td>60.204082</td>
-      <td>5.102041</td>
-      <td>7.551020</td>
-      <td>81.122449</td>
-      <td>70.102041</td>
-      <td>76.428571</td>
-      <td>55.204082</td>
-      <td>49.081633</td>
+      <td>39.929015</td>
+      <td>18.722272</td>
+      <td>60.337178</td>
+      <td>5.501331</td>
+      <td>7.897072</td>
+      <td>81.366460</td>
+      <td>70.275067</td>
+      <td>76.220053</td>
+      <td>55.723159</td>
+      <td>49.778172</td>
       <td>...</td>
-      <td>85.816327</td>
-      <td>64.591837</td>
-      <td>10.408163</td>
-      <td>23.979592</td>
-      <td>28.571429</td>
-      <td>13.163265</td>
-      <td>11.938776</td>
-      <td>27.142857</td>
-      <td>12.755102</td>
-      <td>69.897959</td>
+      <td>85.891748</td>
+      <td>64.951198</td>
+      <td>10.559006</td>
+      <td>24.312334</td>
+      <td>28.748891</td>
+      <td>13.487134</td>
+      <td>12.156167</td>
+      <td>27.240461</td>
+      <td>13.043478</td>
+      <td>70.097604</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>42.551020</td>
-      <td>34.183673</td>
-      <td>45.612245</td>
-      <td>26.938776</td>
-      <td>33.979592</td>
-      <td>57.755102</td>
-      <td>38.571429</td>
-      <td>3.673469</td>
-      <td>70.408163</td>
-      <td>84.183673</td>
+      <td>43.123336</td>
+      <td>34.782609</td>
+      <td>46.228926</td>
+      <td>26.974268</td>
+      <td>34.605146</td>
+      <td>58.207631</td>
+      <td>39.219166</td>
+      <td>4.081633</td>
+      <td>70.541260</td>
+      <td>84.117125</td>
       <td>...</td>
-      <td>69.387755</td>
-      <td>48.163265</td>
-      <td>25.306122</td>
-      <td>96.632653</td>
-      <td>88.571429</td>
-      <td>65.408163</td>
-      <td>65.000000</td>
-      <td>63.163265</td>
-      <td>43.877551</td>
-      <td>6.020408</td>
+      <td>69.565217</td>
+      <td>48.890861</td>
+      <td>25.554570</td>
+      <td>96.628217</td>
+      <td>88.553682</td>
+      <td>65.838509</td>
+      <td>65.306122</td>
+      <td>63.442768</td>
+      <td>44.276841</td>
+      <td>6.299911</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>39.081633</td>
-      <td>36.632653</td>
-      <td>37.244898</td>
-      <td>39.591837</td>
-      <td>61.530612</td>
-      <td>22.142857</td>
-      <td>36.530612</td>
-      <td>57.959184</td>
-      <td>92.244898</td>
-      <td>77.551020</td>
+      <td>39.751553</td>
+      <td>37.267081</td>
+      <td>37.799468</td>
+      <td>40.195209</td>
+      <td>61.579414</td>
+      <td>22.448980</td>
+      <td>37.089618</td>
+      <td>58.385093</td>
+      <td>92.280390</td>
+      <td>77.639752</td>
       <td>...</td>
-      <td>55.510204</td>
-      <td>5.612245</td>
-      <td>1.632653</td>
-      <td>26.530612</td>
-      <td>15.510204</td>
-      <td>56.938776</td>
-      <td>66.326531</td>
-      <td>6.224490</td>
-      <td>3.775510</td>
-      <td>1.836735</td>
+      <td>55.989352</td>
+      <td>5.944987</td>
+      <td>1.863354</td>
+      <td>26.619343</td>
+      <td>15.882875</td>
+      <td>57.409051</td>
+      <td>66.637090</td>
+      <td>6.654836</td>
+      <td>4.170364</td>
+      <td>2.040816</td>
     </tr>
     <tr>
       <th>2002</th>
-      <td>3.877551</td>
-      <td>3.163265</td>
-      <td>21.530612</td>
-      <td>6.326531</td>
-      <td>3.571429</td>
-      <td>4.387755</td>
-      <td>0.102041</td>
-      <td>3.061224</td>
-      <td>33.367347</td>
-      <td>79.387755</td>
+      <td>4.259095</td>
+      <td>3.637977</td>
+      <td>21.916593</td>
+      <td>6.743567</td>
+      <td>3.992902</td>
+      <td>4.702751</td>
+      <td>0.177462</td>
+      <td>3.460515</td>
+      <td>33.895297</td>
+      <td>79.858030</td>
       <td>...</td>
-      <td>10.918367</td>
-      <td>48.673469</td>
-      <td>42.653061</td>
-      <td>48.367347</td>
-      <td>33.571429</td>
-      <td>49.795918</td>
-      <td>16.734694</td>
-      <td>62.653061</td>
-      <td>26.734694</td>
-      <td>25.612245</td>
+      <td>11.002662</td>
+      <td>49.423248</td>
+      <td>43.212067</td>
+      <td>49.068323</td>
+      <td>34.072760</td>
+      <td>50.399290</td>
+      <td>17.125111</td>
+      <td>62.999113</td>
+      <td>26.796806</td>
+      <td>25.820763</td>
     </tr>
     <tr>
       <th>2003</th>
-      <td>47.142857</td>
-      <td>55.714286</td>
-      <td>20.102041</td>
-      <td>30.918367</td>
-      <td>78.367347</td>
-      <td>7.448980</td>
-      <td>36.938776</td>
-      <td>5.816327</td>
-      <td>11.122449</td>
-      <td>47.040816</td>
+      <td>48.003549</td>
+      <td>56.255546</td>
+      <td>20.496894</td>
+      <td>31.322094</td>
+      <td>78.615794</td>
+      <td>7.808341</td>
+      <td>37.533274</td>
+      <td>6.122449</td>
+      <td>11.268855</td>
+      <td>47.914818</td>
       <td>...</td>
-      <td>44.081633</td>
-      <td>11.530612</td>
-      <td>2.448980</td>
-      <td>61.428571</td>
-      <td>56.734694</td>
-      <td>27.857143</td>
-      <td>64.183673</td>
-      <td>50.204082</td>
-      <td>45.510204</td>
-      <td>8.061224</td>
+      <td>44.454303</td>
+      <td>11.712511</td>
+      <td>2.750665</td>
+      <td>61.490683</td>
+      <td>57.231588</td>
+      <td>27.861579</td>
+      <td>64.596273</td>
+      <td>50.842946</td>
+      <td>46.140195</td>
+      <td>8.340728</td>
     </tr>
     <tr>
       <th>2004</th>
-      <td>43.673469</td>
-      <td>18.061224</td>
-      <td>20.816327</td>
-      <td>17.448980</td>
-      <td>5.306122</td>
-      <td>8.265306</td>
-      <td>9.387755</td>
-      <td>30.102041</td>
-      <td>19.183673</td>
-      <td>77.857143</td>
+      <td>44.099379</td>
+      <td>18.367347</td>
+      <td>21.118012</td>
+      <td>17.746229</td>
+      <td>5.678793</td>
+      <td>8.518190</td>
+      <td>9.671695</td>
+      <td>30.434783</td>
+      <td>19.698314</td>
+      <td>77.994676</td>
       <td>...</td>
-      <td>15.306122</td>
-      <td>37.755102</td>
-      <td>62.551020</td>
-      <td>1.530612</td>
-      <td>2.755102</td>
-      <td>13.469388</td>
-      <td>18.877551</td>
-      <td>42.448980</td>
-      <td>56.428571</td>
-      <td>28.775510</td>
+      <td>15.705413</td>
+      <td>38.509317</td>
+      <td>62.910382</td>
+      <td>1.685892</td>
+      <td>3.194321</td>
+      <td>13.753327</td>
+      <td>19.343390</td>
+      <td>42.945874</td>
+      <td>56.965395</td>
+      <td>28.926353</td>
     </tr>
     <tr>
       <th>2005</th>
-      <td>6.734694</td>
-      <td>1.224490</td>
-      <td>26.122449</td>
-      <td>7.755102</td>
-      <td>18.469388</td>
-      <td>11.632653</td>
-      <td>17.142857</td>
-      <td>87.040816</td>
-      <td>61.632653</td>
-      <td>27.551020</td>
+      <td>7.187223</td>
+      <td>1.419698</td>
+      <td>26.264419</td>
+      <td>8.074534</td>
+      <td>18.988465</td>
+      <td>11.801242</td>
+      <td>17.480035</td>
+      <td>86.956522</td>
+      <td>61.668146</td>
+      <td>27.595386</td>
       <td>...</td>
-      <td>13.367347</td>
-      <td>9.081633</td>
-      <td>28.979592</td>
-      <td>55.612245</td>
-      <td>0.918367</td>
-      <td>42.142857</td>
-      <td>49.387755</td>
-      <td>65.612245</td>
-      <td>32.346939</td>
-      <td>50.306122</td>
+      <td>13.664596</td>
+      <td>9.405501</td>
+      <td>29.281278</td>
+      <td>56.166815</td>
+      <td>0.976043</td>
+      <td>42.502218</td>
+      <td>50.044366</td>
+      <td>66.015972</td>
+      <td>33.007986</td>
+      <td>50.931677</td>
     </tr>
     <tr>
       <th>2006</th>
-      <td>2.040816</td>
-      <td>15.000000</td>
-      <td>45.816327</td>
-      <td>34.387755</td>
-      <td>18.775510</td>
-      <td>48.571429</td>
-      <td>27.959184</td>
-      <td>2.653061</td>
-      <td>69.285714</td>
-      <td>81.326531</td>
+      <td>2.218279</td>
+      <td>15.350488</td>
+      <td>46.406389</td>
+      <td>34.960071</td>
+      <td>19.254658</td>
+      <td>49.334516</td>
+      <td>27.950311</td>
+      <td>3.105590</td>
+      <td>69.476486</td>
+      <td>81.543922</td>
       <td>...</td>
-      <td>5.204082</td>
-      <td>11.224490</td>
-      <td>33.469388</td>
-      <td>87.244898</td>
-      <td>72.959184</td>
-      <td>29.285714</td>
-      <td>35.000000</td>
-      <td>53.775510</td>
-      <td>21.428571</td>
-      <td>32.448980</td>
+      <td>5.590062</td>
+      <td>11.446318</td>
+      <td>33.984028</td>
+      <td>87.133984</td>
+      <td>72.848270</td>
+      <td>29.547471</td>
+      <td>35.492458</td>
+      <td>54.303461</td>
+      <td>21.827862</td>
+      <td>33.096717</td>
     </tr>
     <tr>
       <th>2007</th>
-      <td>50.408163</td>
-      <td>32.551020</td>
-      <td>5.408163</td>
-      <td>38.775510</td>
-      <td>27.755102</td>
-      <td>13.061224</td>
-      <td>31.632653</td>
-      <td>52.142857</td>
-      <td>30.612245</td>
-      <td>74.285714</td>
+      <td>51.020408</td>
+      <td>33.185448</td>
+      <td>5.767524</td>
+      <td>39.396628</td>
+      <td>27.772848</td>
+      <td>13.398403</td>
+      <td>32.386868</td>
+      <td>52.706300</td>
+      <td>30.967169</td>
+      <td>74.090506</td>
       <td>...</td>
-      <td>30.306122</td>
-      <td>12.653061</td>
-      <td>19.591837</td>
-      <td>54.285714</td>
-      <td>91.326531</td>
-      <td>75.714286</td>
-      <td>6.938776</td>
-      <td>24.897959</td>
-      <td>87.448980</td>
-      <td>43.367347</td>
+      <td>30.612245</td>
+      <td>12.954747</td>
+      <td>20.053239</td>
+      <td>54.835847</td>
+      <td>91.481810</td>
+      <td>75.421473</td>
+      <td>7.364685</td>
+      <td>25.199645</td>
+      <td>87.488909</td>
+      <td>43.833185</td>
     </tr>
     <tr>
       <th>2008</th>
-      <td>12.142857</td>
-      <td>3.469388</td>
-      <td>12.346939</td>
-      <td>47.448980</td>
-      <td>51.020408</td>
-      <td>42.857143</td>
-      <td>46.224490</td>
-      <td>29.795918</td>
-      <td>55.918367</td>
-      <td>71.938776</td>
+      <td>12.333629</td>
+      <td>3.904170</td>
+      <td>12.599823</td>
+      <td>48.269743</td>
+      <td>51.641526</td>
+      <td>43.389530</td>
+      <td>46.850044</td>
+      <td>30.079858</td>
+      <td>56.433008</td>
+      <td>71.960958</td>
       <td>...</td>
-      <td>72.346939</td>
-      <td>7.244898</td>
-      <td>14.081633</td>
-      <td>10.714286</td>
-      <td>19.489796</td>
-      <td>93.571429</td>
-      <td>31.428571</td>
-      <td>53.571429</td>
-      <td>62.448980</td>
-      <td>46.632653</td>
+      <td>72.315883</td>
+      <td>7.630878</td>
+      <td>14.374445</td>
+      <td>10.825200</td>
+      <td>19.964508</td>
+      <td>93.611358</td>
+      <td>32.209406</td>
+      <td>54.037267</td>
+      <td>62.732919</td>
+      <td>47.204969</td>
     </tr>
     <tr>
       <th>2009</th>
-      <td>30.408163</td>
-      <td>38.265306</td>
-      <td>50.102041</td>
-      <td>81.530612</td>
-      <td>90.714286</td>
-      <td>40.000000</td>
-      <td>12.448980</td>
-      <td>54.387755</td>
-      <td>0.408163</td>
-      <td>20.408163</td>
+      <td>30.700976</td>
+      <td>38.952972</td>
+      <td>50.754215</td>
+      <td>81.721384</td>
+      <td>90.683230</td>
+      <td>40.550133</td>
+      <td>12.688554</td>
+      <td>55.013310</td>
+      <td>0.532387</td>
+      <td>20.763088</td>
       <td>...</td>
-      <td>59.795918</td>
-      <td>72.040816</td>
-      <td>70.510204</td>
-      <td>32.755102</td>
-      <td>60.306122</td>
-      <td>4.183673</td>
-      <td>47.857143</td>
-      <td>46.122449</td>
-      <td>22.346939</td>
-      <td>18.979592</td>
+      <td>59.982254</td>
+      <td>72.049689</td>
+      <td>70.629991</td>
+      <td>33.362910</td>
+      <td>60.425909</td>
+      <td>4.525288</td>
+      <td>48.624667</td>
+      <td>46.761313</td>
+      <td>22.626442</td>
+      <td>19.432121</td>
     </tr>
     <tr>
       <th>2010</th>
-      <td>14.387755</td>
-      <td>34.795918</td>
-      <td>31.836735</td>
-      <td>23.877551</td>
-      <td>33.061224</td>
-      <td>76.836735</td>
-      <td>63.673469</td>
-      <td>21.224490</td>
-      <td>24.489796</td>
-      <td>9.591837</td>
+      <td>14.640639</td>
+      <td>35.314996</td>
+      <td>32.564330</td>
+      <td>24.134871</td>
+      <td>33.629104</td>
+      <td>76.841171</td>
+      <td>64.063886</td>
+      <td>21.472937</td>
+      <td>24.755989</td>
+      <td>9.849157</td>
       <td>...</td>
-      <td>67.448980</td>
-      <td>96.734694</td>
-      <td>63.571429</td>
-      <td>22.959184</td>
-      <td>77.959184</td>
-      <td>72.857143</td>
-      <td>80.408163</td>
-      <td>36.122449</td>
-      <td>40.612245</td>
-      <td>10.000000</td>
+      <td>67.701863</td>
+      <td>96.716948</td>
+      <td>63.975155</td>
+      <td>23.336291</td>
+      <td>78.083407</td>
+      <td>72.759539</td>
+      <td>80.745342</td>
+      <td>36.645963</td>
+      <td>41.171251</td>
+      <td>10.204082</td>
     </tr>
     <tr>
       <th>2011</th>
-      <td>10.510204</td>
-      <td>2.244898</td>
-      <td>1.020408</td>
-      <td>58.061224</td>
-      <td>17.857143</td>
-      <td>17.755102</td>
-      <td>9.795918</td>
-      <td>73.673469</td>
-      <td>26.428571</td>
-      <td>86.326531</td>
+      <td>10.647737</td>
+      <td>2.484472</td>
+      <td>1.153505</td>
+      <td>58.473824</td>
+      <td>18.101154</td>
+      <td>18.012422</td>
+      <td>10.026619</td>
+      <td>73.469388</td>
+      <td>26.530612</td>
+      <td>86.335404</td>
       <td>...</td>
-      <td>87.551020</td>
-      <td>44.591837</td>
-      <td>29.183673</td>
-      <td>32.857143</td>
-      <td>67.142857</td>
-      <td>94.795918</td>
-      <td>79.591837</td>
-      <td>65.204082</td>
-      <td>49.591837</td>
-      <td>68.469388</td>
+      <td>87.577640</td>
+      <td>44.986690</td>
+      <td>29.458740</td>
+      <td>33.451642</td>
+      <td>67.435670</td>
+      <td>94.676131</td>
+      <td>80.035492</td>
+      <td>65.572316</td>
+      <td>50.221828</td>
+      <td>68.677906</td>
     </tr>
     <tr>
       <th>2012</th>
-      <td>31.122449</td>
-      <td>36.020408</td>
-      <td>1.428571</td>
-      <td>56.224490</td>
-      <td>22.653061</td>
-      <td>64.081633</td>
-      <td>37.346939</td>
-      <td>19.387755</td>
-      <td>53.877551</td>
-      <td>97.142857</td>
+      <td>31.588287</td>
+      <td>36.557232</td>
+      <td>1.597161</td>
+      <td>56.699201</td>
+      <td>22.981366</td>
+      <td>64.507542</td>
+      <td>37.976930</td>
+      <td>19.875776</td>
+      <td>54.392192</td>
+      <td>97.249335</td>
       <td>...</td>
-      <td>13.265306</td>
-      <td>3.265306</td>
-      <td>36.836735</td>
-      <td>59.591837</td>
-      <td>69.489796</td>
-      <td>12.040816</td>
-      <td>51.428571</td>
-      <td>58.775510</td>
-      <td>35.306122</td>
-      <td>38.367347</td>
+      <td>13.575865</td>
+      <td>3.726708</td>
+      <td>37.444543</td>
+      <td>59.804791</td>
+      <td>69.653949</td>
+      <td>12.244898</td>
+      <td>52.085182</td>
+      <td>59.094942</td>
+      <td>35.758651</td>
+      <td>39.041704</td>
     </tr>
     <tr>
       <th>2013</th>
-      <td>59.285714</td>
-      <td>64.285714</td>
-      <td>31.020408</td>
-      <td>24.285714</td>
-      <td>29.489796</td>
-      <td>57.448980</td>
-      <td>75.612245</td>
-      <td>28.163265</td>
-      <td>65.816327</td>
-      <td>72.142857</td>
+      <td>59.538598</td>
+      <td>64.685004</td>
+      <td>31.410825</td>
+      <td>24.578527</td>
+      <td>29.724933</td>
+      <td>57.941437</td>
+      <td>75.332742</td>
+      <td>28.305235</td>
+      <td>66.193434</td>
+      <td>72.138421</td>
       <td>...</td>
-      <td>39.183673</td>
-      <td>13.979592</td>
-      <td>23.061224</td>
-      <td>76.938776</td>
-      <td>47.653061</td>
-      <td>34.489796</td>
-      <td>42.346939</td>
-      <td>22.755102</td>
-      <td>40.714286</td>
-      <td>41.632653</td>
+      <td>39.840284</td>
+      <td>14.285714</td>
+      <td>23.425022</td>
+      <td>76.929902</td>
+      <td>48.447205</td>
+      <td>35.048802</td>
+      <td>42.857143</td>
+      <td>23.070098</td>
+      <td>41.259982</td>
+      <td>42.058563</td>
     </tr>
     <tr>
       <th>2014</th>
-      <td>49.285714</td>
-      <td>24.183673</td>
-      <td>6.836735</td>
-      <td>0.612245</td>
-      <td>10.102041</td>
-      <td>30.000000</td>
-      <td>64.489796</td>
-      <td>74.081633</td>
-      <td>35.714286</td>
-      <td>36.428571</td>
+      <td>49.955634</td>
+      <td>24.489796</td>
+      <td>7.275954</td>
+      <td>0.709849</td>
+      <td>10.292813</td>
+      <td>30.346051</td>
+      <td>64.862467</td>
+      <td>73.824312</td>
+      <td>36.202307</td>
+      <td>37.000887</td>
       <td>...</td>
-      <td>7.653061</td>
-      <td>34.897959</td>
-      <td>34.081633</td>
-      <td>4.081633</td>
-      <td>16.224490</td>
-      <td>9.693878</td>
-      <td>66.530612</td>
-      <td>50.714286</td>
-      <td>16.122449</td>
-      <td>41.428571</td>
+      <td>7.985803</td>
+      <td>35.403727</td>
+      <td>34.693878</td>
+      <td>4.436557</td>
+      <td>16.592724</td>
+      <td>9.937888</td>
+      <td>66.903283</td>
+      <td>51.286602</td>
+      <td>16.503993</td>
+      <td>41.881100</td>
     </tr>
     <tr>
       <th>2015</th>
-      <td>25.408163</td>
-      <td>41.938776</td>
-      <td>38.877551</td>
-      <td>34.285714</td>
-      <td>41.224490</td>
-      <td>15.816327</td>
-      <td>9.897959</td>
-      <td>59.183673</td>
-      <td>37.448980</td>
-      <td>52.346939</td>
+      <td>25.643301</td>
+      <td>42.324756</td>
+      <td>39.574091</td>
+      <td>34.871340</td>
+      <td>41.703638</td>
+      <td>16.149068</td>
+      <td>10.115350</td>
+      <td>59.449867</td>
+      <td>38.065661</td>
+      <td>52.883762</td>
       <td>...</td>
-      <td>51.530612</td>
-      <td>85.612245</td>
-      <td>27.346939</td>
-      <td>16.836735</td>
-      <td>54.081633</td>
-      <td>30.816327</td>
-      <td>20.000000</td>
-      <td>28.265306</td>
-      <td>41.122449</td>
-      <td>25.102041</td>
+      <td>52.173913</td>
+      <td>85.714286</td>
+      <td>27.417924</td>
+      <td>17.213842</td>
+      <td>54.569654</td>
+      <td>31.144632</td>
+      <td>20.408163</td>
+      <td>28.482697</td>
+      <td>41.614907</td>
+      <td>25.377107</td>
     </tr>
     <tr>
       <th>2016</th>
-      <td>0.510204</td>
-      <td>40.102041</td>
-      <td>66.836735</td>
-      <td>8.877551</td>
-      <td>28.877551</td>
-      <td>36.734694</td>
-      <td>12.857143</td>
-      <td>19.795918</td>
-      <td>49.693878</td>
-      <td>58.265306</td>
+      <td>0.621118</td>
+      <td>40.638864</td>
+      <td>67.169476</td>
+      <td>9.228039</td>
+      <td>29.192547</td>
+      <td>37.355812</td>
+      <td>13.220941</td>
+      <td>20.230701</td>
+      <td>50.310559</td>
+      <td>58.651287</td>
       <td>...</td>
-      <td>69.183673</td>
-      <td>80.000000</td>
-      <td>7.857143</td>
-      <td>46.326531</td>
-      <td>14.489796</td>
-      <td>24.693878</td>
-      <td>16.326531</td>
-      <td>45.000000</td>
-      <td>74.591837</td>
-      <td>81.632653</td>
+      <td>69.387755</td>
+      <td>80.390417</td>
+      <td>8.163265</td>
+      <td>46.938776</td>
+      <td>14.729370</td>
+      <td>25.022183</td>
+      <td>16.770186</td>
+      <td>45.430346</td>
+      <td>74.445430</td>
+      <td>81.810115</td>
     </tr>
     <tr>
       <th>2017</th>
-      <td>18.673469</td>
-      <td>1.734694</td>
-      <td>46.530612</td>
-      <td>26.836735</td>
-      <td>59.081633</td>
-      <td>35.918367</td>
-      <td>10.816327</td>
-      <td>11.428571</td>
-      <td>49.489796</td>
-      <td>95.612245</td>
+      <td>19.165927</td>
+      <td>1.952085</td>
+      <td>47.116238</td>
+      <td>26.885537</td>
+      <td>59.361136</td>
+      <td>36.379769</td>
+      <td>10.913931</td>
+      <td>11.623780</td>
+      <td>50.133097</td>
+      <td>95.563443</td>
       <td>...</td>
-      <td>90.510204</td>
-      <td>24.387755</td>
-      <td>11.836735</td>
-      <td>28.673469</td>
-      <td>86.020408</td>
-      <td>63.979592</td>
-      <td>46.938776</td>
-      <td>48.061224</td>
-      <td>45.918367</td>
-      <td>52.653061</td>
+      <td>90.417036</td>
+      <td>24.667258</td>
+      <td>11.978705</td>
+      <td>28.837622</td>
+      <td>86.069210</td>
+      <td>64.330080</td>
+      <td>47.648625</td>
+      <td>48.802130</td>
+      <td>46.583851</td>
+      <td>53.149956</td>
     </tr>
     <tr>
       <th>2018</th>
-      <td>0.102041</td>
-      <td>33.877551</td>
-      <td>40.510204</td>
-      <td>18.163265</td>
-      <td>36.632653</td>
-      <td>6.530612</td>
-      <td>11.020408</td>
-      <td>65.102041</td>
-      <td>4.489796</td>
-      <td>1.020408</td>
+      <td>0.088731</td>
+      <td>34.427684</td>
+      <td>40.993789</td>
+      <td>18.456078</td>
+      <td>37.178350</td>
+      <td>6.921029</td>
+      <td>11.091393</td>
+      <td>65.394854</td>
+      <td>4.791482</td>
+      <td>1.064774</td>
       <td>...</td>
-      <td>45.918367</td>
-      <td>28.265306</td>
-      <td>11.224490</td>
-      <td>91.224490</td>
-      <td>22.857143</td>
-      <td>1.632653</td>
-      <td>16.326531</td>
-      <td>15.306122</td>
-      <td>54.387755</td>
-      <td>30.000000</td>
+      <td>46.495120</td>
+      <td>28.393966</td>
+      <td>11.357587</td>
+      <td>91.215617</td>
+      <td>23.158829</td>
+      <td>1.774623</td>
+      <td>16.681455</td>
+      <td>15.616681</td>
+      <td>54.924579</td>
+      <td>30.257320</td>
     </tr>
     <tr>
       <th>2019</th>
-      <td>42.551020</td>
-      <td>0.204082</td>
-      <td>53.775510</td>
-      <td>69.591837</td>
-      <td>8.367347</td>
-      <td>28.877551</td>
-      <td>78.061224</td>
-      <td>76.224490</td>
-      <td>46.734694</td>
-      <td>45.510204</td>
+      <td>43.034605</td>
+      <td>0.266193</td>
+      <td>54.214729</td>
+      <td>69.742680</td>
+      <td>8.606921</td>
+      <td>29.015084</td>
+      <td>78.172138</td>
+      <td>75.865129</td>
+      <td>47.293700</td>
+      <td>46.051464</td>
       <td>...</td>
-      <td>23.979592</td>
-      <td>14.693878</td>
-      <td>19.081633</td>
-      <td>37.346939</td>
-      <td>88.877551</td>
-      <td>47.040816</td>
-      <td>37.653061</td>
-      <td>91.326531</td>
-      <td>31.224490</td>
-      <td>11.938776</td>
+      <td>24.223602</td>
+      <td>14.995563</td>
+      <td>19.520852</td>
+      <td>37.888199</td>
+      <td>88.819876</td>
+      <td>47.826087</td>
+      <td>38.243123</td>
+      <td>91.393079</td>
+      <td>31.677019</td>
+      <td>12.067436</td>
     </tr>
     <tr>
       <th>2020</th>
-      <td>42.346939</td>
-      <td>49.897959</td>
-      <td>27.142857</td>
-      <td>1.224490</td>
-      <td>46.836735</td>
-      <td>28.877551</td>
-      <td>3.163265</td>
-      <td>4.489796</td>
-      <td>42.244898</td>
-      <td>89.285714</td>
+      <td>42.768412</td>
+      <td>50.488021</td>
+      <td>27.151730</td>
+      <td>1.330967</td>
+      <td>47.471162</td>
+      <td>29.103815</td>
+      <td>3.549246</td>
+      <td>4.880213</td>
+      <td>42.590949</td>
+      <td>89.263531</td>
       <td>...</td>
-      <td>45.204082</td>
-      <td>84.489796</td>
-      <td>79.285714</td>
-      <td>52.755102</td>
-      <td>74.285714</td>
-      <td>76.428571</td>
-      <td>77.755102</td>
-      <td>14.591837</td>
-      <td>12.551020</td>
-      <td>45.306122</td>
+      <td>45.607808</td>
+      <td>84.472050</td>
+      <td>79.680568</td>
+      <td>53.238687</td>
+      <td>74.001775</td>
+      <td>76.131322</td>
+      <td>77.817214</td>
+      <td>14.818101</td>
+      <td>12.777285</td>
+      <td>45.785271</td>
     </tr>
   </tbody>
 </table>
 <p>23 rows × 49 columns</p>
 </div></div></div>
 </div>
+<p>以上的DataFrame就是一個Wide Form的形式。</p>
+<p>Long Form的表格，索引標籤都只存在index裡；Wide Form的表格，則是由Column和Index共同組成資料的內容，並且以2維的形式呈現。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">pcp_rank_df</span><span class="p">,</span>
+                 <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;jet_r&#39;</span><span class="p">,</span>
+                 <span class="n">square</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">vmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">vmax</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                 <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;shrink&quot;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span> <span class="s1">&#39;extend&#39;</span><span class="p">:</span><span class="s1">&#39;neither&#39;</span><span class="p">},</span>
+                 <span class="n">xticklabels</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Pentad&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Years&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Taiwan-Northern SCS, April to November&quot;</span><span class="p">,</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;pcp_pr_heatmap_obs_chn.png&quot;</span><span class="p">,</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;portrait&#39;</span><span class="p">,</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/10_pandas_seaborn_35_0.png" src="_images/10_pandas_seaborn_35_0.png" />
+</div>
+</div>
 </div>
 <div class="section" id="wide-long-form">
-<h3>Wide/Long form互相轉換：<a class="headerlink" href="#wide-long-form" title="Permalink to this headline">¶</a></h3>
+<h2>Wide/Long form互相轉換：<a class="headerlink" href="#wide-long-form" title="Permalink to this headline">¶</a></h2>
 <p>利用<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.unstack</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4097,31 +4098,31 @@ Only works for arrays with 2 or fewer dimensions.</p>
       <th>0</th>
       <td>19</td>
       <td>1998</td>
-      <td>23.775510</td>
+      <td>24.046140</td>
     </tr>
     <tr>
       <th>1</th>
       <td>19</td>
       <td>1999</td>
-      <td>39.285714</td>
+      <td>39.929015</td>
     </tr>
     <tr>
       <th>2</th>
       <td>19</td>
       <td>2000</td>
-      <td>42.551020</td>
+      <td>43.123336</td>
     </tr>
     <tr>
       <th>3</th>
       <td>19</td>
       <td>2001</td>
-      <td>39.081633</td>
+      <td>39.751553</td>
     </tr>
     <tr>
       <th>4</th>
       <td>19</td>
       <td>2002</td>
-      <td>3.877551</td>
+      <td>4.259095</td>
     </tr>
     <tr>
       <th>...</th>
@@ -4133,37 +4134,36 @@ Only works for arrays with 2 or fewer dimensions.</p>
       <th>1122</th>
       <td>67</td>
       <td>2016</td>
-      <td>81.632653</td>
+      <td>81.810115</td>
     </tr>
     <tr>
       <th>1123</th>
       <td>67</td>
       <td>2017</td>
-      <td>52.653061</td>
+      <td>53.149956</td>
     </tr>
     <tr>
       <th>1124</th>
       <td>67</td>
       <td>2018</td>
-      <td>30.000000</td>
+      <td>30.257320</td>
     </tr>
     <tr>
       <th>1125</th>
       <td>67</td>
       <td>2019</td>
-      <td>11.938776</td>
+      <td>12.067436</td>
     </tr>
     <tr>
       <th>1126</th>
       <td>67</td>
       <td>2020</td>
-      <td>45.306122</td>
+      <td>45.785271</td>
     </tr>
   </tbody>
 </table>
 <p>1127 rows × 3 columns</p>
 </div></div></div>
-</div>
 </div>
 </div>
 </div>
@@ -4209,7 +4209,7 @@ Only works for arrays with 2 or fewer dimensions.</p>
             &copy; Copyright 2021-2022.<br/>
           <div class="extra_footer">
             <p>
-Last updated: 2022-05-07
+Last updated: 2022-05-08
 </p>
           </div>
       </p>
