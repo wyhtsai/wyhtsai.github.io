@@ -292,6 +292,18 @@
   <a class="reference internal nav-link" href="#anaconda">
    Anaconda
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mac-linux">
+     Mac/Linux 使用者
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#windows">
+     Windows 使用者
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#visual-studio-code">
@@ -335,6 +347,8 @@
 <div class="section" id="anaconda">
 <h2>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
 <p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先點選 <a class="reference external" href="https://www.anaconda.com">Anaconda官方網站</a>，選Get Started → Download Anaconda installers，然後安裝在電腦中。</p>
+<div class="section" id="mac-linux">
+<h3>Mac/Linux 使用者<a class="headerlink" href="#mac-linux" title="Permalink to this headline">¶</a></h3>
 <p>安裝好Anaconda後，打開終端機 (啟動台 → 其他 → 終端機，Windows中是「命令提示字元」)，這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Anaconda會自動安裝一些基本套件，這個套件環境預設稱為base。然而base不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">rpy2</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>  
 </pre></div>
@@ -345,6 +359,18 @@
 <p>就可以開始使用新的conda環境了。</p>
 <p>再打開Anaconda軟體，選Environments → p3，就可以看到剛安裝好的環境了。</p>
 <p><img alt="" src="_images/fig0.1.png" /></p>
+</div>
+<div class="section" id="windows">
+<h3>Windows 使用者<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<p>打開Anacond進入Environments，選Create，輸入Conda環境的名稱 (以p3為例)，package選Python。</p>
+<p><img alt="" src="_images/fig_n1.png" /></p>
+<p>點選剛創建好的環境p3，將Installed切換為Not Installed，在右邊的搜尋輸入格中將</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">rpy2</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span>
+</pre></div>
+</div>
+<p>這些套件一一輸入，選擇後在右下方選擇Apply，接下來Anaconda會解析需要安裝的所有套件，再選擇一下Apply就會開始安裝了。以下以安裝xarray為例：</p>
+<p><img alt="" src="_images/fig_n2.png" /></p>
+</div>
 </div>
 <div class="section" id="visual-studio-code">
 <h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h2>
@@ -361,7 +387,7 @@
 </div>
 </li>
 <li><p>Visual Studio Code (可以撰寫.py或.ipynb檔案)</p></li>
-<li><p>Jupyter Notebook (撰寫.ipynb檔案，互動式介面)</p></li>
+<li><p>Jupyter Notebook (撰寫.ipynb檔案，互動式介面)。Anaconda的Home可以直接呼叫Jupyter Notebook介面。</p></li>
 </ul>
 <p>以下介紹如何用VS Code撰寫Jupyter Notebook的程式。Visual Studio Code (簡稱為VS Code) 是一款由微軟開發且跨平台的免費原始碼編輯器。該軟體支援語法上色凸顯、程式碼自動補全、程式碼重構功能，並且內建了命令列工具和 Git 版本控制系統，是很好上手寫程式的工具。請在 <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code官方網站</a> 下載並安裝。</p>
 <p>下載後打開VS Code，點選「延伸模組」按鈕。</p>
@@ -471,7 +497,7 @@ Cartopy version: 0.20.1
             &copy; Copyright 2021-2022.<br/>
           <div class="extra_footer">
             <p>
-Last updated: 2022-05-14
+Last updated: 2022-05-16
 </p>
           </div>
       </p>
