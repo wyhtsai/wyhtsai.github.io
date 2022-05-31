@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10. pandas和seaborn: 統計圖表繪製 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet" />
-  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
@@ -31,33 +31,46 @@
     <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Climate Data Operator (CDO)" href="11_cdo.html" />
     <link rel="prev" title="9.xarray繪圖 (2)：繪製2D資料" href="09_plotting_2d.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
     
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
+<script>
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){ dataLayer.push(arguments); }
+                    gtag('js', new Date());
+                    gtag('config', 'G-HKB5C6NRJC');
+                </script>
+
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
@@ -73,6 +86,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="_static/PyAOS_logo_color.png" class="logo" alt="logo">
       
       
@@ -81,8 +98,8 @@
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索這本書..." aria-label="搜索這本書..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -91,12 +108,12 @@
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus_eng.html">
-   Syllabus
-  </a>
- </li>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  xArray基本原理與操作
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="00_setup.html">
    電腦環境設置與Python安裝
@@ -127,6 +144,13 @@
    5. 手動創建DataArray
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  氣候分析方法基礎
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="06_clim_anml.html">
    6. 計算氣候場及距平值
@@ -137,6 +161,13 @@
    7. 進階運算與統計方法
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  xArray繪圖
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="08_plotting_1d.html">
    8.
@@ -176,6 +207,13 @@
    : 統計圖表繪製
   </a>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  其他重要議題
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="11_cdo.html">
    11. Climate Data Operator (CDO)
@@ -185,6 +223,30 @@
   <a class="reference internal" href="12_large_ds.html">
    12. 大型資料處理
   </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  附錄
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="appendix-main.html">
+   附錄：實用氣候分析程式範例
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="A1_mjo_phase.html">
+     馬登－朱利安震盪 (MJO) 氣候變異分析
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -211,8 +273,8 @@
             
             <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
                 data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                aria-expanded="true" aria-label="切換導航" aria-controls="site-navigation"
+                title="切換導航" data-toggle="tooltip" data-placement="left">
                 <i class="fas fa-bars"></i>
                 <i class="fas fa-arrow-left"></i>
                 <i class="fas fa-arrow-up"></i>
@@ -220,7 +282,7 @@
             
             
 <div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下載此頁面"><i
             class="fas fa-download"></i></button>
 
     <div class="dropdown-buttons">
@@ -228,11 +290,11 @@
         
         <!-- Download raw file -->
         <a class="dropdown-buttons" href="_sources/10_pandas_seaborn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -244,12 +306,12 @@
     <div class="dropdown-buttons sourcebuttons">
         <a class="repository-button"
             href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
+                data-toggle="tooltip" data-placement="left" title="源庫"><i
+                    class="fab fa-github"></i>資料庫</button></a>
         <a class="issues-button"
             href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F10_pandas_seaborn.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+                title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
         
     </div>
 </div>
@@ -257,8 +319,8 @@
             <!-- Full screen (wrap in <a> to have style consistency -->
 
 <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
+        title="全屏模式"><i
             class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
@@ -269,7 +331,7 @@
     <div class="dropdown-buttons">
         
         <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/10_pandas_seaborn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="_static/images/logo_binder.svg"
                     alt="Interact on binder">Binder</button></a>
@@ -283,12 +345,12 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+                <i class="fas fa-list"></i> 內容
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandas">
@@ -401,10 +463,131 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>10. pandas和seaborn: 統計圖表繪製</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> 內容 </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+   的資料架構
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#series">
+     Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dataframe">
+     DataFrame
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-csv">
+   利用
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas
+    </span>
+   </code>
+   讀取
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     .csv
+    </span>
+   </code>
+   檔案
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pandas-dataframeseabornlong-form">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame
+    </span>
+   </code>
+   與
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     seaborn
+    </span>
+   </code>
+   的Long Form繪圖
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#multi-index-dataframelong-form">
+   多層次標籤 (Multi-index) 的 DataFrame與Long Form繪圖
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xarray-dataarraypandas-dataframe">
+   將
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     xarray.DataArray
+    </span>
+   </code>
+   轉換至
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     pandas.DataFrame
+    </span>
+   </code>
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#xarray-to-pandas">
+     利用
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       xarray.to_pandas
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scatter-plot">
+     範例：繪製散布圖 (scatter plot) 以及回歸分析
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wide-formseaborn">
+   Wide Form的Seaborn製圖
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wide-long-form">
+   Wide/Long form互相轉換
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
-  <div class="section" id="pandasseaborn">
+  <div class="tex2jax_ignore mathjax_ignore section" id="pandasseaborn">
 <h1>10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製<a class="headerlink" href="#pandasseaborn" title="Permalink to this headline">¶</a></h1>
 <p>xarray雖然可以輕易地開啟netCDF檔，繪製多種地圖，但目前沒有內建的統計圖表繪圖函數如盒鬚圖 (box plot)、散佈圖 (scatter plot) 等。<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>是強大的統計資料視覺化工具，可以利用簡明的語言和高階功能的引數，繪製專業又美觀的統計圖表。由於氣候資料的解讀很仰賴統計方法，因此學習利用如何將氣候統計的結果，送進 <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的函數中繪圖，是很重要的。</p>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code>可以接受的資料格式主要為.csv資料檔，以及 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>，寫入資料時必須寫成 <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> 能辨識之 <strong>「長表格 (long form)」</strong> 和 <strong>「寬表格 (wide form)」</strong> ，有關表格的說明詳見<a class="reference external" href="https://seaborn.pydata.org/tutorial/data_structure.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code>網頁的說明</a>。本單元的重點在於如何建立正確的<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>格式並且送進<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的畫圖函數，有關繪圖的方法、引數等，<a class="reference external" href="https://seaborn.pydata.org/">官方教學</a>已經有清楚的說明，此處不再一一介紹。</p>
@@ -430,11 +613,11 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -0.234532
-b   -0.692438
-c   -0.316134
-d    0.061315
-e    0.457336
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -0.468037
+b   -0.042001
+c   -0.220150
+d    0.747003
+e   -0.848931
 dtype: float64
 </pre></div>
 </div>
@@ -483,33 +666,33 @@ dtype: float64
   <tbody>
     <tr>
       <th>a</th>
-      <td>3.124071</td>
-      <td>-1.532691</td>
-      <td>1.408025</td>
+      <td>-0.978108</td>
+      <td>-0.581842</td>
+      <td>0.453107</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>-0.800208</td>
-      <td>-0.801501</td>
-      <td>-0.994640</td>
+      <td>-0.061030</td>
+      <td>-1.115599</td>
+      <td>0.173801</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>-0.943353</td>
-      <td>1.662981</td>
-      <td>2.513956</td>
+      <td>-1.218673</td>
+      <td>-0.381454</td>
+      <td>-1.150547</td>
     </tr>
     <tr>
       <th>d</th>
-      <td>1.012375</td>
-      <td>0.364628</td>
-      <td>0.353267</td>
+      <td>0.323320</td>
+      <td>-0.043676</td>
+      <td>1.287386</td>
     </tr>
     <tr>
       <th>e</th>
-      <td>0.770014</td>
-      <td>0.694652</td>
-      <td>0.846729</td>
+      <td>0.684370</td>
+      <td>-0.001923</td>
+      <td>-0.549518</td>
     </tr>
   </tbody>
 </table>
@@ -556,73 +739,73 @@ dtype: float64
   <tbody>
     <tr>
       <th>1998</th>
-      <td>-1.806940</td>
-      <td>3.045959</td>
-      <td>1.146285</td>
-      <td>0.292296</td>
+      <td>-1.020579</td>
+      <td>-1.318828</td>
+      <td>-0.434474</td>
+      <td>-1.001550</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>-1.729483</td>
-      <td>-0.130139</td>
-      <td>0.180563</td>
-      <td>-0.029573</td>
+      <td>-0.608165</td>
+      <td>-0.553806</td>
+      <td>-1.292511</td>
+      <td>-0.965387</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>-0.678158</td>
-      <td>2.009367</td>
-      <td>-0.243623</td>
-      <td>-1.443918</td>
+      <td>0.685142</td>
+      <td>-0.839441</td>
+      <td>0.146620</td>
+      <td>-0.839711</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>-1.018345</td>
-      <td>-0.779851</td>
-      <td>-1.330411</td>
-      <td>-0.234571</td>
+      <td>0.535253</td>
+      <td>-0.343392</td>
+      <td>-1.885507</td>
+      <td>0.484412</td>
     </tr>
     <tr>
       <th>2002</th>
-      <td>0.169941</td>
-      <td>0.598670</td>
-      <td>-0.634410</td>
-      <td>0.003849</td>
+      <td>0.079099</td>
+      <td>-0.674920</td>
+      <td>0.951334</td>
+      <td>-0.541315</td>
     </tr>
     <tr>
       <th>2003</th>
-      <td>1.787066</td>
-      <td>-0.205518</td>
-      <td>-0.604754</td>
-      <td>-0.282833</td>
+      <td>-0.273906</td>
+      <td>-0.903857</td>
+      <td>1.412167</td>
+      <td>1.803764</td>
     </tr>
     <tr>
       <th>2004</th>
-      <td>-0.697969</td>
-      <td>-0.275538</td>
-      <td>1.431829</td>
-      <td>2.181333</td>
+      <td>-0.134000</td>
+      <td>-0.146648</td>
+      <td>0.150509</td>
+      <td>-0.177580</td>
     </tr>
     <tr>
       <th>2005</th>
-      <td>-0.052942</td>
-      <td>-2.248984</td>
-      <td>-0.460850</td>
-      <td>-1.700008</td>
+      <td>1.062970</td>
+      <td>-1.756916</td>
+      <td>-0.467824</td>
+      <td>-0.188087</td>
     </tr>
     <tr>
       <th>2006</th>
-      <td>0.062297</td>
-      <td>1.618528</td>
-      <td>0.966681</td>
-      <td>0.647711</td>
+      <td>0.220884</td>
+      <td>-0.383628</td>
+      <td>0.926710</td>
+      <td>-1.582019</td>
     </tr>
     <tr>
       <th>2007</th>
-      <td>-0.542845</td>
-      <td>-0.712576</td>
-      <td>-1.135707</td>
-      <td>-1.819111</td>
+      <td>1.563885</td>
+      <td>0.489558</td>
+      <td>0.288019</td>
+      <td>0.681923</td>
     </tr>
   </tbody>
 </table>
@@ -809,25 +992,25 @@ dtype: float64
       <th rowspan="5" valign="top">1</th>
       <th rowspan="2" valign="top">1</th>
       <th>Hindcast</th>
-      <td>0.603540</td>
+      <td>0.378596</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>-0.965637</td>
+      <td>0.846571</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">2</th>
       <th>Hindcast</th>
-      <td>-0.911772</td>
+      <td>1.756337</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>-0.448283</td>
+      <td>0.601850</td>
     </tr>
     <tr>
       <th>3</th>
       <th>Hindcast</th>
-      <td>-1.175244</td>
+      <td>0.556617</td>
     </tr>
   </tbody>
 </table>
@@ -850,33 +1033,46 @@ dtype: float64
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="mi">5</span><span class="n">f</span><span class="o">/</span><span class="n">jxsyfmmj2rsb4dk_z6d_34qw0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_9424</span><span class="o">/</span><span class="mf">774566885.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">Input In [8],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sns</span><span class="o">.</span><span class="n">set_theme</span><span class="p">(</span><span class="n">style</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">bxplt</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>                     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">,</span> 
 <span class="g g-Whitespace">      </span><span class="mi">5</span>                     <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;case&#39;</span><span class="p">,</span> <span class="n">hue_order</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Hindcast&#39;</span><span class="p">,</span><span class="s1">&#39;Forecast&#39;</span><span class="p">],</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>                     <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="s1">&#39;silver&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PR_RMSE&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/_decorators.py</span> in <span class="ni">inner_f</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span>             <span class="p">)</span>
-<span class="nn">     45         kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
-<span class="ne">---&gt; </span><span class="mi">46</span>         <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="k">return</span> <span class="n">inner_f</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> 
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/_decorators.py:46,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="s2">&quot;Pass the following variable</span><span class="si">{}</span><span class="s2"> as </span><span class="si">{}</span><span class="s2">keyword arg</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">. &quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="s2">&quot;From version 0.12, the only valid positional argument &quot;</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="ne">FutureWarning</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span>     <span class="p">)</span>
+<span class="nn">     45 kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3790</span>     <span class="n">p</span> <span class="o">=</span> <span class="n">_CategoricalPlotter</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">3791</span>     <span class="n">p</span><span class="o">.</span><span class="n">require_numeric</span> <span class="o">=</span> <span class="n">plotter_class</span><span class="o">.</span><span class="n">require_numeric</span>
-<span class="ne">-&gt; </span><span class="mi">3792</span>     <span class="n">p</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3793</span>     <span class="k">if</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">3794</span>         <span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py:3792,</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3790</span> <span class="n">p</span> <span class="o">=</span> <span class="n">_CategoricalPlotter</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">3791</span> <span class="n">p</span><span class="o">.</span><span class="n">require_numeric</span> <span class="o">=</span> <span class="n">plotter_class</span><span class="o">.</span><span class="n">require_numeric</span>
+<span class="ne">-&gt; </span><span class="mi">3792</span> <span class="n">p</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3793</span> <span class="k">if</span> <span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3794</span>     <span class="n">order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">3795</span>     <span class="ow">or</span> <span class="p">(</span><span class="n">sharex</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;v&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3796</span>     <span class="ow">or</span> <span class="p">(</span><span class="n">sharey</span> <span class="ow">and</span> <span class="n">p</span><span class="o">.</span><span class="n">orient</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3797</span> <span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">3798</span>     <span class="c1"># Sync categorical axis between facets to have the same categories</span>
+<span class="g g-Whitespace">   </span><span class="mi">3799</span>     <span class="n">order</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">group_names</span>
 
-<span class="nn">~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py</span> in <span class="ni">establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
-<span class="g g-Whitespace">    </span><span class="mi">151</span>                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">152</span>                     <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">153</span>                     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">154</span> 
-<span class="g g-Whitespace">    </span><span class="mi">155</span>             <span class="c1"># Figure out the plotting orientation</span>
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py:153,</span> in <span class="ni">_CategoricalPlotter.establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
+<span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">152</span>         <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">153</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span> <span class="c1"># Figure out the plotting orientation</span>
+<span class="g g-Whitespace">    </span><span class="mi">156</span> <span class="n">orient</span> <span class="o">=</span> <span class="n">infer_orient</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>     <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">require_numeric</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">require_numeric</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span> <span class="p">)</span>
 
 <span class="ne">ValueError</span>: Could not interpret input &#39;lead_time&#39;
 </pre></div>
@@ -1823,13 +2019,13 @@ Attributes:
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <th> Bytes </th>
                         <td> 2.25 MiB </td>
                         <td> 110.09 kiB </td>
                     </tr>
-                    
+
                     <tr>
                         <th> Shape </th>
                         <td> (7670, 7, 11) </td>
@@ -2765,13 +2961,13 @@ Coordinates:
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     <tr>
                         <th> Bytes </th>
                         <td> 1.56 kiB </td>
                         <td> 76 B </td>
                     </tr>
-                    
+
                     <tr>
                         <th> Shape </th>
                         <td> (399,) </td>
@@ -4190,46 +4386,47 @@ Coordinates:
 
               </div>
               
-        
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="09_plotting_2d.html" title="previous page">9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料</a>
-    <a class='right-next' id="next-link" href="11_cdo.html" title="next page">11. Climate Data Operator (CDO)</a>
-
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="09_plotting_2d.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料</p>
         </div>
-        
+    </a>
+    <a class='right-next' id="next-link" href="11_cdo.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">11. Climate Data Operator (CDO)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
-    <div class="container">
-      <p>
-        
-          By Wayne Yuan-Huai Tsai, National Taiwan University<br/>
-        
-            &copy; Copyright 2021-2022.<br/>
-          <div class="extra_footer">
-            <p>
-Last updated: 2022-05-16
+    <footer class="footer">
+  <p>
+    
+      通過 Wayne Yuan-Huai Tsai, National Taiwan University<br/>
+    
+        &copy; 版權 2021-2022.<br/>
+      <div class="extra_footer">
+        <p>
+Last updated: 2022-05-31
 </p>
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
-
-  
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('config', 'G-HKB5C6NRJC');
-                </script>
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
   </body>
 </html>
