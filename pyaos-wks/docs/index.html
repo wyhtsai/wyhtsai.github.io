@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>電腦環境設置與Python安裝 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
+    <title>教學綱要（中文） &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. 導論" href="01_intro.html" />
-    <link rel="prev" title="教學綱要（中文）" href="00_syllabus.html" />
+    <link rel="next" title="電腦環境設置與Python安裝" href="00_setup.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -100,8 +99,8 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
    教學綱要（中文）
   </a>
  </li>
@@ -111,9 +110,9 @@ const thebe_selector_output = ".output, .cell_output"
   xArray基本原理與操作
  </span>
 </p>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="00_setup.html">
    電腦環境設置與Python安裝
   </a>
  </li>
@@ -287,9 +286,9 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/00_setup.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="_sources/00_syllabus.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -307,7 +306,7 @@ const thebe_selector_output = ".output, .cell_output"
                 data-toggle="tooltip" data-placement="left" title="源庫"><i
                     class="fab fa-github"></i>資料庫</button></a>
         <a class="issues-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F00_setup.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F00_syllabus.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
         
@@ -323,23 +322,6 @@ const thebe_selector_output = ".output, .cell_output"
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/00_setup.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
@@ -351,46 +333,36 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anaconda">
-   Anaconda
+  <a class="reference internal nav-link" href="#python">
+   Python在大氣和海洋科學上的應用
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mac-linux">
-     Mac/Linux 使用者
+    <a class="reference internal nav-link" href="#id2">
+     教學目標
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows">
-     Windows 使用者
+    <a class="reference internal nav-link" href="#id3">
+     教學內容
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     評量方法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     參考書目及網站
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     事前預備
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-studio-code">
-   用Visual Studio Code撰寫程式
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   撰寫測試程式
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-notebook">
-   Jupyter Notebook
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   套件版本檢查
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   小結
-  </a>
  </li>
 </ul>
 
@@ -402,7 +374,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>電腦環境設置與Python安裝</h1>
+                <h1>教學綱要（中文）</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -413,46 +385,36 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#anaconda">
-   Anaconda
+  <a class="reference internal nav-link" href="#python">
+   Python在大氣和海洋科學上的應用
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#mac-linux">
-     Mac/Linux 使用者
+    <a class="reference internal nav-link" href="#id2">
+     教學目標
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#windows">
-     Windows 使用者
+    <a class="reference internal nav-link" href="#id3">
+     教學內容
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     評量方法
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     參考書目及網站
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     事前預備
     </a>
    </li>
   </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#visual-studio-code">
-   用Visual Studio Code撰寫程式
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   撰寫測試程式
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#jupyter-notebook">
-   Jupyter Notebook
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
-   套件版本檢查
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
-   小結
-  </a>
  </li>
 </ul>
 
@@ -463,247 +425,83 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="python">
-<h1>電腦環境設置與Python安裝<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h1>
-<p>本篇教學如何利用 <strong>Anaconda</strong> 安裝Python、管理Python套件和環境，以及如何使用 <strong>Visual Studio Code (VS Code)</strong> 編寫程式。編寫Python程式的方法有很多，這裡示範的是筆者常用的方法，使用者可參考自己的需求而調整。</p>
-<div class="section" id="anaconda">
-<h2>Anaconda<a class="headerlink" href="#anaconda" title="Permalink to this headline">¶</a></h2>
-<p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先點選 <a class="reference external" href="https://www.anaconda.com">Anaconda官方網站</a>，選Get Started → Download Anaconda installers，然後安裝在電腦中。</p>
-<div class="section" id="mac-linux">
-<h3>Mac/Linux 使用者<a class="headerlink" href="#mac-linux" title="Permalink to this headline">¶</a></h3>
-<p>安裝好Anaconda後，打開終端機 (啟動台 → 其他 → 終端機，Windows中是「命令提示字元」)，這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Anaconda會自動安裝一些基本套件，這個套件環境預設稱為base。然而base不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">rpy2</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>  
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">p3</span></code>是這個新的conda環境的名稱，也可以自己取新的名稱。</p>
-<p>安裝成功後，在終端機執行</p>
-<p><code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">p3</span></code></p>
-<p>就可以開始使用新的conda環境了。</p>
-<p>再打開Anaconda軟體，選Environments → p3，就可以看到剛安裝好的環境了。</p>
-<p><img alt="" src="_images/fig0.1.png" /></p>
-</div>
-<div class="section" id="windows">
-<h3>Windows 使用者<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
-<p>打開Anacond進入Environments，選Create，輸入Conda環境的名稱 (以p3為例)，package選Python。</p>
-<p><img alt="" src="_images/fig_n1.png" /></p>
-<p>點選剛創建好的環境p3，將Installed切換為Not Installed，在右邊的搜尋輸入格中將</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">rpy2</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span>
-</pre></div>
-</div>
-<p>這些套件一一輸入，選擇後在右下方選擇Apply，接下來Anaconda會解析需要安裝的所有套件，再選擇一下Apply就會開始安裝了。以下以安裝xarray為例：</p>
-<p><img alt="" src="_images/fig_n2.png" /></p>
-</div>
-</div>
-<div class="section" id="visual-studio-code">
-<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">¶</a></h2>
-<p>撰寫Python程式，按照檔名可區分為</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.py</span></code>：屬於Python程式的scipt，也就是把完整的程式寫好了以後，由Python逐行執行。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>：為Jupyter Notebook的格式，是互動式的程式介面，以窗格 (cell) 為單位，逐格執行Python程式。</p></li>
-</ul>
-<p>而工具的部分也有很多種，</p>
-<ul>
-<li><p>Vim editor: 在終端機直接用vim開啟一個新檔案，就可以編寫程式。例如：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
-</pre></div>
-</div>
-</li>
-<li><p>Visual Studio Code (可以撰寫.py或.ipynb檔案)</p></li>
-<li><p>Jupyter Notebook (撰寫.ipynb檔案，互動式介面)。Anaconda的Home可以直接呼叫Jupyter Notebook介面。</p></li>
-</ul>
-<p>以下介紹如何用VS Code撰寫Jupyter Notebook的程式。Visual Studio Code (簡稱為VS Code) 是一款由微軟開發且跨平台的免費原始碼編輯器。該軟體支援語法上色凸顯、程式碼自動補全、程式碼重構功能，並且內建了命令列工具和 Git 版本控制系統，是很好上手寫程式的工具。請在 <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code官方網站</a> 下載並安裝。</p>
-<p>下載後打開VS Code，點選「延伸模組」按鈕。</p>
-<p><img alt="" src="_images/fig0.2.png" /></p>
-<p>在搜尋欄輸入Python，選擇後按安裝。</p>
-<p>按照相同的步驟，安裝Pylance、Jupyter。</p>
-<p><img alt="" src="_images/fig0.3.png" /></p>
-<p>點選「檔案總管」按鈕，按「開啟資料夾」按鈕來選擇一個存放程式碼的資料夾位置，以後就可以在這裡寫程式。</p>
-<p><img alt="" src="_images/fig0.4.png" /></p>
-<p>在檔案總管資料夾中，右鍵 (兩指點按) 並選擇「新增檔案」，或是在最上方選單列「檔案→新增檔案」。注意python的檔案要以.py作為副檔名，就可以撰寫程式了。</p>
-<p><img alt="" src="_images/fig0.5.png" /></p>
-</div>
-<div class="section" id="id1">
-<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
-<p><strong>Example 1:</strong> 請用import將xarray套件輸入，並且印出xarray套件的版本資訊。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xarray version: &#39;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xarray version: &#39;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">testing</span><span class="p">,</span> <span class="n">tutorial</span><span class="p">,</span> <span class="n">ufuncs</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.backends.api</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">load_dataarray</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">load_dataset</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">save_mfdataset</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.backends.rasterio_</span> <span class="kn">import</span> <span class="n">open_rasterio</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">testing</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">xarray.core</span> <span class="kn">import</span> <span class="n">duck_array_ops</span><span class="p">,</span> <span class="n">formatting</span><span class="p">,</span> <span class="n">utils</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">xarray.core.dataarray</span> <span class="kn">import</span> <span class="n">DataArray</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">xarray.core.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">duck_array_ops</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">take</span><span class="p">,</span> <span class="n">tensordot</span><span class="p">,</span> <span class="n">transpose</span><span class="p">,</span> <span class="n">unravel_index</span>  <span class="c1"># noqa</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">where</span> <span class="k">as</span> <span class="n">_where</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">dask_array_compat</span><span class="p">,</span> <span class="n">dask_array_ops</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">,</span> <span class="n">npcompat</span><span class="p">,</span> <span class="n">nputils</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">.nputils</span> <span class="kn">import</span> <span class="n">nanfirst</span><span class="p">,</span> <span class="n">nanlast</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">.pycompat</span> <span class="kn">import</span> <span class="n">cupy_array_type</span><span class="p">,</span> <span class="n">dask_array_type</span><span class="p">,</span> <span class="n">is_duck_dask_array</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">dask_array_compat</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">Version</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.pycompat</span> <span class="kn">import</span> <span class="n">dask_version</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">pycompat</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">duck_array_type</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="bp">self</span><span class="o">.</span><span class="n">available</span> <span class="o">=</span> <span class="n">duck_array_module</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">dsk</span> <span class="o">=</span> <span class="n">DuckArrayModule</span><span class="p">(</span><span class="s2">&quot;dask&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="n">dask_version</span> <span class="o">=</span> <span class="n">dsk</span><span class="o">.</span><span class="n">version</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">dask_array_type</span> <span class="o">=</span> <span class="n">dsk</span><span class="o">.</span><span class="n">type</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/xarray/core/pycompat.py:25,</span> in <span class="ni">DuckArrayModule.__init__</span><span class="nt">(self, mod)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">duck_array_version</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span><span class="n">duck_array_module</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">if</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;dask&quot;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">25</span>     <span class="n">duck_array_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;dask.array&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Array</span><span class="p">,)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">elif</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;pint&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">duck_array_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">duck_array_module</span><span class="o">.</span><span class="n">Quantity</span><span class="p">,)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">dask</span><span class="o">/</span><span class="n">array</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="kn">from</span> <span class="nn">dask.array</span> <span class="kn">import</span> <span class="n">backends</span><span class="p">,</span> <span class="n">fft</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">ma</span><span class="p">,</span> <span class="n">overlap</span><span class="p">,</span> <span class="n">random</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">from</span> <span class="nn">dask.array.blockwise</span> <span class="kn">import</span> <span class="n">atop</span><span class="p">,</span> <span class="n">blockwise</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">dask.array.chunk_types</span> <span class="kn">import</span> <span class="n">register_chunk_type</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">dask</span><span class="o">/</span><span class="n">array</span><span class="o">/</span><span class="n">fft</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="kn">import</span> <span class="nn">scipy.fftpack</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">scipy</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fftpack</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">94</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =========================================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Legacy discrete Fourier transforms (:mod:`scipy.fftpack`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fft&#39;</span><span class="p">,</span><span class="s1">&#39;ifft&#39;</span><span class="p">,</span><span class="s1">&#39;fftn&#39;</span><span class="p">,</span><span class="s1">&#39;ifftn&#39;</span><span class="p">,</span><span class="s1">&#39;rfft&#39;</span><span class="p">,</span><span class="s1">&#39;irfft&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>            <span class="s1">&#39;fft2&#39;</span><span class="p">,</span><span class="s1">&#39;ifft2&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>            <span class="s1">&#39;diff&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>            <span class="s1">&#39;dct&#39;</span><span class="p">,</span> <span class="s1">&#39;idct&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;idst&#39;</span><span class="p">,</span> <span class="s1">&#39;dctn&#39;</span><span class="p">,</span> <span class="s1">&#39;idctn&#39;</span><span class="p">,</span> <span class="s1">&#39;dstn&#39;</span><span class="p">,</span> <span class="s1">&#39;idstn&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>            <span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">94</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="kn">from</span> <span class="nn">._pseudo_diffs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fftpack</span><span class="o">/</span><span class="n">_basic</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Created by Pearu Peterson, August,September 2002</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fft&#39;</span><span class="p">,</span><span class="s1">&#39;ifft&#39;</span><span class="p">,</span><span class="s1">&#39;fftn&#39;</span><span class="p">,</span><span class="s1">&#39;ifftn&#39;</span><span class="p">,</span><span class="s1">&#39;rfft&#39;</span><span class="p">,</span><span class="s1">&#39;irfft&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>            <span class="s1">&#39;fft2&#39;</span><span class="p">,</span><span class="s1">&#39;ifft2&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">_pocketfft</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="n">_good_shape</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">overwrite_x</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fft</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="n">fft</span><span class="p">,</span> <span class="n">ifft</span><span class="p">,</span> <span class="n">fft2</span><span class="p">,</span> <span class="n">ifft2</span><span class="p">,</span> <span class="n">fftn</span><span class="p">,</span> <span class="n">ifftn</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span><span class="p">,</span> <span class="n">rfft2</span><span class="p">,</span> <span class="n">irfft2</span><span class="p">,</span> <span class="n">rfftn</span><span class="p">,</span> <span class="n">irfftn</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>     <span class="n">hfft</span><span class="p">,</span> <span class="n">ihfft</span><span class="p">,</span> <span class="n">hfft2</span><span class="p">,</span> <span class="n">ihfft2</span><span class="p">,</span> <span class="n">hfftn</span><span class="p">,</span> <span class="n">ihfftn</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="kn">from</span> <span class="nn">._realtransforms</span> <span class="kn">import</span> <span class="n">dct</span><span class="p">,</span> <span class="n">idct</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">idst</span><span class="p">,</span> <span class="n">dctn</span><span class="p">,</span> <span class="n">idctn</span><span class="p">,</span> <span class="n">dstn</span><span class="p">,</span> <span class="n">idstn</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="kn">from</span> <span class="nn">._fftlog</span> <span class="kn">import</span> <span class="n">fht</span><span class="p">,</span> <span class="n">ifht</span><span class="p">,</span> <span class="n">fhtoffset</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="n">next_fast_len</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="kn">from</span> <span class="nn">._backend</span> <span class="kn">import</span> <span class="p">(</span><span class="n">set_backend</span><span class="p">,</span> <span class="n">skip_backend</span><span class="p">,</span> <span class="n">set_global_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>                        <span class="n">register_backend</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fft</span><span class="o">/</span><span class="n">_fftlog</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">..special</span> <span class="kn">import</span> <span class="n">loggamma</span><span class="p">,</span> <span class="n">poch</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="s1">&#39;fht&#39;</span><span class="p">,</span> <span class="s1">&#39;ifht&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s1">&#39;fhtoffset&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># constants</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">special</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">649</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> ========================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Special functions (:mod:`scipy.special`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="kn">from</span> <span class="nn">._sf_error</span> <span class="kn">import</span> <span class="n">SpecialFunctionWarning</span><span class="p">,</span> <span class="n">SpecialFunctionError</span>
-<span class="ne">--&gt; </span><span class="mi">649</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_ufuncs</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span> <span class="kn">from</span> <span class="nn">._ufuncs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_basic</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:398,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
-</div>
-<p>在最上方選單列選「執行」→「啟動偵錯」，或是在左側選擇「執行與偵錯」選單，偵錯設定檔選擇「Python檔案」，就會開始偵錯並執行了。</p>
-<p><img alt="" src="_images/fig0.6.png" /></p>
-</div>
-<div class="section" id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">¶</a></h2>
-<p>Jupyter Notebook是在網頁上操作的Python互動性介面，可以開啟窗格 (cells) 寫筆記、註解、撰寫程式，程式也可以按照個人需求分段撰寫和執行。</p>
-<p>在VS Code 工作資料夾下新增一個<code class="docutils literal notranslate"><span class="pre">test.ipynb</span></code>的檔案。注意Jupyter Notebook的副檔名為<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>。</p>
-<p>請在VS Code中按「+程式碼」，然後撰寫跟剛剛一樣的測試程式，並且按儲存格 (Cell) 旁邊的「執行」按鈕。接著會跳出一個視窗，詢問ipynb檔案的核心，請選擇<code class="docutils literal notranslate"><span class="pre">p3</span></code>的核心，按一下就會開始執行了。</p>
-<p><img alt="" src="_images/fig0.10.png" /></p>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1>教學綱要（中文）<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>Python在大氣和海洋科學上的應用<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p><strong>國立台灣大學大氣科學系 蔡元懷</strong><br />
+<strong>時間：</strong> 2022/5/16, 23 (Mon.) 10:20-13:30<br />
+<strong>地點：</strong> 師大分部理圖802教室</p>
 <div class="section" id="id2">
-<h2>套件版本檢查<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
-<p>為了避免版本不相容，因此在開始閱讀本文前，建議先檢查各個套件的版本。本章的Example 1就是Python檢查套件的版本的方式，版本是以<code class="docutils literal notranslate"><span class="pre">__version__</span></code>這個attribute中儲存，因此可以print出來檢查。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">cartopy</span> 
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Xarray version: &quot;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numpy version: &quot;</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Cartopy version: &quot;</span> <span class="o">+</span> <span class="n">cartopy</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 0.20.2
-Numpy version: 1.21.4
-Cartopy version: 0.20.1
-</pre></div>
-</div>
-</div>
-</div>
+<h3>教學目標<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>認識以xarray為主的PyAOS工具的基本指令。</p></li>
+<li><p>熟練用xarray套件讀取netCDF檔案、分析資料及繪圖。</p></li>
+<li><p>將PyAOS套件應用至氣象資料分析及研究工作。</p></li>
+</ol>
 </div>
 <div class="section" id="id3">
-<h2>小結<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
-<p>以上的方法都是幫助我們方便地撰寫和執行Python程式，當然還有很多不同的方法、執行工具，可以再探索和熟悉。現在，Python運算環境設置好，接著就可以開始學習用PyAOS寫程式了。</p>
+<h3>教學內容<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式套件集，針對大氣和海洋科學的需求而發展出的，用以方便使用者分析netCDF檔案 (或多維度資料)，產出分析結果。本工作坊將以氣候分析方法為導向，介紹如何以PyAOS的套件讀取資料檔、分析資料 (計算氣候平均、距平、統計計算)、繪製結果，特以xarray為主軸，採取講解和實作並重，希望工作坊後能夠容易地使用PyAOS套件工具，最後能應用在研究工作上。
+預定的單元如下 (得依實際情況彈性調整之)：</p>
+<p><strong>2022/5/16 (Mon.) 10:20-13:30</strong></p>
+<ol class="simple">
+<li><p>導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。 (10 mins)</p></li>
+<li><p>NetCDF資料格式簡介/大氣與海洋科學資料從哪裡來？利用xarray讀取NetCDF資料。(30 mins).</p></li>
+<li><p>xarray繪圖 (I)：繪製2017/12月區域平均OLR。(40 mins).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>物件與時間條件控制。 (10 mins).</p></li>
+<li><p>手動創建DataArray。(10 mins)</p></li>
+<li><p>計算氣候場與距平值 (40 mins).</p></li>
+</ol>
+<p><strong>2022/5/23 (Mon.) 10:20-13:30</strong></p>
+<ol class="simple">
+<li><p>進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).</p></li>
+<li><p>xarray繪圖 (II)：1D資料繪圖 (20 mins).</p></li>
+<li><p>xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (60 mins)。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>：統計圖表繪製。(如果有時間的話)</p></li>
+</ol>
+<p><strong>Other Topics on PyAOS (TBD)</strong></p>
+<ol class="simple">
+<li><p>Climate Data Operator (CDO)。</p></li>
+<li><p>大型資料處理。</p></li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3>評量方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>請完成指定習題 (共1次)，將結果的圖以及程式碼上傳到Moodle學習平台。</p>
+</div>
+<div class="section" id="id5">
+<h3>參考書目及網站<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>課程講義：<a class="reference external" href="https://wyhtsai.github.io/pyaos-wks/docs/index.html">https://wyhtsai.github.io/pyaos-wks/docs/index.html</a>.</p></li>
+<li><p>PyAOS官方網站：<a class="reference external" href="https://pyaos.github.io">https://pyaos.github.io</a>.</p></li>
+<li><p>xarray官方網站：<a class="reference external" href="https://xarray.pydata.org/en/stable/">https://xarray.pydata.org/en/stable/</a>.</p></li>
+<li><p>pandas官方網站：<a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a>.</p></li>
+<li><p>cartopy官方網站：<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a>.</p></li>
+<li><p>Dask官方網站：<a class="reference external" href="https://dask.org">https://dask.org</a>。</p></li>
+<li><p>Esmaili, R. B., 2021: Earth Observation using Python: A Practical Programming Guide. American Geophysical Union, 304 p.p., ISBN: 978-1-119-60688-8.</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>事前預備<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>請自備電腦！</p></li>
+<li><p>請從Google drive下載範例資料檔：<a class="reference external" href="https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing">https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing</a>.</p></li>
+<li><p>請於課堂開始前，按照「<a class="reference external" href="http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html">電腦環境設置與Python安裝</a>」單元設置Python運算環境。</p></li>
+<li><p>如果對Python的基本指令不熟悉，建議先閱讀 <a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/%E3%80%82(%E9%9D%9E%E5%BF%85%E9%9C%80)">https://kopu.chat/2017/01/18/一小時python入門-part-1/。(非必需)</a></p></li>
+</ul>
+<p><strong>Acknowledgement:</strong> The logo of the PyAOS workshop was designed and provided by Mr. Sianyun Wang.</p>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -731,18 +529,11 @@ Cartopy version: 0.20.1
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="00_syllabus.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">教學綱要（中文）</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="01_intro.html" title="next page">
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="00_setup.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">1. 導論</p>
+        <p class="prev-next-title">電腦環境設置與Python安裝</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
