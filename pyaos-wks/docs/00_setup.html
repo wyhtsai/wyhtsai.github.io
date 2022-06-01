@@ -129,7 +129,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03_plotting_basics.html">
-   3. 繪圖基礎：畫等值地圖
+   3. 繪製月平均地圖及輸出計算結果
   </a>
  </li>
  <li class="toctree-l1">
@@ -242,6 +242,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="A1_mjo_phase.html">
      馬登－朱利安震盪 (MJO) 氣候變異分析
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="A2_besttracks.html">
+     颱風資料庫與路徑繪製
     </a>
    </li>
   </ul>
@@ -533,136 +538,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xarray version: &#39;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">testing</span><span class="p">,</span> <span class="n">tutorial</span><span class="p">,</span> <span class="n">ufuncs</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.backends.api</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">load_dataarray</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">load_dataset</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">save_mfdataset</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.backends.rasterio_</span> <span class="kn">import</span> <span class="n">open_rasterio</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">testing</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Hashable</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Union</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">xarray.core</span> <span class="kn">import</span> <span class="n">duck_array_ops</span><span class="p">,</span> <span class="n">formatting</span><span class="p">,</span> <span class="n">utils</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">xarray.core.dataarray</span> <span class="kn">import</span> <span class="n">DataArray</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">xarray.core.dataset</span> <span class="kn">import</span> <span class="n">Dataset</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">duck_array_ops</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">take</span><span class="p">,</span> <span class="n">tensordot</span><span class="p">,</span> <span class="n">transpose</span><span class="p">,</span> <span class="n">unravel_index</span>  <span class="c1"># noqa</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">where</span> <span class="k">as</span> <span class="n">_where</span>
-<span class="ne">---&gt; </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">dask_array_compat</span><span class="p">,</span> <span class="n">dask_array_ops</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">,</span> <span class="n">npcompat</span><span class="p">,</span> <span class="n">nputils</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">.nputils</span> <span class="kn">import</span> <span class="n">nanfirst</span><span class="p">,</span> <span class="n">nanlast</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">.pycompat</span> <span class="kn">import</span> <span class="n">cupy_array_type</span><span class="p">,</span> <span class="n">dask_array_type</span><span class="p">,</span> <span class="n">is_duck_dask_array</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">dask_array_compat</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">packaging.version</span> <span class="kn">import</span> <span class="n">Version</span>
-<span class="ne">----&gt; </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">.pycompat</span> <span class="kn">import</span> <span class="n">dask_version</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="kn">import</span> <span class="nn">dask.array</span> <span class="k">as</span> <span class="nn">da</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">xarray</span><span class="o">/</span><span class="n">core</span><span class="o">/</span><span class="n">pycompat</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">duck_array_type</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span>         <span class="bp">self</span><span class="o">.</span><span class="n">available</span> <span class="o">=</span> <span class="n">duck_array_module</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">dsk</span> <span class="o">=</span> <span class="n">DuckArrayModule</span><span class="p">(</span><span class="s2">&quot;dask&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="n">dask_version</span> <span class="o">=</span> <span class="n">dsk</span><span class="o">.</span><span class="n">version</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="n">dask_array_type</span> <span class="o">=</span> <span class="n">dsk</span><span class="o">.</span><span class="n">type</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/xarray/core/pycompat.py:25,</span> in <span class="ni">DuckArrayModule.__init__</span><span class="nt">(self, mod)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="n">duck_array_version</span> <span class="o">=</span> <span class="n">Version</span><span class="p">(</span><span class="n">duck_array_module</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="k">if</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;dask&quot;</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">25</span>     <span class="n">duck_array_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">import_module</span><span class="p">(</span><span class="s2">&quot;dask.array&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Array</span><span class="p">,)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">elif</span> <span class="n">mod</span> <span class="o">==</span> <span class="s2">&quot;pint&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span>     <span class="n">duck_array_type</span> <span class="o">=</span> <span class="p">(</span><span class="n">duck_array_module</span><span class="o">.</span><span class="n">Quantity</span><span class="p">,)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/importlib/__init__.py:127,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
-<span class="g g-Whitespace">    </span><span class="mi">125</span>             <span class="k">break</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="ne">--&gt; </span><span class="mi">127</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">dask</span><span class="o">/</span><span class="n">array</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="kn">from</span> <span class="nn">dask.array</span> <span class="kn">import</span> <span class="n">backends</span><span class="p">,</span> <span class="n">fft</span><span class="p">,</span> <span class="n">lib</span><span class="p">,</span> <span class="n">linalg</span><span class="p">,</span> <span class="n">ma</span><span class="p">,</span> <span class="n">overlap</span><span class="p">,</span> <span class="n">random</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="kn">from</span> <span class="nn">dask.array.blockwise</span> <span class="kn">import</span> <span class="n">atop</span><span class="p">,</span> <span class="n">blockwise</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="kn">from</span> <span class="nn">dask.array.chunk_types</span> <span class="kn">import</span> <span class="n">register_chunk_type</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">dask</span><span class="o">/</span><span class="n">array</span><span class="o">/</span><span class="n">fft</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="kn">import</span> <span class="nn">scipy</span>
-<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="kn">import</span> <span class="nn">scipy.fftpack</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>     <span class="n">scipy</span> <span class="o">=</span> <span class="kc">None</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fftpack</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">94</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> =========================================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Legacy discrete Fourier transforms (:mod:`scipy.fftpack`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">78</span><span class="sd"> </span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fft&#39;</span><span class="p">,</span><span class="s1">&#39;ifft&#39;</span><span class="p">,</span><span class="s1">&#39;fftn&#39;</span><span class="p">,</span><span class="s1">&#39;ifftn&#39;</span><span class="p">,</span><span class="s1">&#39;rfft&#39;</span><span class="p">,</span><span class="s1">&#39;irfft&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span>            <span class="s1">&#39;fft2&#39;</span><span class="p">,</span><span class="s1">&#39;ifft2&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">84</span>            <span class="s1">&#39;diff&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>            <span class="s1">&#39;dct&#39;</span><span class="p">,</span> <span class="s1">&#39;idct&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;idst&#39;</span><span class="p">,</span> <span class="s1">&#39;dctn&#39;</span><span class="p">,</span> <span class="s1">&#39;idctn&#39;</span><span class="p">,</span> <span class="s1">&#39;dstn&#39;</span><span class="p">,</span> <span class="s1">&#39;idstn&#39;</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>            <span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">94</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="kn">from</span> <span class="nn">._pseudo_diffs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fftpack</span><span class="o">/</span><span class="n">_basic</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># Created by Pearu Peterson, August,September 2002</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fft&#39;</span><span class="p">,</span><span class="s1">&#39;ifft&#39;</span><span class="p">,</span><span class="s1">&#39;fftn&#39;</span><span class="p">,</span><span class="s1">&#39;ifftn&#39;</span><span class="p">,</span><span class="s1">&#39;rfft&#39;</span><span class="p">,</span><span class="s1">&#39;irfft&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>            <span class="s1">&#39;fft2&#39;</span><span class="p">,</span><span class="s1">&#39;ifft2&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">_pocketfft</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="n">_good_shape</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">overwrite_x</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fft</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">90</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="n">fft</span><span class="p">,</span> <span class="n">ifft</span><span class="p">,</span> <span class="n">fft2</span><span class="p">,</span> <span class="n">ifft2</span><span class="p">,</span> <span class="n">fftn</span><span class="p">,</span> <span class="n">ifftn</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">87</span>     <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span><span class="p">,</span> <span class="n">rfft2</span><span class="p">,</span> <span class="n">irfft2</span><span class="p">,</span> <span class="n">rfftn</span><span class="p">,</span> <span class="n">irfftn</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">88</span>     <span class="n">hfft</span><span class="p">,</span> <span class="n">ihfft</span><span class="p">,</span> <span class="n">hfft2</span><span class="p">,</span> <span class="n">ihfft2</span><span class="p">,</span> <span class="n">hfftn</span><span class="p">,</span> <span class="n">ihfftn</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">89</span> <span class="kn">from</span> <span class="nn">._realtransforms</span> <span class="kn">import</span> <span class="n">dct</span><span class="p">,</span> <span class="n">idct</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">idst</span><span class="p">,</span> <span class="n">dctn</span><span class="p">,</span> <span class="n">idctn</span><span class="p">,</span> <span class="n">dstn</span><span class="p">,</span> <span class="n">idstn</span>
-<span class="ne">---&gt; </span><span class="mi">90</span> <span class="kn">from</span> <span class="nn">._fftlog</span> <span class="kn">import</span> <span class="n">fht</span><span class="p">,</span> <span class="n">ifht</span><span class="p">,</span> <span class="n">fhtoffset</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span> <span class="kn">from</span> <span class="nn">._helper</span> <span class="kn">import</span> <span class="n">next_fast_len</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span> <span class="kn">from</span> <span class="nn">._backend</span> <span class="kn">import</span> <span class="p">(</span><span class="n">set_backend</span><span class="p">,</span> <span class="n">skip_backend</span><span class="p">,</span> <span class="n">set_global_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>                        <span class="n">register_backend</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">fft</span><span class="o">/</span><span class="n">_fftlog</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">warnings</span> <span class="kn">import</span> <span class="n">warn</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">._basic</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
-<span class="ne">---&gt; </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">..special</span> <span class="kn">import</span> <span class="n">loggamma</span><span class="p">,</span> <span class="n">poch</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="s1">&#39;fht&#39;</span><span class="p">,</span> <span class="s1">&#39;ifht&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s1">&#39;fhtoffset&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># constants</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">opt</span><span class="o">/</span><span class="n">anaconda3</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">p3</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.9</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">scipy</span><span class="o">/</span><span class="n">special</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">649</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span><span class="sd"> ========================================</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span><span class="sd"> Special functions (:mod:`scipy.special`)</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="kn">from</span> <span class="nn">._sf_error</span> <span class="kn">import</span> <span class="n">SpecialFunctionWarning</span><span class="p">,</span> <span class="n">SpecialFunctionError</span>
-<span class="ne">--&gt; </span><span class="mi">649</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_ufuncs</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span> <span class="kn">from</span> <span class="nn">._ufuncs</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_basic</span>
-
-<span class="nn">File &lt;frozen importlib._bootstrap&gt;:398,</span> in <span class="ni">parent</span><span class="nt">(self)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2022.3.0
 </pre></div>
 </div>
 </div>
@@ -693,9 +569,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 0.20.2
-Numpy version: 1.21.4
-Cartopy version: 0.20.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2022.3.0
+Numpy version: 1.22.4
+Cartopy version: 0.20.2
 </pre></div>
 </div>
 </div>
@@ -753,12 +629,12 @@ Cartopy version: 0.20.1
     <footer class="footer">
   <p>
     
-      通過 Wayne Yuan-Huai Tsai, National Taiwan University<br/>
+      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
     
         &copy; 版權 2021-2022.<br/>
       <div class="extra_footer">
         <p>
-Last updated: 2022-05-31
+Last updated: 2022-06-01
 </p>
       </div>
   </p>

@@ -131,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="03_plotting_basics.html">
-   3. 繪圖基礎：畫等值地圖
+   3. 繪製月平均地圖及輸出計算結果
   </a>
  </li>
  <li class="toctree-l1">
@@ -244,6 +244,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="A1_mjo_phase.html">
      馬登－朱利安震盪 (MJO) 氣候變異分析
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="A2_besttracks.html">
+     颱風資料庫與路徑繪製
     </a>
    </li>
   </ul>
@@ -613,11 +618,11 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -0.468037
-b   -0.042001
-c   -0.220150
-d    0.747003
-e   -0.848931
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.299374
+b    0.438508
+c   -0.418623
+d   -0.192593
+e   -0.031773
 dtype: float64
 </pre></div>
 </div>
@@ -666,33 +671,33 @@ dtype: float64
   <tbody>
     <tr>
       <th>a</th>
-      <td>-0.978108</td>
-      <td>-0.581842</td>
-      <td>0.453107</td>
+      <td>0.878241</td>
+      <td>0.229895</td>
+      <td>0.795705</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>-0.061030</td>
-      <td>-1.115599</td>
-      <td>0.173801</td>
+      <td>1.543705</td>
+      <td>0.325241</td>
+      <td>-0.668548</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>-1.218673</td>
-      <td>-0.381454</td>
-      <td>-1.150547</td>
+      <td>1.371754</td>
+      <td>-1.087727</td>
+      <td>-0.550877</td>
     </tr>
     <tr>
       <th>d</th>
-      <td>0.323320</td>
-      <td>-0.043676</td>
-      <td>1.287386</td>
+      <td>0.170757</td>
+      <td>-0.641503</td>
+      <td>2.423692</td>
     </tr>
     <tr>
       <th>e</th>
-      <td>0.684370</td>
-      <td>-0.001923</td>
-      <td>-0.549518</td>
+      <td>-1.029839</td>
+      <td>-0.491117</td>
+      <td>-1.268336</td>
     </tr>
   </tbody>
 </table>
@@ -739,73 +744,73 @@ dtype: float64
   <tbody>
     <tr>
       <th>1998</th>
-      <td>-1.020579</td>
-      <td>-1.318828</td>
-      <td>-0.434474</td>
-      <td>-1.001550</td>
+      <td>-0.163519</td>
+      <td>0.281946</td>
+      <td>0.419483</td>
+      <td>-1.455953</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>-0.608165</td>
-      <td>-0.553806</td>
-      <td>-1.292511</td>
-      <td>-0.965387</td>
+      <td>2.014355</td>
+      <td>0.694268</td>
+      <td>-1.761854</td>
+      <td>-1.462213</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>0.685142</td>
-      <td>-0.839441</td>
-      <td>0.146620</td>
-      <td>-0.839711</td>
+      <td>0.001537</td>
+      <td>-1.235572</td>
+      <td>1.579175</td>
+      <td>0.194796</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>0.535253</td>
-      <td>-0.343392</td>
-      <td>-1.885507</td>
-      <td>0.484412</td>
+      <td>0.323555</td>
+      <td>-0.786612</td>
+      <td>-1.478382</td>
+      <td>1.310916</td>
     </tr>
     <tr>
       <th>2002</th>
-      <td>0.079099</td>
-      <td>-0.674920</td>
-      <td>0.951334</td>
-      <td>-0.541315</td>
+      <td>0.667367</td>
+      <td>-1.024396</td>
+      <td>1.965292</td>
+      <td>-0.263125</td>
     </tr>
     <tr>
       <th>2003</th>
-      <td>-0.273906</td>
-      <td>-0.903857</td>
-      <td>1.412167</td>
-      <td>1.803764</td>
+      <td>0.129164</td>
+      <td>-1.983488</td>
+      <td>0.184152</td>
+      <td>-1.932389</td>
     </tr>
     <tr>
       <th>2004</th>
-      <td>-0.134000</td>
-      <td>-0.146648</td>
-      <td>0.150509</td>
-      <td>-0.177580</td>
+      <td>-0.445753</td>
+      <td>-1.664213</td>
+      <td>-1.016631</td>
+      <td>-0.134171</td>
     </tr>
     <tr>
       <th>2005</th>
-      <td>1.062970</td>
-      <td>-1.756916</td>
-      <td>-0.467824</td>
-      <td>-0.188087</td>
+      <td>-0.005496</td>
+      <td>0.001995</td>
+      <td>0.010785</td>
+      <td>-0.742052</td>
     </tr>
     <tr>
       <th>2006</th>
-      <td>0.220884</td>
-      <td>-0.383628</td>
-      <td>0.926710</td>
-      <td>-1.582019</td>
+      <td>0.421065</td>
+      <td>0.008427</td>
+      <td>-0.739000</td>
+      <td>0.245396</td>
     </tr>
     <tr>
       <th>2007</th>
-      <td>1.563885</td>
-      <td>0.489558</td>
-      <td>0.288019</td>
-      <td>0.681923</td>
+      <td>-0.379794</td>
+      <td>0.023509</td>
+      <td>-1.364303</td>
+      <td>-0.888770</td>
     </tr>
   </tbody>
 </table>
@@ -992,25 +997,25 @@ dtype: float64
       <th rowspan="5" valign="top">1</th>
       <th rowspan="2" valign="top">1</th>
       <th>Hindcast</th>
-      <td>0.378596</td>
+      <td>-0.678640</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>0.846571</td>
+      <td>1.129359</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">2</th>
       <th>Hindcast</th>
-      <td>1.756337</td>
+      <td>0.780785</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>0.601850</td>
+      <td>-0.267544</td>
     </tr>
     <tr>
       <th>3</th>
       <th>Hindcast</th>
-      <td>0.556617</td>
+      <td>0.999154</td>
     </tr>
   </tbody>
 </table>
@@ -4410,12 +4415,12 @@ Coordinates:
     <footer class="footer">
   <p>
     
-      通過 Wayne Yuan-Huai Tsai, National Taiwan University<br/>
+      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
     
         &copy; 版權 2021-2022.<br/>
       <div class="extra_footer">
         <p>
-Last updated: 2022-05-31
+Last updated: 2022-06-01
 </p>
       </div>
   </p>
