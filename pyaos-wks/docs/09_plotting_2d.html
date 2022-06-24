@@ -550,7 +550,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x1121a9d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x1126eed30&gt;
 </pre></div>
 </div>
 <img alt="_images/09_plotting_2d_1_1.png" src="_images/09_plotting_2d_1_1.png" />
@@ -568,7 +568,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x112222d00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x10d5de130&gt;
 </pre></div>
 </div>
 <img alt="_images/09_plotting_2d_3_1.png" src="_images/09_plotting_2d_3_1.png" />
@@ -626,18 +626,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">cmaps</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">clim_and_anml</span> <span class="k">as</span> <span class="nn">clm</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">lats</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">latn</span> <span class="o">=</span>  <span class="mi">30</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;clim_and_anml&#39;
-</pre></div>
-</div>
+<img alt="_images/09_plotting_2d_5_0.png" src="_images/09_plotting_2d_5_0.png" />
 </div>
 </div>
 <p>因此用Python繪圖有一個很重要的概念，就是繪圖空間<code class="docutils literal notranslate"><span class="pre">ax</span></code>有它自己的座標軸，資料本身也有自己的座標軸，兩者是不一樣的。因此在繪圖的transform引數中，就要告訴繪圖函數資料本身的座標軸為何，這樣才能根據資料和繪圖空間指定的座標軸進行座標轉換。在下一個範例中，我們將500-hPa高度場繪製在極投影地圖上，再說明一次這個觀念。</p>
@@ -675,23 +664,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:853: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for inter in intersection:
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_8_1.png" src="_images/09_plotting_2d_8_1.png" />
+<img alt="_images/09_plotting_2d_8_0.png" src="_images/09_plotting_2d_8_0.png" />
 </div>
 </div>
 <p>上面的作法必須畫整個半球，如果只想畫特定緯度範圍 (例如：20˚-90˚N)，可以參考下面的作法，是利用<code class="docutils literal notranslate"><span class="pre">ccrs.NorthPolarStereo()</span></code>，但處理邊界的問題較為複雜。</p>
@@ -732,22 +705,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
   warnings.warn(&#39;The .ylabels_right attribute is deprecated. Please &#39;
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:853: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for inter in intersection:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
 </pre></div>
 </div>
 <img alt="_images/09_plotting_2d_10_1.png" src="_images/09_plotting_2d_10_1.png" />
@@ -867,36 +826,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:848: ShapelyDeprecationWarning: __getitem__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  xy = np.append(intersection[0], intersection[-1],
-&lt;__array_function__ internals&gt;:5: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/numpy/lib/function_base.py:4817: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-  return concatenate((arr, values), axis=axis)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_18_1.png" src="_images/09_plotting_2d_18_1.png" />
+<img alt="_images/09_plotting_2d_18_0.png" src="_images/09_plotting_2d_18_0.png" />
 </div>
 </div>
 </div>
@@ -1289,17 +1219,17 @@ Coordinates:
     level    float32 850.0
 Data variables:
     uwnd     (lat, lon) float32 9.181 9.696 9.499 8.617 ... 4.067 4.576 5.064
-    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7d46e6a5-c119-418a-8160-3b968cbb60dc' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7d46e6a5-c119-418a-8160-3b968cbb60dc' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-0073062e-9222-496a-87a2-ac64749d8c75' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0073062e-9222-496a-87a2-ac64749d8c75' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-71f20818-4dcd-44ef-a170-e69a1e1c361b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71f20818-4dcd-44ef-a170-e69a1e1c361b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f623078-1a8a-4d15-aa7d-967dd2465fc3' class='xr-var-data-in' type='checkbox'><label for='data-5f623078-1a8a-4d15-aa7d-967dd2465fc3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
+    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1cbde621-7d4a-4404-bdb6-b35624615a72' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1cbde621-7d4a-4404-bdb6-b35624615a72' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-d473eb6f-eec6-4cf4-b936-3ae06f7f1055' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d473eb6f-eec6-4cf4-b936-3ae06f7f1055' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-085bb4ac-b930-4cb5-a974-f21178a10bbf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-085bb4ac-b930-4cb5-a974-f21178a10bbf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d7ff048e-678b-48b6-97fd-8a1a9f6e9c4d' class='xr-var-data-in' type='checkbox'><label for='data-d7ff048e-678b-48b6-97fd-8a1a9f6e9c4d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
         55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,  75. ,  77.5,
         80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5, 100. , 102.5,
        105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5, 125. , 127.5,
        130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5, 150. , 152.5,
        155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5, 175. , 177.5,
        180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5, 200. , 202.5,
-       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-583e0f0a-515e-4055-a311-96a585a02748' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-583e0f0a-515e-4055-a311-96a585a02748' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d0d7a6ab-0410-4c80-807a-1e3d9fd4fca9' class='xr-var-data-in' type='checkbox'><label for='data-d0d7a6ab-0410-4c80-807a-1e3d9fd4fca9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
+       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-8081e5d5-b002-4543-83e5-232ed24c6e30' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8081e5d5-b002-4543-83e5-232ed24c6e30' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96321ca7-b19f-4316-80b4-8c36ee33390e' class='xr-var-data-in' type='checkbox'><label for='data-96321ca7-b19f-4316-80b4-8c36ee33390e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
         20. ,  17.5,  15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,
         -5. ,  -7.5, -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5,
-       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-e28ce52c-af01-4156-950c-ed489ec10e71' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e28ce52c-af01-4156-950c-ed489ec10e71' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-04053e24-3f8e-4e6a-bb61-1f1b3a40af23' class='xr-var-data-in' type='checkbox'><label for='data-04053e24-3f8e-4e6a-bb61-1f1b3a40af23' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dfc4b9cd-4854-4418-91a1-db093e6f4dd0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-dfc4b9cd-4854-4418-91a1-db093e6f4dd0' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-9d586d7f-4a0b-443b-b76b-9a47001c0078' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9d586d7f-4a0b-443b-b76b-9a47001c0078' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0f57784b-d2a4-40df-ab3e-78bddcea6c91' class='xr-var-data-in' type='checkbox'><label for='data-0f57784b-d2a4-40df-ab3e-78bddcea6c91' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
+       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-f2cb8802-df94-4d74-95ae-48dccb4f3bab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2cb8802-df94-4d74-95ae-48dccb4f3bab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c466daa5-a19d-49ef-b592-c3aec63398b5' class='xr-var-data-in' type='checkbox'><label for='data-c466daa5-a19d-49ef-b592-c3aec63398b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9ed631a5-a403-4337-9445-1a6ca7d12c46' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9ed631a5-a403-4337-9445-1a6ca7d12c46' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-860c6185-5e4a-49bf-9514-bc232ad6b02d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-860c6185-5e4a-49bf-9514-bc232ad6b02d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-83ff743c-2b9d-4bdc-bd51-2601444a3911' class='xr-var-data-in' type='checkbox'><label for='data-83ff743c-2b9d-4bdc-bd51-2601444a3911' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
          6.7912884 ,  6.418386  ],
        [ 6.917741  ,  6.8645134 ,  6.2838697 , ...,  8.779029  ,
          7.800321  ,  7.0541925 ],
@@ -1311,7 +1241,7 @@ Data variables:
        [14.433544  , 14.42548   , 14.407093  , ...,  1.5222566 ,
          2.1535463 ,  2.7658052 ],
        [16.458708  , 16.649675  , 16.723223  , ...,  4.0667725 ,
-         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-e3571295-e0c2-4c8b-9c0b-66c98e7ffb9a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e3571295-e0c2-4c8b-9c0b-66c98e7ffb9a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dfe158ae-71ef-4b80-a145-f3be58e9e2a6' class='xr-var-data-in' type='checkbox'><label for='data-dfe158ae-71ef-4b80-a145-f3be58e9e2a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
+         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-f6648880-a4a5-4050-8d21-5e90c53a22a0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f6648880-a4a5-4050-8d21-5e90c53a22a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2cf66b2-71fe-42ff-ba29-d13f100fd1d6' class='xr-var-data-in' type='checkbox'><label for='data-a2cf66b2-71fe-42ff-ba29-d13f100fd1d6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
          6.5370936 ,  8.240643  ],
        [ 3.8196745 ,  4.480966  ,  4.487416  , ...,  3.0641913 ,
          5.598386  ,  7.5722566 ],
@@ -1323,7 +1253,7 @@ Data variables:
        [ 1.2238691 ,  1.3500007 ,  1.4132242 , ...,  1.9729018 ,
          1.3761266 ,  0.75645006],
        [ 1.6329001 ,  1.6435454 ,  1.5754813 , ...,  2.834838  ,
-         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0cf01391-aebf-4952-a35a-911d99685a4b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-0cf01391-aebf-4952-a35a-911d99685a4b' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-35fa69e8-1ab3-403e-a6e5-78f82f2b3ac1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-35fa69e8-1ab3-403e-a6e5-78f82f2b3ac1' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>我們先直接把風畫出來看看。</p>
 <div class="cell docutils container">
@@ -1336,7 +1266,7 @@ Data variables:
 <span class="n">wind_plt</span> <span class="o">=</span> <span class="n">wnd</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
                            <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
                             <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
-                            <span class="n">u</span><span class="o">=</span><span class="s1">&#39;uwnd&#39;</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="s1">&#39;vwnd&#39;</span><span class="p">,</span>
+                            <span class="n">u</span><span class="o">=</span><span class="s1">&#39;uwnd&#39;</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="s1">&#39;vwnd&#39;</span><span class="p">,</span> 
                             <span class="n">width</span><span class="o">=</span><span class="mf">0.0025</span> <span class="p">,</span><span class="n">headaxislength</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">headlength</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">headwidth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
                             <span class="n">scale</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
                             <span class="p">)</span>
@@ -1345,23 +1275,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_22_1.png" src="_images/09_plotting_2d_22_1.png" />
+<img alt="_images/09_plotting_2d_22_0.png" src="_images/09_plotting_2d_22_0.png" />
 </div>
 </div>
 <p>以上的圖，箭頭太密，都擠在一起。怎麼調整呢？風場可以每兩格經度和緯度選一次，這樣的話就只會畫在有選資料的網格上。</p>
@@ -1387,23 +1301,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_24_1.png" src="_images/09_plotting_2d_24_1.png" />
+<img alt="_images/09_plotting_2d_24_0.png" src="_images/09_plotting_2d_24_0.png" />
 </div>
 </div>
 <p>如果跟OLR疊在一起看：</p>
@@ -1430,6 +1328,7 @@ Data variables:
                            <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
                             <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
                             <span class="n">u</span><span class="o">=</span><span class="s1">&#39;uwnd&#39;</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="s1">&#39;vwnd&#39;</span><span class="p">,</span>
+                            <span class="n">add_guide</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
                             <span class="n">width</span><span class="o">=</span><span class="mf">0.0025</span> <span class="p">,</span><span class="n">headaxislength</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">headlength</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">headwidth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
                             <span class="n">scale</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
                             <span class="p">)</span>
@@ -1451,30 +1350,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:848: ShapelyDeprecationWarning: __getitem__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  xy = np.append(intersection[0], intersection[-1],
-&lt;__array_function__ internals&gt;:5: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/numpy/lib/function_base.py:4817: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-  return concatenate((arr, values), axis=axis)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_26_1.png" src="_images/09_plotting_2d_26_1.png" />
+<img alt="_images/09_plotting_2d_26_0.png" src="_images/09_plotting_2d_26_0.png" />
 </div>
 </div>
 <p>注意上圖<code class="docutils literal notranslate"><span class="pre">olrm.plot.contourf()</span></code>和<code class="docutils literal notranslate"><span class="pre">wnd.plot.quiver()</span></code>的<code class="docutils literal notranslate"><span class="pre">ax</span></code>引數都是<code class="docutils literal notranslate"><span class="pre">ax=ax</span></code>，表示這兩個圖共用一個子圖，所以可以將風場疊在OLR上。</p>
@@ -1482,7 +1358,7 @@ Data variables:
 <blockquote>
 <div><p>(method) quiverkey: (Q: Quiver, X: float, Y: float, U: float, label: str, **kw: Any) -&gt; QuiverKey</p>
 </div></blockquote>
-<p>也就是在<code class="docutils literal notranslate"><span class="pre">Q</span></code>指定要畫哪一張圖的風標，然後給定繪製風標的位置，以及風標的參考數值。</p>
+<p>也就是在<code class="docutils literal notranslate"><span class="pre">Q</span></code>指定要畫哪一張圖的風標，然後給定繪製風標的位置，以及風標的參考數值。在<code class="docutils literal notranslate"><span class="pre">wnd.plot.quiver()</span></code>函數中加上<code class="docutils literal notranslate"><span class="pre">add_guide=False</span></code>，可以去除xarray Quiverplot預設的參考風標。</p>
 </div>
 <div class="section" id="id5">
 <h2>繪製流線場<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
@@ -1524,36 +1400,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:848: ShapelyDeprecationWarning: __getitem__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  xy = np.append(intersection[0], intersection[-1],
-&lt;__array_function__ internals&gt;:5: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/numpy/lib/function_base.py:4817: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-  return concatenate((arr, values), axis=axis)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_29_1.png" src="_images/09_plotting_2d_29_1.png" />
+<img alt="_images/09_plotting_2d_29_0.png" src="_images/09_plotting_2d_29_0.png" />
 </div>
 </div>
 <div class="admonition caution">
@@ -1986,7 +1833,7 @@ Attributes:
     standard_name:  toa_outgoing_longwave_flux
     long_name:      NOAA Climate Data Record of Daily Mean Upward Longwave Fl...
     units:          W m-2
-    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-cbba643d-0720-4d33-9940-361007bc33e4' class='xr-array-in' type='checkbox' checked><label for='section-cbba643d-0720-4d33-9940-361007bc33e4' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
+    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3bfadd96-86fb-46f3-ad31-bade324c0dc4' class='xr-array-in' type='checkbox' checked><label for='section-3bfadd96-86fb-46f3-ad31-bade324c0dc4' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
          225.66814],
         [227.775  , 230.82764, 233.42639, ..., 229.67593, 228.94986,
          231.03325],
@@ -2026,10 +1873,10 @@ Attributes:
         [225.14436, 224.89417, 225.91891, ..., 212.57788, 215.19876,
          223.09372],
         [224.86201, 224.81381, 223.41829, ..., 202.36899, 208.63791,
-         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-ce3555ce-9555-4718-8673-0e33bfac42d1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ce3555ce-9555-4718-8673-0e33bfac42d1' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-adb2e070-0e5d-4765-9739-f562a7d827bd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-adb2e070-0e5d-4765-9739-f562a7d827bd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-94f31b67-9683-47da-84eb-23dd306057bb' class='xr-var-data-in' type='checkbox'><label for='data-94f31b67-9683-47da-84eb-23dd306057bb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
+         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-3949ab1a-68b1-46af-b0d8-e6a188534bd9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3949ab1a-68b1-46af-b0d8-e6a188534bd9' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-ca630c2f-90f3-495c-8d9d-88d61857e60d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ca630c2f-90f3-495c-8d9d-88d61857e60d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5e77a18-4eb2-4fa4-b7bc-87a686030930' class='xr-var-data-in' type='checkbox'><label for='data-d5e77a18-4eb2-4fa4-b7bc-87a686030930' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
        &#x27;2017-12-11T00:00:00.000000000&#x27;, &#x27;2017-12-16T00:00:00.000000000&#x27;,
        &#x27;2017-12-21T00:00:00.000000000&#x27;, &#x27;2017-12-26T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-2575c46b-42bc-48ce-8a55-4345507de104' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2575c46b-42bc-48ce-8a55-4345507de104' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fea0d995-6abf-4622-b39d-87cef44658ac' class='xr-var-data-in' type='checkbox'><label for='data-fea0d995-6abf-4622-b39d-87cef44658ac' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-9292de11-a4ea-4143-814c-8f1cac146d58' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9292de11-a4ea-4143-814c-8f1cac146d58' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d5e21d1-4375-45cb-93e1-dedcfe25f328' class='xr-var-data-in' type='checkbox'><label for='data-0d5e21d1-4375-45cb-93e1-dedcfe25f328' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
         40.5,  41.5,  42.5,  43.5,  44.5,  45.5,  46.5,  47.5,  48.5,  49.5,
         50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
         60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
@@ -2047,7 +1894,7 @@ Attributes:
        180.5, 181.5, 182.5, 183.5, 184.5, 185.5, 186.5, 187.5, 188.5, 189.5,
        190.5, 191.5, 192.5, 193.5, 194.5, 195.5, 196.5, 197.5, 198.5, 199.5,
        200.5, 201.5, 202.5, 203.5, 204.5, 205.5, 206.5, 207.5, 208.5, 209.5],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-71c66c50-5062-4016-a4f9-e92fe9ef05a8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71c66c50-5062-4016-a4f9-e92fe9ef05a8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-92e54a37-56b9-4a7a-ac7e-552ab5872545' class='xr-var-data-in' type='checkbox'><label for='data-92e54a37-56b9-4a7a-ac7e-552ab5872545' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-9bcce20a-7b8f-48d5-980c-4f77613ba5dd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9bcce20a-7b8f-48d5-980c-4f77613ba5dd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d056324-9090-4a04-b98b-850c919edc07' class='xr-var-data-in' type='checkbox'><label for='data-1d056324-9090-4a04-b98b-850c919edc07' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
        -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
        -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
        -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
@@ -2056,7 +1903,7 @@ Attributes:
         15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
         25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
         35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-978d5eed-fb21-41f9-aa9e-34bcf86c766d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-978d5eed-fb21-41f9-aa9e-34bcf86c766d' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0f89bbed-5dbc-48d2-893c-aa041aed5fe2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0f89bbed-5dbc-48d2-893c-aa041aed5fe2' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2071,15 +1918,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_33_1.png" src="_images/09_plotting_2d_33_1.png" />
+<img alt="_images/09_plotting_2d_33_0.png" src="_images/09_plotting_2d_33_0.png" />
 </div>
 </div>
 </div>
@@ -2146,6 +1985,7 @@ Attributes:
                                       <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">(),</span>
                                       <span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span>
                                       <span class="n">u</span><span class="o">=</span><span class="s1">&#39;uwnd&#39;</span><span class="p">,</span> <span class="n">v</span><span class="o">=</span><span class="s1">&#39;vwnd&#39;</span><span class="p">,</span>
+                                      <span class="n">add_guide</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                                       <span class="n">width</span><span class="o">=</span><span class="mf">0.0025</span> <span class="p">,</span><span class="n">headaxislength</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">headlength</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">headwidth</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
                                       <span class="n">scale</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span>
                                       <span class="p">)</span>
@@ -2175,30 +2015,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:825: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(multi_line_string) &gt; 1:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:877: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  for line in multi_line_string:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:944: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  if len(p_mline) &gt; 0:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:842: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  elif len(intersection) &gt; 4:
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:848: ShapelyDeprecationWarning: __getitem__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  xy = np.append(intersection[0], intersection[-1],
-&lt;__array_function__ internals&gt;:5: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/numpy/lib/function_base.py:4817: ShapelyDeprecationWarning: The array interface is deprecated and will no longer work in Shapely 2.0. Convert the &#39;.coords&#39; to a numpy array instead.
-  return concatenate((arr, values), axis=axis)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:836: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings = list(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: Iteration over multi-part geometries is deprecated and will be removed in Shapely 2.0. Use the `geoms` property to access the constituent parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/crs.py:982: ShapelyDeprecationWarning: __len__ for multi-part geometries is deprecated and will be removed in Shapely 2.0. Check the length of the `geoms` property instead to get the  number of parts of a multi-part geometry.
-  line_strings.extend(multi_line_string)
-</pre></div>
-</div>
-<img alt="_images/09_plotting_2d_40_1.png" src="_images/09_plotting_2d_40_1.png" />
+<img alt="_images/09_plotting_2d_40_0.png" src="_images/09_plotting_2d_40_0.png" />
 </div>
 </div>
 </div>
@@ -2271,7 +2088,7 @@ Attributes:
         &copy; 版權 2021-2022.<br/>
       <div class="extra_footer">
         <p>
-Last updated: 2022-06-18
+Last updated: 2022-06-24
 </p>
       </div>
   </p>
