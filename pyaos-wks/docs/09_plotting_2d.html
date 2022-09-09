@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>9.xarray繪圖 (2)：繪製2D資料 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -70,7 +69,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -79,9 +92,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,17 +110,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索這本書..." aria-label="搜索這本書..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
-   教學綱要（中文）
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_syllabus.html">
+                    教學綱要（中文）
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   xArray基本原理與操作
  </span>
@@ -124,7 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF資料
+   2. 讀取netCDF和GRIB資料
   </a>
  </li>
  <li class="toctree-l1">
@@ -259,107 +274,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="切換導航" aria-controls="site-navigation"
-                title="切換導航" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下載此頁面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/09_plotting_2d.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源庫"><i
-                    class="fab fa-github"></i>資料庫</button></a>
-        <a class="issues-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F09_plotting_2d.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/09_plotting_2d.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 內容
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/09_plotting_2d.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F09_plotting_2d.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/09_plotting_2d.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#id1">
    全球或跨越180經度線的區域地圖
@@ -431,12 +548,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>9.xarray繪圖 (2)：繪製2D資料</h1>
@@ -445,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div id="jb-print-toc">
                         
                         <div>
-                            <h2> 內容 </h2>
+                            <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
@@ -524,13 +640,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="xarray-2-2d">
-<h1>9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料<a class="headerlink" href="#xarray-2-2d" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="id1">
-<h2>全球或跨越180經度線的區域地圖<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="xarray-2-2d">
+<h1>9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料<a class="headerlink" href="#xarray-2-2d" title="Permalink to this headline">#</a></h1>
+<section id="id1">
+<h2>全球或跨越180經度線的區域地圖<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <p>雖然在前面已經介紹過<code class="docutils literal notranslate"><span class="pre">cartopy</span></code>的用法，但由於<code class="docutils literal notranslate"><span class="pre">cartopy</span></code>繪製全球地圖時，中線預設為0度，原則上繪圖的範圍必須限縮在-180至180度 (詳細可以參考<a class="reference external" href="https://stackoverflow.com/questions/13856123/setting-up-a-map-which-crosses-the-dateline-in-cartopy#_=_">StackOverflow的說明</a>)。因此在不額外設定其他參數的話，繪製出的全球地圖如以下範例所示：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,7 +667,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x1126eed30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x116d12260&gt;
 </pre></div>
 </div>
 <img alt="_images/09_plotting_2d_1_1.png" src="_images/09_plotting_2d_1_1.png" />
@@ -568,7 +685,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x10d5de130&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x165bedd80&gt;
 </pre></div>
 </div>
 <img alt="_images/09_plotting_2d_3_1.png" src="_images/09_plotting_2d_3_1.png" />
@@ -630,9 +747,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>因此用Python繪圖有一個很重要的概念，就是繪圖空間<code class="docutils literal notranslate"><span class="pre">ax</span></code>有它自己的座標軸，資料本身也有自己的座標軸，兩者是不一樣的。因此在繪圖的transform引數中，就要告訴繪圖函數資料本身的座標軸為何，這樣才能根據資料和繪圖空間指定的座標軸進行座標轉換。在下一個範例中，我們將500-hPa高度場繪製在極投影地圖上，再說明一次這個觀念。</p>
-</div>
-<div class="section" id="id2">
-<h2>其他地圖投影<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id2">
+<h2>其他地圖投影<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <p>在以上的範例中，我們使用了 <code class="docutils literal notranslate"><span class="pre">ccrs.PlateCarree()</span></code>，代表等距長方投影。Cartopy還提供了其他投影的方式，詳見<a class="reference external" href="https://scitools.org.uk/cartopy/docs/v0.15/crs/projections.html">Cartopy projection list</a>。</p>
 <p><strong>Example 1:</strong> 繪製2017/12月平均500-hPa高度場的極投影 (利用<code class="docutils literal notranslate"><span class="pre">ccrs.Orthographic</span></code>)。</p>
 <div class="cell docutils container">
@@ -705,7 +822,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.9/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
   warnings.warn(&#39;The .ylabels_right attribute is deprecated. Please &#39;
 </pre></div>
 </div>
@@ -713,9 +830,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>再說明一次，在繪製zm的函數中有兩個地方給定了投影方法，一個是subplot_kws (繪圖空間的keyword argument)，一個是transform引數，這是因為在Python的繪圖邏輯中，繪圖空間ax的座標軸和資料本身的座標軸是不一樣的，因此必須要分開給定並且用transform引數做轉換。zm資料是正交方格，解析度是固定的，因此設定資料的座標是<code class="docutils literal notranslate"><span class="pre">transform=ccrs.PlateCarree()</span></code>；而繪圖空間是極投影，所以設定<code class="docutils literal notranslate"><span class="pre">subplot_kws=dict(projection=proj)</span></code>。如此一來，Python就知道如何將資料轉換成適當的座標上。</p>
-</div>
-<div class="section" id="hovmoller-diagram">
-<h2>繪製Hovmöller Diagram<a class="headerlink" href="#hovmoller-diagram" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="hovmoller-diagram">
+<h2>繪製Hovmöller Diagram<a class="headerlink" href="#hovmoller-diagram" title="Permalink to this headline">#</a></h2>
 <p>設定y軸為時間、x軸為經度 (或x軸為時間、y軸為緯度)，就可以繪製出Hovmöller diagram。若y軸時間演進的順序要改為由上到下，則在繪圖時加入<code class="docutils literal notranslate"><span class="pre">yincrease=False</span></code>。</p>
 <p><strong>Example 2:</strong> 繪製2017年12月5˚S-5˚N平均的逐日Hovmöller diagram。</p>
 <div class="cell docutils container">
@@ -761,9 +878,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Note</p>
 <p>Hovmöller Diagram 不需要用<code class="docutils literal notranslate"><span class="pre">cartopy</span></code> 畫地圖，所以跨越180度不需要特別的設定。</p>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>繪製等值線圖與疊圖<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id3">
+<h2>繪製等值線圖與疊圖<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>繪製等值線圖使用的方法是<code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot.contour()</span></code>，和畫等值色圖的方法是一樣的。</p>
 <p><strong>Example 3:</strong> 繪製2021年1月CMORPH降雨和MSLP的月平均，其中降雨以shading表示，MSLP以等值線表示。</p>
 <p>Step 1: 準備資料。</p>
@@ -829,9 +946,9 @@ const thebe_selector_output = ".output, .cell_output"
 <img alt="_images/09_plotting_2d_18_0.png" src="_images/09_plotting_2d_18_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>繪製風場與疊圖<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id4">
+<h2>繪製風場與疊圖<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <p>風場屬於多變數資料(U、V)，所以必須將這兩個變數合併成一個Dataset，才能使用<code class="docutils literal notranslate"><span class="pre">xarray.Dataset.plot.quiver()</span></code>的方法函數。而將兩個DataArray合併成一個Dataset，要利用<code class="docutils literal notranslate"><span class="pre">xarray.merge()</span></code>。</p>
 <p><strong>Example 4:</strong> 畫2017年12月OLR和850-hPa水平風場的月平均，其中OLR以等值色圖表示，風場以箭頭向量表示。</p>
 <div class="cell docutils container">
@@ -891,6 +1008,7 @@ const thebe_selector_output = ".output, .cell_output"
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1219,17 +1337,17 @@ Coordinates:
     level    float32 850.0
 Data variables:
     uwnd     (lat, lon) float32 9.181 9.696 9.499 8.617 ... 4.067 4.576 5.064
-    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1cbde621-7d4a-4404-bdb6-b35624615a72' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1cbde621-7d4a-4404-bdb6-b35624615a72' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-d473eb6f-eec6-4cf4-b936-3ae06f7f1055' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d473eb6f-eec6-4cf4-b936-3ae06f7f1055' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-085bb4ac-b930-4cb5-a974-f21178a10bbf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-085bb4ac-b930-4cb5-a974-f21178a10bbf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d7ff048e-678b-48b6-97fd-8a1a9f6e9c4d' class='xr-var-data-in' type='checkbox'><label for='data-d7ff048e-678b-48b6-97fd-8a1a9f6e9c4d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
+    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-71aa1e5b-c66b-444a-948c-f83b85a31840' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-71aa1e5b-c66b-444a-948c-f83b85a31840' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-4a4c6b63-864f-4e69-ba2f-5b7fb6a9c9a2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4a4c6b63-864f-4e69-ba2f-5b7fb6a9c9a2' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-82823191-440a-422a-a12c-bb115083fae8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82823191-440a-422a-a12c-bb115083fae8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-726356c6-7ee2-4709-9702-9c9c7d79e259' class='xr-var-data-in' type='checkbox'><label for='data-726356c6-7ee2-4709-9702-9c9c7d79e259' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
         55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,  75. ,  77.5,
         80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5, 100. , 102.5,
        105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5, 125. , 127.5,
        130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5, 150. , 152.5,
        155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5, 175. , 177.5,
        180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5, 200. , 202.5,
-       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-8081e5d5-b002-4543-83e5-232ed24c6e30' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8081e5d5-b002-4543-83e5-232ed24c6e30' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96321ca7-b19f-4316-80b4-8c36ee33390e' class='xr-var-data-in' type='checkbox'><label for='data-96321ca7-b19f-4316-80b4-8c36ee33390e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
+       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-e7a99e90-0b65-4095-b586-e7cd88bb887a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e7a99e90-0b65-4095-b586-e7cd88bb887a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-707e6392-cea7-43f0-a585-3cd5687f0fba' class='xr-var-data-in' type='checkbox'><label for='data-707e6392-cea7-43f0-a585-3cd5687f0fba' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
         20. ,  17.5,  15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,
         -5. ,  -7.5, -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5,
-       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-f2cb8802-df94-4d74-95ae-48dccb4f3bab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2cb8802-df94-4d74-95ae-48dccb4f3bab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c466daa5-a19d-49ef-b592-c3aec63398b5' class='xr-var-data-in' type='checkbox'><label for='data-c466daa5-a19d-49ef-b592-c3aec63398b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9ed631a5-a403-4337-9445-1a6ca7d12c46' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9ed631a5-a403-4337-9445-1a6ca7d12c46' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-860c6185-5e4a-49bf-9514-bc232ad6b02d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-860c6185-5e4a-49bf-9514-bc232ad6b02d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-83ff743c-2b9d-4bdc-bd51-2601444a3911' class='xr-var-data-in' type='checkbox'><label for='data-83ff743c-2b9d-4bdc-bd51-2601444a3911' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
+       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-a6e74c85-1364-4c43-95b7-541d180fc846' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a6e74c85-1364-4c43-95b7-541d180fc846' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8c74d568-6dff-4398-8335-e380c909a133' class='xr-var-data-in' type='checkbox'><label for='data-8c74d568-6dff-4398-8335-e380c909a133' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e922444c-647c-4280-b4a2-ac925ed70f82' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e922444c-647c-4280-b4a2-ac925ed70f82' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-e3675aec-53c6-434e-8109-25a5d157b360' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e3675aec-53c6-434e-8109-25a5d157b360' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c5e42f77-ac67-421e-ab90-132d77ba4dbc' class='xr-var-data-in' type='checkbox'><label for='data-c5e42f77-ac67-421e-ab90-132d77ba4dbc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
          6.7912884 ,  6.418386  ],
        [ 6.917741  ,  6.8645134 ,  6.2838697 , ...,  8.779029  ,
          7.800321  ,  7.0541925 ],
@@ -1241,7 +1359,7 @@ Data variables:
        [14.433544  , 14.42548   , 14.407093  , ...,  1.5222566 ,
          2.1535463 ,  2.7658052 ],
        [16.458708  , 16.649675  , 16.723223  , ...,  4.0667725 ,
-         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-f6648880-a4a5-4050-8d21-5e90c53a22a0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f6648880-a4a5-4050-8d21-5e90c53a22a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2cf66b2-71fe-42ff-ba29-d13f100fd1d6' class='xr-var-data-in' type='checkbox'><label for='data-a2cf66b2-71fe-42ff-ba29-d13f100fd1d6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
+         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-b4389243-f6da-4cc7-a1bc-244e98fff408' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b4389243-f6da-4cc7-a1bc-244e98fff408' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dc88cf01-2c86-41df-972e-94d660f12dce' class='xr-var-data-in' type='checkbox'><label for='data-dc88cf01-2c86-41df-972e-94d660f12dce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
          6.5370936 ,  8.240643  ],
        [ 3.8196745 ,  4.480966  ,  4.487416  , ...,  3.0641913 ,
          5.598386  ,  7.5722566 ],
@@ -1253,7 +1371,7 @@ Data variables:
        [ 1.2238691 ,  1.3500007 ,  1.4132242 , ...,  1.9729018 ,
          1.3761266 ,  0.75645006],
        [ 1.6329001 ,  1.6435454 ,  1.5754813 , ...,  2.834838  ,
-         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-35fa69e8-1ab3-403e-a6e5-78f82f2b3ac1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-35fa69e8-1ab3-403e-a6e5-78f82f2b3ac1' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-472199a4-8c6e-4a9a-a6d7-d4751b295a1a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-472199a4-8c6e-4a9a-a6d7-d4751b295a1a' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>我們先直接把風畫出來看看。</p>
 <div class="cell docutils container">
@@ -1359,9 +1477,9 @@ Data variables:
 <div><p>(method) quiverkey: (Q: Quiver, X: float, Y: float, U: float, label: str, **kw: Any) -&gt; QuiverKey</p>
 </div></blockquote>
 <p>也就是在<code class="docutils literal notranslate"><span class="pre">Q</span></code>指定要畫哪一張圖的風標，然後給定繪製風標的位置，以及風標的參考數值。在<code class="docutils literal notranslate"><span class="pre">wnd.plot.quiver()</span></code>函數中加上<code class="docutils literal notranslate"><span class="pre">add_guide=False</span></code>，可以去除xarray Quiverplot預設的參考風標。</p>
-</div>
-<div class="section" id="id5">
-<h2>繪製流線場<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="id5">
+<h2>繪製流線場<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
 <p>方法基本上跟畫風場一模一樣，只是將<code class="docutils literal notranslate"><span class="pre">plot.quiver()</span></code>改為<code class="docutils literal notranslate"><span class="pre">plot.streamplot()</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1411,12 +1529,12 @@ Data variables:
 </div></blockquote>
 <p>因此畫streamplot時必須要把資料整理成經度由西向東、緯度由南向北排列的順序。如果緯度軸顛倒過來了，可以加上<code class="docutils literal notranslate"><span class="pre">da</span> <span class="pre">=</span> <span class="pre">da[:,::-1,:]</span></code>來重新排列緯度軸的順序 (如果第1個axis是緯度時)，其中<code class="docutils literal notranslate"><span class="pre">::-1</span></code>表示頭尾值相同，但間隔為-1。只有streamplot需要注意這點！</p>
 </div>
-</div>
-<div class="section" id="panel-plots-facet-grid">
-<h2>多格子圖 (Panel Plots/Facet Grid)<a class="headerlink" href="#panel-plots-facet-grid" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="panel-plots-facet-grid">
+<h2>多格子圖 (Panel Plots/Facet Grid)<a class="headerlink" href="#panel-plots-facet-grid" title="Permalink to this headline">#</a></h2>
 <p><strong>Example 5:</strong> 繪製2017年12月的候 (pentad) 平均OLR和850-hPa風場，畫成2欄 (columns) 3列 (rows) 共6個子圖，其中排列順序由上到下、再從左到右。</p>
-<div class="section" id="xarrayplot-facetgrid">
-<h3>使用<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的<code class="docutils literal notranslate"><span class="pre">plot.FacetGrid</span></code>函數<a class="headerlink" href="#xarrayplot-facetgrid" title="Permalink to this headline">¶</a></h3>
+<section id="xarrayplot-facetgrid">
+<h3>使用<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的<code class="docutils literal notranslate"><span class="pre">plot.FacetGrid</span></code>函數<a class="headerlink" href="#xarrayplot-facetgrid" title="Permalink to this headline">#</a></h3>
 <p>在以上的單元已經學過如何利用xarray畫2維的地圖，但如果資料是3維，也就是多包含了時間軸，利用xarray畫圖函數的Faceting方法可以直接一次畫多格的圖。以等值圖為例，<code class="docutils literal notranslate"><span class="pre">xarray.plot.contourf()</span></code>的<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>中有</p>
 <ul class="simple">
 <li><p>row (string, optional) – If passed, make row faceted plots on this dimension name.</p></li>
@@ -1463,6 +1581,7 @@ Data variables:
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1833,7 +1952,7 @@ Attributes:
     standard_name:  toa_outgoing_longwave_flux
     long_name:      NOAA Climate Data Record of Daily Mean Upward Longwave Fl...
     units:          W m-2
-    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-3bfadd96-86fb-46f3-ad31-bade324c0dc4' class='xr-array-in' type='checkbox' checked><label for='section-3bfadd96-86fb-46f3-ad31-bade324c0dc4' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
+    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c1f6777f-c4b5-4c5e-bcee-92d17a2c700b' class='xr-array-in' type='checkbox' checked><label for='section-c1f6777f-c4b5-4c5e-bcee-92d17a2c700b' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
          225.66814],
         [227.775  , 230.82764, 233.42639, ..., 229.67593, 228.94986,
          231.03325],
@@ -1873,10 +1992,10 @@ Attributes:
         [225.14436, 224.89417, 225.91891, ..., 212.57788, 215.19876,
          223.09372],
         [224.86201, 224.81381, 223.41829, ..., 202.36899, 208.63791,
-         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-3949ab1a-68b1-46af-b0d8-e6a188534bd9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3949ab1a-68b1-46af-b0d8-e6a188534bd9' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-ca630c2f-90f3-495c-8d9d-88d61857e60d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ca630c2f-90f3-495c-8d9d-88d61857e60d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5e77a18-4eb2-4fa4-b7bc-87a686030930' class='xr-var-data-in' type='checkbox'><label for='data-d5e77a18-4eb2-4fa4-b7bc-87a686030930' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
+         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-185207ee-78ca-40a9-9569-175ab3006f3f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-185207ee-78ca-40a9-9569-175ab3006f3f' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-e987d85e-e4b4-4111-a283-aa298cdcdbe6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e987d85e-e4b4-4111-a283-aa298cdcdbe6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ab688edf-ba6d-4cd2-9926-71909a8a8bfc' class='xr-var-data-in' type='checkbox'><label for='data-ab688edf-ba6d-4cd2-9926-71909a8a8bfc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
        &#x27;2017-12-11T00:00:00.000000000&#x27;, &#x27;2017-12-16T00:00:00.000000000&#x27;,
        &#x27;2017-12-21T00:00:00.000000000&#x27;, &#x27;2017-12-26T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-9292de11-a4ea-4143-814c-8f1cac146d58' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9292de11-a4ea-4143-814c-8f1cac146d58' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0d5e21d1-4375-45cb-93e1-dedcfe25f328' class='xr-var-data-in' type='checkbox'><label for='data-0d5e21d1-4375-45cb-93e1-dedcfe25f328' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-a3c57422-d6d0-44c5-8723-c5090bae5709' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a3c57422-d6d0-44c5-8723-c5090bae5709' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-db85894b-6be5-45df-8323-ff96a7ccac7f' class='xr-var-data-in' type='checkbox'><label for='data-db85894b-6be5-45df-8323-ff96a7ccac7f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
         40.5,  41.5,  42.5,  43.5,  44.5,  45.5,  46.5,  47.5,  48.5,  49.5,
         50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
         60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
@@ -1894,7 +2013,7 @@ Attributes:
        180.5, 181.5, 182.5, 183.5, 184.5, 185.5, 186.5, 187.5, 188.5, 189.5,
        190.5, 191.5, 192.5, 193.5, 194.5, 195.5, 196.5, 197.5, 198.5, 199.5,
        200.5, 201.5, 202.5, 203.5, 204.5, 205.5, 206.5, 207.5, 208.5, 209.5],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-9bcce20a-7b8f-48d5-980c-4f77613ba5dd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9bcce20a-7b8f-48d5-980c-4f77613ba5dd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d056324-9090-4a04-b98b-850c919edc07' class='xr-var-data-in' type='checkbox'><label for='data-1d056324-9090-4a04-b98b-850c919edc07' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-74d3e81a-4f7e-4b42-8005-cfacdb8ca843' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-74d3e81a-4f7e-4b42-8005-cfacdb8ca843' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-750f9a34-911e-4b0e-a5ae-5982eb5d0985' class='xr-var-data-in' type='checkbox'><label for='data-750f9a34-911e-4b0e-a5ae-5982eb5d0985' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
        -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
        -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
        -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
@@ -1903,7 +2022,7 @@ Attributes:
         15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
         25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
         35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0f89bbed-5dbc-48d2-893c-aa041aed5fe2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0f89bbed-5dbc-48d2-893c-aa041aed5fe2' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3966c5c1-fdd0-4edb-88a0-0ce1e1365cfd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3966c5c1-fdd0-4edb-88a0-0ce1e1365cfd' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1921,9 +2040,9 @@ Attributes:
 <img alt="_images/09_plotting_2d_33_0.png" src="_images/09_plotting_2d_33_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="axes">
-<h3>展開並操控子圖<code class="docutils literal notranslate"><span class="pre">axes</span></code><a class="headerlink" href="#axes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="axes">
+<h3>展開並操控子圖<code class="docutils literal notranslate"><span class="pre">axes</span></code><a class="headerlink" href="#axes" title="Permalink to this headline">#</a></h3>
 <p>以上的圖有一些問題。</p>
 <ol>
 <li><p>Color bar: FacetGrid有方法函數<code class="docutils literal notranslate"><span class="pre">add_colorbar()</span></code>。</p></li>
@@ -2018,10 +2137,10 @@ Attributes:
 <img alt="_images/09_plotting_2d_40_0.png" src="_images/09_plotting_2d_40_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="homework-2">
-<h2>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="homework-2">
+<h2>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this headline">#</a></h2>
 <div class="seealso admonition">
 <p class="admonition-title">Homework #2</p>
 <p>(三選一)</p>
@@ -2034,8 +2153,8 @@ Attributes:
 <p>請將程式碼以及結果的繪圖一同繳交至Google Classroom，其中圖需包含圖需包簡要圖說，介紹圖的內容。
 繳交位置：<a class="reference external" href="https://classroom.google.com/c/NDUwNDY0OTY5NDc5?cjc=hv5ndug">Google Classroom</a></p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2059,9 +2178,11 @@ Attributes:
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="08_plotting_1d.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -2077,29 +2198,33 @@ Attributes:
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-    
-        &copy; 版權 2021-2022.<br/>
-      <div class="extra_footer">
-        <p>
-Last updated: 2022-07-15
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      <p>
+Last updated: 2022-09-09
 </p>
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

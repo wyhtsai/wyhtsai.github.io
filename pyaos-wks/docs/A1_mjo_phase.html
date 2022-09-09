@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>馬登－朱利安震盪 (MJO) 氣候變異分析 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,18 +37,21 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="颱風資料庫與路徑繪製" href="A2_besttracks.html" />
@@ -70,7 +71,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -79,9 +94,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,17 +112,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索這本書..." aria-label="搜索這本書..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
-   教學綱要（中文）
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_syllabus.html">
+                    教學綱要（中文）
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   xArray基本原理與操作
  </span>
@@ -124,7 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF資料
+   2. 讀取netCDF和GRIB資料
   </a>
  </li>
  <li class="toctree-l1">
@@ -259,120 +276,243 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="切換導航" aria-controls="site-navigation"
-                title="切換導航" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下載此頁面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/A1_mjo_phase.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源庫"><i
-                    class="fab fa-github"></i>資料庫</button></a>
-        <a class="issues-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA1_mjo_phase.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/A1_mjo_phase.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 內容
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/A1_mjo_phase.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA1_mjo_phase.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/A1_mjo_phase.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#mjo-phase-diagram">
    MJO相位圖 (Phase diagram)
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mjo-composite">
+   MJO各相位的合成 (Composite) 分析
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test">
+     T test 簡介
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stats-ttest">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       stats.ttest
+      </span>
+     </code>
+     用法
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>馬登－朱利安震盪 (MJO) 氣候變異分析</h1>
@@ -381,7 +521,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div id="jb-print-toc">
                         
                         <div>
-                            <h2> 內容 </h2>
+                            <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
@@ -390,19 +530,42 @@ const thebe_selector_output = ".output, .cell_output"
    MJO相位圖 (Phase diagram)
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mjo-composite">
+   MJO各相位的合成 (Composite) 分析
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test">
+     T test 簡介
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stats-ttest">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       stats.ttest
+      </span>
+     </code>
+     用法
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 
                         </nav>
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="mjo">
-<h1>馬登－朱利安震盪 (MJO) 氣候變異分析<a class="headerlink" href="#mjo" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="mjo-phase-diagram">
-<h2>MJO相位圖 (Phase diagram)<a class="headerlink" href="#mjo-phase-diagram" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="mjo">
+<h1>馬登－朱利安震盪 (MJO) 氣候變異分析<a class="headerlink" href="#mjo" title="Permalink to this headline">#</a></h1>
+<section id="mjo-phase-diagram">
+<h2>MJO相位圖 (Phase diagram)<a class="headerlink" href="#mjo-phase-diagram" title="Permalink to this headline">#</a></h2>
 <p>先自己寫一個函數，繪製MJO相位圖的背景。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -479,6 +642,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
@@ -494,10 +658,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_WORD, expecting &#39;;&#39; or &#39;,&#39;
-context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1653955200; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; Int32 expires 1653955200; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;;}}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_STRING, expecting &#39;;&#39; or &#39;,&#39;
+context: Attributes { T { String calendar &quot;standard&quot;; Int32 expires 1662595200; String standard_name &quot;time&quot;; Float32 pointwidth 1.0; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;; String Conventions &quot;IRIDL&quot;; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; Int32 expires 1662595200;}}
 Illegal attribute
-context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1653955200; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1653955200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; Int32 expires 1653955200; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;;}}
+context: Attributes { T { String calendar &quot;standard&quot;; Int32 expires 1662595200; String standard_name &quot;time&quot;; Float32 pointwidth 1.0; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;; String Conventions &quot;IRIDL&quot;; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; Int32 expires 1662595200;}}
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -531,6 +695,7 @@ context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwi
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -852,20 +1017,20 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (T: 17530)
+Dimensions:    (T: 17630)
 Coordinates:
-  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2022-05-29
+  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2022-09-06
 Data variables:
-    amplitude  (T) float32 2.029 1.897 1.865 1.831 ... 0.7658 1.23 1.384 1.909
-    phase      (T) float32 5.0 5.0 5.0 5.0 5.0 6.0 ... 2.0 6.0 5.0 6.0 6.0 6.0
-    RMM1       (T) float32 1.634 1.603 1.516 1.51 ... 0.7107 0.4027 0.1452
-    RMM2       (T) float32 1.203 1.015 1.086 1.036 ... 0.4896 1.004 1.324 1.904</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ea68f843-c6da-45da-915c-422fac3b2b66' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ea68f843-c6da-45da-915c-422fac3b2b66' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 17530</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-832521ac-fba8-4a88-8844-2047b0ec6258' class='xr-section-summary-in' type='checkbox'  checked><label for='section-832521ac-fba8-4a88-8844-2047b0ec6258' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2022-05-29</div><input id='attrs-27c3b578-079f-403c-930b-ea87caf61478' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-27c3b578-079f-403c-930b-ea87caf61478' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-19cc8862-311a-42d8-841e-7ae0229efb4c' class='xr-var-data-in' type='checkbox'><label for='data-19cc8862-311a-42d8-841e-7ae0229efb4c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
-       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2022-05-27T00:00:00.000000000&#x27;,
-       &#x27;2022-05-28T00:00:00.000000000&#x27;, &#x27;2022-05-29T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2f74015d-dc42-4654-9f07-2fa1c5913326' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2f74015d-dc42-4654-9f07-2fa1c5913326' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-44208e8f-7552-46db-8e91-2cf828a1562d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-44208e8f-7552-46db-8e91-2cf828a1562d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32457c6f-5d05-40b4-a6f9-66f91821ad4b' class='xr-var-data-in' type='checkbox'><label for='data-32457c6f-5d05-40b4-a6f9-66f91821ad4b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([2.02948 , 1.89729 , 1.86476 , ..., 1.230325, 1.383728, 1.90915 ],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8f4b1cd5-0cad-4555-bce7-917149f8ee1d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8f4b1cd5-0cad-4555-bce7-917149f8ee1d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-10218e09-1f38-4491-b864-906a3973a6cf' class='xr-var-data-in' type='checkbox'><label for='data-10218e09-1f38-4491-b864-906a3973a6cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([5., 5., 5., ..., 6., 6., 6.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-75308a6d-4c00-4942-aa1c-d40d57273c79' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-75308a6d-4c00-4942-aa1c-d40d57273c79' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fa30ea3f-aaf7-433a-b513-f79a51d9b373' class='xr-var-data-in' type='checkbox'><label for='data-fa30ea3f-aaf7-433a-b513-f79a51d9b373' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.63447 , 1.60289 , 1.51625 , ..., 0.710661, 0.402741, 0.145214],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-60479938-f2a8-4025-a188-03ba26c28762' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-60479938-f2a8-4025-a188-03ba26c28762' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fdecf15f-ca3a-446f-99d3-6018976c3d25' class='xr-var-data-in' type='checkbox'><label for='data-fdecf15f-ca3a-446f-99d3-6018976c3d25' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.20304 , 1.01512 , 1.08551 , ..., 1.004321, 1.323822, 1.90362 ],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2653fe17-ca52-4d02-9f04-79d9ab89a7d7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2653fe17-ca52-4d02-9f04-79d9ab89a7d7' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+    amplitude  (T) float32 2.029 1.897 1.865 1.831 ... 0.5847 0.3126 0.4547
+    phase      (T) float32 5.0 5.0 5.0 5.0 5.0 6.0 ... 3.0 3.0 4.0 4.0 4.0 4.0
+    RMM1       (T) float32 1.634 1.603 1.516 1.51 ... 0.5462 0.2761 0.3712
+    RMM2       (T) float32 1.203 1.015 1.086 1.036 ... -0.2087 -0.1466 -0.2627</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9ccf0663-5881-414c-8e63-503e3fa39e14' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ccf0663-5881-414c-8e63-503e3fa39e14' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 17630</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-2ef15f1f-e7ef-486e-97c0-6397d1c354c4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2ef15f1f-e7ef-486e-97c0-6397d1c354c4' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2022-09-06</div><input id='attrs-534c7d51-960c-4fb5-ba51-be23b820b1f3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-534c7d51-960c-4fb5-ba51-be23b820b1f3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15f557fd-3502-4dd1-9ff1-96451ceab06f' class='xr-var-data-in' type='checkbox'><label for='data-15f557fd-3502-4dd1-9ff1-96451ceab06f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
+       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2022-09-04T00:00:00.000000000&#x27;,
+       &#x27;2022-09-05T00:00:00.000000000&#x27;, &#x27;2022-09-06T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-eb0e1bbe-23b9-4826-87b6-bd00a460be6a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-eb0e1bbe-23b9-4826-87b6-bd00a460be6a' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-431cedf6-824e-44f2-886d-93083f538cc7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-431cedf6-824e-44f2-886d-93083f538cc7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f0573d4a-50b8-486d-be65-7ce7a086485e' class='xr-var-data-in' type='checkbox'><label for='data-f0573d4a-50b8-486d-be65-7ce7a086485e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([2.02948 , 1.89729 , 1.86476 , ..., 0.584679, 0.31263 , 0.454695],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-91ba1350-d60a-486e-9a06-dd67834dd163' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-91ba1350-d60a-486e-9a06-dd67834dd163' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50234df1-156f-4f84-81a2-69a32010c959' class='xr-var-data-in' type='checkbox'><label for='data-50234df1-156f-4f84-81a2-69a32010c959' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([5., 5., 5., ..., 4., 4., 4.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-338a6418-6ef5-44a6-bd93-d85687a8acf0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-338a6418-6ef5-44a6-bd93-d85687a8acf0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8474f376-def8-4738-b235-60b2c1098f38' class='xr-var-data-in' type='checkbox'><label for='data-8474f376-def8-4738-b235-60b2c1098f38' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.63447 , 1.60289 , 1.51625 , ..., 0.54618 , 0.276112, 0.371159],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-bb50a1f2-b546-4530-b977-de23b32352cb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bb50a1f2-b546-4530-b977-de23b32352cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-14121cc2-0253-4597-8719-378136273748' class='xr-var-data-in' type='checkbox'><label for='data-14121cc2-0253-4597-8719-378136273748' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 1.20304 ,  1.01512 ,  1.08551 , ..., -0.208657, -0.146628, -0.262656],
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f3535083-c128-4e6b-8301-857ee3b5dea0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f3535083-c128-4e6b-8301-857ee3b5dea0' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mjo_ds</span></code>包含振幅 (amplitude)、相位 (phase，從1至8)、RMM1和RMM2，我們會用到的是後兩者。</p>
 <div class="cell docutils container">
@@ -892,8 +1057,186 @@ Data variables:
 <img alt="_images/A1_mjo_phase_6_0.png" src="_images/A1_mjo_phase_6_0.png" />
 </div>
 </div>
+</section>
+<section id="mjo-composite">
+<h2>MJO各相位的合成 (Composite) 分析<a class="headerlink" href="#mjo-composite" title="Permalink to this headline">#</a></h2>
+<p>在Wheeler and Kiladis (2004) 年有關MJO RMM index的論文中，使用到了合成分析的技巧，將8個相位分別挑出來，繪製風場和對流 (OLR) 隨相位的變化。在合成分析中，為了確定平均出來的訊號有意義，通常會使用 <strong>統計檢定</strong> 的技巧。在接下來的範例中，會示範如何將冬季 (DJF) 8個相位的MJO做降雨的合成分析以及統計檢定。</p>
+<section id="t-test">
+<h3>T test 簡介<a class="headerlink" href="#t-test" title="Permalink to this headline">#</a></h3>
+<p>This function uses the Student’s t-test to test the null hypothesis that the sample means are from the same population (i.e. <span class="math notranslate nohighlight">\(H_{0}\)</span> : ave1=ave2). Rejection of the null hypothesis (i.e. acceptance of the alternative hypothesis) indicates that the sample means are from two different populations.</p>
+<p>An option is provided to allow for testing when the population variances are assumed to be equal or different. The value(s) returned by <code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code> represent estimates of the statistical significance. Commonly, values of 0.10 or less are used as critical levels of significance. As with any test, caution is advised when interpreting results when there are few samples. Note: the user should specify the critical significance level prior to the calculation.</p>
+<p>Source: <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/ttest.shtml">NCL website</a>.</p>
+</section>
+<section id="stats-ttest">
+<h3><code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code>用法<a class="headerlink" href="#stats-ttest" title="Permalink to this headline">#</a></h3>
+<p>最重要的是前面三個引數。</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind(a,</span> <span class="pre">b,</span> <span class="pre">axis=0,...)</span></code></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">a</span></code>和<code class="docutils literal notranslate"><span class="pre">b</span></code>是受試的矩陣，除了<code class="docutils literal notranslate"><span class="pre">axis</span></code>指定的軸之外，其餘的座標軸的大小都要完全一樣。</p>
+<p>函數回傳的值有兩個：</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">statistic</span></code>:  The calculated t-statistic.<br />
+<code class="docutils literal notranslate"><span class="pre">pvalue</span></code>: The p-value.</p>
+</div></blockquote>
+<p>其中<code class="docutils literal notranslate"><span class="pre">pvalue</span></code>才是我們需要的統計顯著性的估計，<code class="docutils literal notranslate"><span class="pre">pvalue</span> <span class="pre">&lt;</span> <span class="pre">0.1</span></code>代表通過90%信心水準，<code class="docutils literal notranslate"><span class="pre">pvalue</span> <span class="pre">&lt;</span> <span class="pre">0.05</span></code>代表通過95%信心水準，依此類推。</p>
+<p>更多細節請見 <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ttest_ind.html">scipy網站</a>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">clim_and_anml</span> <span class="k">as</span> <span class="nn">clm</span>
+
+<span class="n">pcp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="s1">&#39;data/cmorph_sample.nc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">pcpa</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="n">mjo_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;http://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/dods&#39;</span><span class="p">,</span>
+                         <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">values</span>
+<span class="n">mjo_ds</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">&quot;1974-06-01&quot;</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="n">mjo_ds</span> <span class="o">=</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1998-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2021-12-31&#39;</span><span class="p">))</span>
+<span class="n">mjo_djf</span> <span class="o">=</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">T</span><span class="o">=</span><span class="n">mjo_ds</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">]))</span>
+
+<span class="c1"># 用where函數挑出MJO強的相位</span>
+<span class="n">mjo_sig</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mjo_djf</span><span class="o">.</span><span class="n">amplitude</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">mjo_djf</span><span class="o">.</span><span class="n">phase</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">clim_and_anml</span> <span class="k">as</span> <span class="nn">clm</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pcp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="s1">&#39;data/cmorph_sample.nc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">pcpa</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mjo_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;http://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/dods&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>                          <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">T</span> <span class="o">=</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">values</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:701,</span> in <span class="ni">DataArrayGroupByOpsMixin.__sub__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">701</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/groupby.py:620,</span> in <span class="ni">GroupBy._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">other</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">align</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">618</span> <span class="n">expanded</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">sel</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">group</span><span class="p">})</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">expanded</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="c1"># backcompat:</span>
+<span class="g g-Whitespace">    </span><span class="mi">624</span>     <span class="c1"># TODO: get rid of this when fixing GH2145</span>
+<span class="g g-Whitespace">    </span><span class="mi">625</span>     <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">xindexes</span><span class="p">):</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:209,</span> in <span class="ni">DataArrayOpsMixin.__sub__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">209</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/dataarray.py:3530,</span> in <span class="ni">DataArray._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3526</span> <span class="n">other_variable</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3527</span> <span class="n">other_coords</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;coords&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3529</span> <span class="n">variable</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">3530</span>     <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">other_variable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3531</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">reflexive</span>
+<span class="g g-Whitespace">   </span><span class="mi">3532</span>     <span class="k">else</span> <span class="n">f</span><span class="p">(</span><span class="n">other_variable</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variable</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3533</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3534</span> <span class="n">coords</span><span class="p">,</span> <span class="n">indexes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">_merge_raw</span><span class="p">(</span><span class="n">other_coords</span><span class="p">,</span> <span class="n">reflexive</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3535</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result_name</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:399,</span> in <span class="ni">VariableOpsMixin.__sub__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">399</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
+
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/variable.py:2519,</span> in <span class="ni">Variable._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2516</span> <span class="n">attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="k">if</span> <span class="n">keep_attrs</span> <span class="k">else</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">2517</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">2518</span>     <span class="n">new_data</span> <span class="o">=</span> <span class="p">(</span>
+<span class="ne">-&gt; </span><span class="mi">2519</span>         <span class="n">f</span><span class="p">(</span><span class="n">self_data</span><span class="p">,</span> <span class="n">other_data</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">reflexive</span> <span class="k">else</span> <span class="n">f</span><span class="p">(</span><span class="n">other_data</span><span class="p">,</span> <span class="n">self_data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2520</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2521</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">new_data</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2522</span> <span class="k">return</span> <span class="n">result</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">cmaps</span>
+<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>   
+<span class="kn">from</span> <span class="nn">cartopy.mpl.gridliner</span> <span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> 
+                         <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()},</span>
+                         <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">lon_formatter</span> <span class="o">=</span> <span class="n">LONGITUDE_FORMATTER</span>
+<span class="n">lat_formatter</span> <span class="o">=</span> <span class="n">LATITUDE_FORMATTER</span>
+
+<span class="n">clevs</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">15</span><span class="p">,</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">9</span><span class="p">):</span> 
+    <span class="n">mjo_phase</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mjo_sig</span><span class="o">==</span><span class="n">i</span><span class="p">,</span> <span class="n">mjo_sig</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">mjo_phase</span><span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">]</span>
+    
+    <span class="n">phase_compo</span> <span class="o">=</span> <span class="n">pcpa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="p">,:,:]</span>
+    <span class="n">phase_compo_mean</span> <span class="o">=</span> <span class="n">phase_compo</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate p value. </span>
+    <span class="n">statistic</span><span class="p">,</span> <span class="n">pvalue</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">pcpa</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">time</span><span class="p">,:,:],</span> 
+                                        <span class="n">b</span><span class="o">=</span><span class="n">pcpa</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">pcpa</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">])),</span> 
+                                        <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ttest</span> <span class="o">=</span> <span class="n">phase_compo_mean</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">pvalue</span><span class="o">&lt;</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> 
+                                  <span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    
+    <span class="c1"># Plot results. cf: composite mean of precipitation; </span>
+    <span class="c1"># ch_hatch: dots represent the region that is significant. </span>
+    <span class="n">cf</span> <span class="o">=</span> <span class="p">(</span><span class="n">phase_compo_mean</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                         <span class="n">levels</span><span class="o">=</span><span class="n">clevs</span><span class="p">,</span>
+                                         <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                         <span class="n">cmap</span><span class="o">=</span><span class="n">cmaps</span><span class="o">.</span><span class="n">CBR_drywet</span><span class="p">,</span> 
+                                         <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span>
+                                         <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()))</span>
+    <span class="n">cf_hatch</span> <span class="o">=</span> <span class="n">ttest</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;lon&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                                   <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.5</span><span class="p">],</span>
+                                   <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                   <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                                   <span class="n">hatches</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="s1">&#39;..&#39;</span><span class="p">],</span>
+                                   <span class="n">extend</span><span class="o">=</span><span class="s1">&#39;max&#39;</span><span class="p">,</span>
+                                   <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="mi">40</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span><span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span><span class="mi">210</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>   <span class="c1"># 設定x, y座標的範圍，以及多少經緯度繪製刻度。</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">lon_formatter</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">lat_formatter</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Phase &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+    
+<span class="c1"># Add a colorbar axis at the bottom of the graph</span>
+<span class="n">cbar_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.015</span><span class="p">])</span>
+<span class="c1"># Draw the colorbar 將colorbar畫在cbar_ax這個軸上。</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cf</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">,</span>
+                    <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span>
+                    <span class="n">ticks</span><span class="o">=</span><span class="n">clevs</span><span class="p">,</span>
+                    <span class="n">label</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;MJO Composite in DJF&#39;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">0.92</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="s1">&#39;large&#39;</span><span class="p">,</span><span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/A1_mjo_phase_9_0.png" src="_images/A1_mjo_phase_9_0.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -917,9 +1260,11 @@ Data variables:
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="A3_bandpass_filter.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -935,29 +1280,33 @@ Data variables:
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-    
-        &copy; 版權 2021-2022.<br/>
-      <div class="extra_footer">
-        <p>
-Last updated: 2022-07-15
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      <p>
+Last updated: 2022-09-09
 </p>
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

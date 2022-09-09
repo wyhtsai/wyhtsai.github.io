@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>10. pandas和seaborn: 統計圖表繪製 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -72,7 +71,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -81,9 +94,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -98,17 +112,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索這本書..." aria-label="搜索這本書..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
-   教學綱要（中文）
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_syllabus.html">
+                    教學綱要（中文）
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   xArray基本原理與操作
  </span>
@@ -126,7 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF資料
+   2. 讀取netCDF和GRIB資料
   </a>
  </li>
  <li class="toctree-l1">
@@ -261,107 +276,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="切換導航" aria-controls="site-navigation"
-                title="切換導航" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下載此頁面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/10_pandas_seaborn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源庫"><i
-                    class="fab fa-github"></i>資料庫</button></a>
-        <a class="issues-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F10_pandas_seaborn.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/10_pandas_seaborn.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 內容
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/10_pandas_seaborn.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F10_pandas_seaborn.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/10_pandas_seaborn.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pandas">
    <code class="docutils literal notranslate">
@@ -467,12 +584,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>10. pandas和seaborn: 統計圖表繪製</h1>
@@ -481,7 +597,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div id="jb-print-toc">
                         
                         <div>
-                            <h2> 內容 </h2>
+                            <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
@@ -594,19 +710,20 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="pandasseaborn">
-<h1>10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製<a class="headerlink" href="#pandasseaborn" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="pandasseaborn">
+<h1>10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製<a class="headerlink" href="#pandasseaborn" title="Permalink to this headline">#</a></h1>
 <p>xarray雖然可以輕易地開啟netCDF檔，繪製多種地圖，但目前沒有內建的統計圖表繪圖函數如盒鬚圖 (box plot)、散佈圖 (scatter plot) 等。<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>是強大的統計資料視覺化工具，可以利用簡明的語言和高階功能的引數，繪製專業又美觀的統計圖表。由於氣候資料的解讀很仰賴統計方法，因此學習利用如何將氣候統計的結果，送進 <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的函數中繪圖，是很重要的。</p>
 <p><code class="docutils literal notranslate"><span class="pre">seaborn</span></code>可以接受的資料格式主要為.csv資料檔，以及 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>，寫入資料時必須寫成 <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> 能辨識之 <strong>「長表格 (long form)」</strong> 和 <strong>「寬表格 (wide form)」</strong> ，有關表格的說明詳見<a class="reference external" href="https://seaborn.pydata.org/tutorial/data_structure.html"><code class="docutils literal notranslate"><span class="pre">seaborn</span></code>網頁的說明</a>。本單元的重點在於如何建立正確的<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>格式並且送進<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的畫圖函數，有關繪圖的方法、引數等，<a class="reference external" href="https://seaborn.pydata.org/">官方教學</a>已經有清楚的說明，此處不再一一介紹。</p>
 <p><img alt="" src="https://seaborn.pydata.org/_images/data_structure_19_0.png" /></p>
-<div class="section" id="pandas">
-<h2><code class="docutils literal notranslate"><span class="pre">pandas</span></code>的資料架構<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h2>
+<section id="pandas">
+<h2><code class="docutils literal notranslate"><span class="pre">pandas</span></code>的資料架構<a class="headerlink" href="#pandas" title="Permalink to this headline">#</a></h2>
 <p>按照資料的維度，<code class="docutils literal notranslate"><span class="pre">pandas</span></code>的資料結構分為Series和DataFrame兩種。和xarray類似，pandas資料帶有網格資訊 (或稱為標籤 labels)。</p>
-<div class="section" id="series">
-<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">¶</a></h3>
+<section id="series">
+<h3>Series<a class="headerlink" href="#series" title="Permalink to this headline">#</a></h3>
 <p>Series是一維、標籤化的陣列，可以儲存多元的變數種類。而座標軸或標籤稱為index。建立Series的方法如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
@@ -623,19 +740,19 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a    0.299374
-b    0.438508
-c   -0.418623
-d   -0.192593
-e   -0.031773
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a   -0.684290
+b    1.216886
+c    2.062101
+d    1.279727
+e    0.409027
 dtype: float64
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="dataframe">
-<h3>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="dataframe">
+<h3>DataFrame<a class="headerlink" href="#dataframe" title="Permalink to this headline">#</a></h3>
 <p>DataFrame就是二維標籤化的資料陣列，可以想像成一個Excel的活頁簿表格。建立的方法如下</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
@@ -676,33 +793,33 @@ dtype: float64
   <tbody>
     <tr>
       <th>a</th>
-      <td>0.878241</td>
-      <td>0.229895</td>
-      <td>0.795705</td>
+      <td>2.021160</td>
+      <td>-0.870862</td>
+      <td>-1.236140</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>1.543705</td>
-      <td>0.325241</td>
-      <td>-0.668548</td>
+      <td>-1.429276</td>
+      <td>-1.826281</td>
+      <td>0.041284</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>1.371754</td>
-      <td>-1.087727</td>
-      <td>-0.550877</td>
+      <td>-2.534498</td>
+      <td>1.162521</td>
+      <td>-0.560146</td>
     </tr>
     <tr>
       <th>d</th>
-      <td>0.170757</td>
-      <td>-0.641503</td>
-      <td>2.423692</td>
+      <td>1.356861</td>
+      <td>0.024539</td>
+      <td>1.919724</td>
     </tr>
     <tr>
       <th>e</th>
-      <td>-1.029839</td>
-      <td>-0.491117</td>
-      <td>-1.268336</td>
+      <td>1.229105</td>
+      <td>1.652369</td>
+      <td>-0.385082</td>
     </tr>
   </tbody>
 </table>
@@ -749,82 +866,82 @@ dtype: float64
   <tbody>
     <tr>
       <th>1998</th>
-      <td>-0.163519</td>
-      <td>0.281946</td>
-      <td>0.419483</td>
-      <td>-1.455953</td>
+      <td>1.670538</td>
+      <td>-0.049841</td>
+      <td>1.054352</td>
+      <td>-0.049182</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>2.014355</td>
-      <td>0.694268</td>
-      <td>-1.761854</td>
-      <td>-1.462213</td>
+      <td>-1.231204</td>
+      <td>0.465364</td>
+      <td>-1.056660</td>
+      <td>-0.811464</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>0.001537</td>
-      <td>-1.235572</td>
-      <td>1.579175</td>
-      <td>0.194796</td>
+      <td>-0.029466</td>
+      <td>1.787904</td>
+      <td>-2.542306</td>
+      <td>0.679504</td>
     </tr>
     <tr>
       <th>2001</th>
-      <td>0.323555</td>
-      <td>-0.786612</td>
-      <td>-1.478382</td>
-      <td>1.310916</td>
+      <td>-0.041016</td>
+      <td>1.317122</td>
+      <td>-0.590420</td>
+      <td>0.600276</td>
     </tr>
     <tr>
       <th>2002</th>
-      <td>0.667367</td>
-      <td>-1.024396</td>
-      <td>1.965292</td>
-      <td>-0.263125</td>
+      <td>1.621522</td>
+      <td>-0.038489</td>
+      <td>1.440108</td>
+      <td>-1.018224</td>
     </tr>
     <tr>
       <th>2003</th>
-      <td>0.129164</td>
-      <td>-1.983488</td>
-      <td>0.184152</td>
-      <td>-1.932389</td>
+      <td>0.071638</td>
+      <td>-0.708659</td>
+      <td>-0.529919</td>
+      <td>0.770353</td>
     </tr>
     <tr>
       <th>2004</th>
-      <td>-0.445753</td>
-      <td>-1.664213</td>
-      <td>-1.016631</td>
-      <td>-0.134171</td>
+      <td>-0.689752</td>
+      <td>-1.342270</td>
+      <td>-0.523250</td>
+      <td>0.428549</td>
     </tr>
     <tr>
       <th>2005</th>
-      <td>-0.005496</td>
-      <td>0.001995</td>
-      <td>0.010785</td>
-      <td>-0.742052</td>
+      <td>-0.110696</td>
+      <td>0.163060</td>
+      <td>0.243665</td>
+      <td>-1.687278</td>
     </tr>
     <tr>
       <th>2006</th>
-      <td>0.421065</td>
-      <td>0.008427</td>
-      <td>-0.739000</td>
-      <td>0.245396</td>
+      <td>0.815093</td>
+      <td>0.733305</td>
+      <td>1.744058</td>
+      <td>0.049685</td>
     </tr>
     <tr>
       <th>2007</th>
-      <td>-0.379794</td>
-      <td>0.023509</td>
-      <td>-1.364303</td>
-      <td>-0.888770</td>
+      <td>-0.733091</td>
+      <td>-0.563135</td>
+      <td>-0.435080</td>
+      <td>-0.512029</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="pandas-csv">
-<h2>利用<code class="docutils literal notranslate"><span class="pre">pandas</span></code>讀取<code class="docutils literal notranslate"><span class="pre">.csv</span></code>檔案<a class="headerlink" href="#pandas-csv" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="pandas-csv">
+<h2>利用<code class="docutils literal notranslate"><span class="pre">pandas</span></code>讀取<code class="docutils literal notranslate"><span class="pre">.csv</span></code>檔案<a class="headerlink" href="#pandas-csv" title="Permalink to this headline">#</a></h2>
 <p>利用<code class="docutils literal notranslate"><span class="pre">pandas.read_csv()</span></code>，就可以將.csv檔案轉換成 <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>。</p>
 <p><strong>Example 1:</strong> <code class="docutils literal notranslate"><span class="pre">sns_sample_s2s_pr_rmse.csv</span></code>檔案中有BoM、CMA的S2S模式在前15個預報時 (lead time)，事後預報 (1998-2013) 某區域冬季季內高峰降雨事件的PR值的誤差 (PR_RMSE) 。(見<a class="reference external" href="https://www.mdpi.com/2073-4433/12/6/758">Tsai et al. (2021, Atmosphere)</a>)</p>
 <div class="cell docutils container">
@@ -901,9 +1018,9 @@ dtype: float64
 </table>
 </div></div></div>
 </div>
-</div>
-<div class="section" id="pandas-dataframeseabornlong-form">
-<h2><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>與<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的Long Form繪圖<a class="headerlink" href="#pandas-dataframeseabornlong-form" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="pandas-dataframeseabornlong-form">
+<h2><code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code>與<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>的Long Form繪圖<a class="headerlink" href="#pandas-dataframeseabornlong-form" title="Permalink to this headline">#</a></h2>
 <p>只要將資料按照long form/wide form的需求排列好，就可以很輕易地將資料繪圖。以上的.csv檔案就是屬於Long form的形式。</p>
 <p><strong>Example 1:</strong> 將<code class="docutils literal notranslate"><span class="pre">sns_sample_s2s_pr_rmse.csv</span></code>檔案繪圖，繪製x軸為預報時(Lead time)，縱軸是預報PR_RMSE，利用盒鬚圖表示多年PR_RMSE的分布。</p>
 <div class="cell docutils container">
@@ -948,9 +1065,9 @@ dtype: float64
 <img alt="_images/10_pandas_seaborn_12_0.png" src="_images/10_pandas_seaborn_12_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="multi-index-dataframelong-form">
-<h2>多層次標籤 (Multi-index) 的 DataFrame與Long Form繪圖<a class="headerlink" href="#multi-index-dataframelong-form" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="multi-index-dataframelong-form">
+<h2>多層次標籤 (Multi-index) 的 DataFrame與Long Form繪圖<a class="headerlink" href="#multi-index-dataframelong-form" title="Permalink to this headline">#</a></h2>
 <p><strong>Example 2:</strong> 分析S2S模式在15個預報時 (lead time, <code class="docutils literal notranslate"><span class="pre">lt=15</span></code>) 以及11個系集成員 (ensemble members, <code class="docutils literal notranslate"><span class="pre">ens=11</span></code>)在分為Hindcast、Forecast兩種cases的情形下，某變數<code class="docutils literal notranslate"><span class="pre">value</span></code>的分佈情形。</p>
 <p>由於<code class="docutils literal notranslate"><span class="pre">value</span></code>分類的層次較多，所以必須用<code class="docutils literal notranslate"><span class="pre">pandas.MultiIndex</span></code>建立起<code class="docutils literal notranslate"><span class="pre">(lead_time,</span> <span class="pre">number,</span> <span class="pre">case)</span></code>的索引。</p>
 <div class="cell docutils container">
@@ -1002,25 +1119,25 @@ dtype: float64
       <th rowspan="5" valign="top">1</th>
       <th rowspan="2" valign="top">1</th>
       <th>Hindcast</th>
-      <td>-0.678640</td>
+      <td>-1.192454</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>1.129359</td>
+      <td>-0.641369</td>
     </tr>
     <tr>
       <th rowspan="2" valign="top">2</th>
       <th>Hindcast</th>
-      <td>0.780785</td>
+      <td>0.558053</td>
     </tr>
     <tr>
       <th>Forecast</th>
-      <td>-0.267544</td>
+      <td>-0.919667</td>
     </tr>
     <tr>
       <th>3</th>
       <th>Hindcast</th>
-      <td>0.999154</td>
+      <td>3.200445</td>
     </tr>
   </tbody>
 </table>
@@ -1053,7 +1170,7 @@ dtype: float64
 <span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;PR_RMSE&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/_decorators.py:46,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/seaborn/_decorators.py:46,</span> in <span class="ni">_deprecate_positional_args.&lt;locals&gt;.inner_f</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">37</span>         <span class="s2">&quot;Pass the following variable</span><span class="si">{}</span><span class="s2"> as </span><span class="si">{}</span><span class="s2">keyword arg</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">. &quot;</span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span>         <span class="s2">&quot;From version 0.12, the only valid positional argument &quot;</span>
@@ -1063,7 +1180,7 @@ dtype: float64
 <span class="nn">     45 kwargs.update({k: arg for k, arg</span> in <span class="ni">zip</span><span class="nt">(sig.parameters, args)})</span>
 <span class="ne">---&gt; </span><span class="mi">46</span> <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py:3792,</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/seaborn/categorical.py:3792,</span> in <span class="ni">catplot</span><span class="nt">(x, y, hue, data, row, col, col_wrap, estimator, ci, n_boot, units, seed, order, hue_order, row_order, col_order, kind, height, aspect, orient, color, palette, legend, legend_out, sharex, sharey, margin_titles, facet_kws, **kwargs)</span>
 <span class="g g-Whitespace">   </span><span class="mi">3790</span> <span class="n">p</span> <span class="o">=</span> <span class="n">_CategoricalPlotter</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">3791</span> <span class="n">p</span><span class="o">.</span><span class="n">require_numeric</span> <span class="o">=</span> <span class="n">plotter_class</span><span class="o">.</span><span class="n">require_numeric</span>
 <span class="ne">-&gt; </span><span class="mi">3792</span> <span class="n">p</span><span class="o">.</span><span class="n">establish_variables</span><span class="p">(</span><span class="n">x_</span><span class="p">,</span> <span class="n">y_</span><span class="p">,</span> <span class="n">hue</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orient</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">hue_order</span><span class="p">)</span>
@@ -1075,7 +1192,7 @@ dtype: float64
 <span class="g g-Whitespace">   </span><span class="mi">3798</span>     <span class="c1"># Sync categorical axis between facets to have the same categories</span>
 <span class="g g-Whitespace">   </span><span class="mi">3799</span>     <span class="n">order</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">group_names</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.9/site-packages/seaborn/categorical.py:153,</span> in <span class="ni">_CategoricalPlotter.establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
+<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/seaborn/categorical.py:153,</span> in <span class="ni">_CategoricalPlotter.establish_variables</span><span class="nt">(self, x, y, hue, data, orient, order, hue_order, units)</span>
 <span class="g g-Whitespace">    </span><span class="mi">151</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
 <span class="g g-Whitespace">    </span><span class="mi">152</span>         <span class="n">err</span> <span class="o">=</span> <span class="s2">&quot;Could not interpret input &#39;</span><span class="si">{}</span><span class="s2">&#39;&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">153</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
@@ -1220,11 +1337,11 @@ dtype: float64
 <img alt="_images/10_pandas_seaborn_19_0.png" src="_images/10_pandas_seaborn_19_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="xarray-dataarraypandas-dataframe">
-<h2>將<code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code>轉換至<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#xarray-dataarraypandas-dataframe" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="xarray-to-pandas">
-<h3>利用<code class="docutils literal notranslate"><span class="pre">xarray.to_pandas</span></code><a class="headerlink" href="#xarray-to-pandas" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="xarray-dataarraypandas-dataframe">
+<h2>將<code class="docutils literal notranslate"><span class="pre">xarray.DataArray</span></code>轉換至<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><a class="headerlink" href="#xarray-dataarraypandas-dataframe" title="Permalink to this headline">#</a></h2>
+<section id="xarray-to-pandas">
+<h3>利用<code class="docutils literal notranslate"><span class="pre">xarray.to_pandas</span></code><a class="headerlink" href="#xarray-to-pandas" title="Permalink to this headline">#</a></h3>
 <p>根據<a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.to_pandas.html">API reference</a>的說明，轉換後的格式和給定DataArray的維度有關。</p>
 <blockquote>
 <div><p>Convert this array into a pandas object with the same shape.
@@ -1234,9 +1351,9 @@ The type of the returned object depends on the number of DataArray dimensions:<b
 2D -&gt; <code class="docutils literal notranslate"><span class="pre">pandas.DataFrame</span></code><br />
 Only works for arrays with 2 or fewer dimensions.</p>
 </div></blockquote>
-</div>
-<div class="section" id="scatter-plot">
-<h3>範例：繪製散布圖 (scatter plot) 以及回歸分析<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="scatter-plot">
+<h3>範例：繪製散布圖 (scatter plot) 以及回歸分析<a class="headerlink" href="#scatter-plot" title="Permalink to this headline">#</a></h3>
 <p><strong>Example 3:</strong> 將夏季(五至七月)候平均副高指標和長江流域(105.5˚-122˚E, 27˚-33.5˚N)降雨資料在散布圖上，並且計算回歸線。副高指數定義為</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{WPSH} = U_{850}\left[ (115˚-140˚\mathrm{E}, 28˚-30˚\mathrm{N})\right] − U_{850}\left[(115˚-140˚\mathrm{E}, 15˚-17˚\mathrm{N})\right]\]</div>
@@ -3183,10 +3300,10 @@ Coordinates:
 <img alt="_images/10_pandas_seaborn_29_1.png" src="_images/10_pandas_seaborn_29_1.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="wide-formseaborn">
-<h2>Wide Form的Seaborn製圖<a class="headerlink" href="#wide-formseaborn" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="wide-formseaborn">
+<h2>Wide Form的Seaborn製圖<a class="headerlink" href="#wide-formseaborn" title="Permalink to this headline">#</a></h2>
 <p><strong>Example 4:</strong> 繪製台灣－北南海 (18˚-24˚N, 116˚-126˚E) 區域平均 1998-2020 各年四至十一月逐候 (pentad) 累積降雨百分等級 (PR) 的Heat Map。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4264,9 +4381,9 @@ Coordinates:
 <img alt="_images/10_pandas_seaborn_35_0.png" src="_images/10_pandas_seaborn_35_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="wide-long-form">
-<h2>Wide/Long form互相轉換<a class="headerlink" href="#wide-long-form" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wide-long-form">
+<h2>Wide/Long form互相轉換<a class="headerlink" href="#wide-long-form" title="Permalink to this headline">#</a></h2>
 <p>利用<code class="docutils literal notranslate"><span class="pre">pandas.DataFrame.unstack</span></code>：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4371,8 +4488,8 @@ Coordinates:
 <p>1127 rows × 3 columns</p>
 </div></div></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -4396,9 +4513,11 @@ Coordinates:
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="09_plotting_2d.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -4414,29 +4533,33 @@ Coordinates:
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-    
-        &copy; 版權 2021-2022.<br/>
-      <div class="extra_footer">
-        <p>
-Last updated: 2022-07-15
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      <p>
+Last updated: 2022-09-09
 </p>
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

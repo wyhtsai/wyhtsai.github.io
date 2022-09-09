@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>11. Climate Data Operator (CDO) &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,20 +20,16 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -39,12 +37,13 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -70,7 +69,21 @@ const thebe_selector_output = ".output, .cell_output"
                 </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -79,9 +92,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,17 +110,18 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
 </div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="搜索這本書..." aria-label="搜索這本書..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_syllabus.html">
-   教學綱要（中文）
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_syllabus.html">
+                    教學綱要（中文）
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   xArray基本原理與操作
  </span>
@@ -124,7 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF資料
+   2. 讀取netCDF和GRIB資料
   </a>
  </li>
  <li class="toctree-l1">
@@ -259,107 +274,209 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="切換導航" aria-controls="site-navigation"
-                title="切換導航" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="下載此頁面"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/11_cdo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="下載源文件" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="列印成PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="源庫"><i
-                    class="fab fa-github"></i>資料庫</button></a>
-        <a class="issues-button"
-            href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F11_cdo.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="打開一個問題"><i class="fas fa-lightbulb"></i>公開的問題</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="全屏模式"
-        title="全屏模式"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/11_cdo.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="發射 Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> 內容
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/11_cdo.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F11_cdo.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/11_cdo.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#cdo">
    <code class="docutils literal notranslate">
@@ -428,12 +545,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>11. Climate Data Operator (CDO)</h1>
@@ -442,7 +558,7 @@ const thebe_selector_output = ".output, .cell_output"
                     <div id="jb-print-toc">
                         
                         <div>
-                            <h2> 內容 </h2>
+                            <h2> Contents </h2>
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
@@ -518,11 +634,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="climate-data-operator-cdo">
-<h1>11. Climate Data Operator (CDO)<a class="headerlink" href="#climate-data-operator-cdo" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="climate-data-operator-cdo">
+<h1>11. Climate Data Operator (CDO)<a class="headerlink" href="#climate-data-operator-cdo" title="Permalink to this headline">#</a></h1>
 <p>CDO是由德國Max-Plank Institute for Meteorology研發出的軟體，它擁有許多可以處理標準氣候資料和預報模式資料的指令 (Operator)，包括簡易的統計、算數、資料選擇、時間和空間網格處理、內插等，是一套方便又強大的工具。以往必須在命令列 (Command Line) 使用cdo，現在MPI把這套套件寫成Python的套件，因此也可以在Python程式中使用。</p>
 <p>在這套講義中，我們主要會學習</p>
 <ul class="simple">
@@ -536,19 +653,19 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Caution</p>
 <p>cdo計算後的產品都是輸出.nc檔，不像在前面的單元中所學會輸出成一個矩陣在Python內部使用。因此計算完後，如果在程式中需要使用這筆資料，必須再用<code class="docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code>讀進程式。</p>
 </div>
-<div class="section" id="cdo">
-<h2><code class="docutils literal notranslate"><span class="pre">cdo</span></code>基本指令<a class="headerlink" href="#cdo" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="linux-command-line">
-<h3>Linux指令列 (Command Line)<a class="headerlink" href="#linux-command-line" title="Permalink to this headline">¶</a></h3>
+<section id="cdo">
+<h2><code class="docutils literal notranslate"><span class="pre">cdo</span></code>基本指令<a class="headerlink" href="#cdo" title="Permalink to this headline">#</a></h2>
+<section id="linux-command-line">
+<h3>Linux指令列 (Command Line)<a class="headerlink" href="#linux-command-line" title="Permalink to this headline">#</a></h3>
 <p>在Linux的指令列操作cdo的方式如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="p">[</span><span class="n">Options</span><span class="p">]</span> <span class="n">Operator1</span> <span class="p">[</span><span class="o">-</span><span class="n">Operator2</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">OperatorN</span><span class="p">]</span> <span class="n">infile</span> <span class="n">outfile</span>
 </pre></div>
 </div>
 <p>也就是針對檔案<code class="docutils literal notranslate"><span class="pre">infile</span></code>操作指令<code class="docutils literal notranslate"><span class="pre">OperatorN</span></code>後，會得到計算好的結果<code class="docutils literal notranslate"><span class="pre">outfile</span></code>。<br />
 若想要在一個命令列中執行N個指令，可以利用<code class="docutils literal notranslate"><span class="pre">[-OperatorN]</span></code>的方式 接起來；而cdo執行的順序為<code class="docutils literal notranslate"><span class="pre">[-OperatorN]</span></code> →<code class="docutils literal notranslate"><span class="pre">[-Operator2]</span></code>→<code class="docutils literal notranslate"><span class="pre">Operator1</span></code>.</p>
-</div>
-<div class="section" id="python">
-<h3>Python程式<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="python">
+<h3>Python程式<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cdo</span> <span class="kn">import</span> <span class="o">*</span>
@@ -558,10 +675,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p>在Linux指令列中所用的Operator，在Python中就是cdo的方法函數。</p>
-</div>
-</div>
-<div class="section" id="select-field">
-<h2>資料選擇 (Select Field)<a class="headerlink" href="#select-field" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="select-field">
+<h2>資料選擇 (Select Field)<a class="headerlink" href="#select-field" title="Permalink to this headline">#</a></h2>
 <p>cdo有完整的指令說明書，可從<a class="reference external" href="https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf">官網</a>上下載。我們從最簡單的資料選擇開始示範起，在看範例之前，可以先試著透過搜尋說明書自己做做看，例如資料選擇的方法記載在說明書的2.3節。</p>
 <p><strong>Example 1:</strong> 如何選取1998-2018年每年12月的OLR資料?</p>
 <p>選取資料範圍使用<code class="docutils literal notranslate"><span class="pre">select</span></code>的方法函數。</p>
@@ -647,9 +764,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="statistics">
-<h2>統計 (Statistics)<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="statistics">
+<h2>統計 (Statistics)<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h2>
 <p>統計方法在說明書的第2.8節，例如<code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">avg</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">avg</span></code> and var…，請自行參閱其定義及用法。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -696,9 +813,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="arithmetics">
-<h2>算術 (Arithmetics)<a class="headerlink" href="#arithmetics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="arithmetics">
+<h2>算術 (Arithmetics)<a class="headerlink" href="#arithmetics" title="Permalink to this headline">#</a></h2>
 <p>cdo的算術(以<code class="docutils literal notranslate"><span class="pre">EXPR</span></code>的operator表示)包括<code class="docutils literal notranslate"><span class="pre">=</span></code> (assignment)、加 (<code class="docutils literal notranslate"><span class="pre">x+y</span></code>)、減 (<code class="docutils literal notranslate"><span class="pre">x-y</span></code>)、乘 (<code class="docutils literal notranslate"><span class="pre">x*y</span></code>)、除 (<code class="docutils literal notranslate"><span class="pre">x/y</span></code>)、絕對值<code class="docutils literal notranslate"><span class="pre">abs(x)</span></code>、開根號<code class="docutils literal notranslate"><span class="pre">sqr(x)</span></code>、取指數<code class="docutils literal notranslate"><span class="pre">exp(x)</span></code>等。</p>
 <p><strong>Example 6:</strong> NCEP MSLP資料原先單位是Pa，利用cdo將資料轉換成hPa。</p>
 <p><strong>1. Command Line:</strong></p>
@@ -718,13 +835,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="interpolation">
-<h2>網格內插 (Interpolation)<a class="headerlink" href="#interpolation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="interpolation">
+<h2>網格內插 (Interpolation)<a class="headerlink" href="#interpolation" title="Permalink to this headline">#</a></h2>
 <p>例如當兩組資料網格解析度不同卻需要在相同網格上比較和分析時，或是降低資料的網格解析度以節省計算空間，或是處理模式結果時，我們需要改變資料的網格解析度。cdo有很好用的網格內插工具，可以處理球諧函數的網格座標 (spherical harmonics)、高斯座標 (Gausian Field)、直角坐標系 (Longitude/Latitude)等。這三種座標系統的解析度大約如下表所示：</p>
 <p><img alt="" src="_images/fig11.1.png" /></p>
-<div class="section" id="id1">
-<h3>內插到標準網格<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<section id="id1">
+<h3>內插到標準網格<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">remapbil</span></code>：Bilinear interpolation，是最常使用的網格內插方法。</p>
 <p><img alt="" src="_images/fig11.2.png" /></p>
 <p><strong>1. Command Line:</strong></p>
@@ -744,9 +861,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id2">
-<h3>內插到任意網格<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3>內插到任意網格<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>首先要對目標網格建立一個<strong>網格資訊檔</strong>。以NCEP R2的網格作為範例如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gridtype</span> <span class="o">=</span> <span class="n">lonlat</span>
 <span class="n">xsize</span>    <span class="o">=</span> <span class="mi">69</span>
@@ -786,10 +903,10 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="n">yinc</span>     <span class="o">=</span> <span class="mf">2.5</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="id3">
-<h2>檔案輸出格式<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="id3">
+<h2>檔案輸出格式<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
 <p>CDO預設輸出的檔案格式為netCDF檔案，如果想要更改，可以在Operator前加上option <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">&lt;format&gt;</span></code>。可接受的格式如下‘：</p>
 <p><img alt="" src="_images/fig11.3.png" /></p>
 <p><strong>1. Command Line:</strong></p>
@@ -811,8 +928,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="section" id="binary">
-<h3>Binary二元進位檔<a class="headerlink" href="#binary" title="Permalink to this headline">¶</a></h3>
+<section id="binary">
+<h3>Binary二元進位檔<a class="headerlink" href="#binary" title="Permalink to this headline">#</a></h3>
 <p>有些檔案是以二元進位 (binary) 的格式儲存的，檔案本身沒有網格資料，但通常會有附加的控制檔<code class="docutils literal notranslate"><span class="pre">.ctl</span></code>，告訴使用者要如何讀取這類檔案。二元進位檔在GrADS很常使用，利用cdo，也可以將二元進位檔轉換成netCDF格式。</p>
 <p>首先控制檔格式如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DSET infile.bin
@@ -835,9 +952,9 @@ ENDVARS
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span><span class="o">.</span><span class="n">import_binary</span><span class="p">(</span><span class="nb">input</span><span class="o">=</span><span class="s1">&#39;infile.ctl&#39;</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s1">&#39;outfile.nc&#39;</span><span class="p">,</span> <span class="n">option</span><span class="o">=</span><span class="s1">&#39;-f nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -861,9 +978,11 @@ ENDVARS
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="10_pandas_seaborn.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -879,29 +998,33 @@ ENDVARS
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      通過 Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-    
-        &copy; 版權 2021-2022.<br/>
-      <div class="extra_footer">
-        <p>
-Last updated: 2022-07-15
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
+  
+      &copy; Copyright 2021-2022.<br/>
+    <div class="extra_footer">
+      <p>
+Last updated: 2022-09-09
 </p>
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
