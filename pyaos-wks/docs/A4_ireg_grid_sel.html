@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>不規則形狀的網格選擇 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,13 +47,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-HKB5C6NRJC');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -52,69 +69,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A4_ireg_grid_sel';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Lanczos 時間序列帶通濾波 (Bandpass Filter)" href="A3_bandpass_filter.html" />
     <link rel="prev" title="附錄：實用氣候分析程式範例" href="appendix-main.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-HKB5C6NRJC');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00_syllabus.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/PyAOS_logo_color.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Python在大氣和海洋科學上的應用 (PyAOS)</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/PyAOS_logo_color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/PyAOS_logo_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,406 +164,245 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  xArray基本原理與操作
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">xArray基本原理與操作</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_setup.html">
-   電腦環境設置與Python安裝
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01_intro.html">
-   1. 導論
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF和GRIB資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_plotting_basics.html">
-   3. 繪製月平均地圖及輸出計算結果
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_xr_datetime.html">
-   4. 時間條件控制
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_da_create.html">
-   5. 手動創建DataArray
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="00_setup.html">電腦環境設置與Python安裝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. 導論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取netCDF和GRIB資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. 繪製月平均地圖及輸出計算結果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_xr_datetime.html">4. 時間條件控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_da_create.html">5. 手動創建DataArray</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  氣候分析方法基礎
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">氣候分析方法基礎</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06_clim_anml.html">
-   6. 計算氣候場及距平值
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_statistics_calc.html">
-   7. 進階運算與統計方法
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="06_clim_anml.html">6. 計算氣候場及距平值</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_statistics_calc.html">7. 進階運算與統計方法</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  xArray繪圖
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xArray繪圖</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="08_plotting_1d.html">
-   8.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     xarray
-    </span>
-   </code>
-   繪圖 (1)：繪製1D資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09_plotting_2d.html">
-   9.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     xarray
-    </span>
-   </code>
-   繪圖 (2)：繪製2D資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_pandas_seaborn.html">
-   10.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-   和
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     seaborn
-    </span>
-   </code>
-   : 統計圖表繪製
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="08_plotting_1d.html">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (1)：繪製1D資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_plotting_2d.html">9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_seaborn.html">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  其他重要議題
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">其他重要議題</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="11_cdo.html">
-   11. Climate Data Operator (CDO)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_large_ds.html">
-   12. 大型資料處理
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="11_cdo.html">11. Climate Data Operator (CDO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. 大型資料處理</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  附錄
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">附錄</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="appendix-main.html">
-   附錄：實用氣候分析程式範例
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     不規則形狀的網格選擇
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="A3_bandpass_filter.html">
-     Lanczos 時間序列帶通濾波 (Bandpass Filter)
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="A1_mjo_phase.html">
-     馬登－朱利安震盪 (MJO) 氣候變異分析
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="A2_besttracks.html">
-     颱風資料庫與路徑繪製
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">不規則形狀的網格選擇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A3_bandpass_filter.html">Lanczos 時間序列帶通濾波 (Bandpass Filter)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">馬登－朱利安震盪 (MJO) 氣候變異分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2_besttracks.html">颱風資料庫與路徑繪製</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/A4_ireg_grid_sel.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA4_ireg_grid_sel.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/A4_ireg_grid_sel.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA4_ireg_grid_sel.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/A4_ireg_grid_sel.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-section">
-   非直線的剖面 (cross-section) 繪製
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>不規則形狀的網格選擇</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#cross-section">
-   非直線的剖面 (cross-section) 繪製
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>不規則形狀的網格選擇</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-section">非直線的剖面 (cross-section) 繪製</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
 <h1>不規則形狀的網格選擇<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <p>本節內容由氣象局王冠筠小姐提供，特此感謝。</p>
@@ -947,7 +827,7 @@ array([[-3.68268522, -3.66213074, -3.64047876, ..., -3.11352991,
 Coordinates:
   * level    (level) float32 1e+03 925.0 850.0 700.0 ... 50.0 30.0 20.0 10.0
   * lat      (lat) float64 50.0 49.9 49.8 49.7 49.6 49.5 ... 0.5 0.4 0.3 0.2 0.1
-    lon      (lat) float64 114.4 114.5 114.6 114.6 ... 108.0 108.0 108.0 108.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'vwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>level</span>: 17</li><li><span class='xr-has-index'>lat</span>: 500</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-75626231-717b-4c47-97b4-9175d7c63efc' class='xr-array-in' type='checkbox' checked><label for='section-75626231-717b-4c47-97b4-9175d7c63efc' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-3.683 -3.662 -3.64 -3.618 -3.594 ... 1.412 1.412 1.413 1.414 1.414</span></div><div class='xr-array-data'><pre>array([[-3.68268522, -3.66213074, -3.64047876, ..., -3.11352991,
+    lon      (lat) float64 114.4 114.5 114.6 114.6 ... 108.0 108.0 108.0 108.0</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'vwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>level</span>: 17</li><li><span class='xr-has-index'>lat</span>: 500</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-197270e2-0d87-468e-8dbc-57e21ab73748' class='xr-array-in' type='checkbox' checked><label for='section-197270e2-0d87-468e-8dbc-57e21ab73748' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-3.683 -3.662 -3.64 -3.618 -3.594 ... 1.412 1.412 1.413 1.414 1.414</span></div><div class='xr-array-data'><pre>array([[-3.68268522, -3.66213074, -3.64047876, ..., -3.11352991,
         -3.05033255, -2.98713519],
        [-3.64299498, -3.61555066, -3.58706748, ..., -3.33184726,
         -3.2842215 , -3.23659573],
@@ -959,20 +839,19 @@ Coordinates:
        [11.18332733, 11.25741096, 11.33039131, ..., -0.15216129,
         -0.15066706, -0.14917283],
        [20.89200851, 20.86511519, 20.83686176, ...,  1.41306749,
-         1.41367915,  1.41429081]])</pre></div></div></li><li class='xr-section-item'><input id='section-173b23a0-6e86-47ae-ac12-1b84904dac8c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-173b23a0-6e86-47ae-ac12-1b84904dac8c' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1e+03 925.0 850.0 ... 20.0 10.0</div><input id='attrs-c82d76e3-ab27-4cf9-a407-2a3526c890c4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c82d76e3-ab27-4cf9-a407-2a3526c890c4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-410e91de-b9d1-46b4-8f30-e10562bb1bf8' class='xr-var-data-in' type='checkbox'><label for='data-410e91de-b9d1-46b4-8f30-e10562bb1bf8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibar</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  925.,  850.,  700.,  600.,  500.,  400.,  300.,  250.,  200.,
-        150.,  100.,   70.,   50.,   30.,   20.,   10.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>50.0 49.9 49.8 49.7 ... 0.3 0.2 0.1</div><input id='attrs-2e26abc1-7048-401d-b806-8cee255ce6b2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2e26abc1-7048-401d-b806-8cee255ce6b2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d46c65d-4e2d-45da-aba2-799d268ac9c9' class='xr-var-data-in' type='checkbox'><label for='data-8d46c65d-4e2d-45da-aba2-799d268ac9c9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([50. , 49.9, 49.8, ...,  0.3,  0.2,  0.1])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>114.4 114.5 114.6 ... 108.0 108.0</div><input id='attrs-e50fb270-f9cf-44d4-93b9-22dd617dd6cc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e50fb270-f9cf-44d4-93b9-22dd617dd6cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6f8e3fc9-37f3-45a4-b10f-7798d452210f' class='xr-var-data-in' type='checkbox'><label for='data-6f8e3fc9-37f3-45a4-b10f-7798d452210f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([114.4 , 114.48, 114.56, ..., 108.  , 108.  , 108.  ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5bb1cf55-b329-4afa-9e2a-aa9041059e33' class='xr-section-summary-in' type='checkbox'  ><label for='section-5bb1cf55-b329-4afa-9e2a-aa9041059e33' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-742c0a7f-6e26-49b3-ad80-f47923fbdb14' class='xr-index-data-in' type='checkbox'/><label for='index-742c0a7f-6e26-49b3-ad80-f47923fbdb14' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([1000.0,  925.0,  850.0,  700.0,  600.0,  500.0,  400.0,  300.0,
-               250.0,  200.0,  150.0,  100.0,   70.0,   50.0,   30.0,   20.0,
-                10.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ca5ff461-e7b6-4974-8e66-f249548a4588' class='xr-index-data-in' type='checkbox'/><label for='index-ca5ff461-e7b6-4974-8e66-f249548a4588' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([               50.0,                49.9,                49.8,
-               49.699999999999996,  49.599999999999994,   49.49999999999999,
-                49.39999999999999,   49.29999999999999,   49.19999999999999,
-                49.09999999999999,
-              ...
-               0.9999999999993037,  0.8999999999993022,  0.7999999999993008,
-               0.6999999999992994,   0.599999999999298, 0.49999999999929656,
-              0.39999999999929514,  0.2999999999992937,  0.1999999999992923,
-              0.09999999999929088],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=500))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bb51db6d-924c-472b-9fb8-be1146ece2cb' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bb51db6d-924c-472b-9fb8-be1146ece2cb' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+         1.41367915,  1.41429081]])</pre></div></div></li><li class='xr-section-item'><input id='section-b792bcbb-92a6-40b5-ae6e-7c3b5d21369f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b792bcbb-92a6-40b5-ae6e-7c3b5d21369f' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>1e+03 925.0 850.0 ... 20.0 10.0</div><input id='attrs-a0adbdec-3797-40cc-8121-68fd897eaff4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a0adbdec-3797-40cc-8121-68fd897eaff4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b1d4c760-d7a7-4d0a-a91b-33926a77777d' class='xr-var-data-in' type='checkbox'><label for='data-b1d4c760-d7a7-4d0a-a91b-33926a77777d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>millibar</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([1000.,  925.,  850.,  700.,  600.,  500.,  400.,  300.,  250.,  200.,
+        150.,  100.,   70.,   50.,   30.,   20.,   10.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>50.0 49.9 49.8 49.7 ... 0.3 0.2 0.1</div><input id='attrs-88ec437b-53bc-4b76-b99a-d6f8af014a6b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-88ec437b-53bc-4b76-b99a-d6f8af014a6b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50b2e1d4-0a25-45da-800e-dd8f3fa67183' class='xr-var-data-in' type='checkbox'><label for='data-50b2e1d4-0a25-45da-800e-dd8f3fa67183' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([50. , 49.9, 49.8, ...,  0.3,  0.2,  0.1])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>114.4 114.5 114.6 ... 108.0 108.0</div><input id='attrs-8881f6bf-fa78-4cdb-9f58-55099fd9e6a2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8881f6bf-fa78-4cdb-9f58-55099fd9e6a2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-25f5d4b9-01db-4355-9620-32b38c724ac0' class='xr-var-data-in' type='checkbox'><label for='data-25f5d4b9-01db-4355-9620-32b38c724ac0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([114.4 , 114.48, 114.56, ..., 108.  , 108.  , 108.  ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9d4f1d2f-963a-4bc4-9081-0f9e949dfb97' class='xr-section-summary-in' type='checkbox'  ><label for='section-9d4f1d2f-963a-4bc4-9081-0f9e949dfb97' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-47ff799c-d522-4166-a855-d3acd16a3ee0' class='xr-index-data-in' type='checkbox'/><label for='index-47ff799c-d522-4166-a855-d3acd16a3ee0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1000.0,  925.0,  850.0,  700.0,  600.0,  500.0,  400.0,  300.0,  250.0,
+        200.0,  150.0,  100.0,   70.0,   50.0,   30.0,   20.0,   10.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-be37c89f-bff6-497d-8f05-3c95a13e5ae3' class='xr-index-data-in' type='checkbox'/><label for='index-be37c89f-bff6-497d-8f05-3c95a13e5ae3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([               50.0,                49.9,                49.8,
+        49.699999999999996,  49.599999999999994,   49.49999999999999,
+         49.39999999999999,   49.29999999999999,   49.19999999999999,
+         49.09999999999999,
+       ...
+        0.9999999999993037,  0.8999999999993022,  0.7999999999993008,
+        0.6999999999992994,   0.599999999999298, 0.49999999999929656,
+       0.39999999999929514,  0.2999999999992937,  0.1999999999992923,
+       0.09999999999929088],
+      dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;, length=500))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e1ee3285-a841-47c5-9cb1-a7f598588136' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e1ee3285-a841-47c5-9cb1-a7f598588136' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">v_cro</span></code>的維度是 <span class="math notranslate nohighlight">\(N_{\text{lat}} \times N_{\text{level}}\)</span> ；另外精度位置是<code class="docutils literal notranslate"><span class="pre">lat</span></code>緯度的函數。</p>
 <p>最後就是用<code class="docutils literal notranslate"><span class="pre">xarray.plot.contourf</span></code>作圖，結果如下：</p>
@@ -1007,7 +886,7 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/A4_ireg_grid_sel_8_0.png" src="_images/A4_ireg_grid_sel_8_0.png" />
+<img alt="_images/bcbd7a4c6a0c2e4803004514ed8b657e8c1f64a46c0527e3f958828498794fe3.png" src="_images/bcbd7a4c6a0c2e4803004514ed8b657e8c1f64a46c0527e3f958828498794fe3.png" />
 </div>
 </div>
 </section>
@@ -1025,7 +904,7 @@ Coordinates:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1033,55 +912,110 @@ Coordinates:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="appendix-main.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">附錄：實用氣候分析程式範例</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="appendix-main.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">附錄：實用氣候分析程式範例</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="A3_bandpass_filter.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="A3_bandpass_filter.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Lanczos 時間序列帶通濾波 (Bandpass Filter)</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-  
-      &copy; Copyright 2021-2023.<br/>
-    <div class="extra_footer">
-      <p>
-Last updated: 2023-04-10
-</p>
-    </div>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-section">非直線的剖面 (cross-section) 繪製</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021-2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Last updated: 2023-04-30
+</p>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

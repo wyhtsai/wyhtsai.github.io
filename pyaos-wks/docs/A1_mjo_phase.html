@@ -1,35 +1,45 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html >
+
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>馬登－朱利安震盪 (MJO) 氣候變異分析 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -37,13 +47,20 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-HKB5C6NRJC');
+            </script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -52,69 +69,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A1_mjo_phase';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="颱風資料庫與路徑繪製" href="A2_besttracks.html" />
     <link rel="prev" title="Lanczos 時間序列帶通濾波 (Bandpass Filter)" href="A3_bandpass_filter.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
-<script>
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){ dataLayer.push(arguments); }
-                    gtag('js', new Date());
-                    gtag('config', 'G-HKB5C6NRJC');
-                </script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="00_syllabus.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/PyAOS_logo_color.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Python在大氣和海洋科學上的應用 (PyAOS)</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/PyAOS_logo_color.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/PyAOS_logo_color.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -123,450 +164,250 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  xArray基本原理與操作
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">xArray基本原理與操作</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="00_setup.html">
-   電腦環境設置與Python安裝
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="01_intro.html">
-   1. 導論
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="02_open_nc_files.html">
-   2. 讀取netCDF和GRIB資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="03_plotting_basics.html">
-   3. 繪製月平均地圖及輸出計算結果
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="04_xr_datetime.html">
-   4. 時間條件控制
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="05_da_create.html">
-   5. 手動創建DataArray
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="00_setup.html">電腦環境設置與Python安裝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. 導論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取netCDF和GRIB資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. 繪製月平均地圖及輸出計算結果</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_xr_datetime.html">4. 時間條件控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_da_create.html">5. 手動創建DataArray</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  氣候分析方法基礎
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">氣候分析方法基礎</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="06_clim_anml.html">
-   6. 計算氣候場及距平值
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="07_statistics_calc.html">
-   7. 進階運算與統計方法
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="06_clim_anml.html">6. 計算氣候場及距平值</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_statistics_calc.html">7. 進階運算與統計方法</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  xArray繪圖
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">xArray繪圖</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="08_plotting_1d.html">
-   8.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     xarray
-    </span>
-   </code>
-   繪圖 (1)：繪製1D資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="09_plotting_2d.html">
-   9.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     xarray
-    </span>
-   </code>
-   繪圖 (2)：繪製2D資料
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10_pandas_seaborn.html">
-   10.
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     pandas
-    </span>
-   </code>
-   和
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     seaborn
-    </span>
-   </code>
-   : 統計圖表繪製
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="08_plotting_1d.html">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (1)：繪製1D資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_plotting_2d.html">9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_seaborn.html">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  其他重要議題
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">其他重要議題</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="11_cdo.html">
-   11. Climate Data Operator (CDO)
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="12_large_ds.html">
-   12. 大型資料處理
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="11_cdo.html">11. Climate Data Operator (CDO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. 大型資料處理</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  附錄
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">附錄</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="appendix-main.html">
-   附錄：實用氣候分析程式範例
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="A4_ireg_grid_sel.html">
-     不規則形狀的網格選擇
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="A3_bandpass_filter.html">
-     Lanczos 時間序列帶通濾波 (Bandpass Filter)
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     馬登－朱利安震盪 (MJO) 氣候變異分析
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="A2_besttracks.html">
-     颱風資料庫與路徑繪製
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">不規則形狀的網格選擇</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A3_bandpass_filter.html">Lanczos 時間序列帶通濾波 (Bandpass Filter)</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">馬登－朱利安震盪 (MJO) 氣候變異分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A2_besttracks.html">颱風資料庫與路徑繪製</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/wyhtsai/wyhtsai.github.io/master?urlpath=tree/docs/A1_mjo_phase.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
-  
-    <img src="_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
-
-      </li>
-      
-    </ul>
+  <div class="sidebar-primary-items__end sidebar-primary__section">
   </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA1_mjo_phase.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
 </div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/A1_mjo_phase.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
 
 <button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA1_mjo_phase.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/A1_mjo_phase.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mjo-phase-diagram">
-   MJO相位圖 (Phase diagram)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mjo-composite">
-   MJO各相位的合成 (Composite) 分析
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-test">
-     T test 簡介
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stats-ttest">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       stats.ttest
-      </span>
-     </code>
-     用法
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>馬登－朱利安震盪 (MJO) 氣候變異分析</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mjo-phase-diagram">
-   MJO相位圖 (Phase diagram)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#mjo-composite">
-   MJO各相位的合成 (Composite) 分析
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#t-test">
-     T test 簡介
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#stats-ttest">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       stats.ttest
-      </span>
-     </code>
-     用法
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>馬登－朱利安震盪 (MJO) 氣候變異分析</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mjo-phase-diagram">MJO相位圖 (Phase diagram)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mjo-composite">MJO各相位的合成 (Composite) 分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-test">T test 簡介</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stats-ttest"><code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code>用法</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="mjo">
 <h1>馬登－朱利安震盪 (MJO) 氣候變異分析<a class="headerlink" href="#mjo" title="Permalink to this headline">#</a></h1>
 <section id="mjo-phase-diagram">
@@ -663,10 +504,10 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_STRING, expecting &#39;;&#39; or &#39;,&#39;
-context: Attributes { T { String calendar &quot;standard&quot;; Int32 expires 1662595200; String standard_name &quot;time&quot;; Float32 pointwidth 1.0; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;; String Conventions &quot;IRIDL&quot;; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; Int32 expires 1662595200;}}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_WORD, expecting &#39;;&#39; or &#39;,&#39;
+context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1682726400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1682726400; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;;}}
 Illegal attribute
-context: Attributes { T { String calendar &quot;standard&quot;; Int32 expires 1662595200; String standard_name &quot;time&quot;; Float32 pointwidth 1.0; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1662595200; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String references &quot;Wheeler_Hendon2004&quot;; String Conventions &quot;IRIDL&quot;; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; Int32 expires 1662595200;}}
+context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1682726400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1682726400; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;;}}
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -930,6 +771,11 @@ body.vscode-dark {
   grid-column: 4;
 }
 
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
 .xr-var-name,
 .xr-var-dims,
 .xr-var-dtype,
@@ -951,14 +797,16 @@ body.vscode-dark {
 }
 
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   display: none;
   background-color: var(--xr-background-color) !important;
   padding-bottom: 5px !important;
 }
 
 .xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data {
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
   display: block;
 }
 
@@ -968,13 +816,16 @@ body.vscode-dark {
 
 .xr-var-name span,
 .xr-var-data,
+.xr-index-name div,
+.xr-index-data,
 .xr-attrs {
   padding-left: 25px !important;
 }
 
 .xr-attrs,
 .xr-var-attrs,
-.xr-var-data {
+.xr-var-data,
+.xr-index-data {
   grid-column: 1 / -1;
 }
 
@@ -1012,7 +863,8 @@ dl.xr-attrs {
 }
 
 .xr-icon-database,
-.xr-icon-file-text2 {
+.xr-icon-file-text2,
+.xr-no-icon {
   display: inline-block;
   vertical-align: middle;
   width: 1em;
@@ -1022,20 +874,24 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (T: 17630)
+Dimensions:    (T: 17863)
 Coordinates:
-  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2022-09-06
+  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2023-04-27
 Data variables:
-    amplitude  (T) float32 2.029 1.897 1.865 1.831 ... 0.5847 0.3126 0.4547
-    phase      (T) float32 5.0 5.0 5.0 5.0 5.0 6.0 ... 3.0 3.0 4.0 4.0 4.0 4.0
-    RMM1       (T) float32 1.634 1.603 1.516 1.51 ... 0.5462 0.2761 0.3712
-    RMM2       (T) float32 1.203 1.015 1.086 1.036 ... -0.2087 -0.1466 -0.2627</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9ccf0663-5881-414c-8e63-503e3fa39e14' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9ccf0663-5881-414c-8e63-503e3fa39e14' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 17630</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-2ef15f1f-e7ef-486e-97c0-6397d1c354c4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2ef15f1f-e7ef-486e-97c0-6397d1c354c4' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2022-09-06</div><input id='attrs-534c7d51-960c-4fb5-ba51-be23b820b1f3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-534c7d51-960c-4fb5-ba51-be23b820b1f3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15f557fd-3502-4dd1-9ff1-96451ceab06f' class='xr-var-data-in' type='checkbox'><label for='data-15f557fd-3502-4dd1-9ff1-96451ceab06f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
-       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2022-09-04T00:00:00.000000000&#x27;,
-       &#x27;2022-09-05T00:00:00.000000000&#x27;, &#x27;2022-09-06T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-eb0e1bbe-23b9-4826-87b6-bd00a460be6a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-eb0e1bbe-23b9-4826-87b6-bd00a460be6a' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-431cedf6-824e-44f2-886d-93083f538cc7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-431cedf6-824e-44f2-886d-93083f538cc7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f0573d4a-50b8-486d-be65-7ce7a086485e' class='xr-var-data-in' type='checkbox'><label for='data-f0573d4a-50b8-486d-be65-7ce7a086485e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([2.02948 , 1.89729 , 1.86476 , ..., 0.584679, 0.31263 , 0.454695],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-91ba1350-d60a-486e-9a06-dd67834dd163' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-91ba1350-d60a-486e-9a06-dd67834dd163' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-50234df1-156f-4f84-81a2-69a32010c959' class='xr-var-data-in' type='checkbox'><label for='data-50234df1-156f-4f84-81a2-69a32010c959' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([5., 5., 5., ..., 4., 4., 4.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-338a6418-6ef5-44a6-bd93-d85687a8acf0' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-338a6418-6ef5-44a6-bd93-d85687a8acf0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8474f376-def8-4738-b235-60b2c1098f38' class='xr-var-data-in' type='checkbox'><label for='data-8474f376-def8-4738-b235-60b2c1098f38' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.63447 , 1.60289 , 1.51625 , ..., 0.54618 , 0.276112, 0.371159],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-bb50a1f2-b546-4530-b977-de23b32352cb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bb50a1f2-b546-4530-b977-de23b32352cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-14121cc2-0253-4597-8719-378136273748' class='xr-var-data-in' type='checkbox'><label for='data-14121cc2-0253-4597-8719-378136273748' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 1.20304 ,  1.01512 ,  1.08551 , ..., -0.208657, -0.146628, -0.262656],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f3535083-c128-4e6b-8301-857ee3b5dea0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f3535083-c128-4e6b-8301-857ee3b5dea0' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+    amplitude  (T) float32 ...
+    phase      (T) float32 ...
+    RMM1       (T) float32 ...
+    RMM2       (T) float32 ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-973d1fba-4f58-4e53-9347-04918eecfe58' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-973d1fba-4f58-4e53-9347-04918eecfe58' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 17863</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a522bf1c-4d92-460b-9a14-2c064aee9c86' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a522bf1c-4d92-460b-9a14-2c064aee9c86' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2023-04-27</div><input id='attrs-ecb09293-58c6-4bbb-bb95-7d3699b9073b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ecb09293-58c6-4bbb-bb95-7d3699b9073b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1ed7a85d-61a4-4592-a307-2bde2a6b2193' class='xr-var-data-in' type='checkbox'><label for='data-1ed7a85d-61a4-4592-a307-2bde2a6b2193' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
+       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2023-04-25T00:00:00.000000000&#x27;,
+       &#x27;2023-04-26T00:00:00.000000000&#x27;, &#x27;2023-04-27T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-23917fa1-3dc4-4cb8-b821-87cb3bf204f4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-23917fa1-3dc4-4cb8-b821-87cb3bf204f4' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-acf4ff24-495e-4043-aaff-6ca8d1da221a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-acf4ff24-495e-4043-aaff-6ca8d1da221a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f32fb38b-d096-4d0e-9ca4-adf48a141536' class='xr-var-data-in' type='checkbox'><label for='data-f32fb38b-d096-4d0e-9ca4-adf48a141536' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-29e64c95-e372-44c4-9146-0a52b70a72ea' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-29e64c95-e372-44c4-9146-0a52b70a72ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6bdf7f18-9e13-4615-88d0-47cc246ca53b' class='xr-var-data-in' type='checkbox'><label for='data-6bdf7f18-9e13-4615-88d0-47cc246ca53b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8400d2e5-01fb-41ac-85f3-2a13cc72055b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8400d2e5-01fb-41ac-85f3-2a13cc72055b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b56c54cc-6f5b-4fd4-aff3-5809bec625a7' class='xr-var-data-in' type='checkbox'><label for='data-b56c54cc-6f5b-4fd4-aff3-5809bec625a7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9c409941-12d0-48ac-8a83-a89e7ea2588a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9c409941-12d0-48ac-8a83-a89e7ea2588a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f71a284a-d0af-4767-b1f4-a69f5005878d' class='xr-var-data-in' type='checkbox'><label for='data-f71a284a-d0af-4767-b1f4-a69f5005878d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5bd8ee20-9a46-4417-adbf-15c613cb60f6' class='xr-section-summary-in' type='checkbox'  ><label for='section-5bd8ee20-9a46-4417-adbf-15c613cb60f6' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>T</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-31188367-a1c1-4be3-89fc-d32ceb631358' class='xr-index-data-in' type='checkbox'/><label for='index-31188367-a1c1-4be3-89fc-d32ceb631358' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1974-06-01&#x27;, &#x27;1974-06-02&#x27;, &#x27;1974-06-03&#x27;, &#x27;1974-06-04&#x27;,
+               &#x27;1974-06-05&#x27;, &#x27;1974-06-06&#x27;, &#x27;1974-06-07&#x27;, &#x27;1974-06-08&#x27;,
+               &#x27;1974-06-09&#x27;, &#x27;1974-06-10&#x27;,
+               ...
+               &#x27;2023-04-18&#x27;, &#x27;2023-04-19&#x27;, &#x27;2023-04-20&#x27;, &#x27;2023-04-21&#x27;,
+               &#x27;2023-04-22&#x27;, &#x27;2023-04-23&#x27;, &#x27;2023-04-24&#x27;, &#x27;2023-04-25&#x27;,
+               &#x27;2023-04-26&#x27;, &#x27;2023-04-27&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;T&#x27;, length=17863, freq=&#x27;D&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-285ec74e-1e3f-4dfb-934b-cd6cfd2904f4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-285ec74e-1e3f-4dfb-934b-cd6cfd2904f4' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mjo_ds</span></code>包含振幅 (amplitude)、相位 (phase，從1至8)、RMM1和RMM2，我們會用到的是後兩者。</p>
 <div class="cell docutils container">
@@ -1059,7 +915,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/A1_mjo_phase_6_0.png" src="_images/A1_mjo_phase_6_0.png" />
+<img alt="_images/19e85bb5b914912436e825aba95a80f0cd198a71072b5235b1e7cb18fce139a5.png" src="_images/19e85bb5b914912436e825aba95a80f0cd198a71072b5235b1e7cb18fce139a5.png" />
 </div>
 </div>
 </section>
@@ -1102,62 +958,6 @@ Data variables:
 
 <span class="c1"># 用where函數挑出MJO強的相位</span>
 <span class="n">mjo_sig</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mjo_djf</span><span class="o">.</span><span class="n">amplitude</span><span class="o">&gt;=</span><span class="mi">1</span><span class="p">,</span>  <span class="n">mjo_djf</span><span class="o">.</span><span class="n">phase</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">Input In [4],</span> in <span class="ni">&lt;cell line: 4&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">clim_and_anml</span> <span class="k">as</span> <span class="nn">clm</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">pcp</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataarray</span><span class="p">(</span><span class="s1">&#39;data/cmorph_sample.nc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">pcpa</span> <span class="o">=</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="n">pcp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">mjo_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s1">&#39;http://iridl.ldeo.columbia.edu/SOURCES/.BoM/.MJO/.RMM/dods&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>                          <span class="n">decode_times</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">T</span> <span class="o">=</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">values</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:701,</span> in <span class="ni">DataArrayGroupByOpsMixin.__sub__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">700</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">701</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/groupby.py:620,</span> in <span class="ni">GroupBy._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">other</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">align</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">coord</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span> <span class="n">expanded</span> <span class="o">=</span> <span class="n">other</span><span class="o">.</span><span class="n">sel</span><span class="p">({</span><span class="n">name</span><span class="p">:</span> <span class="n">group</span><span class="p">})</span>
-<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">result</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">expanded</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">group</span><span class="o">.</span><span class="n">ndim</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="c1"># backcompat:</span>
-<span class="g g-Whitespace">    </span><span class="mi">624</span>     <span class="c1"># TODO: get rid of this when fixing GH2145</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span>     <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">xindexes</span><span class="p">):</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:209,</span> in <span class="ni">DataArrayOpsMixin.__sub__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">208</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">209</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/dataarray.py:3530,</span> in <span class="ni">DataArray._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3526</span> <span class="n">other_variable</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3527</span> <span class="n">other_coords</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="s2">&quot;coords&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3529</span> <span class="n">variable</span> <span class="o">=</span> <span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">3530</span>     <span class="n">f</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">variable</span><span class="p">,</span> <span class="n">other_variable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3531</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">reflexive</span>
-<span class="g g-Whitespace">   </span><span class="mi">3532</span>     <span class="k">else</span> <span class="n">f</span><span class="p">(</span><span class="n">other_variable</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">variable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3533</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3534</span> <span class="n">coords</span><span class="p">,</span> <span class="n">indexes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">_merge_raw</span><span class="p">(</span><span class="n">other_coords</span><span class="p">,</span> <span class="n">reflexive</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3535</span> <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_result_name</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/_typed_ops.py:399,</span> in <span class="ni">VariableOpsMixin.__sub__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span> <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">399</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_binary_op</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">operator</span><span class="o">.</span><span class="n">sub</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/xarray/core/variable.py:2519,</span> in <span class="ni">Variable._binary_op</span><span class="nt">(self, other, f, reflexive)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2516</span> <span class="n">attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attrs</span> <span class="k">if</span> <span class="n">keep_attrs</span> <span class="k">else</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">2517</span> <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">2518</span>     <span class="n">new_data</span> <span class="o">=</span> <span class="p">(</span>
-<span class="ne">-&gt; </span><span class="mi">2519</span>         <span class="n">f</span><span class="p">(</span><span class="n">self_data</span><span class="p">,</span> <span class="n">other_data</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">reflexive</span> <span class="k">else</span> <span class="n">f</span><span class="p">(</span><span class="n">other_data</span><span class="p">,</span> <span class="n">self_data</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2520</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2521</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Variable</span><span class="p">(</span><span class="n">dims</span><span class="p">,</span> <span class="n">new_data</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">attrs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2522</span> <span class="k">return</span> <span class="n">result</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1236,7 +1036,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/A1_mjo_phase_9_0.png" src="_images/A1_mjo_phase_9_0.png" />
+<img alt="_images/d6081ed80c22debe637401bf232838f4581fd8b9a0a476ca632c20f8f3a51d04.png" src="_images/d6081ed80c22debe637401bf232838f4581fd8b9a0a476ca632c20f8f3a51d04.png" />
 </div>
 </div>
 </section>
@@ -1255,7 +1055,7 @@ Data variables:
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1263,55 +1063,115 @@ Data variables:
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="A3_bandpass_filter.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lanczos 時間序列帶通濾波 (Bandpass Filter)</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="A3_bandpass_filter.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lanczos 時間序列帶通濾波 (Bandpass Filter)</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="A2_besttracks.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="A2_besttracks.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">颱風資料庫與路徑繪製</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
-  
-    By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系<br/>
-  
-      &copy; Copyright 2021-2023.<br/>
-    <div class="extra_footer">
-      <p>
-Last updated: 2023-04-10
-</p>
-    </div>
-</p>
-        </footer>
-    </div>
-    
-</div>
-
-
       </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mjo-phase-diagram">MJO相位圖 (Phase diagram)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mjo-composite">MJO各相位的合成 (Composite) 分析</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-test">T test 簡介</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stats-ttest"><code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code>用法</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2021-2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+Last updated: 2023-04-30
+</p>
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

@@ -49,7 +49,7 @@ PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式�
 
 ### 事前預備
 * 請自備電腦！
-* 請從Google drive下載範例資料檔：https://drive.google.com/drive/folders/1UgiGbOVEf2Ba9771nbmr1sc6eXhbnijaQSGMuxLiW7vy5LCogqce52Sl-CTjPgmUUmOAcSIY?usp=sharing. 
+* 請從Google drive下載範例資料檔：https://drive.google.com/drive/folders/1AN1rceRcSnkaLynABpmTkIHUANGE5sTe?usp=share_link. 
 * 請於課堂開始前，按照「[電腦環境設置與Python安裝](http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html)」單元設置Python運算環境。
 * 如果對Python的基本指令不熟悉，建議先閱讀 https://kopu.chat/2017/01/18/一小時python入門-part-1/。(非必需) 
 
