@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>教學綱要（中文） &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
+    <title>線性迴歸 (Linear Regression) &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
   
   
@@ -67,10 +67,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '00_syllabus';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A5_lin_reg';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="電腦環境設置與Python安裝" href="00_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -136,7 +137,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="00_syllabus.html">
   
   
   
@@ -155,8 +156,8 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1 current active">
-                <a class="reference internal" href="#">
+            <li class="toctree-l1">
+                <a class="reference internal" href="00_syllabus.html">
                     教學綱要（中文）
                 </a>
             </li>
@@ -266,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F00_syllabus.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA5_lin_reg.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/00_syllabus.md" target="_blank"
+      <li><a href="_sources/A5_lin_reg.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -306,7 +307,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -365,9 +366,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -378,26 +377,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>教學綱要（中文）</h1>
+    <h1>線性迴歸 (Linear Regression)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python在大氣和海洋科學上的應用</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">教學目標</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">教學內容</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">評量方法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">參考書目及網站</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">事前預備</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -407,83 +391,20 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>教學綱要（中文）<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<section id="python">
-<h2>Python在大氣和海洋科學上的應用<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h2>
-<p><strong>國立台灣大學大氣科學系 蔡元懷</strong><br />
-<strong>時間：</strong> 2022/5/16, 23 (Mon.) 10:20-13:30<br />
-<strong>地點：</strong> 師大分部理圖802教室</p>
-<section id="id2">
-<h3>教學目標<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<ol class="arabic simple">
-<li><p>認識以xarray為主的PyAOS工具的基本指令。</p></li>
-<li><p>熟練用xarray套件讀取netCDF檔案、分析資料及繪圖。</p></li>
-<li><p>將PyAOS套件應用至氣象資料分析及研究工作。</p></li>
-</ol>
-</section>
-<section id="id3">
-<h3>教學內容<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<p>PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式套件集，針對大氣和海洋科學的需求而發展出的，用以方便使用者分析netCDF檔案 (或多維度資料)，產出分析結果。本工作坊將以氣候分析方法為導向，介紹如何以PyAOS的套件讀取資料檔、分析資料 (計算氣候平均、距平、統計計算)、繪製結果，特以xarray為主軸，採取講解和實作並重，希望工作坊後能夠容易地使用PyAOS套件工具，最後能應用在研究工作上。
-預定的單元如下 (得依實際情況彈性調整之)：</p>
-<p><strong>2022/5/16 (Mon.) 10:20-13:30</strong></p>
-<ol class="arabic simple">
-<li><p>導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。 (10 mins)</p></li>
-<li><p>NetCDF資料格式簡介/大氣與海洋科學資料從哪裡來？利用xarray讀取NetCDF資料。(30 mins).</p></li>
-<li><p>xarray繪圖 (I)：繪製2017/12月區域平均OLR、將DataArray儲存為netCDF檔案。(40 mins).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>物件與時間條件控制。 (10 mins).</p></li>
-<li><p>手動創建DataArray。(10 mins)</p></li>
-<li><p>計算氣候場與距平值 (40 mins).</p></li>
-</ol>
-<p><strong>2022/5/23 (Mon.) 10:20-13:30</strong></p>
-<ol class="arabic simple" start="7">
-<li><p>進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).</p></li>
-<li><p>xarray繪圖 (II)：1D資料繪圖 (20 mins).</p></li>
-<li><p>xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (60 mins)。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>：統計圖表繪製。(如果有時間的話)</p></li>
-</ol>
-<p><strong>Other Topics on PyAOS (TBD)</strong></p>
-<ol class="arabic simple" start="11">
-<li><p>Climate Data Operator (CDO)。</p></li>
-<li><p>大型資料處理。</p></li>
-</ol>
-</section>
-<section id="id4">
-<h3>評量方法<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
-<p>請完成指定習題 (共1次)，將結果的圖以及程式碼上傳到Moodle學習平台。</p>
-</section>
-<section id="id5">
-<h3>參考書目及網站<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>課程講義：<a class="reference external" href="https://wyhtsai.github.io/pyaos-wks/docs/index.html">https://wyhtsai.github.io/pyaos-wks/docs/index.html</a>.</p></li>
-<li><p>PyAOS官方網站：<a class="reference external" href="https://pyaos.github.io">https://pyaos.github.io</a>.</p></li>
-<li><p>xarray官方網站：<a class="reference external" href="https://xarray.pydata.org/en/stable/">https://xarray.pydata.org/en/stable/</a>.</p></li>
-<li><p>pandas官方網站：<a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a>.</p></li>
-<li><p>cartopy官方網站：<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a>.</p></li>
-<li><p>Dask官方網站：<a class="reference external" href="https://dask.org">https://dask.org</a>。</p></li>
-<li><p>Esmaili, R. B., 2021: Earth Observation using Python: A Practical Programming Guide. American Geophysical Union, 304 p.p., ISBN: 978-1-119-60688-8.</p></li>
-</ul>
-</section>
-<section id="id6">
-<h3>事前預備<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>請自備電腦！</p></li>
-<li><p>請從Google drive下載範例資料檔：<a class="reference external" href="https://drive.google.com/drive/folders/1AN1rceRcSnkaLynABpmTkIHUANGE5sTe?usp=share_link">https://drive.google.com/drive/folders/1AN1rceRcSnkaLynABpmTkIHUANGE5sTe?usp=share_link</a>.</p></li>
-<li><p>請於課堂開始前，按照「<a class="reference external" href="http://homepage.ntu.edu.tw/~wyhtsai/00_setup.html">電腦環境設置與Python安裝</a>」單元設置Python運算環境。</p></li>
-<li><p>如果對Python的基本指令不熟悉，建議先閱讀 <a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/%E3%80%82(%E9%9D%9E%E5%BF%85%E9%9C%80)">https://kopu.chat/2017/01/18/一小時python入門-part-1/。(非必需)</a></p></li>
-</ul>
-<p><strong>Acknowledgement:</strong> The logo of the PyAOS workshop was designed and provided by Mr. Sianyun Wang.</p>
-</section>
-</section>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-regression">
+<h1>線性迴歸 (Linear Regression)<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h1>
+<p>在氣候分析中，我們可以將網格資料對一個時間序列的指標做迴歸分析。回歸線
+$<span class="math notranslate nohighlight">\( y = ax+b \)</span><span class="math notranslate nohighlight">\(
+\)</span>a<span class="math notranslate nohighlight">\( 是斜率，或稱為迴歸係數，用來衡量線性關係的強弱和方向。迴歸係數地圖就是將每一點的迴歸係數製圖。因為給定的資料使用距平的關係，所以 \)</span>b$ 很小，趨近0。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+</pre></div>
 </div>
-<div class="toctree-wrapper compound">
 </div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
 </div>
 </section>
 
@@ -518,15 +439,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="right-next"
-       href="00_setup.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">電腦環境設置與Python安裝</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -536,27 +448,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python在大氣和海洋科學上的應用</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">教學目標</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">教學內容</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">評量方法</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">參考書目及網站</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">事前預備</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
