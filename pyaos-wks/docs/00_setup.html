@@ -435,18 +435,26 @@ document.write(`
 <h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Permalink to this headline">#</a></h2>
 <p>安裝好Anaconda後，請打開終端機。</p>
 <ul class="simple">
-<li><p>Mac使用者：可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Anaconda會自動安裝一些基本套件，這個套件環境預設稱為base。</p></li>
-<li><p>Windows使用者：請打開VS Code，在上方列選「終端機 -&gt; 新增終端」。在終端機右側「+」號旁的選單，選取「Command Prompt」。
-<img alt="" src="_images/fig_n4.png" /></p></li>
+<li><p>Mac使用者：可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Anaconda會自動安裝一些基本套件，這個套件環境預設稱為base。然而Anaconda預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p></li>
 </ul>
-<p>然而Anaconda預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">cfgrib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">rpy2</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span> <span class="n">pip</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span> <span class="n">pip</span>  
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">p3</span></code>是這個新的conda環境的名稱，也可以自己取新的名稱。</p>
+<ul class="simple">
+<li><p>Windows使用者：我們使用VS Code中的終端機功能安裝Python套件。請打開VS Code，在上方列選「終端機 -&gt; 新增終端」。在終端機右側「+」號旁的選單，選取「Command Prompt」。
+<img alt="" src="_images/fig_n4.png" />
+由於Windows環境能支援的Python套件有限，因此我們會安裝較少但必要的套件庫。請將以下指令複製貼上VS Code的終端機。</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">matplotlib</span> <span class="n">cartopy</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span>  <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">pip</span>  
+</pre></div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Conda-forge目前沒有釋出Windows版本的<code class="docutils literal notranslate"><span class="pre">cdo</span></code>和<code class="docutils literal notranslate"><span class="pre">windspharm</span></code>，因此請把以上指令中的這兩個套件拿掉，再執行安裝。(會影響到第7單元一小部分和第11單元，不過可以利用其他方法安裝。)</p>
+<p><code class="docutils literal notranslate"><span class="pre">cdo</span></code>、<code class="docutils literal notranslate"><span class="pre">python-cdo</span></code>未安裝會影響到第11單元，<code class="docutils literal notranslate"><span class="pre">windspharm</span></code>和<code class="docutils literal notranslate"><span class="pre">eofs</span></code>會影響到第七單元的一小部分， <code class="docutils literal notranslate"><span class="pre">cmaps</span></code>未安裝不影響畫圖功能唯不能選擇使用NCL的colormap。但這些套件可以另外用<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>安裝。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">p3</span></code>是這個新的conda環境的名稱，也可以自己取新的名稱。</p>
 </div>
 <p>安裝成功後，再打開Anaconda軟體，選Environments → p3，就可以看到剛安裝好的環境了。</p>
 <p><img alt="" src="_images/fig0.1.png" /></p>
@@ -537,15 +545,15 @@ Cartopy version: 0.21.1
 <section id="windows-11">
 <h3>Windows 11<a class="headerlink" href="#windows-11" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
-<li><p>點選「調整日期和時間」。
+<li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
 <img alt="" src="_images/win11_01.png" /></p></li>
-<li><p>選「與言與地區」。
+<li><p>選「與言與地區」。<br />
 <img alt="" src="_images/win11_02.png" /></p></li>
-<li><p>選「系統管理語言設定」。
+<li><p>選「系統管理語言設定」。<br />
 <img alt="" src="_images/win11_03.png" /></p></li>
-<li><p>選「變更系統地區設定」。
+<li><p>選「變更系統地區設定」。<br />
 <img alt="" src="_images/win11_04.png" /></p></li>
-<li><p>勾選「Beta：使用 Unicode UTF-8 提供全球語言 支援」。
+<li><p>勾選「Beta：使用 Unicode UTF-8 提供全球語言 支援」。<br />
 <img alt="" src="_images/win11_05.png" /></p></li>
 </ol>
 </section>
@@ -553,19 +561,19 @@ Cartopy version: 0.21.1
 <h3>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">#</a></h3>
 <p>步驟和Windows 11類似。</p>
 <ol class="arabic simple">
-<li><p>點選「調整日期/時間」。
+<li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
 <img alt="" src="_images/win10_1.png" /></p></li>
-<li><p>在左側選單選「與言與地區」。
+<li><p>在左側選單選「與言與地區」。<br />
 <img alt="" src="_images/win10_2.png" /></p></li>
-<li><p>選「其他日期、時間奥地區設定」。
+<li><p>選「其他日期、時間奥地區設定」。<br />
 <img alt="" src="_images/win10_3.png" /></p></li>
-<li><p>選「地區→變更日期、時間數字格式」。
+<li><p>選「地區→變更日期、時間數字格式」。<br />
 <img alt="" src="_images/win10_4.png" /></p></li>
-<li><p>選「系統管理」選單。
+<li><p>選「系統管理」選單。<br />
 <img alt="" src="_images/win10_5.png" /></p></li>
-<li><p>選「變更系統地區設定」。
+<li><p>選「變更系統地區設定」。<br />
 <img alt="" src="_images/win10_6.png" /></p></li>
-<li><p>勾選「Beta：使用 Unicode UTF-8 提供全球語言 支援」。
+<li><p>勾選「Beta：使用 Unicode UTF-8 提供全球語言 支援」。<br />
 <img alt="" src="_images/win10_7.png" /></p></li>
 </ol>
 <div class="admonition caution">
@@ -694,7 +702,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-05-04
+Last updated: 2023-05-05
 </p>
 </div>
   </div>
