@@ -411,9 +411,7 @@ document.write(`
 <h1>教學綱要（中文）<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
 <section id="python">
 <h2>Python在大氣和海洋科學上的應用<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h2>
-<p><strong>國立台灣大學大氣科學系 蔡元懷</strong><br />
-<strong>時間：</strong> 2022/5/16, 23 (Mon.) 10:20-13:30<br />
-<strong>地點：</strong> 師大分部理圖802教室</p>
+<p><strong>國立台灣大學大氣科學系 蔡元懷</strong></p>
 <section id="id2">
 <h3>教學目標<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <ol class="arabic simple">
@@ -426,23 +424,26 @@ document.write(`
 <h3>教學內容<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <p>PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式套件集，針對大氣和海洋科學的需求而發展出的，用以方便使用者分析netCDF檔案 (或多維度資料)，產出分析結果。本工作坊將以氣候分析方法為導向，介紹如何以PyAOS的套件讀取資料檔、分析資料 (計算氣候平均、距平、統計計算)、繪製結果，特以xarray為主軸，採取講解和實作並重，希望工作坊後能夠容易地使用PyAOS套件工具，最後能應用在研究工作上。
 預定的單元如下 (得依實際情況彈性調整之)：</p>
-<p><strong>2022/5/16 (Mon.) 10:20-13:30</strong></p>
+<p><strong>xarray基本原理與操作</strong></p>
 <ol class="arabic simple">
-<li><p>導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。 (10 mins)</p></li>
-<li><p>NetCDF資料格式簡介/大氣與海洋科學資料從哪裡來？利用xarray讀取NetCDF資料。(30 mins).</p></li>
-<li><p>xarray繪圖 (I)：繪製2017/12月區域平均OLR、將DataArray儲存為netCDF檔案。(40 mins).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>物件與時間條件控制。 (10 mins).</p></li>
-<li><p>手動創建DataArray。(10 mins)</p></li>
-<li><p>計算氣候場與距平值 (40 mins).</p></li>
+<li><p>導論：環境設置與檢查 / 什麼是PyAOS？/ 氣候分析的分析流程。</p></li>
+<li><p>NetCDF資料格式簡介/大氣與海洋科學資料從哪裡來？利用xarray讀取NetCDF資料。</p></li>
+<li><p>xarray繪圖 (I)：繪製2017/12月區域平均OLR、將DataArray儲存為netCDF檔案。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">datetime</span></code>物件與時間條件控制。</p></li>
+<li><p>手動創建DataArray。</p></li>
 </ol>
-<p><strong>2022/5/23 (Mon.) 10:20-13:30</strong></p>
-<ol class="arabic simple" start="7">
-<li><p>進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 (30 mins).</p></li>
+<p><strong>氣候分析方法基礎</strong></p>
+<ol class="arabic simple" start="6">
+<li><p>計算氣候場與距平值。</p></li>
+<li><p>進階運算和統計方法：利用xarray做網格內插、平均與滑動平均、相關係數；利用SciPy/MetPy做進階氣象計算：渦度、散度、流函數和速度位 。</p></li>
+</ol>
+<p><strong>xarray繪圖</strong></p>
+<ol class="arabic simple" start="8">
 <li><p>xarray繪圖 (II)：1D資料繪圖 (20 mins).</p></li>
 <li><p>xarray繪圖 (III)：2D資料繪圖——全球地圖 / 其他投影 / Hovmöller Diagram / 疊圖 / 繪製風場和流線場 / 多格子圖 (60 mins)。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>：統計圖表繪製。(如果有時間的話)</p></li>
 </ol>
-<p><strong>Other Topics on PyAOS (TBD)</strong></p>
+<p><strong>其他重要議題</strong></p>
 <ol class="arabic simple" start="11">
 <li><p>Climate Data Operator (CDO)。</p></li>
 <li><p>大型資料處理。</p></li>
@@ -459,9 +460,11 @@ document.write(`
 <li><p>PyAOS官方網站：<a class="reference external" href="https://pyaos.github.io">https://pyaos.github.io</a>.</p></li>
 <li><p>xarray官方網站：<a class="reference external" href="https://xarray.pydata.org/en/stable/">https://xarray.pydata.org/en/stable/</a>.</p></li>
 <li><p>pandas官方網站：<a class="reference external" href="https://pandas.pydata.org">https://pandas.pydata.org</a>.</p></li>
-<li><p>cartopy官方網站：<a class="reference external" href="https://scitools.org.uk/cartopy/docs/latest/">https://scitools.org.uk/cartopy/docs/latest/</a>.</p></li>
+<li><p>seaborn官方網站：<a class="reference external" href="https://seaborn.pydata.org/index.html">https://seaborn.pydata.org/index.html</a>.</p></li>
 <li><p>Dask官方網站：<a class="reference external" href="https://dask.org">https://dask.org</a>。</p></li>
+<li><p>Abernathey, R., K. Key, T. Crone, and J Busecke, 2021: An Introduction to Earth and Environmental Data Science. <a class="reference external" href="https://earth-env-data-science.github.io/intro.html">https://earth-env-data-science.github.io/intro.html</a></p></li>
 <li><p>Esmaili, R. B., 2021: Earth Observation using Python: A Practical Programming Guide. American Geophysical Union, 304 p.p., ISBN: 978-1-119-60688-8.</p></li>
+<li><p>Lin, J. W., H. Aizenman, E. M. C. Espinel, K. Gunnerson, J. Liu, 2022: An Introduction to Python Programming for Scientists and Engineers. Cambridge University Press, 766 p.p. doi: <a class="reference external" href="https://doi.org/10.1017/9781108571531">10.1017/9781108571531</a>.</p></li>
 </ul>
 </section>
 <section id="id6">
