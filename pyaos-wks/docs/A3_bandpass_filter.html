@@ -493,8 +493,8 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olr_30_60_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">30.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">60.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">olr_10_30_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">10.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">30.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">olr_30_60_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">60.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">30.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">olr_10_30_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">20.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">10.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">olr_30_60_bp_djf</span> <span class="o">=</span> <span class="n">olr_30_60_bp</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olr_30_60_bp</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">]))</span>
 <span class="n">olr_djf</span> <span class="o">=</span> <span class="n">olr</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olr</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">12</span><span class="p">]))</span>
@@ -515,7 +515,7 @@ document.write(`
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="c1"># 繪圖</span>
-<span class="n">clevs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]</span>
+<span class="n">clevs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmaps</span><span class="o">.</span><span class="n">precip3_16lev</span>
 <span class="n">cf_10_30d</span> <span class="o">=</span> <span class="n">djf_10_30_var_rt</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span>  
                                             <span class="n">transform</span><span class="o">=</span><span class="n">proj</span><span class="p">,</span>     
@@ -562,7 +562,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c508bcca941209d332fa06039a30e4f42b30954c97af58cf8abb4b417bf616a6.png" src="_images/c508bcca941209d332fa06039a30e4f42b30954c97af58cf8abb4b417bf616a6.png" />
+<img alt="_images/1e7cfcdd0a163343219cd08e85cc364b1e67b24cdcf421d6ed1ffe76c32ea139.png" src="_images/1e7cfcdd0a163343219cd08e85cc364b1e67b24cdcf421d6ed1ffe76c32ea139.png" />
 </div>
 </div>
 </section>
@@ -659,7 +659,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-05-15
+Last updated: 2023-06-15
 </p>
 </div>
   </div>
