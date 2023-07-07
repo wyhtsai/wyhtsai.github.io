@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. 導論 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
+    <title>線性迴歸 (Linear Regression) &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
   
   
@@ -67,11 +67,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '01_intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'A5_lin_reg';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. 讀取netCDF和GRIB資料" href="02_open_nc_files.html" />
-    <link rel="prev" title="電腦環境設置與Python安裝" href="00_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -163,9 +163,9 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">xArray基本原理與操作</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00_setup.html">電腦環境設置與Python安裝</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. 導論</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. 導論</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取netCDF和GRIB資料</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. 繪製月平均地圖及輸出計算結果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_xr_datetime.html">4. 時間條件控制</a></li>
@@ -267,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2F01_intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks/docs/issues/new?title=Issue%20on%20page%20%2FA5_lin_reg.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -297,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/01_intro.ipynb" target="_blank"
+      <li><a href="_sources/A5_lin_reg.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,9 +366,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -379,21 +377,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. 導論</h1>
+    <h1>線性迴歸 (Linear Regression)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaos">PyAOS簡介</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray">xarray簡介</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">引入函式庫</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -403,46 +391,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1. 導論<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<section id="pyaos">
-<h2>PyAOS簡介<a class="headerlink" href="#pyaos" title="Permalink to this headline">#</a></h2>
-<p>PyAOS是一套Python的程式套件，按照<a class="reference external" href="https://pyaos.github.io/">PyAOS官方網站</a>的定義，PyAOS是</p>
-<blockquote>
-<div><p>Python libraries stack used by the AOS community. A group of programs that works in tandem to produce a result or achieve a common goal is often referred to as a software stack.</p>
-</div></blockquote>
-<p>在大氣科學研究中，我們常用的程式邏輯就是</p>
-<ul class="simple">
-<li><p>讀取資料</p></li>
-<li><p>統計與分析</p></li>
-<li><p>模式模擬</p></li>
-<li><p>視覺化</p></li>
-</ul>
-<p><img alt="" src="https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png" /></p>
-<p>Source: Grolemund and Wickham (2016), <em>R For Data Science</em>.</p>
-<p>那PyAOS套件怎麼幫助我們完成以上的事情呢？我們先從PyAOS的核心套件(core libraries)認識起。下圖中，虛線框框中的Python套件就是PyAOS的核心，預設用來處理數值計算與簡單的統計的套件是<strong>Numpy</strong>，而用來處理比較複雜的科學、數學運算的則是<strong>Scipy</strong> (例如微積分等)。如果進行大量運算或大型資料處理，需要用到平行運算時，則預設使用<strong>Dask</strong>，Dask和Numpy和Scipy都有很好的整合。分析資料後，將資料視覺化的套件首選則是<strong>Matplotlib</strong>，而在大氣科學中常常需要用<strong>Cartopy</strong>繪製地圖以及調整圖的投影。</p>
-<p><img alt="" src="https://pyaos.github.io/images/pyaos-stack.svg" /></p>
-<p>然而，以上的幾個套件雖然就可以幫助我們完成研究，用起來也彈性，但也因為功能較為基礎，簡單的工作可能就需要寫比較長的程式碼。為了讓這些工作可以簡化，Python社群就開發了高階的套件，雖然彈性可能沒那麼大，但是可以完成很多事情，讓科學家的研究工作變得更有效率。這些高階的PyAOS套件包含xarray、iris等。本次的工作坊會以xarray為學習的主軸。</p>
-</section>
-<section id="xarray">
-<h2>xarray簡介<a class="headerlink" href="#xarray" title="Permalink to this headline">#</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">xarray</span></code>是由The Climate Corporation的科學家Stephan Hoyer、Alex Kleeman、Eugene Brevdo開發的工具，2014年以開放取用資源的方式釋出，2018年起由NumFOCUS贊助。這套工具專門為多維陣列的資料所設計，用以讀取netCDF資料、進行資料處理、範圍選取、統計運算和繪圖，並且把這些功能整合在一起，使得工作流程變得簡潔流暢。</p>
-<p>因此，本文將按照讀檔、資料分析、視覺化三個步驟，以<code class="docutils literal notranslate"><span class="pre">xarray</span></code>函式庫為主要資料處理、統計計算和繪圖的核心，以氣候分析的角度介紹常使用的Python函式庫以及程式技巧，以建立資料分析流程。本文的目的不在建立一個嚴謹的<code class="docutils literal notranslate"><span class="pre">xarray</span></code>使用說明，而是從氣候分析的實例出發，說明<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的用法，因此若需要函數或引數的相關細節，請參見<a class="reference external" href="http://xarray.pydata.org/en/stable/index.html#"><code class="docutils literal notranslate"><span class="pre">xarray</span></code>網頁</a>。</p>
-<p><strong>小提示：</strong> 如果對Python的基本指令還不熟悉 (e.g. 變數種類、變數定義、if分支結構、for迴圈、函數/副程式⋯⋯等)，可以先上網站搜尋入門教學，再來學習本文的內容喔！(例如：<a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/">一小時Python入門網頁</a>，其實網路上資源非常多也容易讀)</p>
-</section>
-<section id="id2">
-<h2>引入函式庫<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
-<p>在本文中，需要的函式庫有 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>、<code class="docutils literal notranslate"><span class="pre">xarray</span></code>、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>……等，在空白的Python程式 (<a class="reference external" href="http://xn--ker42bk66b.py">副檔名.py</a>) 加入以下指令，就可以引入所需要的資源庫。例如：</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-regression">
+<h1>線性迴歸 (Linear Regression)<a class="headerlink" href="#linear-regression" title="Permalink to this headline">#</a></h1>
+<p>在氣候分析中，我們可以將網格資料對一個時間序列的指標做迴歸分析。回歸線
+$<span class="math notranslate nohighlight">\( y = ax+b \)</span><span class="math notranslate nohighlight">\(
+\)</span>a<span class="math notranslate nohighlight">\( 是斜率，或稱為迴歸係數，用來衡量線性關係的強弱和方向。迴歸係數地圖就是將每一點的迴歸係數製圖。因為給定的資料使用距平的關係，所以 \)</span>b$ 很小，趨近0。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -476,24 +439,6 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="00_setup.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">電腦環境設置與Python安裝</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="02_open_nc_files.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. 讀取netCDF和GRIB資料</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div></div>
   
 </div>
@@ -503,22 +448,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaos">PyAOS簡介</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#xarray">xarray簡介</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">引入函式庫</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
