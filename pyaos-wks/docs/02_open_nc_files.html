@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>2. 讀取netCDF和GRIB資料 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="3. 繪製月平均地圖及輸出計算結果" href="03_plotting_basics.html" />
     <link rel="prev" title="1. 導論" href="01_intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -409,9 +421,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="netcdfgrib">
-<h1>2. 讀取netCDF和GRIB資料<a class="headerlink" href="#netcdfgrib" title="Permalink to this headline">#</a></h1>
+<h1>2. 讀取netCDF和GRIB資料<a class="headerlink" href="#netcdfgrib" title="Permalink to this heading">#</a></h1>
 <section id="netcdf">
-<h2>讀取單一netCDF檔案<a class="headerlink" href="#netcdf" title="Permalink to this headline">#</a></h2>
+<h2>讀取單一netCDF檔案<a class="headerlink" href="#netcdf" title="Permalink to this heading">#</a></h2>
 <p>讀取檔案的指令為 <strong><code class="docutils literal notranslate"><span class="pre">xarray.open_dataset(filename)</span></code></strong>。</p>
 <p><strong>Example 1:</strong> 讀取OLR檔案。
 在正式讀進Python之前，我們先利用<code class="docutils literal notranslate"><span class="pre">ncdump</span></code>指令來了解一下這個檔案的樣貌。</p>
@@ -492,7 +504,13 @@ variables:
 		:geospatial_lat_resolution = &quot;1.0&quot; ;
 		:geospatial_lon_units = &quot;degree&quot; ;
 		:geospatial_lon_resolution = &quot;1.0&quot; ;
-		:time_coverage_start = &quot;1979-01-01T00:00:00.00Z&quot; ;
+		:time_coverage_start = &quot;1979-01-
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>01T00:00:00.00Z&quot; ;
 		:time_coverage_end = &quot;1979-12-31T23:59:59.99Z&quot; ;
 		:time_coverage_duration = &quot;P365D&quot; ;
 		:time_coverage_resolution = &quot;P1D&quot; ;
@@ -509,9 +527,6 @@ variables:
 		:spatial_resolution = &quot;1.0 by 1.0 degree equal angle&quot; ;
 		:CDO = &quot;Climate Data Operators version 1.9.10 (https://mpimet.mpg.de/cdo)&quot; ;
 }
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
 </pre></div>
 </div>
 </div>
@@ -541,6 +556,10 @@ variables:
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
 <symbol id="icon-database" viewBox="0 0 32 32">
@@ -928,10 +947,10 @@ Attributes: (12/49)
     platform:                   TIROS-N &gt; Television Infrared Observation Sat...
     sensor:                     HIRS-2 &gt; High Resolution Infra-red Sounder/2,...
     spatial_resolution:         1.0 by 1.0 degree equal angle
-    CDO:                        Climate Data Operators version 1.9.10 (https:...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-b6f501a5-6deb-42dd-8a68-edf0db104a5a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b6f501a5-6deb-42dd-8a68-edf0db104a5a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8760</li><li><span class='xr-has-index'>lon</span>: 360</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 90</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-9add583c-02bc-4b1c-aafc-a9f9dff0b428' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9add583c-02bc-4b1c-aafc-a9f9dff0b428' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-faca1315-bb67-44e4-821b-e615214b10ed' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-faca1315-bb67-44e4-821b-e615214b10ed' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f0033ed8-eb43-4c0e-82ba-a654eec72e1f' class='xr-var-data-in' type='checkbox'><label for='data-f0033ed8-eb43-4c0e-82ba-a654eec72e1f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+    CDO:                        Climate Data Operators version 1.9.10 (https:...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-dbc99784-b88c-4732-8628-a110b542b91a' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-dbc99784-b88c-4732-8628-a110b542b91a' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8760</li><li><span class='xr-has-index'>lon</span>: 360</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lat</span>: 90</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3889ded9-9d75-4cde-b98d-409416a4ffb0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3889ded9-9d75-4cde-b98d-409416a4ffb0' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-54acd8d5-27a7-4615-ba43-60bb5ebd51f5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54acd8d5-27a7-4615-ba43-60bb5ebd51f5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-130e3c7f-9be5-4401-992f-9dd30c812571' class='xr-var-data-in' type='checkbox'><label for='data-130e3c7f-9be5-4401-992f-9dd30c812571' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2021-12-29T00:00:00.000000000&#x27;,
        &#x27;2021-12-30T00:00:00.000000000&#x27;, &#x27;2021-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-5e72e618-aafc-4899-9744-c2e30442411b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5e72e618-aafc-4899-9744-c2e30442411b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f99bef7-2e32-45b4-bae4-037674bbbb9e' class='xr-var-data-in' type='checkbox'><label for='data-5f99bef7-2e32-45b4-bae4-037674bbbb9e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-7c13357d-736a-4f73-82a8-e9a564bab7ff' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7c13357d-736a-4f73-82a8-e9a564bab7ff' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-99011db5-a28e-457b-8095-43aa95fe516d' class='xr-var-data-in' type='checkbox'><label for='data-99011db5-a28e-457b-8095-43aa95fe516d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-c289cbf2-0753-4d13-ae98-f25353ddc116' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c289cbf2-0753-4d13-ae98-f25353ddc116' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8c7e1695-c5d5-45e7-86fe-5ff00a5db550' class='xr-var-data-in' type='checkbox'><label for='data-8c7e1695-c5d5-45e7-86fe-5ff00a5db550' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-016c097d-61ab-4b33-9eca-aed453f66227' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-016c097d-61ab-4b33-9eca-aed453f66227' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f1f429ad-136f-44da-a190-6cd2f99002f9' class='xr-var-data-in' type='checkbox'><label for='data-f1f429ad-136f-44da-a190-6cd2f99002f9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
        -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
        -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
        -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
@@ -940,29 +959,26 @@ Attributes: (12/49)
         15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
         25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
         35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-03c80cfc-d9ff-458b-8ffd-fbd1efebf3d4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-03c80cfc-d9ff-458b-8ffd-fbd1efebf3d4' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-0e3dbfaa-6663-41f8-b819-ffb8a30d21e4' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0e3dbfaa-6663-41f8-b819-ffb8a30d21e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-70e6b467-af25-4f88-907a-0f2ef3b89994' class='xr-var-data-in' type='checkbox'><label for='data-70e6b467-af25-4f88-907a-0f2ef3b89994' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[720 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5e014e72-a5f6-4bb0-bcec-b169a32e3a72' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5e014e72-a5f6-4bb0-bcec-b169a32e3a72' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9efa6517-5b4b-48e5-afea-a7287f289973' class='xr-var-data-in' type='checkbox'><label for='data-9efa6517-5b4b-48e5-afea-a7287f289973' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[180 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>olr</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-faff267f-dd62-427d-8e79-7e84e88e541a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-faff267f-dd62-427d-8e79-7e84e88e541a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f26ebe4a-8329-4c12-a251-428d42c8b5b5' class='xr-var-data-in' type='checkbox'><label for='data-f26ebe4a-8329-4c12-a251-428d42c8b5b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div><div class='xr-var-data'><pre>[283824000 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ccfd6bdd-e9b0-48f8-b473-bdd9f06845ba' class='xr-section-summary-in' type='checkbox'  ><label for='section-ccfd6bdd-e9b0-48f8-b473-bdd9f06845ba' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5daedc0f-607b-453c-80cd-167d69ad5d57' class='xr-index-data-in' type='checkbox'/><label for='index-5daedc0f-607b-453c-80cd-167d69ad5d57' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1a10ef0f-eb8f-4e6e-86d4-f0c8de6dc3f1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1a10ef0f-eb8f-4e6e-86d4-f0c8de6dc3f1' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-84944383-db11-46e9-bc5f-dbe93d4cf244' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-84944383-db11-46e9-bc5f-dbe93d4cf244' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1d25f9d3-fb26-495a-9e8d-80b11b366e29' class='xr-var-data-in' type='checkbox'><label for='data-1d25f9d3-fb26-495a-9e8d-80b11b366e29' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[720 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, bnds)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1ba5abb5-9ff2-45bf-a231-84a53ad8f035' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1ba5abb5-9ff2-45bf-a231-84a53ad8f035' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e5e84d1-ff0c-45af-b8e8-8224db5b0940' class='xr-var-data-in' type='checkbox'><label for='data-7e5e84d1-ff0c-45af-b8e8-8224db5b0940' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[180 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>olr</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8d0b5cb7-77d5-48c2-9df7-beda5843659b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d0b5cb7-77d5-48c2-9df7-beda5843659b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9e2f54a3-bcdb-45c9-908b-92072729aca1' class='xr-var-data-in' type='checkbox'><label for='data-9e2f54a3-bcdb-45c9-908b-92072729aca1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div><div class='xr-var-data'><pre>[283824000 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-541c7b67-cd5a-4dd0-a6b5-8d1e65cdc1ed' class='xr-section-summary-in' type='checkbox'  ><label for='section-541c7b67-cd5a-4dd0-a6b5-8d1e65cdc1ed' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f4f6f706-2dea-46c0-800e-22b17474f86e' class='xr-index-data-in' type='checkbox'/><label for='index-f4f6f706-2dea-46c0-800e-22b17474f86e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2021-12-22&#x27;, &#x27;2021-12-23&#x27;, &#x27;2021-12-24&#x27;, &#x27;2021-12-25&#x27;,
                &#x27;2021-12-26&#x27;, &#x27;2021-12-27&#x27;, &#x27;2021-12-28&#x27;, &#x27;2021-12-29&#x27;,
                &#x27;2021-12-30&#x27;, &#x27;2021-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8760, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5de17ec5-157a-49b2-a61c-40bb31ad2fe7' class='xr-index-data-in' type='checkbox'/><label for='index-5de17ec5-157a-49b2-a61c-40bb31ad2fe7' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
-                9.5,
-              ...
-              350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5,
-              359.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-374c9ee2-5202-4202-a2cc-e60cd0a000d2' class='xr-index-data-in' type='checkbox'/><label for='index-374c9ee2-5202-4202-a2cc-e60cd0a000d2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5,
-              -35.5, -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5,
-              -26.5, -25.5, -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5,
-              -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,
-               -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
-                0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
-                9.5,  10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,
-               18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,  25.5,  26.5,
-               27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,  35.5,
-               36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e3ebc58d-833f-42b4-9ba0-3b064735649b' class='xr-section-summary-in' type='checkbox'  ><label for='section-e3ebc58d-833f-42b4-9ba0-3b064735649b' class='xr-section-summary' >Attributes: <span>(49)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>source :</span></dt><dd>NOAA Archive of HIRS L1B data from TIROS-N Series and MetOp-A/B, Gridsat CDR</dd><dt><span>institution :</span></dt><dd>UMD/ESSIC &gt; Earth System Science Interdisciplinary Center, University of Maryland</dd><dt><span>history :</span></dt><dd>Fri Jan 14 11:02:54 2022: cdo sellonlatbox,0,360,-45,45 -select,year=1998/2021 olr_cer_v01r02_daily_1979-2021.nc /data3/USERS/waynetsai/pyaos_wks_samples/data/olr_slice.nc
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8760, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b6029608-d7cc-4835-a16b-c309711f7833' class='xr-index-data-in' type='checkbox'/><label for='index-b6029608-d7cc-4835-a16b-c309711f7833' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+       ...
+       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-bdb618a5-afe4-4d5d-8416-0256da27a1ae' class='xr-index-data-in' type='checkbox'/><label for='index-bdb618a5-afe4-4d5d-8416-0256da27a1ae' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+       -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
+       -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
+       -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
+        -4.5,  -3.5,  -2.5,  -1.5,  -0.5,   0.5,   1.5,   2.5,   3.5,   4.5,
+         5.5,   6.5,   7.5,   8.5,   9.5,  10.5,  11.5,  12.5,  13.5,  14.5,
+        15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
+        25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
+        35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f1802f9e-dd7b-4be7-9331-7b46a99655d6' class='xr-section-summary-in' type='checkbox'  ><label for='section-f1802f9e-dd7b-4be7-9331-7b46a99655d6' class='xr-section-summary' >Attributes: <span>(49)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.6</dd><dt><span>source :</span></dt><dd>NOAA Archive of HIRS L1B data from TIROS-N Series and MetOp-A/B, Gridsat CDR</dd><dt><span>institution :</span></dt><dd>UMD/ESSIC &gt; Earth System Science Interdisciplinary Center, University of Maryland</dd><dt><span>history :</span></dt><dd>Fri Jan 14 11:02:54 2022: cdo sellonlatbox,0,360,-45,45 -select,year=1998/2021 olr_cer_v01r02_daily_1979-2021.nc /data3/USERS/waynetsai/pyaos_wks_samples/data/olr_slice.nc
 Fri Jan 07 23:38:23 2022: cdo settime,00:00:00 -mergetime olr_cer_v01r02_daily_1979-2020.nc /data3/USERS/waynetsai/data/OLR/OLR_CER_v1.2/olr-daily_v01r02-preliminary_20210101_latest.nc olr_cer_v01r02_daily_1979-2021.nc
 Fri Jan 07 23:36:07 2022: cdo select,year=1979/2020 olr_cer_v01r02_daily_1979-202105.nc /data4/USERS/waynetsai/data/olr_cer_v01r02_daily_1979-2020.nc
 Sun Oct 03 21:47:07 2021: cdo -r copy olr_cer_v01r02_daily_1979-202105_noleap_abs_t.nc olr_cer_v01r02_daily_1979-202105.nc
@@ -974,7 +990,7 @@ Mon May 24 12:05:18 2021: cdo -a settime,00:00:00 -mergetime olr-daily_v01r02_19
 <p>我們發現，<code class="docutils literal notranslate"><span class="pre">time</span></code>時間座標軸的內容，已經被轉化成我們容易辨識的時間格式yyyy-mm-dd了，這是因為xarray會自動轉譯netCDF檔中的時間，變成<strong>datetime object</strong>，這樣的時間格式稱為<strong>絕對時間</strong>。如此一來，之後要選取時間，就可以直接用年月日來處理，不必自行轉換相對時間和絕對時間。</p>
 </section>
 <section id="netcdf-reading-multiple-files">
-<h2>讀取多個netCDF檔案 (Reading Multiple Files)<a class="headerlink" href="#netcdf-reading-multiple-files" title="Permalink to this headline">#</a></h2>
+<h2>讀取多個netCDF檔案 (Reading Multiple Files)<a class="headerlink" href="#netcdf-reading-multiple-files" title="Permalink to this heading">#</a></h2>
 <p>有時候我們要處理長時間的氣候資料，但作業中心提供的資料卻是一年一個檔案，如果為每一筆資料都開一個Dataset，操作起來不方便，因此xarray可以用 <code class="docutils literal notranslate"><span class="pre">xarray.open_mfdataset(paths)</span></code>指令來一次開啟所有檔案，並且選擇<code class="docutils literal notranslate"><span class="pre">combine</span> <span class="pre">=</span> <span class="pre">'nested'</span></code>，讓檔案沿著指定的坐標軸合併。</p>
 <p><strong>Example 2 沿座標軸合併：</strong> 開啟NCEP R2風場資料，其中檔案是一年一筆。</p>
 <p>同樣地，我們先打開一筆資料看一下。</p>
@@ -1550,6 +1566,129 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
   #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
     major: Attribute
     minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
   #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
     major: Attribute
     minor: Object not found
@@ -1853,129 +1992,6 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
     major: Attribute
     minor: Can&#39;t open object
   #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
     major: Attribute
     minor: Object not found
 HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
@@ -2630,10 +2646,10 @@ Attributes:
     dataset_title:  NCEP-DOE AMIP-II Reanalysis
     References:     https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.rean...
     source_url:     http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/
-    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-ea8f456a-15dd-482e-827b-59198b8e4bc0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-ea8f456a-15dd-482e-827b-59198b8e4bc0' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-0a61e716-3d03-4da1-9514-4c1ac8c97c37' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0a61e716-3d03-4da1-9514-4c1ac8c97c37' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-8a8421b3-e9c9-4ce3-b1e6-1955ce82bdd8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8a8421b3-e9c9-4ce3-b1e6-1955ce82bdd8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-66537610-cf00-4fe2-b3ba-308dd7486110' class='xr-var-data-in' type='checkbox'><label for='data-66537610-cf00-4fe2-b3ba-308dd7486110' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-be7ad823-5e4e-4f57-ab16-7c9965034bd0' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-be7ad823-5e4e-4f57-ab16-7c9965034bd0' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3ac1323e-e100-402e-bf57-43be8b592965' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3ac1323e-e100-402e-bf57-43be8b592965' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-ddfcd226-5fa7-48a9-a784-035b9dfce2e1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ddfcd226-5fa7-48a9-a784-035b9dfce2e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-274b78df-f4b8-446f-ba5f-39bdc9f90b65' class='xr-var-data-in' type='checkbox'><label for='data-274b78df-f4b8-446f-ba5f-39bdc9f90b65' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2021-12-29T00:00:00.000000000&#x27;,
        &#x27;2021-12-30T00:00:00.000000000&#x27;, &#x27;2021-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-c12fe243-ddb0-40f5-adf5-6fd257688af1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c12fe243-ddb0-40f5-adf5-6fd257688af1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8dda9992-21bb-4c3c-a588-b89dd0c60484' class='xr-var-data-in' type='checkbox'><label for='data-8dda9992-21bb-4c3c-a588-b89dd0c60484' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-4d8c4f38-2561-4244-abe6-ab9f4f16da16' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d8c4f38-2561-4244-abe6-ab9f4f16da16' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-020289fa-e5c3-4e17-81b4-503524ed1875' class='xr-var-data-in' type='checkbox'><label for='data-020289fa-e5c3-4e17-81b4-503524ed1875' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -2647,14 +2663,14 @@ Attributes:
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-7b447f6f-bd04-4845-938a-1fb3e049ee0b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7b447f6f-bd04-4845-938a-1fb3e049ee0b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-85112909-2cd4-40c3-8dcf-f0a4990063cb' class='xr-var-data-in' type='checkbox'><label for='data-85112909-2cd4-40c3-8dcf-f0a4990063cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-40053c9e-4a18-445d-bdfc-bf8077776397' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-40053c9e-4a18-445d-bdfc-bf8077776397' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a80b9ec2-500d-4a76-92b2-d7d7945db6fd' class='xr-var-data-in' type='checkbox'><label for='data-a80b9ec2-500d-4a76-92b2-d7d7945db6fd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
         65. ,  62.5,  60. ,  57.5,  55. ,  52.5,  50. ,  47.5,  45. ,  42.5,
         40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,  20. ,  17.5,
         15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,  -5. ,  -7.5,
        -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5, -30. , -32.5,
        -35. , -37.5, -40. , -42.5, -45. , -47.5, -50. , -52.5, -55. , -57.5,
        -60. , -62.5, -65. , -67.5, -70. , -72.5, -75. , -77.5, -80. , -82.5,
-       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-2ff5b028-c423-4357-8cd0-8ae630d970c8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2ff5b028-c423-4357-8cd0-8ae630d970c8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3a2ff678-ef1c-4e81-bf8d-e004ca8f59a3' class='xr-var-data-in' type='checkbox'><label for='data-3a2ff678-ef1c-4e81-bf8d-e004ca8f59a3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ee768c4b-4137-4e8d-9938-7cc2a17d002a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ee768c4b-4137-4e8d-9938-7cc2a17d002a' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-fd6db7a4-9694-43bc-a997-4631df0f4f8a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fd6db7a4-9694-43bc-a997-4631df0f4f8a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35cfeeea-5cc4-4be3-b15e-5734f99b1d0c' class='xr-var-data-in' type='checkbox'><label for='data-35cfeeea-5cc4-4be3-b15e-5734f99b1d0c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-5196aa62-19c5-455c-b76f-27351633f7de' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5196aa62-19c5-455c-b76f-27351633f7de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4cccaad5-edda-4ae2-9b28-8efe88f9f835' class='xr-var-data-in' type='checkbox'><label for='data-4cccaad5-edda-4ae2-9b28-8efe88f9f835' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e242c09e-e297-43eb-897b-3d7a78753d9a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e242c09e-e297-43eb-897b-3d7a78753d9a' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-eb791609-31ab-419a-a6e4-d1e1c32f07ef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-eb791609-31ab-419a-a6e4-d1e1c32f07ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4973aef8-2953-482d-9d8a-590029ff8e0b' class='xr-var-data-in' type='checkbox'><label for='data-4973aef8-2953-482d-9d8a-590029ff8e0b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2680,7 +2696,7 @@ Attributes:
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 24 chunks in 49 graph layers </td>
+                        <td colspan="2"> 1117 chunks in 49 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -2694,24 +2710,24 @@ Attributes:
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="4" x2="25" y2="4" />
-  <line x1="0" y1="9" x2="25" y2="9" />
-  <line x1="0" y1="15" x2="25" y2="15" />
-  <line x1="0" y1="24" x2="25" y2="24" />
-  <line x1="0" y1="29" x2="25" y2="29" />
-  <line x1="0" y1="35" x2="25" y2="35" />
-  <line x1="0" y1="40" x2="25" y2="40" />
-  <line x1="0" y1="49" x2="25" y2="49" />
-  <line x1="0" y1="55" x2="25" y2="55" />
-  <line x1="0" y1="60" x2="25" y2="60" />
-  <line x1="0" y1="64" x2="25" y2="64" />
-  <line x1="0" y1="75" x2="25" y2="75" />
-  <line x1="0" y1="80" x2="25" y2="80" />
-  <line x1="0" y1="84" x2="25" y2="84" />
-  <line x1="0" y1="89" x2="25" y2="89" />
-  <line x1="0" y1="100" x2="25" y2="100" />
-  <line x1="0" y1="104" x2="25" y2="104" />
+  <line x1="0" y1="105" x2="25" y2="105" />
+  <line x1="0" y1="106" x2="25" y2="106" />
+  <line x1="0" y1="107" x2="25" y2="107" />
+  <line x1="0" y1="107" x2="25" y2="107" />
+  <line x1="0" y1="108" x2="25" y2="108" />
   <line x1="0" y1="109" x2="25" y2="109" />
+  <line x1="0" y1="110" x2="25" y2="110" />
+  <line x1="0" y1="111" x2="25" y2="111" />
+  <line x1="0" y1="111" x2="25" y2="111" />
+  <line x1="0" y1="112" x2="25" y2="112" />
+  <line x1="0" y1="113" x2="25" y2="113" />
+  <line x1="0" y1="114" x2="25" y2="114" />
+  <line x1="0" y1="115" x2="25" y2="115" />
+  <line x1="0" y1="115" x2="25" y2="115" />
+  <line x1="0" y1="116" x2="25" y2="116" />
+  <line x1="0" y1="117" x2="25" y2="117" />
+  <line x1="0" y1="118" x2="25" y2="118" />
+  <line x1="0" y1="119" x2="25" y2="119" />
   <line x1="0" y1="120" x2="25" y2="120" style="stroke-width:2" />
 
   <!-- Vertical lines -->
@@ -2727,7 +2743,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-cec6e611-203b-46ba-b354-1f2d82359c23' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cec6e611-203b-46ba-b354-1f2d82359c23' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a4210c7b-afe7-4eff-b362-db7757c2717e' class='xr-var-data-in' type='checkbox'><label for='data-a4210c7b-afe7-4eff-b362-db7757c2717e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-56d4a6c9-19da-427d-9809-9da4e41912d2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-56d4a6c9-19da-427d-9809-9da4e41912d2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-29a0677a-b5da-440e-8da2-474b9c5642a6' class='xr-var-data-in' type='checkbox'><label for='data-29a0677a-b5da-440e-8da2-474b9c5642a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2753,7 +2769,7 @@ Attributes:
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 24 chunks in 49 graph layers </td>
+                        <td colspan="2"> 1117 chunks in 49 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -2771,33 +2787,41 @@ Attributes:
 
   <!-- Vertical lines -->
   <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
-  <line x1="4" y1="0" x2="4" y2="25" />
-  <line x1="9" y1="0" x2="9" y2="25" />
-  <line x1="15" y1="0" x2="15" y2="25" />
-  <line x1="20" y1="0" x2="20" y2="25" />
-  <line x1="24" y1="0" x2="24" y2="25" />
-  <line x1="29" y1="0" x2="29" y2="25" />
-  <line x1="35" y1="0" x2="35" y2="25" />
-  <line x1="40" y1="0" x2="40" y2="25" />
-  <line x1="44" y1="0" x2="44" y2="25" />
-  <line x1="49" y1="0" x2="49" y2="25" />
-  <line x1="55" y1="0" x2="55" y2="25" />
-  <line x1="60" y1="0" x2="60" y2="25" />
-  <line x1="64" y1="0" x2="64" y2="25" />
-  <line x1="69" y1="0" x2="69" y2="25" />
-  <line x1="75" y1="0" x2="75" y2="25" />
-  <line x1="80" y1="0" x2="80" y2="25" />
-  <line x1="84" y1="0" x2="84" y2="25" />
-  <line x1="89" y1="0" x2="89" y2="25" />
-  <line x1="95" y1="0" x2="95" y2="25" />
-  <line x1="100" y1="0" x2="100" y2="25" />
-  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="105" y1="0" x2="105" y2="25" />
+  <line x1="105" y1="0" x2="105" y2="25" />
+  <line x1="106" y1="0" x2="106" y2="25" />
+  <line x1="106" y1="0" x2="106" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="108" y1="0" x2="108" y2="25" />
+  <line x1="108" y1="0" x2="108" y2="25" />
   <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="110" y1="0" x2="110" y2="25" />
+  <line x1="110" y1="0" x2="110" y2="25" />
+  <line x1="111" y1="0" x2="111" y2="25" />
+  <line x1="111" y1="0" x2="111" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="114" y1="0" x2="114" y2="25" />
+  <line x1="114" y1="0" x2="114" y2="25" />
   <line x1="115" y1="0" x2="115" y2="25" />
+  <line x1="115" y1="0" x2="115" y2="25" />
+  <line x1="116" y1="0" x2="116" y2="25" />
+  <line x1="116" y1="0" x2="116" y2="25" />
+  <line x1="117" y1="0" x2="117" y2="25" />
+  <line x1="117" y1="0" x2="117" y2="25" />
+  <line x1="118" y1="0" x2="118" y2="25" />
+  <line x1="118" y1="0" x2="118" y2="25" />
+  <line x1="119" y1="0" x2="119" y2="25" />
+  <line x1="119" y1="0" x2="119" y2="25" />
   <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
 
   <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
 
   <!-- Text -->
   <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >8766</text>
@@ -2844,28 +2868,25 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-016d226a-1c1d-49bc-acd6-97b794490c5b' class='xr-section-summary-in' type='checkbox'  ><label for='section-016d226a-1c1d-49bc-acd6-97b794490c5b' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7aef736d-eb42-477c-83ae-56bc85524394' class='xr-index-data-in' type='checkbox'/><label for='index-7aef736d-eb42-477c-83ae-56bc85524394' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-ea6e6d84-04d5-4f85-bd31-448b4ec40483' class='xr-section-summary-in' type='checkbox'  ><label for='section-ea6e6d84-04d5-4f85-bd31-448b4ec40483' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6e2ba23d-3605-431d-a4a7-3093f90c9af2' class='xr-index-data-in' type='checkbox'/><label for='index-6e2ba23d-3605-431d-a4a7-3093f90c9af2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2021-12-22&#x27;, &#x27;2021-12-23&#x27;, &#x27;2021-12-24&#x27;, &#x27;2021-12-25&#x27;,
                &#x27;2021-12-26&#x27;, &#x27;2021-12-27&#x27;, &#x27;2021-12-28&#x27;, &#x27;2021-12-29&#x27;,
                &#x27;2021-12-30&#x27;, &#x27;2021-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-19936e2d-d87e-4124-87be-d3954e7d48a2' class='xr-index-data-in' type='checkbox'/><label for='index-19936e2d-d87e-4124-87be-d3954e7d48a2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,
-               22.5,
-              ...
-              335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0,
-              357.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1ecc8719-f0d4-4ded-921c-49e087c14c3f' class='xr-index-data-in' type='checkbox'/><label for='index-1ecc8719-f0d4-4ded-921c-49e087c14c3f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,
-               67.5,  65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,
-               45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,
-               22.5,  20.0,  17.5,  15.0,  12.5,  10.0,   7.5,   5.0,   2.5,
-                0.0,  -2.5,  -5.0,  -7.5, -10.0, -12.5, -15.0, -17.5, -20.0,
-              -22.5, -25.0, -27.5, -30.0, -32.5, -35.0, -37.5, -40.0, -42.5,
-              -45.0, -47.5, -50.0, -52.5, -55.0, -57.5, -60.0, -62.5, -65.0,
-              -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5, -85.0, -87.5,
-              -90.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3b5d24d5-fde9-459e-b54e-03e8b734a76f' class='xr-index-data-in' type='checkbox'/><label for='index-3b5d24d5-fde9-459e-b54e-03e8b734a76f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([850.0], dtype=&#x27;float64&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4f9859e1-f861-4107-9c86-724f53bbf7c0' class='xr-section-summary-in' type='checkbox'  ><label for='section-4f9859e1-f861-4107-9c86-724f53bbf7c0' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-92026b5b-33f1-40b0-b602-0da5b89d15cd' class='xr-index-data-in' type='checkbox'/><label for='index-92026b5b-33f1-40b0-b602-0da5b89d15cd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+       ...
+       335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-78318547-1073-4909-b42b-a4e5f69320c2' class='xr-index-data-in' type='checkbox'/><label for='index-78318547-1073-4909-b42b-a4e5f69320c2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,  67.5,
+        65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,  45.0,  42.5,
+        40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,  20.0,  17.5,
+        15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,  -5.0,  -7.5,
+       -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0, -32.5,
+       -35.0, -37.5, -40.0, -42.5, -45.0, -47.5, -50.0, -52.5, -55.0, -57.5,
+       -60.0, -62.5, -65.0, -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5,
+       -85.0, -87.5, -90.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-615a0cc1-ce26-45ff-a856-d1c27b15a1d6' class='xr-index-data-in' type='checkbox'/><label for='index-615a0cc1-ce26-45ff-a856-d1c27b15a1d6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c866507b-a055-40ef-b9d0-4681f16870b4' class='xr-section-summary-in' type='checkbox'  ><label for='section-c866507b-a055-40ef-b9d0-4681f16870b4' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
 created 2002/03/15 by RHS (netCDF2.3)</dd><dt><span>comments :</span></dt><dd>Data is from 
 NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)
 (4x/day).  It consists of most variables interpolated to
@@ -2967,6 +2988,129 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
   #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
     major: Attribute
     minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
   #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
     major: Attribute
     minor: Object not found
@@ -3105,7 +3249,10 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
     minor: Can&#39;t open object
   #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
     major: Virtual Object Layer
-    minor: Can&#39;t open object
+    minor: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Can&#39;t open object
   #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
     major: Attribute
     minor: Can&#39;t open object
@@ -3270,129 +3417,6 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
     major: Attribute
     minor: Can&#39;t open object
   #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
     major: Attribute
     minor: Object not found
 HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
@@ -4434,10 +4458,10 @@ Attributes:
     dataset_title:  NCEP-DOE AMIP-II Reanalysis
     References:     https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.rean...
     source_url:     http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/
-    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1a48a0c0-b52e-423b-830f-90478c352514' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1a48a0c0-b52e-423b-830f-90478c352514' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-781e3b6a-8445-4a24-8e8d-ac5525547c2a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-781e3b6a-8445-4a24-8e8d-ac5525547c2a' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-333af134-82d3-44d7-a6a5-7c5c75fd7bc0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-333af134-82d3-44d7-a6a5-7c5c75fd7bc0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-16559e51-f424-40f9-8d91-03033944f79f' class='xr-var-data-in' type='checkbox'><label for='data-16559e51-f424-40f9-8d91-03033944f79f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-a8aff413-e30b-48a3-9bff-c420493dc470' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a8aff413-e30b-48a3-9bff-c420493dc470' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a58f911e-c9ae-4044-a589-ad0f79d2bbb4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a58f911e-c9ae-4044-a589-ad0f79d2bbb4' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-c3544155-3d21-44ae-9a4c-df1f76c1b23d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c3544155-3d21-44ae-9a4c-df1f76c1b23d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-137e0c07-7e7f-4c96-97c4-0474c74ca447' class='xr-var-data-in' type='checkbox'><label for='data-137e0c07-7e7f-4c96-97c4-0474c74ca447' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2021-12-29T00:00:00.000000000&#x27;,
        &#x27;2021-12-30T00:00:00.000000000&#x27;, &#x27;2021-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-96331984-2aa6-4a57-9173-6512268be384' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-96331984-2aa6-4a57-9173-6512268be384' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc58d9e7-2d85-4aad-865a-b916e896d76d' class='xr-var-data-in' type='checkbox'><label for='data-bc58d9e7-2d85-4aad-865a-b916e896d76d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-c930dbc1-0a45-4e13-aae1-5c4c22732f2d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c930dbc1-0a45-4e13-aae1-5c4c22732f2d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e35ca350-3747-4473-a746-e4cb273e7bbc' class='xr-var-data-in' type='checkbox'><label for='data-e35ca350-3747-4473-a746-e4cb273e7bbc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -4451,14 +4475,14 @@ Attributes:
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-f9ebdfd8-1153-4a82-b2a4-711254cd0289' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f9ebdfd8-1153-4a82-b2a4-711254cd0289' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3bb3994d-3af8-4cfa-bff3-03bf94a7088e' class='xr-var-data-in' type='checkbox'><label for='data-3bb3994d-3af8-4cfa-bff3-03bf94a7088e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-59f8def3-9fed-42d0-8a8b-c21800c630f2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-59f8def3-9fed-42d0-8a8b-c21800c630f2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cbe38e96-5350-4f79-91e4-9e13d1570261' class='xr-var-data-in' type='checkbox'><label for='data-cbe38e96-5350-4f79-91e4-9e13d1570261' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
         65. ,  62.5,  60. ,  57.5,  55. ,  52.5,  50. ,  47.5,  45. ,  42.5,
         40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,  20. ,  17.5,
         15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,  -5. ,  -7.5,
        -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5, -30. , -32.5,
        -35. , -37.5, -40. , -42.5, -45. , -47.5, -50. , -52.5, -55. , -57.5,
        -60. , -62.5, -65. , -67.5, -70. , -72.5, -75. , -77.5, -80. , -82.5,
-       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-d457eb70-9443-44d1-80b2-ecf9c160e0c3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d457eb70-9443-44d1-80b2-ecf9c160e0c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-540c8744-989f-4276-b07f-b31407d33a76' class='xr-var-data-in' type='checkbox'><label for='data-540c8744-989f-4276-b07f-b31407d33a76' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7b572222-dc48-41cc-9f24-5ceefed1082e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7b572222-dc48-41cc-9f24-5ceefed1082e' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-0b476574-8e01-434a-8ce8-841297f12140' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0b476574-8e01-434a-8ce8-841297f12140' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f08da24a-125e-429d-be5c-033fdd1a4e6c' class='xr-var-data-in' type='checkbox'><label for='data-f08da24a-125e-429d-be5c-033fdd1a4e6c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-388922aa-6872-4bfe-9aa8-0a9a0ac2e7b6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-388922aa-6872-4bfe-9aa8-0a9a0ac2e7b6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dc8ac9a0-be03-4224-83ed-2607692a2e0b' class='xr-var-data-in' type='checkbox'><label for='data-dc8ac9a0-be03-4224-83ed-2607692a2e0b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f8a92f74-c12b-4904-bae1-c742238b5679' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f8a92f74-c12b-4904-bae1-c742238b5679' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-b511cebd-e217-46b0-bcf5-bb05be0951cc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b511cebd-e217-46b0-bcf5-bb05be0951cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b335fa74-b307-46f6-8b3d-3adbfd63d548' class='xr-var-data-in' type='checkbox'><label for='data-b335fa74-b307-46f6-8b3d-3adbfd63d548' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -4484,7 +4508,7 @@ Attributes:
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 24 chunks in 49 graph layers </td>
+                        <td colspan="2"> 1117 chunks in 49 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -4498,24 +4522,24 @@ Attributes:
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
-  <line x1="0" y1="4" x2="25" y2="4" />
-  <line x1="0" y1="9" x2="25" y2="9" />
-  <line x1="0" y1="15" x2="25" y2="15" />
-  <line x1="0" y1="24" x2="25" y2="24" />
-  <line x1="0" y1="29" x2="25" y2="29" />
-  <line x1="0" y1="35" x2="25" y2="35" />
-  <line x1="0" y1="40" x2="25" y2="40" />
-  <line x1="0" y1="49" x2="25" y2="49" />
-  <line x1="0" y1="55" x2="25" y2="55" />
-  <line x1="0" y1="60" x2="25" y2="60" />
-  <line x1="0" y1="64" x2="25" y2="64" />
-  <line x1="0" y1="75" x2="25" y2="75" />
-  <line x1="0" y1="80" x2="25" y2="80" />
-  <line x1="0" y1="84" x2="25" y2="84" />
-  <line x1="0" y1="89" x2="25" y2="89" />
-  <line x1="0" y1="100" x2="25" y2="100" />
-  <line x1="0" y1="104" x2="25" y2="104" />
+  <line x1="0" y1="105" x2="25" y2="105" />
+  <line x1="0" y1="106" x2="25" y2="106" />
+  <line x1="0" y1="107" x2="25" y2="107" />
+  <line x1="0" y1="107" x2="25" y2="107" />
+  <line x1="0" y1="108" x2="25" y2="108" />
   <line x1="0" y1="109" x2="25" y2="109" />
+  <line x1="0" y1="110" x2="25" y2="110" />
+  <line x1="0" y1="111" x2="25" y2="111" />
+  <line x1="0" y1="111" x2="25" y2="111" />
+  <line x1="0" y1="112" x2="25" y2="112" />
+  <line x1="0" y1="113" x2="25" y2="113" />
+  <line x1="0" y1="114" x2="25" y2="114" />
+  <line x1="0" y1="115" x2="25" y2="115" />
+  <line x1="0" y1="115" x2="25" y2="115" />
+  <line x1="0" y1="116" x2="25" y2="116" />
+  <line x1="0" y1="117" x2="25" y2="117" />
+  <line x1="0" y1="118" x2="25" y2="118" />
+  <line x1="0" y1="119" x2="25" y2="119" />
   <line x1="0" y1="120" x2="25" y2="120" style="stroke-width:2" />
 
   <!-- Vertical lines -->
@@ -4531,7 +4555,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-528d0ef1-5b86-4682-8036-cad9da05eb47' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-528d0ef1-5b86-4682-8036-cad9da05eb47' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1dfca610-f6b2-4ff6-8d98-8f45292c2cf1' class='xr-var-data-in' type='checkbox'><label for='data-1dfca610-f6b2-4ff6-8d98-8f45292c2cf1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-1e3b0d75-664c-4c6a-8c63-52fd28d6bd6e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1e3b0d75-664c-4c6a-8c63-52fd28d6bd6e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b4d3a010-b924-47f2-ad68-f1ed19b70750' class='xr-var-data-in' type='checkbox'><label for='data-b4d3a010-b924-47f2-ad68-f1ed19b70750' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -4557,7 +4581,7 @@ Attributes:
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 24 chunks in 49 graph layers </td>
+                        <td colspan="2"> 1117 chunks in 49 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -4575,33 +4599,41 @@ Attributes:
 
   <!-- Vertical lines -->
   <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
-  <line x1="4" y1="0" x2="4" y2="25" />
-  <line x1="9" y1="0" x2="9" y2="25" />
-  <line x1="15" y1="0" x2="15" y2="25" />
-  <line x1="20" y1="0" x2="20" y2="25" />
-  <line x1="24" y1="0" x2="24" y2="25" />
-  <line x1="29" y1="0" x2="29" y2="25" />
-  <line x1="35" y1="0" x2="35" y2="25" />
-  <line x1="40" y1="0" x2="40" y2="25" />
-  <line x1="44" y1="0" x2="44" y2="25" />
-  <line x1="49" y1="0" x2="49" y2="25" />
-  <line x1="55" y1="0" x2="55" y2="25" />
-  <line x1="60" y1="0" x2="60" y2="25" />
-  <line x1="64" y1="0" x2="64" y2="25" />
-  <line x1="69" y1="0" x2="69" y2="25" />
-  <line x1="75" y1="0" x2="75" y2="25" />
-  <line x1="80" y1="0" x2="80" y2="25" />
-  <line x1="84" y1="0" x2="84" y2="25" />
-  <line x1="89" y1="0" x2="89" y2="25" />
-  <line x1="95" y1="0" x2="95" y2="25" />
-  <line x1="100" y1="0" x2="100" y2="25" />
-  <line x1="104" y1="0" x2="104" y2="25" />
+  <line x1="105" y1="0" x2="105" y2="25" />
+  <line x1="105" y1="0" x2="105" y2="25" />
+  <line x1="106" y1="0" x2="106" y2="25" />
+  <line x1="106" y1="0" x2="106" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="107" y1="0" x2="107" y2="25" />
+  <line x1="108" y1="0" x2="108" y2="25" />
+  <line x1="108" y1="0" x2="108" y2="25" />
   <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="109" y1="0" x2="109" y2="25" />
+  <line x1="110" y1="0" x2="110" y2="25" />
+  <line x1="110" y1="0" x2="110" y2="25" />
+  <line x1="111" y1="0" x2="111" y2="25" />
+  <line x1="111" y1="0" x2="111" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="112" y1="0" x2="112" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="113" y1="0" x2="113" y2="25" />
+  <line x1="114" y1="0" x2="114" y2="25" />
+  <line x1="114" y1="0" x2="114" y2="25" />
   <line x1="115" y1="0" x2="115" y2="25" />
+  <line x1="115" y1="0" x2="115" y2="25" />
+  <line x1="116" y1="0" x2="116" y2="25" />
+  <line x1="116" y1="0" x2="116" y2="25" />
+  <line x1="117" y1="0" x2="117" y2="25" />
+  <line x1="117" y1="0" x2="117" y2="25" />
+  <line x1="118" y1="0" x2="118" y2="25" />
+  <line x1="118" y1="0" x2="118" y2="25" />
+  <line x1="119" y1="0" x2="119" y2="25" />
+  <line x1="119" y1="0" x2="119" y2="25" />
   <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
 
   <!-- Colored Rectangle -->
-  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#ECB172A0;stroke-width:0"/>
+  <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
 
   <!-- Text -->
   <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >8766</text>
@@ -4648,28 +4680,25 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-f3f127a5-c81f-4685-b5e9-08f1c27934fa' class='xr-section-summary-in' type='checkbox'  ><label for='section-f3f127a5-c81f-4685-b5e9-08f1c27934fa' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d830bee2-130e-49ae-b088-a2d8b0bdcdf1' class='xr-index-data-in' type='checkbox'/><label for='index-d830bee2-130e-49ae-b088-a2d8b0bdcdf1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-fd012234-1073-4447-87dc-c8dc85fc9403' class='xr-section-summary-in' type='checkbox'  ><label for='section-fd012234-1073-4447-87dc-c8dc85fc9403' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-36df4d75-aa20-4f58-a6dd-fd2f89860202' class='xr-index-data-in' type='checkbox'/><label for='index-36df4d75-aa20-4f58-a6dd-fd2f89860202' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2021-12-22&#x27;, &#x27;2021-12-23&#x27;, &#x27;2021-12-24&#x27;, &#x27;2021-12-25&#x27;,
                &#x27;2021-12-26&#x27;, &#x27;2021-12-27&#x27;, &#x27;2021-12-28&#x27;, &#x27;2021-12-29&#x27;,
                &#x27;2021-12-30&#x27;, &#x27;2021-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-92ac8b84-e86f-4159-9a0d-db8eef5249a5' class='xr-index-data-in' type='checkbox'/><label for='index-92ac8b84-e86f-4159-9a0d-db8eef5249a5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,
-               22.5,
-              ...
-              335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0,
-              357.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6f8de75d-c3d7-4355-bec3-a6e335893ab4' class='xr-index-data-in' type='checkbox'/><label for='index-6f8de75d-c3d7-4355-bec3-a6e335893ab4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,
-               67.5,  65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,
-               45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,
-               22.5,  20.0,  17.5,  15.0,  12.5,  10.0,   7.5,   5.0,   2.5,
-                0.0,  -2.5,  -5.0,  -7.5, -10.0, -12.5, -15.0, -17.5, -20.0,
-              -22.5, -25.0, -27.5, -30.0, -32.5, -35.0, -37.5, -40.0, -42.5,
-              -45.0, -47.5, -50.0, -52.5, -55.0, -57.5, -60.0, -62.5, -65.0,
-              -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5, -85.0, -87.5,
-              -90.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-47a7c8a6-1da3-4540-865d-8e1ec01463b1' class='xr-index-data-in' type='checkbox'/><label for='index-47a7c8a6-1da3-4540-865d-8e1ec01463b1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([850.0], dtype=&#x27;float64&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-007d6fb6-9a4c-4c97-8164-e32481f10ac3' class='xr-section-summary-in' type='checkbox'  ><label for='section-007d6fb6-9a4c-4c97-8164-e32481f10ac3' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b5c18e1b-db42-4787-912b-a4f610b387fd' class='xr-index-data-in' type='checkbox'/><label for='index-b5c18e1b-db42-4787-912b-a4f610b387fd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+       ...
+       335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-37f8a53a-8c4c-4132-af64-5731308f74ca' class='xr-index-data-in' type='checkbox'/><label for='index-37f8a53a-8c4c-4132-af64-5731308f74ca' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,  67.5,
+        65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,  45.0,  42.5,
+        40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,  20.0,  17.5,
+        15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,  -5.0,  -7.5,
+       -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0, -32.5,
+       -35.0, -37.5, -40.0, -42.5, -45.0, -47.5, -50.0, -52.5, -55.0, -57.5,
+       -60.0, -62.5, -65.0, -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5,
+       -85.0, -87.5, -90.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-11c1ab39-3fdf-406e-9bd6-b6d1576165bd' class='xr-index-data-in' type='checkbox'/><label for='index-11c1ab39-3fdf-406e-9bd6-b6d1576165bd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c968605a-aaca-4162-bd34-03b557aa85db' class='xr-section-summary-in' type='checkbox'  ><label for='section-c968605a-aaca-4162-bd34-03b557aa85db' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
 created 2002/03/15 by RHS (netCDF2.3)</dd><dt><span>comments :</span></dt><dd>Data is from 
 NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)
 (4x/day).  It consists of most variables interpolated to
@@ -4681,7 +4710,7 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
 <li><p><code class="docutils literal notranslate"><span class="pre">combine_by_coords()</span></code>: attempts to infer this ordering automatically from the coordinates in the data.</p></li>
 </ul>
 <section id="glob">
-<h3>用<code class="docutils literal notranslate"><span class="pre">glob</span></code>製造檔案列表<a class="headerlink" href="#glob" title="Permalink to this headline">#</a></h3>
+<h3>用<code class="docutils literal notranslate"><span class="pre">glob</span></code>製造檔案列表<a class="headerlink" href="#glob" title="Permalink to this heading">#</a></h3>
 <p>如果要讀的檔案規則比較複雜，沒辦法單用<code class="docutils literal notranslate"><span class="pre">*</span></code>或<code class="docutils literal notranslate"><span class="pre">?</span></code>符號來讀完所有需要的檔案，可以採用<code class="docutils literal notranslate"><span class="pre">glob</span></code>將適用的檔案規則轉換成檔案列表list後，再餵給<code class="docutils literal notranslate"><span class="pre">xarray.open_mfdataset()</span></code>。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -5086,10 +5115,10 @@ Attributes:
     dataset_title:  NCEP-DOE AMIP-II Reanalysis
     References:     https://www.esrl.noaa.gov/psd/data/gridded/data.ncep.rean...
     source_url:     http://www.cpc.ncep.noaa.gov/products/wesley/reanalysis2/
-    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-594b6ee1-12ef-4c29-b208-3f66d5ff94b7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-594b6ee1-12ef-4c29-b208-3f66d5ff94b7' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4383</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-1f36ce93-9b82-4ef3-a1d7-0a52652a5fe0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1f36ce93-9b82-4ef3-a1d7-0a52652a5fe0' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2009-12-31</div><input id='attrs-e26ec434-bc40-4245-95f8-80e961cfdc5c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e26ec434-bc40-4245-95f8-80e961cfdc5c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8678440d-df9e-4e86-a6d0-258264684dd9' class='xr-var-data-in' type='checkbox'><label for='data-8678440d-df9e-4e86-a6d0-258264684dd9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+    CDO:            Climate Data Operators version 1.9.10 (https://mpimet.mpg...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-b0d6968c-0c5e-4338-b653-e03c285d98fa' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b0d6968c-0c5e-4338-b653-e03c285d98fa' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 4383</li><li><span>bnds</span>: 2</li><li><span class='xr-has-index'>lon</span>: 144</li><li><span class='xr-has-index'>lat</span>: 73</li><li><span class='xr-has-index'>level</span>: 1</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-85b6d199-605a-4fff-8b23-0b0211634732' class='xr-section-summary-in' type='checkbox'  checked><label for='section-85b6d199-605a-4fff-8b23-0b0211634732' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2009-12-31</div><input id='attrs-99dd2762-68ca-4a20-95ed-7013c3f819df' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-99dd2762-68ca-4a20-95ed-7013c3f819df' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3eddf6b5-c324-4a18-9585-98d413434240' class='xr-var-data-in' type='checkbox'><label for='data-3eddf6b5-c324-4a18-9585-98d413434240' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2009-12-29T00:00:00.000000000&#x27;,
        &#x27;2009-12-30T00:00:00.000000000&#x27;, &#x27;2009-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-802638c5-d40b-4826-aaa2-e7becf614f02' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-802638c5-d40b-4826-aaa2-e7becf614f02' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-490a50c6-3d1e-4ab9-9126-1dbbc8b69fa1' class='xr-var-data-in' type='checkbox'><label for='data-490a50c6-3d1e-4ab9-9126-1dbbc8b69fa1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-f837cd7a-3046-4e58-8a37-5d696ecaaf3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f837cd7a-3046-4e58-8a37-5d696ecaaf3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e498d91b-b607-4a71-bdd0-afd192845045' class='xr-var-data-in' type='checkbox'><label for='data-e498d91b-b607-4a71-bdd0-afd192845045' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -5103,14 +5132,14 @@ Attributes:
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-76f71a89-3ea0-4ea2-9115-f1f8aa8c8de9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76f71a89-3ea0-4ea2-9115-f1f8aa8c8de9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-23020b02-db64-4376-a809-50bf042b3187' class='xr-var-data-in' type='checkbox'><label for='data-23020b02-db64-4376-a809-50bf042b3187' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 ... -87.5 -90.0</div><input id='attrs-f6458c03-adfd-4d4e-ba36-a5a88a34faf1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f6458c03-adfd-4d4e-ba36-a5a88a34faf1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3a7e1fe2-3ecf-4903-a040-5b538a60f51f' class='xr-var-data-in' type='checkbox'><label for='data-3a7e1fe2-3ecf-4903-a040-5b538a60f51f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  87.5,  85. ,  82.5,  80. ,  77.5,  75. ,  72.5,  70. ,  67.5,
         65. ,  62.5,  60. ,  57.5,  55. ,  52.5,  50. ,  47.5,  45. ,  42.5,
         40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,  20. ,  17.5,
         15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,  -5. ,  -7.5,
        -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5, -30. , -32.5,
        -35. , -37.5, -40. , -42.5, -45. , -47.5, -50. , -52.5, -55. , -57.5,
        -60. , -62.5, -65. , -67.5, -70. , -72.5, -75. , -77.5, -80. , -82.5,
-       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-5cec6ce3-d25c-4f24-aeb6-756d3a0c2b75' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5cec6ce3-d25c-4f24-aeb6-756d3a0c2b75' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0b9a5cc3-6c0d-4622-ae10-35d21117b67c' class='xr-var-data-in' type='checkbox'><label for='data-0b9a5cc3-6c0d-4622-ae10-35d21117b67c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bbcfbe8d-fa9e-4527-b924-bceae232b401' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bbcfbe8d-fa9e-4527-b924-bceae232b401' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-66737fef-a85a-4618-9dc0-efcbab69a83a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-66737fef-a85a-4618-9dc0-efcbab69a83a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dff9a90a-7be9-4b6f-b553-6c300a80c7b8' class='xr-var-data-in' type='checkbox'><label for='data-dff9a90a-7be9-4b6f-b553-6c300a80c7b8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+       -85. , -87.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-4e7cf691-f797-485d-af7b-6514c8d4024f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4e7cf691-f797-485d-af7b-6514c8d4024f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ca06cfb-c9ee-4760-9a58-663cb74b5020' class='xr-var-data-in' type='checkbox'><label for='data-5ca06cfb-c9ee-4760-9a58-663cb74b5020' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-19ebcb54-84de-458a-8b24-4dcf9906fbc8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-19ebcb54-84de-458a-8b24-4dcf9906fbc8' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, bnds)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 2), meta=np.ndarray&gt;</div><input id='attrs-6bf35a54-46c9-4e1c-9e4c-d16dd2143944' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6bf35a54-46c9-4e1c-9e4c-d16dd2143944' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-591eeea6-011b-4b9c-93d1-466c73309a72' class='xr-var-data-in' type='checkbox'><label for='data-591eeea6-011b-4b9c-93d1-466c73309a72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -5176,7 +5205,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-85bf2d5f-447a-4629-ab3a-79657e822faa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-85bf2d5f-447a-4629-ab3a-79657e822faa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e18e99c7-cd23-4e62-976b-f60b777f5aec' class='xr-var-data-in' type='checkbox'><label for='data-e18e99c7-cd23-4e62-976b-f60b777f5aec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(time, level, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(365, 1, 73, 144), meta=np.ndarray&gt;</div><input id='attrs-598ec4bc-682f-42e9-a010-193f92fb504f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-598ec4bc-682f-42e9-a010-193f92fb504f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d41a3e9d-efcd-48b9-8672-337811c626d9' class='xr-var-data-in' type='checkbox'><label for='data-d41a3e9d-efcd-48b9-8672-337811c626d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -5281,28 +5310,25 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-e9f220eb-d1e6-4b1b-b377-4fd7cae2818e' class='xr-section-summary-in' type='checkbox'  ><label for='section-e9f220eb-d1e6-4b1b-b377-4fd7cae2818e' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1f966d5a-8e12-4d7f-9b89-96fe784fdf40' class='xr-index-data-in' type='checkbox'/><label for='index-1f966d5a-8e12-4d7f-9b89-96fe784fdf40' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-f93269dd-1d4b-4f10-801a-f3c4cf44ee7d' class='xr-section-summary-in' type='checkbox'  ><label for='section-f93269dd-1d4b-4f10-801a-f3c4cf44ee7d' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2bf59b1b-6f66-4cb4-8ac8-3d253168f2ee' class='xr-index-data-in' type='checkbox'/><label for='index-2bf59b1b-6f66-4cb4-8ac8-3d253168f2ee' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2009-12-22&#x27;, &#x27;2009-12-23&#x27;, &#x27;2009-12-24&#x27;, &#x27;2009-12-25&#x27;,
                &#x27;2009-12-26&#x27;, &#x27;2009-12-27&#x27;, &#x27;2009-12-28&#x27;, &#x27;2009-12-29&#x27;,
                &#x27;2009-12-30&#x27;, &#x27;2009-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=4383, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1cabddba-b22d-4734-9533-db2a9566487c' class='xr-index-data-in' type='checkbox'/><label for='index-1cabddba-b22d-4734-9533-db2a9566487c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,
-               22.5,
-              ...
-              335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0,
-              357.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0331abd6-38fc-4447-a403-978e3775d0b2' class='xr-index-data-in' type='checkbox'/><label for='index-0331abd6-38fc-4447-a403-978e3775d0b2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,
-               67.5,  65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,
-               45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,
-               22.5,  20.0,  17.5,  15.0,  12.5,  10.0,   7.5,   5.0,   2.5,
-                0.0,  -2.5,  -5.0,  -7.5, -10.0, -12.5, -15.0, -17.5, -20.0,
-              -22.5, -25.0, -27.5, -30.0, -32.5, -35.0, -37.5, -40.0, -42.5,
-              -45.0, -47.5, -50.0, -52.5, -55.0, -57.5, -60.0, -62.5, -65.0,
-              -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5, -85.0, -87.5,
-              -90.0],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fc70b8ee-d1b9-4a0e-9e3c-fa95d8492cac' class='xr-index-data-in' type='checkbox'/><label for='index-fc70b8ee-d1b9-4a0e-9e3c-fa95d8492cac' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([850.0], dtype=&#x27;float64&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-31ea26e9-b9eb-4944-9c6c-591128d8a5db' class='xr-section-summary-in' type='checkbox'  ><label for='section-31ea26e9-b9eb-4944-9c6c-591128d8a5db' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=4383, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ffdbeeeb-3e4d-4764-950c-0f9bea1ed0a8' class='xr-index-data-in' type='checkbox'/><label for='index-ffdbeeeb-3e4d-4764-950c-0f9bea1ed0a8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+       ...
+       335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b1cace42-0852-4f15-be76-55602e71f9f6' class='xr-index-data-in' type='checkbox'/><label for='index-b1cace42-0852-4f15-be76-55602e71f9f6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  87.5,  85.0,  82.5,  80.0,  77.5,  75.0,  72.5,  70.0,  67.5,
+        65.0,  62.5,  60.0,  57.5,  55.0,  52.5,  50.0,  47.5,  45.0,  42.5,
+        40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,  20.0,  17.5,
+        15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,  -5.0,  -7.5,
+       -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5, -30.0, -32.5,
+       -35.0, -37.5, -40.0, -42.5, -45.0, -47.5, -50.0, -52.5, -55.0, -57.5,
+       -60.0, -62.5, -65.0, -67.5, -70.0, -72.5, -75.0, -77.5, -80.0, -82.5,
+       -85.0, -87.5, -90.0],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6d914f19-cfcd-4e99-8cd3-3378bd88324f' class='xr-index-data-in' type='checkbox'/><label for='index-6d914f19-cfcd-4e99-8cd3-3378bd88324f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-98518de9-874e-4b71-a375-90e8b1968b3d' class='xr-section-summary-in' type='checkbox'  ><label for='section-98518de9-874e-4b71-a375-90e8b1968b3d' class='xr-section-summary' >Attributes: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>CDI :</span></dt><dd>Climate Data Interface version 1.9.10 (https://mpimet.mpg.de/cdi)</dd><dt><span>Conventions :</span></dt><dd>CF-1.0</dd><dt><span>source :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Model</dd><dt><span>institution :</span></dt><dd>National Centers for Environmental Prediction</dd><dt><span>title :</span></dt><dd>Daily NCEP/DOE Reanalysis 2</dd><dt><span>history :</span></dt><dd>Tue Jan 04 11:04:24 2022: cdo select,level=850 uwnd.1998.nc uv850/u850.1998.nc
 created 2002/03/15 by RHS (netCDF2.3)</dd><dt><span>comments :</span></dt><dd>Data is from 
 NCEP/DOE AMIP-II Reanalysis (Reanalysis-2)
 (4x/day).  It consists of most variables interpolated to
@@ -5318,7 +5344,7 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
 </div>
 </section>
 <section id="parallel">
-<h3>Parallel 引數<a class="headerlink" href="#parallel" title="Permalink to this headline">#</a></h3>
+<h3>Parallel 引數<a class="headerlink" href="#parallel" title="Permalink to this heading">#</a></h3>
 <p>在以上<code class="docutils literal notranslate"><span class="pre">xarray.open_mfdataset</span></code>的函數中，有一個<code class="docutils literal notranslate"><span class="pre">parallel</span></code>引數，當設定為<code class="docutils literal notranslate"><span class="pre">True</span></code>時，會利用dask進行平行運算。</p>
 <blockquote>
 <div><p>parallel - If True, the open and preprocess steps of this function will be performed in parallel using dask.delayed. Default is False.</p>
@@ -5327,7 +5353,7 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
 </section>
 </section>
 <section id="grib">
-<h2>開啟GRIB檔案<a class="headerlink" href="#grib" title="Permalink to this headline">#</a></h2>
+<h2>開啟GRIB檔案<a class="headerlink" href="#grib" title="Permalink to this heading">#</a></h2>
 <p>GRIB (GRIdded Binary)格式是以二進位來儲存資料的檔案格式，且也記載了網格資訊如時間、經緯度、垂直層等，xarray也支援開啟這類檔案 (需要安裝<code class="docutils literal notranslate"><span class="pre">cfgrib</span></code>套件)，使用方式如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ds_grib</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="s2">&quot;example.grib&quot;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;cfgrib&quot;</span><span class="p">)</span>
 </pre></div>
@@ -5361,11 +5387,10 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_intro.html"
@@ -5385,10 +5410,7 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -5424,7 +5446,7 @@ pressure surfaces from model (sigma) surfaces.</dd><dt><span>platform :</span></
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -5448,7 +5470,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -5462,8 +5484,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>11. Climate Data Operator (CDO) &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="12. 大型資料處理" href="12_large_ds.html" />
     <link rel="prev" title="10. pandas和seaborn: 統計圖表繪製" href="10_pandas_seaborn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -419,7 +431,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="climate-data-operator-cdo">
-<h1>11. Climate Data Operator (CDO)<a class="headerlink" href="#climate-data-operator-cdo" title="Permalink to this headline">#</a></h1>
+<h1>11. Climate Data Operator (CDO)<a class="headerlink" href="#climate-data-operator-cdo" title="Permalink to this heading">#</a></h1>
 <p>CDO是由德國Max-Plank Institute for Meteorology研發出的軟體，它擁有許多可以處理標準氣候資料和預報模式資料的指令 (Operator)，包括簡易的統計、算數、資料選擇、時間和空間網格處理、內插等，是一套方便又強大的工具。以往必須在命令列 (Command Line) 使用cdo，現在MPI把這套套件寫成Python的套件，因此也可以在Python程式中使用。</p>
 <p>在這套講義中，我們主要會學習</p>
 <ul class="simple">
@@ -434,9 +446,9 @@ document.write(`
 <p>cdo計算後的產品都是輸出.nc檔，不像在前面的單元中所學會輸出成一個矩陣在Python內部使用。因此計算完後，如果在程式中需要使用這筆資料，必須再用<code class="docutils literal notranslate"><span class="pre">xarray.open_dataset</span></code>讀進程式。</p>
 </div>
 <section id="cdo">
-<h2><code class="docutils literal notranslate"><span class="pre">cdo</span></code>基本指令<a class="headerlink" href="#cdo" title="Permalink to this headline">#</a></h2>
+<h2><code class="docutils literal notranslate"><span class="pre">cdo</span></code>基本指令<a class="headerlink" href="#cdo" title="Permalink to this heading">#</a></h2>
 <section id="linux-command-line">
-<h3>Linux指令列 (Command Line)<a class="headerlink" href="#linux-command-line" title="Permalink to this headline">#</a></h3>
+<h3>Linux指令列 (Command Line)<a class="headerlink" href="#linux-command-line" title="Permalink to this heading">#</a></h3>
 <p>在Linux的指令列操作cdo的方式如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cdo</span> <span class="p">[</span><span class="n">Options</span><span class="p">]</span> <span class="n">Operator1</span> <span class="p">[</span><span class="o">-</span><span class="n">Operator2</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">OperatorN</span><span class="p">]</span> <span class="n">infile</span> <span class="n">outfile</span>
 </pre></div>
@@ -445,7 +457,7 @@ document.write(`
 若想要在一個命令列中執行N個指令，可以利用<code class="docutils literal notranslate"><span class="pre">[-OperatorN]</span></code>的方式 接起來；而cdo執行的順序為<code class="docutils literal notranslate"><span class="pre">[-OperatorN]</span></code> →<code class="docutils literal notranslate"><span class="pre">[-Operator2]</span></code>→<code class="docutils literal notranslate"><span class="pre">Operator1</span></code>.</p>
 </section>
 <section id="python">
-<h3>Python程式<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h3>
+<h3>Python程式<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">cdo</span> <span class="kn">import</span> <span class="o">*</span>
@@ -458,7 +470,7 @@ document.write(`
 </section>
 </section>
 <section id="select-field">
-<h2>資料選擇 (Select Field)<a class="headerlink" href="#select-field" title="Permalink to this headline">#</a></h2>
+<h2>資料選擇 (Select Field)<a class="headerlink" href="#select-field" title="Permalink to this heading">#</a></h2>
 <p>cdo有完整的指令說明書，可從<a class="reference external" href="https://code.mpimet.mpg.de/projects/cdo/embedded/cdo.pdf">官網</a>上下載。我們從最簡單的資料選擇開始示範起，在看範例之前，可以先試著透過搜尋說明書自己做做看，例如資料選擇的方法記載在說明書的2.3節。</p>
 <p><strong>Example 1:</strong> 如何選取1998-2018年每年12月的OLR資料?</p>
 <p>選取資料範圍使用<code class="docutils literal notranslate"><span class="pre">select</span></code>的方法函數。</p>
@@ -546,7 +558,7 @@ document.write(`
 </div>
 </section>
 <section id="statistics">
-<h2>統計 (Statistics)<a class="headerlink" href="#statistics" title="Permalink to this headline">#</a></h2>
+<h2>統計 (Statistics)<a class="headerlink" href="#statistics" title="Permalink to this heading">#</a></h2>
 <p>統計方法在說明書的第2.8節，例如<code class="docutils literal notranslate"><span class="pre">sum</span></code>, <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">avg</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, <code class="docutils literal notranslate"><span class="pre">std</span></code>, <code class="docutils literal notranslate"><span class="pre">weighted</span> <span class="pre">avg</span></code> and var…，請自行參閱其定義及用法。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -595,7 +607,7 @@ document.write(`
 </div>
 </section>
 <section id="arithmetics">
-<h2>算術 (Arithmetics)<a class="headerlink" href="#arithmetics" title="Permalink to this headline">#</a></h2>
+<h2>算術 (Arithmetics)<a class="headerlink" href="#arithmetics" title="Permalink to this heading">#</a></h2>
 <p>cdo的算術(以<code class="docutils literal notranslate"><span class="pre">EXPR</span></code>的operator表示)包括<code class="docutils literal notranslate"><span class="pre">=</span></code> (assignment)、加 (<code class="docutils literal notranslate"><span class="pre">x+y</span></code>)、減 (<code class="docutils literal notranslate"><span class="pre">x-y</span></code>)、乘 (<code class="docutils literal notranslate"><span class="pre">x*y</span></code>)、除 (<code class="docutils literal notranslate"><span class="pre">x/y</span></code>)、絕對值<code class="docutils literal notranslate"><span class="pre">abs(x)</span></code>、開根號<code class="docutils literal notranslate"><span class="pre">sqr(x)</span></code>、取指數<code class="docutils literal notranslate"><span class="pre">exp(x)</span></code>等。</p>
 <p><strong>Example 6:</strong> NCEP MSLP資料原先單位是Pa，利用cdo將資料轉換成hPa。</p>
 <p><strong>1. Command Line:</strong></p>
@@ -617,11 +629,11 @@ document.write(`
 </div>
 </section>
 <section id="interpolation">
-<h2>網格內插 (Interpolation)<a class="headerlink" href="#interpolation" title="Permalink to this headline">#</a></h2>
+<h2>網格內插 (Interpolation)<a class="headerlink" href="#interpolation" title="Permalink to this heading">#</a></h2>
 <p>例如當兩組資料網格解析度不同卻需要在相同網格上比較和分析時，或是降低資料的網格解析度以節省計算空間，或是處理模式結果時，我們需要改變資料的網格解析度。cdo有很好用的網格內插工具，可以處理球諧函數的網格座標 (spherical harmonics)、高斯座標 (Gausian Field)、直角坐標系 (Longitude/Latitude)等。這三種座標系統的解析度大約如下表所示：</p>
 <p><img alt="" src="_images/fig11.1.png" /></p>
 <section id="id1">
-<h3>內插到標準網格<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<h3>內插到標準網格<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">remapbil</span></code>：Bilinear interpolation，是最常使用的網格內插方法。</p>
 <p><img alt="" src="_images/fig11.2.png" /></p>
 <p><strong>1. Command Line:</strong></p>
@@ -643,7 +655,7 @@ document.write(`
 </div>
 </section>
 <section id="id2">
-<h3>內插到任意網格<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h3>內插到任意網格<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
 <p>首先要對目標網格建立一個<strong>網格資訊檔</strong>。以NCEP R2的網格作為範例如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gridtype</span> <span class="o">=</span> <span class="n">lonlat</span>
 <span class="n">xsize</span>    <span class="o">=</span> <span class="mi">69</span>
@@ -686,7 +698,7 @@ document.write(`
 </section>
 </section>
 <section id="id3">
-<h2>檔案輸出格式<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>檔案輸出格式<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>CDO預設輸出的檔案格式為netCDF檔案，如果想要更改，可以在Operator前加上option <code class="docutils literal notranslate"><span class="pre">-f</span> <span class="pre">&lt;format&gt;</span></code>。可接受的格式如下‘：</p>
 <p><img alt="" src="_images/fig11.3.png" /></p>
 <p><strong>1. Command Line:</strong></p>
@@ -709,7 +721,7 @@ document.write(`
 </div>
 </div>
 <section id="binary">
-<h3>Binary二元進位檔<a class="headerlink" href="#binary" title="Permalink to this headline">#</a></h3>
+<h3>Binary二元進位檔<a class="headerlink" href="#binary" title="Permalink to this heading">#</a></h3>
 <p>有些檔案是以二元進位 (binary) 的格式儲存的，檔案本身沒有網格資料，但通常會有附加的控制檔<code class="docutils literal notranslate"><span class="pre">.ctl</span></code>，告訴使用者要如何讀取這類檔案。二元進位檔在GrADS很常使用，利用cdo，也可以將二元進位檔轉換成netCDF格式。</p>
 <p>首先控制檔格式如下：</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>DSET infile.bin
@@ -761,11 +773,10 @@ ENDVARS
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="10_pandas_seaborn.html"
@@ -785,10 +796,7 @@ ENDVARS
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -834,7 +842,7 @@ ENDVARS
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -858,7 +866,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -872,8 +880,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

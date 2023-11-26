@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>熱帶波動判識與分析 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -74,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="馬登－朱利安震盪 (MJO) 氣候變異分析" href="A1_mjo_phase.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -83,6 +85,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -143,13 +154,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -353,10 +365,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -364,7 +376,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -407,10 +419,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>熱帶波動判識與分析<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>熱帶波動判識與分析<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>本單元主要示範如何利用Python工具判識熱帶波動訊號，而非提供熱帶波動理論完整的回顧與介紹。完整的理論介紹請參照下方所列的參考文獻。</p>
 <section id="id2">
-<h2>熱帶波動理論簡介<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>熱帶波動理論簡介<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>熱帶波動是主導熱帶地區季內尺度變異的系統，它的理論最早在 Matsuno (1966) 文章中提出，這篇文章從熱帶 <span class="math notranslate nohighlight">\(\beta \)</span> 面上的淺水方程 (shallow water equations) 出發，導出了熱帶波動頻散關係的理論解：</p>
 <div class="math notranslate nohighlight">
 \[    \omega ^{2} - k^2 - \dfrac{k}{\omega } = 2n+1, \qquad n = 1, 2, ...  \]</div>
@@ -431,7 +443,7 @@ document.write(`
 <p>以下會介紹兩種常用的分析方法，其一是 Wheeler and Kiladis (1999) 提出的時空濾波法 (space-time filtering technique)，其二是 Yang et al. (2003) 提出的雙曲柱狀函數 (PCF) 投影法 (2D spatial projection on the parabolic cylinder functions, 2DS-PCF) 方法。其他還有許多熱帶波動辨識的方法，詳細的介紹與回顧請見 Knippertz et al. (2022)。</p>
 </section>
 <section id="space-time-filtering">
-<h2>時空濾波 (Space-time filtering)<a class="headerlink" href="#space-time-filtering" title="Permalink to this headline">#</a></h2>
+<h2>時空濾波 (Space-time filtering)<a class="headerlink" href="#space-time-filtering" title="Permalink to this heading">#</a></h2>
 <p>時空濾波即在資料的經度和時間兩個維度軸上進行快速傅立葉變換 (fast Fourier transform, FFT)，然後將對應要保留的波段留下來，其他設為0，再進行反變換 (reversed FFT)，就可以得到濾波的資料。這個方法可以用在任何變數上，非常彈性。圖2為外逸長波輻射 (OLR) 時空頻譜的範例，可以看到幾個訊號特別強的地方，就是理論上熱帶波動的頻譜範圍。</p>
 <figure class="align-default" id="id6">
 <img alt="_images/fig.A6-1_tw_ps.png" src="_images/fig.A6-1_tw_ps.png" />
@@ -654,6 +666,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
 <symbol id="icon-database" viewBox="0 0 32 32">
@@ -1018,116 +1034,113 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;olr&#x27; (time: 730, lat: 40, lon: 360)&gt;
-array([[[ 16.380768  ,  17.168976  ,  17.851715  , ...,  17.053589  ,
-          16.067657  ,  15.664886  ],
-        [ 16.75711   ,  17.412537  ,  17.013672  , ...,  12.450287  ,
-          13.341797  ,  15.062683  ],
-        [ 14.054718  ,  14.679474  ,  14.075806  , ...,   9.722412  ,
-          11.569977  ,  12.888275  ],
+array([[[ 16.380768  ,  17.168976  ,  17.851715  , ...,  17.053528  ,
+          16.067688  ,  15.664886  ],
+        [ 16.75711   ,  17.412567  ,  17.013672  , ...,  12.450287  ,
+          13.341797  ,  15.062714  ],
+        [ 14.054718  ,  14.679474  ,  14.075836  , ...,   9.722412  ,
+          11.569977  ,  12.888245  ],
         ...,
-        [ 11.100403  ,  10.695831  ,  10.361023  , ...,  11.2274475 ,
-          12.5383    ,  10.187225  ],
+        [ 11.100403  ,  10.695831  ,  10.360992  , ...,  11.227478  ,
+          12.538269  ,  10.187195  ],
         [  8.687775  ,   9.050079  ,   7.7844543 , ...,  11.915253  ,
           11.584686  ,  10.397156  ],
-        [ 11.788055  ,   8.504059  ,   6.5397644 , ...,  16.114655  ,
-          14.831329  ,  11.902344  ]],
+        [ 11.788086  ,   8.504089  ,   6.539734  , ...,  16.114655  ,
+          14.831299  ,  11.902313  ]],
 
-       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198914  ,
-          16.867859  ,  16.242828  ],
-        [ 15.078766  ,  13.773102  ,  13.533112  , ...,  20.839447  ,
-          17.823395  ,  15.5312195 ],
-        [ 11.530273  ,  12.067474  ,  15.291016  , ...,  14.027985  ,
-          11.882874  ,  10.712891  ],
+       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198883  ,
+          16.867859  ,  16.242798  ],
+        [ 15.078796  ,  13.773132  ,  13.533112  , ...,  20.839478  ,
+          17.823395  ,  15.53125   ],
+        [ 11.530273  ,  12.067505  ,  15.291046  , ...,  14.027985  ,
+          11.882843  ,  10.712891  ],
 ...
-        [-34.450195  , -43.519882  , -34.36879   , ..., -13.5963745 ,
-         -18.14357   , -31.10965   ],
+        [-34.450195  , -43.519882  , -34.36879   , ..., -13.596405  ,
+         -18.143631  , -31.10968   ],
         [-18.831131  , -26.859772  , -31.448883  , ...,  10.565292  ,
-          -2.8655853 , -10.68837   ],
-        [  6.074768  ,  -3.823471  , -15.938919  , ...,  18.61168   ,
-          17.26979   ,  11.514587  ]],
+          -2.8655548 , -10.68837   ],
+        [  6.0747986 ,  -3.823471  , -15.938919  , ...,  18.611649  ,
+          17.269775  ,  11.514587  ]],
 
-       [[ -9.893219  ,  -7.201172  ,  -0.78359985, ...,  -1.2973022 ,
-          -3.3666992 ,  -6.4829407 ],
-        [-19.12323   , -15.406616  ,  -9.28949   , ...,  -7.4835205 ,
-          -9.953217  , -10.572876  ],
-        [-23.6315    , -27.043655  , -16.556519  , ..., -11.582275  ,
-         -13.263733  , -13.371033  ],
+       [[ -9.893219  ,  -7.201172  ,  -0.78359985, ...,  -1.2973328 ,
+          -3.3666992 ,  -6.482971  ],
+        [-19.12323   , -15.406586  ,  -9.28949   , ...,  -7.4835205 ,
+          -9.953247  , -10.572845  ],
+        [-23.6315    , -27.043625  , -16.556488  , ..., -11.582275  ,
+         -13.263763  , -13.371063  ],
         ...,
         [ -7.89328   ,  -5.9326477 ,  -5.8309326 , ..., -25.945755  ,
-         -13.093338  , -12.713745  ],
+         -13.093399  , -12.713776  ],
         [-10.086914  ,  -4.398468  ,  -7.0507355 , ..., -11.004013  ,
          -10.912903  ,  -6.5914    ],
-        [ -3.9572144 ,  -2.9132996 ,   3.1249695 , ..., -12.474991  ,
-          -5.3866425 ,  -1.2779541 ]]], dtype=float32)
+        [ -3.9571838 ,  -2.9132996 ,   3.1249695 , ..., -12.475006  ,
+          -5.3866425 ,  -1.2779846 ]]], dtype=float32)
 Coordinates:
   * time       (time) datetime64[ns] 2017-01-01 2017-01-02 ... 2018-12-31
   * lon        (lon) float32 0.5 1.5 2.5 3.5 4.5 ... 356.5 357.5 358.5 359.5
   * lat        (lat) float32 -19.5 -18.5 -17.5 -16.5 ... 16.5 17.5 18.5 19.5
-    dayofyear  (time) int64 1 2 3 4 5 6 7 8 ... 358 359 360 361 362 363 364 365</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 730</li><li><span class='xr-has-index'>lat</span>: 40</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9cb04444-3811-49b6-be69-ce70278f0519' class='xr-array-in' type='checkbox' checked><label for='section-9cb04444-3811-49b6-be69-ce70278f0519' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>16.38 17.17 17.85 17.11 14.47 ... -7.822 -7.169 -12.47 -5.387 -1.278</span></div><div class='xr-array-data'><pre>array([[[ 16.380768  ,  17.168976  ,  17.851715  , ...,  17.053589  ,
-          16.067657  ,  15.664886  ],
-        [ 16.75711   ,  17.412537  ,  17.013672  , ...,  12.450287  ,
-          13.341797  ,  15.062683  ],
-        [ 14.054718  ,  14.679474  ,  14.075806  , ...,   9.722412  ,
-          11.569977  ,  12.888275  ],
+    dayofyear  (time) int64 1 2 3 4 5 6 7 8 ... 358 359 360 361 362 363 364 365</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 730</li><li><span class='xr-has-index'>lat</span>: 40</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5f34b36b-2c92-4755-93f2-95ee389744ea' class='xr-array-in' type='checkbox' checked><label for='section-5f34b36b-2c92-4755-93f2-95ee389744ea' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>16.38 17.17 17.85 17.11 14.47 ... -7.822 -7.169 -12.48 -5.387 -1.278</span></div><div class='xr-array-data'><pre>array([[[ 16.380768  ,  17.168976  ,  17.851715  , ...,  17.053528  ,
+          16.067688  ,  15.664886  ],
+        [ 16.75711   ,  17.412567  ,  17.013672  , ...,  12.450287  ,
+          13.341797  ,  15.062714  ],
+        [ 14.054718  ,  14.679474  ,  14.075836  , ...,   9.722412  ,
+          11.569977  ,  12.888245  ],
         ...,
-        [ 11.100403  ,  10.695831  ,  10.361023  , ...,  11.2274475 ,
-          12.5383    ,  10.187225  ],
+        [ 11.100403  ,  10.695831  ,  10.360992  , ...,  11.227478  ,
+          12.538269  ,  10.187195  ],
         [  8.687775  ,   9.050079  ,   7.7844543 , ...,  11.915253  ,
           11.584686  ,  10.397156  ],
-        [ 11.788055  ,   8.504059  ,   6.5397644 , ...,  16.114655  ,
-          14.831329  ,  11.902344  ]],
+        [ 11.788086  ,   8.504089  ,   6.539734  , ...,  16.114655  ,
+          14.831299  ,  11.902313  ]],
 
-       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198914  ,
-          16.867859  ,  16.242828  ],
-        [ 15.078766  ,  13.773102  ,  13.533112  , ...,  20.839447  ,
-          17.823395  ,  15.5312195 ],
-        [ 11.530273  ,  12.067474  ,  15.291016  , ...,  14.027985  ,
-          11.882874  ,  10.712891  ],
+       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198883  ,
+          16.867859  ,  16.242798  ],
+        [ 15.078796  ,  13.773132  ,  13.533112  , ...,  20.839478  ,
+          17.823395  ,  15.53125   ],
+        [ 11.530273  ,  12.067505  ,  15.291046  , ...,  14.027985  ,
+          11.882843  ,  10.712891  ],
 ...
-        [-34.450195  , -43.519882  , -34.36879   , ..., -13.5963745 ,
-         -18.14357   , -31.10965   ],
+        [-34.450195  , -43.519882  , -34.36879   , ..., -13.596405  ,
+         -18.143631  , -31.10968   ],
         [-18.831131  , -26.859772  , -31.448883  , ...,  10.565292  ,
-          -2.8655853 , -10.68837   ],
-        [  6.074768  ,  -3.823471  , -15.938919  , ...,  18.61168   ,
-          17.26979   ,  11.514587  ]],
+          -2.8655548 , -10.68837   ],
+        [  6.0747986 ,  -3.823471  , -15.938919  , ...,  18.611649  ,
+          17.269775  ,  11.514587  ]],
 
-       [[ -9.893219  ,  -7.201172  ,  -0.78359985, ...,  -1.2973022 ,
-          -3.3666992 ,  -6.4829407 ],
-        [-19.12323   , -15.406616  ,  -9.28949   , ...,  -7.4835205 ,
-          -9.953217  , -10.572876  ],
-        [-23.6315    , -27.043655  , -16.556519  , ..., -11.582275  ,
-         -13.263733  , -13.371033  ],
+       [[ -9.893219  ,  -7.201172  ,  -0.78359985, ...,  -1.2973328 ,
+          -3.3666992 ,  -6.482971  ],
+        [-19.12323   , -15.406586  ,  -9.28949   , ...,  -7.4835205 ,
+          -9.953247  , -10.572845  ],
+        [-23.6315    , -27.043625  , -16.556488  , ..., -11.582275  ,
+         -13.263763  , -13.371063  ],
         ...,
         [ -7.89328   ,  -5.9326477 ,  -5.8309326 , ..., -25.945755  ,
-         -13.093338  , -12.713745  ],
+         -13.093399  , -12.713776  ],
         [-10.086914  ,  -4.398468  ,  -7.0507355 , ..., -11.004013  ,
          -10.912903  ,  -6.5914    ],
-        [ -3.9572144 ,  -2.9132996 ,   3.1249695 , ..., -12.474991  ,
-          -5.3866425 ,  -1.2779541 ]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-0406e403-0dc9-475a-93b2-045a66822378' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0406e403-0dc9-475a-93b2-045a66822378' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-01-01 ... 2018-12-31</div><input id='attrs-716af8b4-df14-4bea-bb03-4842020a4852' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-716af8b4-df14-4bea-bb03-4842020a4852' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d4b7a044-f2aa-4261-8ce1-ec8ac944dd66' class='xr-var-data-in' type='checkbox'><label for='data-d4b7a044-f2aa-4261-8ce1-ec8ac944dd66' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-01-01T00:00:00.000000000&#x27;, &#x27;2017-01-02T00:00:00.000000000&#x27;,
+        [ -3.9571838 ,  -2.9132996 ,   3.1249695 , ..., -12.475006  ,
+          -5.3866425 ,  -1.2779846 ]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-dc486ed6-fcf8-4182-ab97-a42f71c80875' class='xr-section-summary-in' type='checkbox'  checked><label for='section-dc486ed6-fcf8-4182-ab97-a42f71c80875' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-01-01 ... 2018-12-31</div><input id='attrs-4d97a108-7cf1-405b-9e31-f21476434d85' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d97a108-7cf1-405b-9e31-f21476434d85' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a6a8d18c-84a9-4241-a4bb-dee1ef7e70b1' class='xr-var-data-in' type='checkbox'><label for='data-a6a8d18c-84a9-4241-a4bb-dee1ef7e70b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-01-01T00:00:00.000000000&#x27;, &#x27;2017-01-02T00:00:00.000000000&#x27;,
        &#x27;2017-01-03T00:00:00.000000000&#x27;, ..., &#x27;2018-12-29T00:00:00.000000000&#x27;,
        &#x27;2018-12-30T00:00:00.000000000&#x27;, &#x27;2018-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-62b7c4f2-3a8e-497c-bd96-dbf18460f6af' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62b7c4f2-3a8e-497c-bd96-dbf18460f6af' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-33f09966-31b0-4388-b476-8ad7a0d89620' class='xr-var-data-in' type='checkbox'><label for='data-33f09966-31b0-4388-b476-8ad7a0d89620' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-19.5 -18.5 -17.5 ... 18.5 19.5</div><input id='attrs-a9a5f819-6b82-4173-986a-82c0a6ecf7bc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a9a5f819-6b82-4173-986a-82c0a6ecf7bc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7b9294f6-f588-4f69-a3cc-f339fa053324' class='xr-var-data-in' type='checkbox'><label for='data-7b9294f6-f588-4f69-a3cc-f339fa053324' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-ce755877-f328-4800-b288-4df9df2959f2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce755877-f328-4800-b288-4df9df2959f2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2d3a3849-4928-4bcb-acf0-47fb97645a9c' class='xr-var-data-in' type='checkbox'><label for='data-2d3a3849-4928-4bcb-acf0-47fb97645a9c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-19.5 -18.5 -17.5 ... 18.5 19.5</div><input id='attrs-1462d8a3-16cc-426d-8eeb-f0e501b989c9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1462d8a3-16cc-426d-8eeb-f0e501b989c9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ad62c7ed-dacb-4436-9ec1-a08a50fb6191' class='xr-var-data-in' type='checkbox'><label for='data-ad62c7ed-dacb-4436-9ec1-a08a50fb6191' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
         -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
          0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
         10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dayofyear</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 361 362 363 364 365</div><input id='attrs-dc65e0b0-393c-4224-b806-34cf3e8be4da' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dc65e0b0-393c-4224-b806-34cf3e8be4da' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4793dba0-d735-4122-bf9d-f90caff34804' class='xr-var-data-in' type='checkbox'><label for='data-4793dba0-d735-4122-bf9d-f90caff34804' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3, ..., 363, 364, 365])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-02be192d-e7e6-468d-b052-6ff84c02f04a' class='xr-section-summary-in' type='checkbox'  ><label for='section-02be192d-e7e6-468d-b052-6ff84c02f04a' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5909ed0b-1958-4f63-ada0-6b52a21abb08' class='xr-index-data-in' type='checkbox'/><label for='index-5909ed0b-1958-4f63-ada0-6b52a21abb08' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-01-01&#x27;, &#x27;2017-01-02&#x27;, &#x27;2017-01-03&#x27;, &#x27;2017-01-04&#x27;,
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dayofyear</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 361 362 363 364 365</div><input id='attrs-d16927bc-52a3-476b-9546-5dccbd6b8678' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d16927bc-52a3-476b-9546-5dccbd6b8678' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c83c3898-4e7b-495d-8da0-cf5d9be71909' class='xr-var-data-in' type='checkbox'><label for='data-c83c3898-4e7b-495d-8da0-cf5d9be71909' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3, ..., 363, 364, 365])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dd242973-5484-43d4-ad62-55503f430b9b' class='xr-section-summary-in' type='checkbox'  ><label for='section-dd242973-5484-43d4-ad62-55503f430b9b' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-458f80f0-5bc2-447b-9e65-174e8cc95799' class='xr-index-data-in' type='checkbox'/><label for='index-458f80f0-5bc2-447b-9e65-174e8cc95799' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-01-01&#x27;, &#x27;2017-01-02&#x27;, &#x27;2017-01-03&#x27;, &#x27;2017-01-04&#x27;,
                &#x27;2017-01-05&#x27;, &#x27;2017-01-06&#x27;, &#x27;2017-01-07&#x27;, &#x27;2017-01-08&#x27;,
                &#x27;2017-01-09&#x27;, &#x27;2017-01-10&#x27;,
                ...
                &#x27;2018-12-22&#x27;, &#x27;2018-12-23&#x27;, &#x27;2018-12-24&#x27;, &#x27;2018-12-25&#x27;,
                &#x27;2018-12-26&#x27;, &#x27;2018-12-27&#x27;, &#x27;2018-12-28&#x27;, &#x27;2018-12-29&#x27;,
                &#x27;2018-12-30&#x27;, &#x27;2018-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=730, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0e10a67a-72ed-40a1-a162-4405e0e8bf4a' class='xr-index-data-in' type='checkbox'/><label for='index-0e10a67a-72ed-40a1-a162-4405e0e8bf4a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
-                9.5,
-              ...
-              350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5,
-              359.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-44034796-9880-49fd-9a34-6d4d70268f7d' class='xr-index-data-in' type='checkbox'/><label for='index-44034796-9880-49fd-9a34-6d4d70268f7d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5,
-              -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,
-               -1.5,  -0.5,   0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,
-                7.5,   8.5,   9.5,  10.5,  11.5,  12.5,  13.5,  14.5,  15.5,
-               16.5,  17.5,  18.5,  19.5],
-             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f605b9bd-915a-4e18-b1f5-7b386ffdceed' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f605b9bd-915a-4e18-b1f5-7b386ffdceed' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=730, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5470d733-9c43-4295-a173-301406c0457c' class='xr-index-data-in' type='checkbox'/><label for='index-5470d733-9c43-4295-a173-301406c0457c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+       ...
+       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d05eae29-f132-42cc-8762-31bc5a1057d4' class='xr-index-data-in' type='checkbox'/><label for='index-d05eae29-f132-42cc-8762-31bc5a1057d4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+        -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
+         0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+        10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d1f48df0-9a21-47b9-b28f-aa21da53ee74' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d1f48df0-9a21-47b9-b28f-aa21da53ee74' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>接著，建立各個波段的空DataArray，然後設定各個波段的波數、週期、equivalent depth參數。其中，equivalent depth只適用有頻散關係理論解的波動 (Kelvin, ER, MRG)，其他波動的請設定為<code class="docutils literal notranslate"><span class="pre">mis</span></code>。</p>
 <div class="cell docutils container">
@@ -1247,54 +1260,480 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">28</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">er</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>                    <span class="n">obsPerDay</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">23</span>                    <span class="n">er_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span>                    <span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span>                    <span class="n">er_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;er&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="c1">## kw</span>
-<span class="ne">---&gt; </span><span class="mi">28</span> <span class="n">kelvin</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>                        <span class="n">obsPerDay</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span>                        <span class="n">kelvin_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span>                        <span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>                        <span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;kelvin&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span> <span class="c1"># mt </span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="n">mt</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>                    <span class="n">obsPerDay</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>                    <span class="n">mt_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>                    <span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>                    <span class="n">mt_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-
-<span class="nn">Cell In[1], line 26,</span> in <span class="ni">kf_filter</span><span class="nt">(inData, obsPerDay, tMin, tMax, kMin, kMax, hMin, hMax, waveName)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">detrendData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">lonDim</span><span class="p">,</span><span class="n">timeDim</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">for</span> <span class="n">counterX</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lonDim</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">26</span>     <span class="n">detrendData</span><span class="p">[</span><span class="n">counterX</span><span class="p">,:]</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">originalData</span><span class="p">[</span><span class="n">counterX</span><span class="p">,:])</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Taper </span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span> <span class="n">taper</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">tukey</span><span class="p">(</span><span class="n">timeDim</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/scipy/signal/_signaltools.py:3558,</span> in <span class="ni">detrend</span><span class="nt">(data, axis, type, bp, overwrite_data)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3556</span>     <span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cast</span><span class="p">[</span><span class="n">dtype</span><span class="p">](</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Npts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">Npts</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3557</span>     <span class="n">sl</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="n">bp</span><span class="p">[</span><span class="n">m</span><span class="p">],</span> <span class="n">bp</span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-<span class="ne">-&gt; </span><span class="mi">3558</span>     <span class="n">coef</span><span class="p">,</span> <span class="n">resids</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">newdata</span><span class="p">[</span><span class="n">sl</span><span class="p">])</span>
-<span class="g g-Whitespace">   </span><span class="mi">3559</span>     <span class="n">newdata</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span> <span class="o">=</span> <span class="n">newdata</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3560</span> <span class="c1"># Put data back in original shape.</span>
-
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/scipy/linalg/_basic.py:1213,</span> in <span class="ni">lstsq</span><span class="nt">(a, b, cond, overwrite_a, overwrite_b, check_finite, lapack_driver)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1211</span> <span class="k">if</span> <span class="n">real_data</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1212</span>     <span class="n">lwork</span><span class="p">,</span> <span class="n">iwork</span> <span class="o">=</span> <span class="n">_compute_lwork</span><span class="p">(</span><span class="n">lapack_lwork</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">nrhs</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1213</span>     <span class="n">x</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">lapack_func</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">lwork</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1214</span>                                    <span class="n">iwork</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="k">else</span><span class="p">:</span>  <span class="c1"># complex data</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span>     <span class="n">lwork</span><span class="p">,</span> <span class="n">rwork</span><span class="p">,</span> <span class="n">iwork</span> <span class="o">=</span> <span class="n">_compute_lwork</span><span class="p">(</span><span class="n">lapack_lwork</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1217</span>                                          <span class="n">nrhs</span><span class="p">,</span> <span class="n">cond</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5f/jxsyfmmj2rsb4dk_z6d_34qw0000gn/T/ipykernel_35146/3236757179.py:29: DeprecationWarning: Importing tukey from &#39;scipy.signal&#39; is deprecated and will raise an error in SciPy 1.13.0. Please use &#39;scipy.signal.windows.tukey&#39; or the convenience function &#39;scipy.signal.get_window&#39; instead.
+  taper=signal.tukey(timeDim,0.05,True)
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (time: 730, lat: 40, lon: 360)&gt;
+array([[[ 0.41870043,  0.74632794,  1.07617331, ..., -0.48732832,
+         -0.2045082 ,  0.09961423],
+        [ 0.16254593,  0.38559794,  0.6125921 , ..., -0.44736776,
+         -0.25748178, -0.05300587],
+        [ 0.11026774,  0.26533258,  0.42322102, ..., -0.31863996,
+         -0.18367949, -0.04005394],
+        ...,
+        [-5.61130285, -5.43971968, -5.16630793, ..., -5.51214838,
+         -5.6453867 , -5.67955112],
+        [-6.04585648, -5.95039845, -5.75541687, ..., -5.74995708,
+         -5.9418354 , -6.04211521],
+        [-6.54671526, -6.63207483, -6.63014889, ..., -5.81441259,
+         -6.13140678, -6.37794209]],
+
+       [[ 0.76235574,  1.13608193,  1.49986207, ..., -0.35526156,
+          0.00991953,  0.38477072],
+        [ 0.05015957,  0.3251414 ,  0.60003847, ..., -0.73913151,
+         -0.4857614 , -0.22138174],
+        [-0.28530332, -0.08856454,  0.11314415, ..., -0.82769376,
+         -0.65669584, -0.47528601],
+...
+        [-4.84334517, -5.02544785, -5.14676905, ..., -4.01491928,
+         -4.32888174, -4.6082201 ],
+        [-5.2019372 , -5.39951181, -5.54685926, ..., -4.38925982,
+         -4.68813229, -4.96198225],
+        [-5.03971434, -5.30969191, -5.55134392, ..., -4.13197279,
+         -4.44375563, -4.74866533]],
+
+       [[ 0.3651379 ,  0.63959521,  0.92730361, ..., -0.32453158,
+         -0.12197218,  0.10952087],
+        [ 0.52740246,  0.72218311,  0.92449892, ...,  0.02059906,
+          0.1735763 ,  0.34348151],
+        [ 0.65549153,  0.81336594,  0.97305435, ...,  0.2165371 ,
+          0.35472259,  0.50181842],
+        ...,
+        [-5.3761735 , -5.42974091, -5.39585352, ..., -4.74491978,
+         -5.02649164, -5.2396245 ],
+        [-5.70784616, -5.81145811, -5.83556414, ..., -4.9854064 ,
+         -5.28672981, -5.53047705],
+        [-5.8078804 , -6.04300499, -6.21886253, ..., -4.82505226,
+         -5.19027758, -5.52087688]]])
+Coordinates:
+  * time     (time) datetime64[ns] 2017-01-01 2017-01-02 ... 2018-12-31
+  * lat      (lat) float32 -19.5 -18.5 -17.5 -16.5 -15.5 ... 16.5 17.5 18.5 19.5
+  * lon      (lon) float32 0.5 1.5 2.5 3.5 4.5 ... 355.5 356.5 357.5 358.5 359.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 730</li><li><span class='xr-has-index'>lat</span>: 40</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-7b206367-9464-4d0c-8931-acfe66c1902e' class='xr-array-in' type='checkbox' checked><label for='section-7b206367-9464-4d0c-8931-acfe66c1902e' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.4187 0.7463 1.076 1.402 1.719 ... -4.029 -4.435 -4.825 -5.19 -5.521</span></div><div class='xr-array-data'><pre>array([[[ 0.41870043,  0.74632794,  1.07617331, ..., -0.48732832,
+         -0.2045082 ,  0.09961423],
+        [ 0.16254593,  0.38559794,  0.6125921 , ..., -0.44736776,
+         -0.25748178, -0.05300587],
+        [ 0.11026774,  0.26533258,  0.42322102, ..., -0.31863996,
+         -0.18367949, -0.04005394],
+        ...,
+        [-5.61130285, -5.43971968, -5.16630793, ..., -5.51214838,
+         -5.6453867 , -5.67955112],
+        [-6.04585648, -5.95039845, -5.75541687, ..., -5.74995708,
+         -5.9418354 , -6.04211521],
+        [-6.54671526, -6.63207483, -6.63014889, ..., -5.81441259,
+         -6.13140678, -6.37794209]],
+
+       [[ 0.76235574,  1.13608193,  1.49986207, ..., -0.35526156,
+          0.00991953,  0.38477072],
+        [ 0.05015957,  0.3251414 ,  0.60003847, ..., -0.73913151,
+         -0.4857614 , -0.22138174],
+        [-0.28530332, -0.08856454,  0.11314415, ..., -0.82769376,
+         -0.65669584, -0.47528601],
+...
+        [-4.84334517, -5.02544785, -5.14676905, ..., -4.01491928,
+         -4.32888174, -4.6082201 ],
+        [-5.2019372 , -5.39951181, -5.54685926, ..., -4.38925982,
+         -4.68813229, -4.96198225],
+        [-5.03971434, -5.30969191, -5.55134392, ..., -4.13197279,
+         -4.44375563, -4.74866533]],
+
+       [[ 0.3651379 ,  0.63959521,  0.92730361, ..., -0.32453158,
+         -0.12197218,  0.10952087],
+        [ 0.52740246,  0.72218311,  0.92449892, ...,  0.02059906,
+          0.1735763 ,  0.34348151],
+        [ 0.65549153,  0.81336594,  0.97305435, ...,  0.2165371 ,
+          0.35472259,  0.50181842],
+        ...,
+        [-5.3761735 , -5.42974091, -5.39585352, ..., -4.74491978,
+         -5.02649164, -5.2396245 ],
+        [-5.70784616, -5.81145811, -5.83556414, ..., -4.9854064 ,
+         -5.28672981, -5.53047705],
+        [-5.8078804 , -6.04300499, -6.21886253, ..., -4.82505226,
+         -5.19027758, -5.52087688]]])</pre></div></div></li><li class='xr-section-item'><input id='section-1bb5d708-50de-4b94-a30b-a25cde492742' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1bb5d708-50de-4b94-a30b-a25cde492742' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-01-01 ... 2018-12-31</div><input id='attrs-317f5146-0402-4cbf-8ebf-149e08a4b1b9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-317f5146-0402-4cbf-8ebf-149e08a4b1b9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c0d93a8f-bfbf-49f5-892d-85af9c36427e' class='xr-var-data-in' type='checkbox'><label for='data-c0d93a8f-bfbf-49f5-892d-85af9c36427e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-01-01T00:00:00.000000000&#x27;, &#x27;2017-01-02T00:00:00.000000000&#x27;,
+       &#x27;2017-01-03T00:00:00.000000000&#x27;, ..., &#x27;2018-12-29T00:00:00.000000000&#x27;,
+       &#x27;2018-12-30T00:00:00.000000000&#x27;, &#x27;2018-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-19.5 -18.5 -17.5 ... 18.5 19.5</div><input id='attrs-eff6d027-0649-4d40-a07f-b54ca49539e1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-eff6d027-0649-4d40-a07f-b54ca49539e1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0183c65c-7646-4de8-9793-f783eb9463ca' class='xr-var-data-in' type='checkbox'><label for='data-0183c65c-7646-4de8-9793-f783eb9463ca' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+        -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
+         0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+        10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-6e3e5ab3-6d33-49eb-92b7-ded823d8a3ef' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6e3e5ab3-6d33-49eb-92b7-ded823d8a3ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-24a8bb32-f653-472b-93a9-ce86cb60a4b3' class='xr-var-data-in' type='checkbox'><label for='data-24a8bb32-f653-472b-93a9-ce86cb60a4b3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7693f625-89fe-4cff-b42d-1c2767686e21' class='xr-section-summary-in' type='checkbox'  ><label for='section-7693f625-89fe-4cff-b42d-1c2767686e21' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a292f07d-5a61-412e-a06d-e6a4e612b5f1' class='xr-index-data-in' type='checkbox'/><label for='index-a292f07d-5a61-412e-a06d-e6a4e612b5f1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-01-01&#x27;, &#x27;2017-01-02&#x27;, &#x27;2017-01-03&#x27;, &#x27;2017-01-04&#x27;,
+               &#x27;2017-01-05&#x27;, &#x27;2017-01-06&#x27;, &#x27;2017-01-07&#x27;, &#x27;2017-01-08&#x27;,
+               &#x27;2017-01-09&#x27;, &#x27;2017-01-10&#x27;,
+               ...
+               &#x27;2018-12-22&#x27;, &#x27;2018-12-23&#x27;, &#x27;2018-12-24&#x27;, &#x27;2018-12-25&#x27;,
+               &#x27;2018-12-26&#x27;, &#x27;2018-12-27&#x27;, &#x27;2018-12-28&#x27;, &#x27;2018-12-29&#x27;,
+               &#x27;2018-12-30&#x27;, &#x27;2018-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=730, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e89c0f96-2b71-4d6a-9798-c7f0a5f3a003' class='xr-index-data-in' type='checkbox'/><label for='index-e89c0f96-2b71-4d6a-9798-c7f0a5f3a003' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+        -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
+         0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+        10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e9319d86-e4b2-45ce-8f99-25663cabb39d' class='xr-index-data-in' type='checkbox'/><label for='index-e9319d86-e4b2-45ce-8f99-25663cabb39d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
+       ...
+       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2db50b12-a972-439e-9d50-e61d72ba506b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2db50b12-a972-439e-9d50-e61d72ba506b' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>最後可以輸出資料：</p>
 <div class="cell docutils container">
@@ -1399,13 +1838,13 @@ Coordinates:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/71033370a1181fee992ada772fcf8addaca5f4f1514d05de7ae6e3ad4e0232ce.png" src="_images/71033370a1181fee992ada772fcf8addaca5f4f1514d05de7ae6e3ad4e0232ce.png" />
+<img alt="_images/0bb5cb5621b32daa5ac5b63f315d96cb7e7648a7468fca4f7818136de0d27f60.png" src="_images/0bb5cb5621b32daa5ac5b63f315d96cb7e7648a7468fca4f7818136de0d27f60.png" />
 </div>
 </div>
 <p>上圖中，底色是濾波前OLR距平，黑色往東的等值線代表MJO，紅色往西的等值線代表赤道羅士比波 (ER waves)，深藍色往西的等值線是混合羅士比－重力波和熱帶擾動 (MRG/TD wave)，且實線 (正值) 代表對流抑制相位，虛線 (負值) 代表對流活躍相位。</p>
 </section>
 <section id="ds-pcf">
-<h2>雙曲柱狀函數投影法 (2DS-PCF)<a class="headerlink" href="#ds-pcf" title="Permalink to this headline">#</a></h2>
+<h2>雙曲柱狀函數投影法 (2DS-PCF)<a class="headerlink" href="#ds-pcf" title="Permalink to this heading">#</a></h2>
 <p>在Yang et al. (2003) 中，他們指出由於熱帶波動會受到背景場調節，產生都卜勒效應，波動的頻散關係會被改變，因此像Wheeler and Kiladis (1999) 的方法去限制一個窄的時空頻段來進行濾波，可能會造成有部分的波動訊號被忽略。因此，他們只對動力場 (u, v, z) 做一個寬帶濾波，波數的範圍是 <span class="math notranslate nohighlight">\(1\leq \left| k\right| \leq 15\)</span>，週期的範圍是 <span class="math notranslate nohighlight">\(2\leq \left| T\right| \leq 30\)</span> 天， 再將寬帶濾波後的動力場分別投影至各個波動模態的理論解上，此時得到的就是熱帶波動，其中理論解釋是根據 Gill (1980) ，這篇文章假定表面有加熱的作用，加入淺水方程中，導出的解就是雙曲柱狀函數的形式。</p>
 <figure class="align-default" id="id7">
 <img alt="https://rmets.onlinelibrary.wiley.com/cms/asset/0cf13e1c-5d09-4004-9f66-8dc3b634d610/qj4338-fig-0002-m.jpg" src="https://rmets.onlinelibrary.wiley.com/cms/asset/0cf13e1c-5d09-4004-9f66-8dc3b634d610/qj4338-fig-0002-m.jpg" />
@@ -1636,6 +2075,12 @@ Coordinates:
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/5f/jxsyfmmj2rsb4dk_z6d_34qw0000gn/T/ipykernel_35146/2785300109.py:29: DeprecationWarning: Importing tukey from &#39;scipy.signal&#39; is deprecated and will raise an error in SciPy 1.13.0. Please use &#39;scipy.signal.windows.tukey&#39; or the convenience function &#39;scipy.signal.get_window&#39; instead.
+  wgt_taper = signal.tukey(u.shape[0], alpha=0.1)
+</pre></div>
+</div>
+</div>
 </div>
 <p>到此熱帶波動投影的程序已經結束。以下也可以輸出資料：</p>
 <div class="cell docutils container">
@@ -1822,112 +2267,182 @@ Coordinates:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.95, &#39;GPH (Shade.), 850-hPa Wind Anml. (vectors)&#39;)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function _draw_all_if_interactive at 0x189a96680&gt; (for post_execute):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Error in callback &lt;function _draw_all_if_interactive at 0x15169d870&gt; (for post_execute), with arguments args (),kwargs {}:
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/pyplot.py:120,</span> in <span class="ni">_draw_all_if_interactive</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">def</span> <span class="nf">_draw_all_if_interactive</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span>     <span class="k">if</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">is_interactive</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">120</span>         <span class="n">draw_all</span><span class="p">()</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/pyplot.py:197,</span> in <span class="ni">_draw_all_if_interactive</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span> <span class="k">def</span> <span class="nf">_draw_all_if_interactive</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span>     <span class="k">if</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">is_interactive</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">197</span>         <span class="n">draw_all</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/_pylab_helpers.py:132,</span> in <span class="ni">Gcf.draw_all</span><span class="nt">(cls, force)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/_pylab_helpers.py:132,</span> in <span class="ni">Gcf.draw_all</span><span class="nt">(cls, force)</span>
 <span class="g g-Whitespace">    </span><span class="mi">130</span> <span class="k">for</span> <span class="n">manager</span> <span class="ow">in</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_all_fig_managers</span><span class="p">():</span>
 <span class="g g-Whitespace">    </span><span class="mi">131</span>     <span class="k">if</span> <span class="n">force</span> <span class="ow">or</span> <span class="n">manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">stale</span><span class="p">:</span>
 <span class="ne">--&gt; </span><span class="mi">132</span>         <span class="n">manager</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw_idle</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/backend_bases.py:2082,</span> in <span class="ni">FigureCanvasBase.draw_idle</span><span class="nt">(self, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2080</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_idle_drawing</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2081</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idle_draw_cntx</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">2082</span>         <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/backend_bases.py:1893,</span> in <span class="ni">FigureCanvasBase.draw_idle</span><span class="nt">(self, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_idle_drawing</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1892</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idle_draw_cntx</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1893</span>         <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py:400,</span> in <span class="ni">FigureCanvasAgg.draw</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="c1"># Acquire a lock on the shared font cache.</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span> <span class="k">with</span> <span class="n">RendererAgg</span><span class="o">.</span><span class="n">lock</span><span class="p">,</span> \
-<span class="g g-Whitespace">    </span><span class="mi">398</span>      <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">_wait_cursor_for_draw_cm</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span>
-<span class="g g-Whitespace">    </span><span class="mi">399</span>       <span class="k">else</span> <span class="n">nullcontext</span><span class="p">()):</span>
-<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="c1"># A GUI class may be need to update a window using this draw, so</span>
-<span class="g g-Whitespace">    </span><span class="mi">402</span>     <span class="c1"># don&#39;t forget to call the superclass.</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/backends/backend_agg.py:388,</span> in <span class="ni">FigureCanvasAgg.draw</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">385</span> <span class="c1"># Acquire a lock on the shared font cache.</span>
+<span class="g g-Whitespace">    </span><span class="mi">386</span> <span class="k">with</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">_wait_cursor_for_draw_cm</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">toolbar</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span>       <span class="k">else</span> <span class="n">nullcontext</span><span class="p">()):</span>
+<span class="ne">--&gt; </span><span class="mi">388</span>     <span class="bp">self</span><span class="o">.</span><span class="n">figure</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">389</span>     <span class="c1"># A GUI class may be need to update a window using this draw, so</span>
+<span class="g g-Whitespace">    </span><span class="mi">390</span>     <span class="c1"># don&#39;t forget to call the superclass.</span>
+<span class="g g-Whitespace">    </span><span class="mi">391</span>     <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/artist.py:95,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/artist.py:95,</span> in <span class="ni">_finalize_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer, *args, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">draw</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">def</span> <span class="nf">draw_wrapper</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="ne">---&gt; </span><span class="mi">95</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">renderer</span><span class="o">.</span><span class="n">_rasterizing</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">97</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">stop_rasterizing</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/artist.py:72,</span> in <span class="ni">allow_rasterization.&lt;locals&gt;.draw_wrapper</span><span class="nt">(artist, renderer)</span>
 <span class="g g-Whitespace">     </span><span class="mi">69</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">70</span>         <span class="n">renderer</span><span class="o">.</span><span class="n">start_filter</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">72</span>     <span class="k">return</span> <span class="n">draw</span><span class="p">(</span><span class="n">artist</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">73</span> <span class="k">finally</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">74</span>     <span class="k">if</span> <span class="n">artist</span><span class="o">.</span><span class="n">get_agg_filter</span><span class="p">()</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/figure.py:3150,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">3147</span> <span class="k">finally</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">3148</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="ne">-&gt; </span><span class="mi">3150</span> <span class="n">DrawEvent</span><span class="p">(</span><span class="s2">&quot;draw_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span><span class="o">.</span><span class="n">_process</span><span class="p">()</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/figure.py:3164,</span> in <span class="ni">Figure.draw</span><span class="nt">(self, renderer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3161</span> <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3162</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stale</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="ne">-&gt; </span><span class="mi">3164</span> <span class="n">DrawEvent</span><span class="p">(</span><span class="s2">&quot;draw_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="p">,</span> <span class="n">renderer</span><span class="p">)</span><span class="o">.</span><span class="n">_process</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/backend_bases.py:1263,</span> in <span class="ni">Event._process</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1261</span> <span class="k">def</span> <span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1262</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Generate an event with name ``self.name`` on ``self.canvas``.&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1263</span>     <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/backend_bases.py:1271,</span> in <span class="ni">Event._process</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1269</span> <span class="k">def</span> <span class="nf">_process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1270</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Process this event on ``self.canvas``, then unset ``guiEvent``.&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1271</span>     <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1272</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_guiEvent_deleted</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/cbook/__init__.py:309,</span> in <span class="ni">CallbackRegistry.process</span><span class="nt">(self, s, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">309</span>         <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span>         <span class="k">raise</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/cbook.py:303,</span> in <span class="ni">CallbackRegistry.process</span><span class="nt">(self, s, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span> <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">303</span>         <span class="bp">self</span><span class="o">.</span><span class="n">exception_handler</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span>         <span class="k">raise</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/cbook/__init__.py:96,</span> in <span class="ni">_exception_printer</span><span class="nt">(exc)</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">def</span> <span class="nf">_exception_printer</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">if</span> <span class="n">_get_running_interactive_framework</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;headless&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
-<span class="ne">---&gt; </span><span class="mi">96</span>         <span class="k">raise</span> <span class="n">exc</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">98</span>         <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/cbook.py:87,</span> in <span class="ni">_exception_printer</span><span class="nt">(exc)</span>
+<span class="g g-Whitespace">     </span><span class="mi">85</span> <span class="k">def</span> <span class="nf">_exception_printer</span><span class="p">(</span><span class="n">exc</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span>     <span class="k">if</span> <span class="n">_get_running_interactive_framework</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;headless&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="ne">---&gt; </span><span class="mi">87</span>         <span class="k">raise</span> <span class="n">exc</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">traceback</span><span class="o">.</span><span class="n">print_exc</span><span class="p">()</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/cbook/__init__.py:304,</span> in <span class="ni">CallbackRegistry.process</span><span class="nt">(self, s, *args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">304</span>         <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="c1"># this does not capture KeyboardInterrupt, SystemExit,</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="c1"># and GeneratorExit</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/cbook.py:298,</span> in <span class="ni">CallbackRegistry.process</span><span class="nt">(self, s, *args, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">296</span> <span class="k">if</span> <span class="n">func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">297</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">298</span>         <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">299</span>     <span class="c1"># this does not capture KeyboardInterrupt, SystemExit,</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>     <span class="c1"># and GeneratorExit</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span>     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:492,</span> in <span class="ni">Gridliner._draw_event</span><span class="nt">(self, event)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:492,</span> in <span class="ni">Gridliner._draw_event</span><span class="nt">(self, event)</span>
 <span class="g g-Whitespace">    </span><span class="mi">491</span> <span class="k">def</span> <span class="nf">_draw_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">492</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_draw_gridliner</span><span class="p">(</span><span class="n">renderer</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">renderer</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:917,</span> in <span class="ni">Gridliner._draw_gridliner</span><span class="nt">(self, nx, ny, renderer)</span>
-<span class="g g-Whitespace">    </span><span class="mi">915</span>         <span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">    </span><span class="mi">916</span>     <span class="n">kw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_text_specs</span><span class="p">(</span><span class="n">segment_angle</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">xylabel</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">917</span>     <span class="n">kw</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_padding_transform</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">918</span>         <span class="n">segment_angle</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">xylabel</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">919</span> <span class="n">kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">label_style</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">921</span> <span class="c1"># Get x and y in data coords</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:898,</span> in <span class="ni">Gridliner._draw_gridliner</span><span class="nt">(self, nx, ny, renderer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">896</span>         <span class="n">visible</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">    </span><span class="mi">897</span>     <span class="n">kw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_text_specs</span><span class="p">(</span><span class="n">segment_angle</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">xylabel</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">898</span>     <span class="n">kw</span><span class="p">[</span><span class="s1">&#39;transform&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_padding_transform</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">899</span>         <span class="n">segment_angle</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">xylabel</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">900</span> <span class="n">kw</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">label_style</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span> <span class="c1"># Get x and y in data coords</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:1160,</span> in <span class="ni">Gridliner._get_padding_transform</span><span class="nt">(self, padding_angle, loc, xylabel, padding_factor)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1157</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">padding_factor</span> <span class="o">*</span> <span class="n">padding</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">padding_angle</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1159</span> <span class="c1"># Final transform</span>
-<span class="ne">-&gt; </span><span class="mi">1160</span> <span class="k">return</span> <span class="n">mtrans</span><span class="o">.</span><span class="n">offset_copy</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">transData</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>     <span class="n">x</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;points&#39;</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:1141,</span> in <span class="ni">Gridliner._get_padding_transform</span><span class="nt">(self, padding_angle, loc, xylabel, padding_factor)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1138</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">padding_factor</span> <span class="o">*</span> <span class="n">padding</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">padding_angle</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">180</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1140</span> <span class="c1"># Final transform</span>
+<span class="ne">-&gt; </span><span class="mi">1141</span> <span class="k">return</span> <span class="n">mtrans</span><span class="o">.</span><span class="n">offset_copy</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1142</span>     <span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">transData</span><span class="p">,</span> <span class="n">fig</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">figure</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1143</span>     <span class="n">x</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;points&#39;</span><span class="p">)</span>
 
-<span class="nn">File ~/opt/anaconda3/envs/p3/lib/python3.10/site-packages/matplotlib/transforms.py:2974,</span> in <span class="ni">offset_copy</span><span class="nt">(trans, fig, x, y, units)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2972</span>     <span class="k">return</span> <span class="n">trans</span> <span class="o">+</span> <span class="n">Affine2D</span><span class="p">()</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2973</span> <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2974</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;For units of inches or points a fig kwarg is needed&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2975</span> <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2976</span>     <span class="n">x</span> <span class="o">/=</span> <span class="mf">72.0</span>
+<span class="nn">File ~/micromamba/envs/p3/lib/python3.10/site-packages/matplotlib/transforms.py:2970,</span> in <span class="ni">offset_copy</span><span class="nt">(trans, fig, x, y, units)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2968</span>     <span class="k">return</span> <span class="n">trans</span> <span class="o">+</span> <span class="n">Affine2D</span><span class="p">()</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2969</span> <span class="k">if</span> <span class="n">fig</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2970</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;For units of inches or points a fig kwarg is needed&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2971</span> <span class="k">if</span> <span class="n">units</span> <span class="o">==</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">2972</span>     <span class="n">x</span> <span class="o">/=</span> <span class="mf">72.0</span>
 
 <span class="ne">ValueError</span>: For units of inches or points a fig kwarg is needed
 </pre></div>
 </div>
-<img alt="_images/fac80019118904e1296da20b67a0b8db29f6cca3c30a2dcec1e46dff1c2d0d02.png" src="_images/fac80019118904e1296da20b67a0b8db29f6cca3c30a2dcec1e46dff1c2d0d02.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<img alt="_images/558cf78f5c1060d0a40d50f3dd1f6724dc97e6a44fc0fe16f00e1c0f566a255d.png" src="_images/558cf78f5c1060d0a40d50f3dd1f6724dc97e6a44fc0fe16f00e1c0f566a255d.png" />
 </div>
 </div>
 <div class="admonition caution">
@@ -1943,7 +2458,7 @@ Coordinates:
 </div>
 </section>
 <section id="id3">
-<h2>參考文獻<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>參考文獻<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Gill, A. E., 1980: Some simple solutions for heat‐induced tropical circulation. Q. J. R. Meteorol. Soc., 106, 447–462, <a class="reference external" href="https://doi.org/10.1002/qj.49710644905">https://doi.org/10.1002/qj.49710644905</a>.</p></li>
 <li><p>Kiladis, G. N., M. C. Wheeler, P. T. Haertel, K. H. Straub, and P. E. Roundy, 2009: Convectively coupled equatorial waves. Rev. Geophys., 47, 1–42, <a class="reference external" href="https://doi.org/10.1029/2008RG000266">https://doi.org/10.1029/2008RG000266</a>.</p></li>
@@ -1981,11 +2496,10 @@ Coordinates:
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="A1_mjo_phase.html"
@@ -1996,10 +2510,7 @@ Coordinates:
         <p class="prev-next-title">馬登－朱利安震盪 (MJO) 氣候變異分析</p>
       </div>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2032,7 +2543,7 @@ Coordinates:
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -2056,7 +2567,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -2070,8 +2581,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

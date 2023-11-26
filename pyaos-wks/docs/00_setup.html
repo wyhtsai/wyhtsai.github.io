@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>電腦環境設置與Python安裝 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="1. 導論" href="01_intro.html" />
     <link rel="prev" title="教學綱要（中文）" href="00_syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -390,8 +402,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anacondaminiconda">安裝Anaconda或Miniconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">安裝VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micromamba">安裝Micromamba</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaospython">安裝PyAOS所需Python套件庫</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">用Visual Studio Code撰寫程式</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">撰寫測試程式</a></li>
@@ -415,32 +427,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>電腦環境設置與Python安裝<a class="headerlink" href="#python" title="Permalink to this headline">#</a></h1>
-<p>本篇教學如何利用 <strong>Anaconda</strong> 安裝Python、管理Python套件和環境，以及如何使用 <strong>Visual Studio Code (VS Code)</strong> 編寫程式。編寫Python程式的方法有很多，這裡示範的是筆者常用的方法，使用者可參考自己的需求而調整。</p>
-<section id="anacondaminiconda">
-<h2>安裝Anaconda或Miniconda<a class="headerlink" href="#anacondaminiconda" title="Permalink to this headline">#</a></h2>
-<p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先點選 <a class="reference external" href="https://www.anaconda.com">Anaconda官方網站</a>，選Get Started → Download Anaconda installers，然後安裝在電腦中。</p>
-<p>若是Window使用者，在安裝期間請特別 <strong>要</strong> 留意勾選「Add Anaconda3 to my PATH environment variable」的選項，這樣稍後才能直接用一個指令來安裝所有我們需要的Python套件。</p>
-<p><img alt="" src="_images/fig_n3.png" /></p>
-<ul>
-<li><p>M2 Mac電腦不支援Anaconda，請改使用Miniconda (其他版本的Mac也可以用)。到 <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a> 下載安裝檔的bash script，然後打開終端機，輸入</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  <span class="n">sh</span> <span class="n">Miniconda3</span><span class="o">-</span><span class="n">latest</span><span class="o">-</span><span class="n">MacOSX</span><span class="o">-</span><span class="n">arm64</span><span class="o">.</span><span class="n">sh</span>
-</pre></div>
-</div>
-<p>出現</p>
-<blockquote>
-<div><p>Do you wish the installer to initialize Miniconda3 by running conda init? [yes|no]</p>
-</div></blockquote>
-<p>請打yes，最後就安裝完成了。</p>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Anaconda和Miniconda的差別在於有沒有圖形介面，基本上本次教學不太用到Anaconda圖形介面的功能，因此也可以用Miniconda代替。</p>
-</div>
-</section>
+<h1>電腦環境設置與Python安裝<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
+<p>本篇教學如何利用 <strong>Micromamba</strong> 安裝Python、管理Python套件和環境，以及如何使用 <strong>Visual Studio Code (VS Code)</strong> 編寫程式。編寫Python程式的方法有很多，這裡示範的是筆者常用的方法，使用者可參考自己的需求而調整。</p>
 <section id="vs-code">
-<h2>安裝VS Code<a class="headerlink" href="#vs-code" title="Permalink to this headline">#</a></h2>
+<h2>安裝VS Code<a class="headerlink" href="#vs-code" title="Permalink to this heading">#</a></h2>
 <p>Visual Studio Code (簡稱VS Code) 是一款由微軟開發且跨平台的免費整合式開發環境。該軟體支援在本機上撰寫本機或遠端工作站的各式程式，支援程式碼上色、補齊等編輯功能，還內建終端機，能夠在VS Code上呼叫核心來執行本機或遠端的程式碼，是相當強大的開發工具。接下來將示範如何以VS Code安裝所需要的Python套件，以及撰寫程式，請點入<a class="reference external" href="https://code.visualstudio.com">Visual Studio Code官方網站</a>下載並安裝VS Code。</p>
 <p>下載後打開VS Code，點選「延伸模組」按鈕。</p>
 <p><img alt="" src="_images/fig0.2.png" /></p>
@@ -448,13 +438,27 @@ document.write(`
 <p>按照相同的步驟，安裝Pylance、Jupyter，有需要的話也可以安裝「中文(繁體)」延伸模組，這樣VS Code的介面就會是繁體中文。</p>
 <p><img alt="" src="_images/fig0.3.png" /></p>
 </section>
-<section id="pyaospython">
-<h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Permalink to this headline">#</a></h2>
-<p>安裝好Anaconda後，請打開終端機。</p>
+<section id="micromamba">
+<h2>安裝Micromamba<a class="headerlink" href="#micromamba" title="Permalink to this heading">#</a></h2>
+<p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先進入 <a class="reference external" href="https://www.anaconda.com">Mamba官方網站</a>，在 Installation / Micromamba / Mamba-org releases / Install script 的子節，複製安裝的shell script程式碼到自己的終端機上安裝，即</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;$</span><span class="si">{SHELL}</span><span class="s2">&quot;</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">micro</span><span class="o">.</span><span class="n">mamba</span><span class="o">.</span><span class="n">pm</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>一般也很常使用conda作為套件管理軟體，但Mamba在初始解析環境、檢查套件相容性時，有極高的效率，且所有操作幾乎都和conda一樣，因此在此推薦使用mamba來安裝Python。</p>
+</div>
 <ul class="simple">
-<li><p>Mac使用者：可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Anaconda會自動安裝一些基本套件，這個套件環境預設稱為base。然而Anaconda預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p></li>
+<li><p><a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation/micromamba-installation.html#windows">Windows 使用者</a>：請按照官網說明，使用PowerShell來安裝。安裝了VS Code後，可以直接在VS Code使用PowerShell，請在選單選擇「終端機 / 新增終端」，然後點開「＋」符號旁的選單，選擇PowerShell，就可以把官網上的安裝指令貼上並執行了。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">windspharm</span> <span class="n">bottleneck</span> <span class="n">pip</span>  
+</section>
+<section id="pyaospython">
+<h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Permalink to this heading">#</a></h2>
+<p>安裝好Micromamba後，請打開終端機。</p>
+<ul class="simple">
+<li><p>Mac使用者：可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Micromamba會自動安裝一些基本套件，這個套件環境預設稱為base。然而Micromamba預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">micromamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">cfgrib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">xskillscore</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">climpred</span> <span class="n">pip</span> <span class="n">bpytop</span> <span class="n">pingouin</span> <span class="n">flox</span> <span class="n">hvplot</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -462,12 +466,12 @@ document.write(`
 <img alt="" src="_images/fig_n4.png" />
 由於Windows環境能支援的Python套件有限，因此我們會安裝較少但必要的套件庫。請將以下指令複製貼上VS Code的終端機。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">matplotlib</span> <span class="n">cartopy</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span>  <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">pip</span>  
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">micromamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">matplotlib</span> <span class="n">cartopy</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span>  <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">hvplot</span> <span class="n">pip</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> 
 </pre></div>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p><code class="docutils literal notranslate"><span class="pre">cdo</span></code>、<code class="docutils literal notranslate"><span class="pre">python-cdo</span></code>未安裝會影響到第11單元，<code class="docutils literal notranslate"><span class="pre">windspharm</span></code>和<code class="docutils literal notranslate"><span class="pre">eofs</span></code>會影響到第七單元的一小部分， <code class="docutils literal notranslate"><span class="pre">cmaps</span></code>未安裝不影響畫圖功能唯不能選擇使用NCL的colormap。但這些套件可以另外用<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>安裝。</p>
+<p><code class="docutils literal notranslate"><span class="pre">cdo</span></code>、<code class="docutils literal notranslate"><span class="pre">python-cdo</span></code>未安裝會影響到第11單元，<code class="docutils literal notranslate"><span class="pre">eofs</span></code>會影響到第七單元的一小部分， <code class="docutils literal notranslate"><span class="pre">cmaps</span></code>未安裝不影響畫圖功能唯不能選擇使用NCL的colormap。但這些套件可以另外用<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>安裝。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -475,13 +479,9 @@ document.write(`
 </div>
 <p>安裝成功後，再打開Anaconda軟體，選Environments → p3，就可以看到剛安裝好的環境了。</p>
 <p><img alt="" src="_images/fig0.1.png" /></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>安裝conda套件的過程可能需要花比較多時間，請耐心等候。</p>
-</div>
 </section>
 <section id="visual-studio-code">
-<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Permalink to this headline">#</a></h2>
+<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Permalink to this heading">#</a></h2>
 <p>撰寫Python程式，按照檔名可區分為</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.py</span></code>：屬於Python程式的scipt，也就是把完整的程式寫好了以後，由Python逐行執行。</p></li>
@@ -503,7 +503,7 @@ document.write(`
 <p><img alt="" src="_images/fig0.5.png" /></p>
 </section>
 <section id="id1">
-<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p><strong>Example 1:</strong> 請用import將xarray套件輸入，並且印出xarray套件的版本資訊。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -513,7 +513,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.3.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.11.0
 </pre></div>
 </div>
 </div>
@@ -522,14 +522,14 @@ document.write(`
 <p><img alt="" src="_images/fig0.6.png" /></p>
 </section>
 <section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this headline">#</a></h2>
+<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
 <p>Jupyter Notebook是在網頁上操作的Python互動性介面，可以開啟窗格 (cells) 寫筆記、註解、撰寫程式，程式也可以按照個人需求分段撰寫和執行。</p>
 <p>在VS Code 工作資料夾下新增一個<code class="docutils literal notranslate"><span class="pre">test.ipynb</span></code>的檔案。注意Jupyter Notebook的副檔名為<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>。</p>
 <p>請在VS Code中按「+程式碼」，然後撰寫跟剛剛一樣的測試程式，並且按儲存格 (Cell) 旁邊的「執行」按鈕。接著會跳出一個視窗，詢問ipynb檔案的核心，請選擇<code class="docutils literal notranslate"><span class="pre">p3</span></code>的核心，按一下就會開始執行了。</p>
 <p><img alt="" src="_images/fig0.10.png" /></p>
 </section>
 <section id="id2">
-<h2>套件版本檢查<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>套件版本檢查<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>為了避免版本不相容，因此在開始閱讀本文前，建議先檢查各個套件的版本。本章的Example 1就是Python檢查套件的版本的方式，版本是以<code class="docutils literal notranslate"><span class="pre">__version__</span></code>這個attribute中儲存，因此可以print出來檢查。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -544,23 +544,23 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.3.0
-Numpy version: 1.23.5
-Cartopy version: 0.21.1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.11.0
+Numpy version: 1.26.2
+Cartopy version: 0.22.0
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id3">
-<h2>小結<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>小結<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>以上的方法都是幫助我們方便地撰寫和執行Python程式，當然還有很多不同的方法、執行工具，可以再探索和熟悉。現在，Python運算環境設置好，接著就可以開始學習用PyAOS寫程式了。</p>
 </section>
 <section id="windows">
-<h2>Windows使用者的語言設定<a class="headerlink" href="#windows" title="Permalink to this headline">#</a></h2>
+<h2>Windows使用者的語言設定<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h2>
 <p>(Mac使用者請略過此部分) 由於xarray在讀取檔案時，路徑不允許中文字，因此請調整以下設定：</p>
 <section id="windows-11">
-<h3>Windows 11<a class="headerlink" href="#windows-11" title="Permalink to this headline">#</a></h3>
+<h3>Windows 11<a class="headerlink" href="#windows-11" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
 <img alt="" src="_images/win11_01.png" /></p></li>
@@ -575,7 +575,7 @@ Cartopy version: 0.21.1
 </ol>
 </section>
 <section id="windows-10">
-<h3>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">#</a></h3>
+<h3>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h3>
 <p>步驟和Windows 11類似。</p>
 <ol class="arabic simple">
 <li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
@@ -626,11 +626,10 @@ Cartopy version: 0.21.1
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_syllabus.html"
@@ -650,10 +649,7 @@ Cartopy version: 0.21.1
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -668,8 +664,8 @@ Cartopy version: 0.21.1
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anacondaminiconda">安裝Anaconda或Miniconda</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">安裝VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micromamba">安裝Micromamba</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaospython">安裝PyAOS所需Python套件庫</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">用Visual Studio Code撰寫程式</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">撰寫測試程式</a></li>
@@ -695,7 +691,7 @@ Cartopy version: 0.21.1
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -719,7 +715,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -733,8 +729,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

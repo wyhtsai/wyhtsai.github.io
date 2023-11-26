@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>12. 大型資料處理 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="附錄：實用氣候分析程式範例" href="appendix-main.html" />
     <link rel="prev" title="11. Climate Data Operator (CDO)" href="11_cdo.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -407,7 +419,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>12. 大型資料處理<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>12. 大型資料處理<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <p>一般認為所謂大型資料或「大數據 (Big Data)」通常應用在機器學習領域上，但在大氣科學上，我們所認定的大數據可能更接近以下維基百科的定義：</p>
 <blockquote>
 <div><p>Big data is data sets that are so voluminous and complex that traditional data processing application software are inadequate to deal with them.</p>
@@ -416,7 +428,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">MemoryError:</span> <span class="pre">Unable</span> <span class="pre">to</span> <span class="pre">allocate</span> <span class="pre">52.2</span> <span class="pre">GiB</span> <span class="pre">for</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">with</span> <span class="pre">shape</span> <span class="pre">(365,</span> <span class="pre">37,</span> <span class="pre">721,</span> <span class="pre">1440)</span> <span class="pre">and</span> <span class="pre">data</span> <span class="pre">type</span> <span class="pre">float32</span></code></p>
 <p>會有這樣的情形是因為要分析的資料量已經超過電腦記憶體 (RAM) 的負荷。那要如何避免這個情形發生呢？</p>
 <section id="dask">
-<h2>Dask<a class="headerlink" href="#dask" title="Permalink to this headline">#</a></h2>
+<h2>Dask<a class="headerlink" href="#dask" title="Permalink to this heading">#</a></h2>
 <p>Dask是一套Python的套件，可以用電腦多核心(core)來進行平行運算，因此可以提升效率。在計算時，程式不會完全讀入所有的資料，而是以符號的方式先進行運算，這個過程稱為 “lazy computation”，也因此運算的過程不會耗費大量的記憶體 RAM。</p>
 <p>為了理解dask如何在xarray上運作，我們先以一組1000 × 4000大小的矩陣來示範。</p>
 <p><strong>1. Numpy矩陣</strong></p>
@@ -638,7 +650,7 @@ document.write(`
 <p>從以上例子我們可以知道，dask矩陣囊括了我們熟知的numpy套件中的函數。其實dask也囊括了xarray的函數，這對於我們要使用dask輔助處理大氣科學中大型資料是非常有利的。那麼dask怎麼幫助我們加速資料處理呢？</p>
 </section>
 <section id="id2">
-<h2>大型氣象資料處理<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>大型氣象資料處理<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>在第二單元中，我們已經介紹在開啟多個檔案<code class="docutils literal notranslate"><span class="pre">xarray.open_mfdataset</span></code>時，可以加上<code class="docutils literal notranslate"><span class="pre">parallel=True</span></code>來加快計算速度，這就是把xarray以dask矩陣的方式讀取，因此電腦多核心會同時讀取檔案，以增加速度。以下我們開啟NCEP R2水平風場的檔案，指定chunks的大小<code class="docutils literal notranslate"><span class="pre">chunks={'time':183,</span> <span class="pre">'level':</span> <span class="pre">1,</span> <span class="pre">'longitude':93*2,'latitude':91*2}</span></code>，並且計算氣候場、距平值，然後畫出結果。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -661,6 +673,1173 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
+  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
+    major: Virtual Object Layer
+    minor: Can&#39;t open object
+  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
+    major: Attribute
+    minor: Unable to initialize object
+  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
+    major: Attribute
+    minor: Can&#39;t open object
+  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
+    major: Attribute
+    minor: Object not found
+</pre></div>
+</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
   #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
     major: Attribute
@@ -1824,1171 +3003,8 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
     minor: Object not found
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitGroomNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeGranularBitRoundNumberOfSignificantDigits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 494 in H5O__attr_open_by_name(): can&#39;t locate attribute: &#39;_QuantizeBitRoundNumberOfSignificantBits&#39;
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
-  #000: H5A.c line 528 in H5Aopen_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #001: H5VLcallback.c line 1091 in H5VL_attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #002: H5VLcallback.c line 1058 in H5VL__attr_open(): attribute open failed
-    major: Virtual Object Layer
-    minor: Can&#39;t open object
-  #003: H5VLnative_attr.c line 130 in H5VL__native_attr_open(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #004: H5Aint.c line 545 in H5A__open_by_name(): unable to load attribute info from object header
-    major: Attribute
-    minor: Unable to initialize object
-  #005: H5Oattribute.c line 476 in H5O__attr_open_by_name(): can&#39;t open attribute
-    major: Attribute
-    minor: Can&#39;t open object
-  #006: H5Adense.c line 394 in H5A__dense_open(): can&#39;t locate attribute in name index
-    major: Attribute
-    minor: Object not found
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 0 ns, total: 1 µs
-Wall time: 3.1 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 1e+03 ns, total: 2 µs
+Wall time: 2.86 µs
 </pre></div>
 </div>
 </div>
@@ -3003,8 +3019,8 @@ Wall time: 3.1 µs
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 1 µs, total: 2 µs
-Wall time: 3.1 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 0 ns, total: 1 µs
+Wall time: 2.86 µs
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -3390,7 +3406,7 @@ Attributes: (12/14)
     level_desc:            Pressure Levels
     statistic:             Mean
     parent_stat:           Individual Obs
-    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-925deaa8-fbf7-4726-bc30-0e565f959778' class='xr-array-in' type='checkbox' checked><label for='section-925deaa8-fbf7-4726-bc30-0e565f959778' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(183, 1, 37, 144), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-03358f6d-a51b-45ff-b427-afb83b525bfd' class='xr-array-in' type='checkbox' checked><label for='section-03358f6d-a51b-45ff-b427-afb83b525bfd' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(183, 1, 37, 144), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -3515,10 +3531,10 @@ Attributes: (12/14)
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-64b6a3d0-807e-4711-8a1f-6a7a7e623a12' class='xr-section-summary-in' type='checkbox'  checked><label for='section-64b6a3d0-807e-4711-8a1f-6a7a7e623a12' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-71893178-2449-4b2e-b8ea-90996399ef32' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71893178-2449-4b2e-b8ea-90996399ef32' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0572e54f-2bad-46e3-91d0-263b9db69b49' class='xr-var-data-in' type='checkbox'><label for='data-0572e54f-2bad-46e3-91d0-263b9db69b49' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-d626fb26-ced7-47e8-b706-ba522f528f96' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d626fb26-ced7-47e8-b706-ba522f528f96' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-cd1e02c8-5690-4fc1-9c9c-884448366e01' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-cd1e02c8-5690-4fc1-9c9c-884448366e01' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-331000ee-e010-44c2-a3e2-55bc78a0a682' class='xr-var-data-in' type='checkbox'><label for='data-331000ee-e010-44c2-a3e2-55bc78a0a682' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2021-12-29T00:00:00.000000000&#x27;,
        &#x27;2021-12-30T00:00:00.000000000&#x27;, &#x27;2021-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-b2c879a1-c431-49ca-9c59-dc6e9992df7f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b2c879a1-c431-49ca-9c59-dc6e9992df7f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a0ac37c0-dbcc-4914-9d18-a05e47d02a72' class='xr-var-data-in' type='checkbox'><label for='data-a0ac37c0-dbcc-4914-9d18-a05e47d02a72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-5d85826f-35fa-478c-84da-52f1c66b5c39' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5d85826f-35fa-478c-84da-52f1c66b5c39' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8a977dcb-89a7-45a0-8d78-a395ccb80f53' class='xr-var-data-in' type='checkbox'><label for='data-8a977dcb-89a7-45a0-8d78-a395ccb80f53' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -3532,24 +3548,24 @@ Attributes: (12/14)
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-2e8d9e80-3bb6-4611-b21c-a21ba96522a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e8d9e80-3bb6-4611-b21c-a21ba96522a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ad2c614d-560a-4210-a275-bc95ace509ce' class='xr-var-data-in' type='checkbox'><label for='data-ad2c614d-560a-4210-a275-bc95ace509ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-990659e0-73ab-4666-b23c-2fca2137f709' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-990659e0-73ab-4666-b23c-2fca2137f709' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3a130d7f-013c-4fff-81c3-2815898aad49' class='xr-var-data-in' type='checkbox'><label for='data-3a130d7f-013c-4fff-81c3-2815898aad49' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
        60. , 57.5, 55. , 52.5, 50. , 47.5, 45. , 42.5, 40. , 37.5, 35. , 32.5,
        30. , 27.5, 25. , 22.5, 20. , 17.5, 15. , 12.5, 10. ,  7.5,  5. ,  2.5,
-        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-194819e2-a4e8-4a41-b96a-e5c70e356692' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-194819e2-a4e8-4a41-b96a-e5c70e356692' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e7bbeef2-cff2-4cc6-b5dc-81388f5f2f51' class='xr-var-data-in' type='checkbox'><label for='data-e7bbeef2-cff2-4cc6-b5dc-81388f5f2f51' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dafbec72-acde-4f98-a9dd-eb8ee5bd184e' class='xr-section-summary-in' type='checkbox'  ><label for='section-dafbec72-acde-4f98-a9dd-eb8ee5bd184e' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7710dbc9-e33b-41b3-8106-6a5468a2d2c0' class='xr-index-data-in' type='checkbox'/><label for='index-7710dbc9-e33b-41b3-8106-6a5468a2d2c0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-c9143206-d223-4255-b49f-93c635957925' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c9143206-d223-4255-b49f-93c635957925' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4843d22a-deb2-48ee-b3a4-e7386a550635' class='xr-var-data-in' type='checkbox'><label for='data-4843d22a-deb2-48ee-b3a4-e7386a550635' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-946650b5-9808-4b97-9b81-43e0af58ad14' class='xr-section-summary-in' type='checkbox'  ><label for='section-946650b5-9808-4b97-9b81-43e0af58ad14' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e74aaa28-841b-47df-b8ac-e6560320b4f3' class='xr-index-data-in' type='checkbox'/><label for='index-e74aaa28-841b-47df-b8ac-e6560320b4f3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2021-12-22&#x27;, &#x27;2021-12-23&#x27;, &#x27;2021-12-24&#x27;, &#x27;2021-12-25&#x27;,
                &#x27;2021-12-26&#x27;, &#x27;2021-12-27&#x27;, &#x27;2021-12-28&#x27;, &#x27;2021-12-29&#x27;,
                &#x27;2021-12-30&#x27;, &#x27;2021-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8a1a7022-5ec3-440a-a0ca-83ddee963dae' class='xr-index-data-in' type='checkbox'/><label for='index-8a1a7022-5ec3-440a-a0ca-83ddee963dae' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3be47135-1a62-4b18-822f-9f813200477a' class='xr-index-data-in' type='checkbox'/><label for='index-3be47135-1a62-4b18-822f-9f813200477a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
        ...
        335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a852e13b-be08-41ca-97d1-b3755055bfe4' class='xr-index-data-in' type='checkbox'/><label for='index-a852e13b-be08-41ca-97d1-b3755055bfe4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-087dc45c-43ec-4a40-ab17-52f3abe95d71' class='xr-index-data-in' type='checkbox'/><label for='index-087dc45c-43ec-4a40-ab17-52f3abe95d71' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
        60.0, 57.5, 55.0, 52.5, 50.0, 47.5, 45.0, 42.5, 40.0, 37.5, 35.0, 32.5,
        30.0, 27.5, 25.0, 22.5, 20.0, 17.5, 15.0, 12.5, 10.0,  7.5,  5.0,  2.5,
         0.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-66f40abe-d952-4105-b2ed-8ed255efa9b1' class='xr-index-data-in' type='checkbox'/><label for='index-66f40abe-d952-4105-b2ed-8ed255efa9b1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2708087f-5e6b-4c59-ac7c-737a9f495b1d' class='xr-section-summary-in' type='checkbox'  ><label for='section-2708087f-5e6b-4c59-ac7c-737a9f495b1d' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b77ea880-48f1-49da-addc-3b8733203495' class='xr-index-data-in' type='checkbox'/><label for='index-b77ea880-48f1-49da-addc-3b8733203495' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-28eb4764-6a66-42a1-b700-0ee171ca01f4' class='xr-section-summary-in' type='checkbox'  ><label for='section-28eb4764-6a66-42a1-b700-0ee171ca01f4' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>在以上的預覽中，我們可以看到Chunk的資訊，這是因為在dask的lazy computation下，程式還沒有真正將資料的數值給代入，且將資料切成我們指定的小塊來進行平行運算了。到此時資料都還沒有真正進入電腦的記憶體。</p>
 <p>接下來我們要計算氣候平均，但根據xarray網站的建議，目前dask對<code class="docutils literal notranslate"><span class="pre">groupby()</span></code>、<code class="docutils literal notranslate"><span class="pre">resample()</span></code>函數還沒有很好的支援，如果在dask下計算，反而很沒效率，因此筆者建議，在切完資料、進行複雜計算前，都應該使用<code class="docutils literal notranslate"><span class="pre">load()</span></code>將資料讀取進記憶體。</p>
@@ -3567,8 +3583,8 @@ Attributes: (12/14)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 1 µs, total: 2 µs
-Wall time: 8.11 µs
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1 µs, sys: 0 ns, total: 1 µs
+Wall time: 3.1 µs
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -3994,7 +4010,7 @@ Attributes: (12/14)
     level_desc:            Pressure Levels
     statistic:             Mean
     parent_stat:           Individual Obs
-    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-43ad4d8e-4b66-4059-ad6e-82213239cee6' class='xr-array-in' type='checkbox' checked><label for='section-43ad4d8e-4b66-4059-ad6e-82213239cee6' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-7.99 -7.96 -7.94 -7.86 -7.81 -7.73 ... -8.875 -8.475 -7.7 -6.125 -4.3</span></div><div class='xr-array-data'><pre>array([[[[ -7.9900055 ,  -7.9600067 ,  -7.9400024 , ...,  -7.9799957 ,
+    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 8766</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-c5c66e9d-d079-480b-909e-26a043d27089' class='xr-array-in' type='checkbox' checked><label for='section-c5c66e9d-d079-480b-909e-26a043d27089' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-7.99 -7.96 -7.94 -7.86 -7.81 -7.73 ... -8.875 -8.475 -7.7 -6.125 -4.3</span></div><div class='xr-array-data'><pre>array([[[[ -7.9900055 ,  -7.9600067 ,  -7.9400024 , ...,  -7.9799957 ,
            -7.9600067 ,  -8.0099945 ],
          [ -3.5800018 ,  -3.2900085 ,  -3.0099945 , ...,  -4.5099945 ,
            -4.2100067 ,  -3.8600006 ],
@@ -4034,10 +4050,10 @@ Attributes: (12/14)
          [ -1.6749997 ,  -1.3499999 ,  -1.2750001 , ...,  -5.9500003 ,
            -4.4749994 ,  -2.775     ],
          [ -3.15      ,  -2.8249998 ,  -2.8250003 , ...,  -7.700001  ,
-           -6.125     ,  -4.3       ]]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-f886ee38-1828-40f3-bc20-afa552b0f33c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f886ee38-1828-40f3-bc20-afa552b0f33c' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-8e041c5e-e991-4be7-a32f-faa358db36ad' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8e041c5e-e991-4be7-a32f-faa358db36ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-875d6084-b1ea-4eb0-9bf0-f0522aafe882' class='xr-var-data-in' type='checkbox'><label for='data-875d6084-b1ea-4eb0-9bf0-f0522aafe882' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
+           -6.125     ,  -4.3       ]]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-e2744cfd-ae02-41b9-a4f2-f8aad461901d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e2744cfd-ae02-41b9-a4f2-f8aad461901d' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1998-01-01 ... 2021-12-31</div><input id='attrs-59cec3ce-f241-4d76-ac40-9b22f0ce9070' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-59cec3ce-f241-4d76-ac40-9b22f0ce9070' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b235ee1c-83cd-4380-af3f-95e352715719' class='xr-var-data-in' type='checkbox'><label for='data-b235ee1c-83cd-4380-af3f-95e352715719' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1998-01-01T00:00:00.000000000&#x27;, &#x27;1998-01-02T00:00:00.000000000&#x27;,
        &#x27;1998-01-03T00:00:00.000000000&#x27;, ..., &#x27;2021-12-29T00:00:00.000000000&#x27;,
        &#x27;2021-12-30T00:00:00.000000000&#x27;, &#x27;2021-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-6f879546-e5f1-4b96-ad91-370453ba1365' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6f879546-e5f1-4b96-ad91-370453ba1365' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ed3d086b-9b75-4d63-8d9f-d90d4978435a' class='xr-var-data-in' type='checkbox'><label for='data-ed3d086b-9b75-4d63-8d9f-d90d4978435a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-0551b22e-90eb-4aa0-9068-0d25a26c7c35' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0551b22e-90eb-4aa0-9068-0d25a26c7c35' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-dc1f51d4-1b13-46cc-87e6-b2b26820acd9' class='xr-var-data-in' type='checkbox'><label for='data-dc1f51d4-1b13-46cc-87e6-b2b26820acd9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -4051,24 +4067,24 @@ Attributes: (12/14)
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-063c8413-4dbe-4531-880e-cc4a4df1e3a5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-063c8413-4dbe-4531-880e-cc4a4df1e3a5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f8958d08-bc94-4ac5-9942-5c1908947b1b' class='xr-var-data-in' type='checkbox'><label for='data-f8958d08-bc94-4ac5-9942-5c1908947b1b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-f07fbace-ffd9-415d-9786-6083760beb24' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f07fbace-ffd9-415d-9786-6083760beb24' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d56848de-d818-4a2c-bcaa-e9af64e49ed6' class='xr-var-data-in' type='checkbox'><label for='data-d56848de-d818-4a2c-bcaa-e9af64e49ed6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
        60. , 57.5, 55. , 52.5, 50. , 47.5, 45. , 42.5, 40. , 37.5, 35. , 32.5,
        30. , 27.5, 25. , 22.5, 20. , 17.5, 15. , 12.5, 10. ,  7.5,  5. ,  2.5,
-        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-1a84b2b6-4516-47ba-9964-24349fe3f4a8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a84b2b6-4516-47ba-9964-24349fe3f4a8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8f86e792-2d6a-4ff5-94f8-9cd0006377b3' class='xr-var-data-in' type='checkbox'><label for='data-8f86e792-2d6a-4ff5-94f8-9cd0006377b3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-708b86d3-7b3e-40df-99dc-d18cbed748ac' class='xr-section-summary-in' type='checkbox'  ><label for='section-708b86d3-7b3e-40df-99dc-d18cbed748ac' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f013a7d2-cc3b-42d4-8b28-e6342ecc0a85' class='xr-index-data-in' type='checkbox'/><label for='index-f013a7d2-cc3b-42d4-8b28-e6342ecc0a85' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
+        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-0fef59d2-b052-4945-96f1-9ec9f92cc571' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0fef59d2-b052-4945-96f1-9ec9f92cc571' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2e3208f0-4e3b-4252-8528-6ba863e4c118' class='xr-var-data-in' type='checkbox'><label for='data-2e3208f0-4e3b-4252-8528-6ba863e4c118' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1bb5ccb0-679c-452f-9c67-61479e7c8b5b' class='xr-section-summary-in' type='checkbox'  ><label for='section-1bb5ccb0-679c-452f-9c67-61479e7c8b5b' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7052568f-3f0a-4d53-9e71-4f1dfa2f6461' class='xr-index-data-in' type='checkbox'/><label for='index-7052568f-3f0a-4d53-9e71-4f1dfa2f6461' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1998-01-01&#x27;, &#x27;1998-01-02&#x27;, &#x27;1998-01-03&#x27;, &#x27;1998-01-04&#x27;,
                &#x27;1998-01-05&#x27;, &#x27;1998-01-06&#x27;, &#x27;1998-01-07&#x27;, &#x27;1998-01-08&#x27;,
                &#x27;1998-01-09&#x27;, &#x27;1998-01-10&#x27;,
                ...
                &#x27;2021-12-22&#x27;, &#x27;2021-12-23&#x27;, &#x27;2021-12-24&#x27;, &#x27;2021-12-25&#x27;,
                &#x27;2021-12-26&#x27;, &#x27;2021-12-27&#x27;, &#x27;2021-12-28&#x27;, &#x27;2021-12-29&#x27;,
                &#x27;2021-12-30&#x27;, &#x27;2021-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-510cd26c-47e1-4b0d-a625-53560e130be9' class='xr-index-data-in' type='checkbox'/><label for='index-510cd26c-47e1-4b0d-a625-53560e130be9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=8766, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e777f4f3-a9ab-4f63-b0a8-0d91ce6250f1' class='xr-index-data-in' type='checkbox'/><label for='index-e777f4f3-a9ab-4f63-b0a8-0d91ce6250f1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
        ...
        335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-791ee52b-2bb5-47cf-bcbe-7a06d277090e' class='xr-index-data-in' type='checkbox'/><label for='index-791ee52b-2bb5-47cf-bcbe-7a06d277090e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5aae1f05-99bc-439c-9acd-c6694b24de91' class='xr-index-data-in' type='checkbox'/><label for='index-5aae1f05-99bc-439c-9acd-c6694b24de91' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
        60.0, 57.5, 55.0, 52.5, 50.0, 47.5, 45.0, 42.5, 40.0, 37.5, 35.0, 32.5,
        30.0, 27.5, 25.0, 22.5, 20.0, 17.5, 15.0, 12.5, 10.0,  7.5,  5.0,  2.5,
         0.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-52d7fbeb-8d87-404a-b3f2-558fead07aea' class='xr-index-data-in' type='checkbox'/><label for='index-52d7fbeb-8d87-404a-b3f2-558fead07aea' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4928b213-194b-49ff-8beb-785d102fbadf' class='xr-section-summary-in' type='checkbox'  ><label for='section-4928b213-194b-49ff-8beb-785d102fbadf' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ad456428-3bcd-4831-9a5d-23589c308dab' class='xr-index-data-in' type='checkbox'/><label for='index-ad456428-3bcd-4831-9a5d-23589c308dab' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-466eb938-7353-45c9-be76-5842855dccf8' class='xr-section-summary-in' type='checkbox'  ><label for='section-466eb938-7353-45c9-be76-5842855dccf8' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>此時這是一個DataArray。接下來計算氣候平均就很快了。</p>
 <div class="cell docutils container">
@@ -4453,7 +4469,7 @@ array([[[[-1.5247937e+00, -1.4514604e+00, -1.3754172e+00, ...,
            3.0166462e-01,  4.4770643e-01,  6.0145718e-01],
          ...,
          [-1.4350017e+00, -1.3072938e+00, -1.2437533e+00, ...,
-          -3.2308362e+00, -2.5950012e+00, -1.8743768e+00],
+          -3.2308366e+00, -2.5950010e+00, -1.8743768e+00],
          [-7.3541850e-01, -6.0729337e-01, -4.0958592e-01, ...,
           -2.8920867e+00, -2.0904186e+00, -1.2187523e+00],
          [-6.3625211e-01, -6.9604486e-01, -6.7854387e-01, ...,
@@ -4466,10 +4482,10 @@ array([[[[-1.5247937e+00, -1.4514604e+00, -1.3754172e+00, ...,
           -5.7292778e-02,  4.5207102e-02,  1.4082973e-01],
          [ 2.3937146e-01,  3.5499719e-01,  4.8520657e-01, ...,
 ...
-         [-1.4406258e+00, -1.0618763e+00, -4.6687618e-01, ...,
-          -3.2627103e+00, -2.4233356e+00, -1.8195858e+00],
+         [-1.4406258e+00, -1.0618763e+00, -4.6687624e-01, ...,
+          -3.2627106e+00, -2.4233356e+00, -1.8195858e+00],
          [-8.7166828e-01, -7.2979182e-01, -4.7916898e-01, ...,
-          -2.8472939e+00, -1.9472933e+00, -1.2368768e+00]]],
+          -2.8472936e+00, -1.9472933e+00, -1.2368768e+00]]],
 
 
        [[[-4.1091676e+00, -3.9441681e+00, -3.7783356e+00, ...,
@@ -4504,7 +4520,7 @@ Attributes: (12/14)
     level_desc:            Pressure Levels
     statistic:             Mean
     parent_stat:           Individual Obs
-    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>dayofyear</span>: 366</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-f7164a26-6cce-4f83-b0e9-736b1dfa6086' class='xr-array-in' type='checkbox' checked><label for='section-f7164a26-6cce-4f83-b0e9-736b1dfa6086' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.525 -1.451 -1.375 -1.298 -1.215 ... -2.298 -1.728 -0.9792 -0.2267</span></div><div class='xr-array-data'><pre>array([[[[-1.5247937e+00, -1.4514604e+00, -1.3754172e+00, ...,
+    cell_methods:          time: mean (of 4 6-hourly values in one day)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'uwnd'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>dayofyear</span>: 366</li><li><span class='xr-has-index'>level</span>: 1</li><li><span class='xr-has-index'>lat</span>: 37</li><li><span class='xr-has-index'>lon</span>: 144</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-dedb0aee-b718-41fb-919b-ff11f099064c' class='xr-array-in' type='checkbox' checked><label for='section-dedb0aee-b718-41fb-919b-ff11f099064c' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>-1.525 -1.451 -1.375 -1.298 -1.215 ... -2.298 -1.728 -0.9792 -0.2267</span></div><div class='xr-array-data'><pre>array([[[[-1.5247937e+00, -1.4514604e+00, -1.3754172e+00, ...,
           -1.7235428e+00, -1.6562518e+00, -1.5960444e+00],
          [-5.6333429e-01, -4.1833475e-01, -2.7458504e-01, ...,
           -9.6874976e-01, -8.4125155e-01, -6.9416922e-01],
@@ -4512,7 +4528,7 @@ Attributes: (12/14)
            3.0166462e-01,  4.4770643e-01,  6.0145718e-01],
          ...,
          [-1.4350017e+00, -1.3072938e+00, -1.2437533e+00, ...,
-          -3.2308362e+00, -2.5950012e+00, -1.8743768e+00],
+          -3.2308366e+00, -2.5950010e+00, -1.8743768e+00],
          [-7.3541850e-01, -6.0729337e-01, -4.0958592e-01, ...,
           -2.8920867e+00, -2.0904186e+00, -1.2187523e+00],
          [-6.3625211e-01, -6.9604486e-01, -6.7854387e-01, ...,
@@ -4525,10 +4541,10 @@ Attributes: (12/14)
           -5.7292778e-02,  4.5207102e-02,  1.4082973e-01],
          [ 2.3937146e-01,  3.5499719e-01,  4.8520657e-01, ...,
 ...
-         [-1.4406258e+00, -1.0618763e+00, -4.6687618e-01, ...,
-          -3.2627103e+00, -2.4233356e+00, -1.8195858e+00],
+         [-1.4406258e+00, -1.0618763e+00, -4.6687624e-01, ...,
+          -3.2627106e+00, -2.4233356e+00, -1.8195858e+00],
          [-8.7166828e-01, -7.2979182e-01, -4.7916898e-01, ...,
-          -2.8472939e+00, -1.9472933e+00, -1.2368768e+00]]],
+          -2.8472936e+00, -1.9472933e+00, -1.2368768e+00]]],
 
 
        [[[-4.1091676e+00, -3.9441681e+00, -3.7783356e+00, ...,
@@ -4544,7 +4560,7 @@ Attributes: (12/14)
           -2.0166693e+00, -1.1691660e+00, -3.0000091e-01],
          [ 2.3749900e-01,  4.7500062e-01,  9.8333144e-01, ...,
           -1.7283325e+00, -9.7916764e-01, -2.2666772e-01]]]],
-      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-448d194a-2e5b-49ca-aef7-dc3736b7d7d7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-448d194a-2e5b-49ca-aef7-dc3736b7d7d7' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-681ecc39-74aa-40e0-a301-392dd89969f2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-681ecc39-74aa-40e0-a301-392dd89969f2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-60470bce-9ea3-4b80-949f-a10f5213bf1e' class='xr-var-data-in' type='checkbox'><label for='data-60470bce-9ea3-4b80-949f-a10f5213bf1e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
+      dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-19e69949-72a7-4bd0-80c1-85d001dc2b82' class='xr-section-summary-in' type='checkbox'  checked><label for='section-19e69949-72a7-4bd0-80c1-85d001dc2b82' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 2.5 5.0 ... 352.5 355.0 357.5</div><input id='attrs-51b4315f-f8e9-4325-91fe-80962a7a3759' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-51b4315f-f8e9-4325-91fe-80962a7a3759' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9608be6c-c018-47bc-ad15-14d721f5a9c1' class='xr-var-data-in' type='checkbox'><label for='data-9608be6c-c018-47bc-ad15-14d721f5a9c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   2.5,   5. ,   7.5,  10. ,  12.5,  15. ,  17.5,  20. ,  22.5,
         25. ,  27.5,  30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,
         50. ,  52.5,  55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,
         75. ,  77.5,  80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5,
@@ -4558,23 +4574,23 @@ Attributes: (12/14)
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
        325. , 327.5, 330. , 332.5, 335. , 337.5, 340. , 342.5, 345. , 347.5,
-       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-09264c07-e7bd-4b83-b6c9-e5f625ea4950' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-09264c07-e7bd-4b83-b6c9-e5f625ea4950' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6798325b-3cf9-4bc0-8b2d-05ac07162bc2' class='xr-var-data-in' type='checkbox'><label for='data-6798325b-3cf9-4bc0-8b2d-05ac07162bc2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
+       350. , 352.5, 355. , 357.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 87.5 85.0 82.5 ... 5.0 2.5 0.0</div><input id='attrs-7eb0cdf9-96c4-46ec-843c-431cd0c81c45' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7eb0cdf9-96c4-46ec-843c-431cd0c81c45' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6ef0475d-b06b-481d-976a-aa64313d6a04' class='xr-var-data-in' type='checkbox'><label for='data-6ef0475d-b06b-481d-976a-aa64313d6a04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([90. , 87.5, 85. , 82.5, 80. , 77.5, 75. , 72.5, 70. , 67.5, 65. , 62.5,
        60. , 57.5, 55. , 52.5, 50. , 47.5, 45. , 42.5, 40. , 37.5, 35. , 32.5,
        30. , 27.5, 25. , 22.5, 20. , 17.5, 15. , 12.5, 10. ,  7.5,  5. ,  2.5,
-        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-ae1f8e94-06c8-42da-8b69-7e81c5c36037' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae1f8e94-06c8-42da-8b69-7e81c5c36037' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb507c83-f6f4-49ee-97db-60e7fb9823a8' class='xr-var-data-in' type='checkbox'><label for='data-cb507c83-f6f4-49ee-97db-60e7fb9823a8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dayofyear</span></div><div class='xr-var-dims'>(dayofyear)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 362 363 364 365 366</div><input id='attrs-74783c76-a8cb-4a42-a622-acc621215b32' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-74783c76-a8cb-4a42-a622-acc621215b32' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c1575fc8-0ee5-4235-9e56-d97919d5d89b' class='xr-var-data-in' type='checkbox'><label for='data-c1575fc8-0ee5-4235-9e56-d97919d5d89b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3, ..., 364, 365, 366])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-13d1aa34-6fd4-47a6-837d-36a5538cd1af' class='xr-section-summary-in' type='checkbox'  ><label for='section-13d1aa34-6fd4-47a6-837d-36a5538cd1af' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-208c42b5-1470-4dbd-b178-4557c70393a6' class='xr-index-data-in' type='checkbox'/><label for='index-208c42b5-1470-4dbd-b178-4557c70393a6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
+        0. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-9f929a2e-58d4-45c0-a498-bb7ca813f36e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9f929a2e-58d4-45c0-a498-bb7ca813f36e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d807f7cd-2836-482f-b115-deac80674c22' class='xr-var-data-in' type='checkbox'><label for='data-d807f7cd-2836-482f-b115-deac80674c22' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array([850.], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dayofyear</span></div><div class='xr-var-dims'>(dayofyear)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 362 363 364 365 366</div><input id='attrs-5240a7eb-b54c-467f-b6d0-5e766a5e3304' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5240a7eb-b54c-467f-b6d0-5e766a5e3304' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6178adb2-c9f8-4346-ab63-a3060624de74' class='xr-var-data-in' type='checkbox'><label for='data-6178adb2-c9f8-4346-ab63-a3060624de74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3, ..., 364, 365, 366])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-95d4cedf-1070-4f3d-bc24-fb0189a1cd30' class='xr-section-summary-in' type='checkbox'  ><label for='section-95d4cedf-1070-4f3d-bc24-fb0189a1cd30' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fcef480c-753c-4e71-a825-c7b016cbe5a3' class='xr-index-data-in' type='checkbox'/><label for='index-fcef480c-753c-4e71-a825-c7b016cbe5a3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   2.5,   5.0,   7.5,  10.0,  12.5,  15.0,  17.5,  20.0,  22.5,
        ...
        335.0, 337.5, 340.0, 342.5, 345.0, 347.5, 350.0, 352.5, 355.0, 357.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f677961b-c482-4b52-a928-5f3ed639ed33' class='xr-index-data-in' type='checkbox'/><label for='index-f677961b-c482-4b52-a928-5f3ed639ed33' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=144))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-84f9a743-5834-4787-8350-9a3e14d5c621' class='xr-index-data-in' type='checkbox'/><label for='index-84f9a743-5834-4787-8350-9a3e14d5c621' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([90.0, 87.5, 85.0, 82.5, 80.0, 77.5, 75.0, 72.5, 70.0, 67.5, 65.0, 62.5,
        60.0, 57.5, 55.0, 52.5, 50.0, 47.5, 45.0, 42.5, 40.0, 37.5, 35.0, 32.5,
        30.0, 27.5, 25.0, 22.5, 20.0, 17.5, 15.0, 12.5, 10.0,  7.5,  5.0,  2.5,
         0.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-de98667f-64e5-4476-bbd4-29af67220c0c' class='xr-index-data-in' type='checkbox'/><label for='index-de98667f-64e5-4476-bbd4-29af67220c0c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dayofyear</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4558bb72-cc4c-4f80-8532-0fbc435c96b0' class='xr-index-data-in' type='checkbox'/><label for='index-4558bb72-cc4c-4f80-8532-0fbc435c96b0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-bd57d6d0-8a50-4567-bdc2-8d2e1aeb547a' class='xr-index-data-in' type='checkbox'/><label for='index-bd57d6d0-8a50-4567-bdc2-8d2e1aeb547a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([850.0], dtype=&#x27;float32&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dayofyear</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2e253573-1a64-4eaf-b4ab-6214061654ca' class='xr-index-data-in' type='checkbox'/><label for='index-2e253573-1a64-4eaf-b4ab-6214061654ca' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,
        ...
        357, 358, 359, 360, 361, 362, 363, 364, 365, 366],
-      dtype=&#x27;int64&#x27;, name=&#x27;dayofyear&#x27;, length=366))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f8b0500f-e62a-4eb5-86c4-6d3e2bb6b760' class='xr-section-summary-in' type='checkbox'  ><label for='section-f8b0500f-e62a-4eb5-86c4-6d3e2bb6b760' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;int64&#x27;, name=&#x27;dayofyear&#x27;, length=366))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0bd0029b-1d57-4df3-a30c-c77b8debf8a1' class='xr-section-summary-in' type='checkbox'  ><label for='section-0bd0029b-1d57-4df3-a30c-c77b8debf8a1' class='xr-section-summary' >Attributes: <span>(14)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>eastward_wind</dd><dt><span>long_name :</span></dt><dd>Daily U-wind on Pressure Levels</dd><dt><span>units :</span></dt><dd>m/s</dd><dt><span>unpacked_valid_range :</span></dt><dd>[-140.  175.]</dd><dt><span>actual_range :</span></dt><dd>[-78.96 110.35]</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>GRIB_id :</span></dt><dd>33</dd><dt><span>GRIB_name :</span></dt><dd>UGRD</dd><dt><span>var_desc :</span></dt><dd>u-wind</dd><dt><span>dataset :</span></dt><dd>NCEP/DOE AMIP-II Reanalysis (Reanalysis-2) Daily Averages</dd><dt><span>level_desc :</span></dt><dd>Pressure Levels</dd><dt><span>statistic :</span></dt><dd>Mean</dd><dt><span>parent_stat :</span></dt><dd>Individual Obs</dd><dt><span>cell_methods :</span></dt><dd>time: mean (of 4 6-hourly values in one day)</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <section id="id3">
-<h3>使用dask的一些好習慣<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<h3>使用dask的一些好習慣<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>目前dask在<code class="docutils literal notranslate"><span class="pre">resample()</span></code> or <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>兩個函數並沒有做很好的效率最佳化，因此建議在這之前就先進行<code class="docutils literal notranslate"><span class="pre">load()</span></code>的動作，以避免非常大量的計算。從上面的範例就可以看到從頭計算到ws這個動作，就要花費2279930 tasks，必然要花費很多時間！</p></li>
 <li><p>把一些初步的結果先儲存成netCDF檔案，然後重新讀進來，會比較節省時間。</p></li>
@@ -4610,11 +4626,10 @@ Attributes: (12/14)
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="11_cdo.html"
@@ -4634,10 +4649,7 @@ Attributes: (12/14)
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -4671,7 +4683,7 @@ Attributes: (12/14)
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -4695,7 +4707,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -4709,8 +4721,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

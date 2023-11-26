@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>9.xarray繪圖 (2)：繪製2D資料 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="10. pandas和seaborn: 統計圖表繪製" href="10_pandas_seaborn.html" />
     <link rel="prev" title="8. xarray繪圖 (1)：繪製1D資料" href="08_plotting_1d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -414,9 +426,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="xarray-2-2d">
-<h1>9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料<a class="headerlink" href="#xarray-2-2d" title="Permalink to this headline">#</a></h1>
+<h1>9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料<a class="headerlink" href="#xarray-2-2d" title="Permalink to this heading">#</a></h1>
 <section id="id1">
-<h2>全球或跨越180經度線的區域地圖<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>全球或跨越180經度線的區域地圖<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>雖然在前面已經介紹過<code class="docutils literal notranslate"><span class="pre">cartopy</span></code>的用法，但由於<code class="docutils literal notranslate"><span class="pre">cartopy</span></code>繪製全球地圖時，中線預設為0度，原則上繪圖的範圍必須限縮在-180至180度 (詳細可以參考<a class="reference external" href="https://stackoverflow.com/questions/13856123/setting-up-a-map-which-crosses-the-dateline-in-cartopy#_=_">StackOverflow的說明</a>)。因此在不額外設定其他參數的話，繪製出的全球地圖如以下範例所示：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -436,10 +448,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x165173700&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x1173b2c50&gt;
 </pre></div>
 </div>
-<img alt="_images/b6936d0a3fa378ce36306a4e3f5fdd919a186cfdb00334e15f0d03c8a069df53.png" src="_images/b6936d0a3fa378ce36306a4e3f5fdd919a186cfdb00334e15f0d03c8a069df53.png" />
+<img alt="_images/c0e4633f3687a13be4a7e8b576d2d4cd021898d91a03e5f8aba9d97ee7f76989.png" src="_images/c0e4633f3687a13be4a7e8b576d2d4cd021898d91a03e5f8aba9d97ee7f76989.png" />
 </div>
 </div>
 <p>如果繪製地圖的範圍要橫跨180度，需要在投影設定中加上<code class="docutils literal notranslate"><span class="pre">central_longitude=180</span></code>。</p>
@@ -454,10 +466,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x16532b730&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x1174e2f50&gt;
 </pre></div>
 </div>
-<img alt="_images/5feed4fbf62c73210f8172c7c436e5feb8075a8908ba16be1f29a3d4a6d5ac1b.png" src="_images/5feed4fbf62c73210f8172c7c436e5feb8075a8908ba16be1f29a3d4a6d5ac1b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<img alt="_images/a79d846b267eed5935158b6e191fe98add27ad8d6fdcf6e8a1ba401487c339f8.png" src="_images/a79d846b267eed5935158b6e191fe98add27ad8d6fdcf6e8a1ba401487c339f8.png" />
 </div>
 </div>
 <p>區域地圖繪製還需要額外步驟。假設現在要繪製的地圖經緯度範圍為(20˚S-30˚N, 40˚E-150˚W)，在 <strong>繪圖空間</strong> <code class="docutils literal notranslate"><span class="pre">ax</span></code>上，要指定投影方式<code class="docutils literal notranslate"><span class="pre">projection=ccrs.PlateCarree(central_longitude=180)</span></code>。
@@ -513,13 +533,33 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a692f30c21ae3215732d4b43ddedb0a39177df65d3ee133f85335438dcfd30ce.png" src="_images/a692f30c21ae3215732d4b43ddedb0a39177df65d3ee133f85335438dcfd30ce.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+</pre></div>
+</div>
+<img alt="_images/70592b4127cd8037dbf82ead5fe839ce0f88890e2e95dafcdcbc130c1e24d411.png" src="_images/70592b4127cd8037dbf82ead5fe839ce0f88890e2e95dafcdcbc130c1e24d411.png" />
 </div>
 </div>
 <p>因此用Python繪圖有一個很重要的概念，就是繪圖空間<code class="docutils literal notranslate"><span class="pre">ax</span></code>有它自己的座標軸，資料本身也有自己的座標軸，兩者是不一樣的。因此在繪圖的transform引數中，就要告訴繪圖函數資料本身的座標軸為何，這樣才能根據資料和繪圖空間指定的座標軸進行座標轉換。在下一個範例中，我們將500-hPa高度場繪製在極投影地圖上，再說明一次這個觀念。</p>
 </section>
 <section id="id2">
-<h2>其他地圖投影<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>其他地圖投影<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>在以上的範例中，我們使用了 <code class="docutils literal notranslate"><span class="pre">ccrs.PlateCarree()</span></code>，代表等距長方投影。Cartopy還提供了其他投影的方式，詳見<a class="reference external" href="https://scitools.org.uk/cartopy/docs/v0.15/crs/projections.html">Cartopy projection list</a>。</p>
 <p><strong>Example 1:</strong> 繪製2017/12月平均500-hPa高度場的極投影 (利用<code class="docutils literal notranslate"><span class="pre">ccrs.Orthographic</span></code>)。</p>
 <div class="cell docutils container">
@@ -552,7 +592,43 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8d6baf9dcc760fccf04b5f7ee2ce9c378ee0b875c5f497b29e0b37e41b5be62d.png" src="_images/8d6baf9dcc760fccf04b5f7ee2ce9c378ee0b875c5f497b29e0b37e41b5be62d.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:688: RuntimeWarning: invalid value encountered in covers
+  return lib.covers(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:730: RuntimeWarning: invalid value encountered in disjoint
+  return lib.disjoint(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:688: RuntimeWarning: invalid value encountered in covers
+  return lib.covers(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:730: RuntimeWarning: invalid value encountered in disjoint
+  return lib.disjoint(a, b, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/9159b75e0294049c9c37523e18e6dd3e8496804e0da06656801681dd098e2f9d.png" src="_images/9159b75e0294049c9c37523e18e6dd3e8496804e0da06656801681dd098e2f9d.png" />
 </div>
 </div>
 <p>上面的作法必須畫整個半球，如果只想畫特定緯度範圍 (例如：20˚-90˚N)，可以參考下面的作法，是利用<code class="docutils literal notranslate"><span class="pre">ccrs.NorthPolarStereo()</span></code>，但處理邊界的問題較為複雜。</p>
@@ -593,17 +669,63 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/gridliner.py:487: UserWarning: The .ylabels_right attribute is deprecated. Please use .right_labels to toggle visibility instead.
   warnings.warn(&#39;The .ylabels_right attribute is deprecated. Please &#39;
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
 </pre></div>
 </div>
-<img alt="_images/63665b7aaef9261bd6e95e2e7e323486ddd26e09615c738bbb71787d5a767e2f.png" src="_images/63665b7aaef9261bd6e95e2e7e323486ddd26e09615c738bbb71787d5a767e2f.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/4bf4c5cb9885f18a0ab089040c7904275c1736c6b74e8cc7620c2b4499f871ed.png" src="_images/4bf4c5cb9885f18a0ab089040c7904275c1736c6b74e8cc7620c2b4499f871ed.png" />
 </div>
 </div>
 <p>再說明一次，在繪製zm的函數中有兩個地方給定了投影方法，一個是subplot_kws (繪圖空間的keyword argument)，一個是transform引數，這是因為在Python的繪圖邏輯中，繪圖空間ax的座標軸和資料本身的座標軸是不一樣的，因此必須要分開給定並且用transform引數做轉換。zm資料是正交方格，解析度是固定的，因此設定資料的座標是<code class="docutils literal notranslate"><span class="pre">transform=ccrs.PlateCarree()</span></code>；而繪圖空間是極投影，所以設定<code class="docutils literal notranslate"><span class="pre">subplot_kws=dict(projection=proj)</span></code>。如此一來，Python就知道如何將資料轉換成適當的座標上。</p>
 </section>
 <section id="hovmoller-diagram">
-<h2>繪製Hovmöller Diagram<a class="headerlink" href="#hovmoller-diagram" title="Permalink to this headline">#</a></h2>
+<h2>繪製Hovmöller Diagram<a class="headerlink" href="#hovmoller-diagram" title="Permalink to this heading">#</a></h2>
 <p>設定y軸為時間、x軸為經度 (或x軸為時間、y軸為緯度)，就可以繪製出Hovmöller diagram。若y軸時間演進的順序要改為由上到下，則在繪圖時加入<code class="docutils literal notranslate"><span class="pre">yincrease=False</span></code>。</p>
 <p><strong>Example 2:</strong> 繪製2017年12月5˚S-5˚N平均的逐日Hovmöller diagram。</p>
 <div class="cell docutils container">
@@ -642,7 +764,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7a59880d24f7162781e44712bd7a0ac5305f0d9cbbe31c5606523cce55840b64.png" src="_images/7a59880d24f7162781e44712bd7a0ac5305f0d9cbbe31c5606523cce55840b64.png" />
+<img alt="_images/18edabfd00f8b13d6b3528abd452a03381aa3f37f25832784a16ce39d37db652.png" src="_images/18edabfd00f8b13d6b3528abd452a03381aa3f37f25832784a16ce39d37db652.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -651,7 +773,7 @@ document.write(`
 </div>
 </section>
 <section id="id3">
-<h2>繪製等值線圖與疊圖<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>繪製等值線圖與疊圖<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>繪製等值線圖使用的方法是<code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot.contour()</span></code>，和畫等值色圖的方法是一樣的。</p>
 <p><strong>Example 3:</strong> 繪製2021年1月CMORPH降雨和MSLP的月平均，其中降雨以shading表示，MSLP以等值線表示。</p>
 <p>Step 1: 準備資料。</p>
@@ -715,12 +837,36 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/86165c162b6db18d36a53f6508b0fe4c0c66794d2b92e9b7ff11d1262edf285b.png" src="_images/86165c162b6db18d36a53f6508b0fe4c0c66794d2b92e9b7ff11d1262edf285b.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/780151d35bb85b94cd8726359c3033d91a5d7cebbc88bcd7e285dca822699b4d.png" src="_images/780151d35bb85b94cd8726359c3033d91a5d7cebbc88bcd7e285dca822699b4d.png" />
 </div>
 </div>
 </section>
 <section id="id4">
-<h2>繪製風場與疊圖<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h2>繪製風場與疊圖<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>風場屬於多變數資料(U、V)，所以必須將這兩個變數合併成一個Dataset，才能使用<code class="docutils literal notranslate"><span class="pre">xarray.Dataset.plot.quiver()</span></code>的方法函數。而將兩個DataArray合併成一個Dataset，要利用<code class="docutils literal notranslate"><span class="pre">xarray.merge()</span></code>。</p>
 <p><strong>Example 4:</strong> 畫2017年12月OLR和850-hPa水平風場的月平均，其中OLR以等值色圖表示，風場以箭頭向量表示。</p>
 <div class="cell docutils container">
@@ -1120,17 +1266,17 @@ Coordinates:
     level    float32 850.0
 Data variables:
     uwnd     (lat, lon) float32 9.181 9.696 9.499 8.617 ... 4.067 4.576 5.064
-    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1d161b44-65d1-41fa-a877-b43f6168f3e1' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1d161b44-65d1-41fa-a877-b43f6168f3e1' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-df1d7ff1-9966-465e-bd73-ecf4de2f7f98' class='xr-section-summary-in' type='checkbox'  checked><label for='section-df1d7ff1-9966-465e-bd73-ecf4de2f7f98' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-5f9ee6fd-237a-4fd6-adec-77bfc20690df' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5f9ee6fd-237a-4fd6-adec-77bfc20690df' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f1707807-aeb6-44a3-a27c-d78e89cc47a4' class='xr-var-data-in' type='checkbox'><label for='data-f1707807-aeb6-44a3-a27c-d78e89cc47a4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
+    vwnd     (lat, lon) float32 2.825 4.076 4.622 4.186 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-16618a66-70e9-4d1e-98e9-0ca823dda264' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-16618a66-70e9-4d1e-98e9-0ca823dda264' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-18882ace-8170-4efe-b978-7ab04dbd286d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-18882ace-8170-4efe-b978-7ab04dbd286d' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-3f818e1a-1412-48b5-87ef-814fe142c9c2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3f818e1a-1412-48b5-87ef-814fe142c9c2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e927466c-a436-44a9-bc43-52b8480523d0' class='xr-var-data-in' type='checkbox'><label for='data-e927466c-a436-44a9-bc43-52b8480523d0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
         55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,  75. ,  77.5,
         80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5, 100. , 102.5,
        105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5, 125. , 127.5,
        130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5, 150. , 152.5,
        155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5, 175. , 177.5,
        180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5, 200. , 202.5,
-       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-35fa4653-581d-4738-b4a9-ea9aa3fd450f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-35fa4653-581d-4738-b4a9-ea9aa3fd450f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fed98693-26a4-4145-9d29-9831915ac5ec' class='xr-var-data-in' type='checkbox'><label for='data-fed98693-26a4-4145-9d29-9831915ac5ec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
+       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-ab770108-384e-49d7-bdd9-8092a5e6472a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ab770108-384e-49d7-bdd9-8092a5e6472a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-598af078-c6bd-4eaf-bad5-1d6e16f83a78' class='xr-var-data-in' type='checkbox'><label for='data-598af078-c6bd-4eaf-bad5-1d6e16f83a78' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
         20. ,  17.5,  15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,
         -5. ,  -7.5, -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5,
-       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-0d2d763e-92c3-4b2e-97d4-23b83f8e5ea9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0d2d763e-92c3-4b2e-97d4-23b83f8e5ea9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-16eabecf-298c-4119-bbc0-9bf3ead30896' class='xr-var-data-in' type='checkbox'><label for='data-16eabecf-298c-4119-bbc0-9bf3ead30896' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1379d121-d0b3-47cf-a14a-3175e68189c9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1379d121-d0b3-47cf-a14a-3175e68189c9' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-cb1915da-6b92-4528-b1d0-8fefc5f518ca' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-cb1915da-6b92-4528-b1d0-8fefc5f518ca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-72a850a4-e5f9-475a-9d92-2ffa4058dd9a' class='xr-var-data-in' type='checkbox'><label for='data-72a850a4-e5f9-475a-9d92-2ffa4058dd9a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
+       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-67b7eaee-30e8-4169-8e60-c6e64a20c4db' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-67b7eaee-30e8-4169-8e60-c6e64a20c4db' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a08b83a-8357-4432-a24c-bfea0c5fc411' class='xr-var-data-in' type='checkbox'><label for='data-6a08b83a-8357-4432-a24c-bfea0c5fc411' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ae888e8e-344d-4c80-b6ec-1ee752675e2c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ae888e8e-344d-4c80-b6ec-1ee752675e2c' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-b5f569ee-99f6-4046-a8df-8d637b80f01b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b5f569ee-99f6-4046-a8df-8d637b80f01b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-db9edd87-ba8c-4864-a78f-c428a4536043' class='xr-var-data-in' type='checkbox'><label for='data-db9edd87-ba8c-4864-a78f-c428a4536043' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
          6.7912884 ,  6.418386  ],
        [ 6.917741  ,  6.8645134 ,  6.2838697 , ...,  8.779029  ,
          7.800321  ,  7.0541925 ],
@@ -1142,7 +1288,7 @@ Data variables:
        [14.433544  , 14.42548   , 14.407093  , ...,  1.5222566 ,
          2.1535463 ,  2.7658052 ],
        [16.458708  , 16.649675  , 16.723223  , ...,  4.0667725 ,
-         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-a2b53d97-4e9e-4b91-9036-88a918885726' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a2b53d97-4e9e-4b91-9036-88a918885726' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-75fe548d-0d16-4250-814f-74541f60055a' class='xr-var-data-in' type='checkbox'><label for='data-75fe548d-0d16-4250-814f-74541f60055a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
+         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-4f3b6067-a24f-4fce-87a2-a0be885a5fef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4f3b6067-a24f-4fce-87a2-a0be885a5fef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e4cc9fc1-f375-4b03-acaf-268425419795' class='xr-var-data-in' type='checkbox'><label for='data-e4cc9fc1-f375-4b03-acaf-268425419795' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
          6.5370936 ,  8.240643  ],
        [ 3.8196745 ,  4.480966  ,  4.487416  , ...,  3.0641913 ,
          5.598386  ,  7.5722566 ],
@@ -1154,7 +1300,7 @@ Data variables:
        [ 1.2238691 ,  1.3500007 ,  1.4132242 , ...,  1.9729018 ,
          1.3761266 ,  0.75645006],
        [ 1.6329001 ,  1.6435454 ,  1.5754813 , ...,  2.834838  ,
-         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c93ca3ff-30ce-426c-b271-94e4dc705abd' class='xr-section-summary-in' type='checkbox'  ><label for='section-c93ca3ff-30ce-426c-b271-94e4dc705abd' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7565d07f-ca93-4074-b857-6fbe76b7aabc' class='xr-index-data-in' type='checkbox'/><label for='index-7565d07f-ca93-4074-b857-6fbe76b7aabc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.0,  32.5,  35.0,  37.5,  40.0,  42.5,  45.0,  47.5,  50.0,  52.5,
+         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5359374f-93ff-4908-add9-18f0f4d50301' class='xr-section-summary-in' type='checkbox'  ><label for='section-5359374f-93ff-4908-add9-18f0f4d50301' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6ecbedc3-ba7b-4561-b926-f36f2088d37b' class='xr-index-data-in' type='checkbox'/><label for='index-6ecbedc3-ba7b-4561-b926-f36f2088d37b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.0,  32.5,  35.0,  37.5,  40.0,  42.5,  45.0,  47.5,  50.0,  52.5,
         55.0,  57.5,  60.0,  62.5,  65.0,  67.5,  70.0,  72.5,  75.0,  77.5,
         80.0,  82.5,  85.0,  87.5,  90.0,  92.5,  95.0,  97.5, 100.0, 102.5,
        105.0, 107.5, 110.0, 112.5, 115.0, 117.5, 120.0, 122.5, 125.0, 127.5,
@@ -1162,11 +1308,11 @@ Data variables:
        155.0, 157.5, 160.0, 162.5, 165.0, 167.5, 170.0, 172.5, 175.0, 177.5,
        180.0, 182.5, 185.0, 187.5, 190.0, 192.5, 195.0, 197.5, 200.0, 202.5,
        205.0, 207.5, 210.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-0951ff14-4c40-4018-962a-f4ea236d5896' class='xr-index-data-in' type='checkbox'/><label for='index-0951ff14-4c40-4018-962a-f4ea236d5896' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-388a41ff-6ceb-4a79-95b1-1cea50df157c' class='xr-index-data-in' type='checkbox'/><label for='index-388a41ff-6ceb-4a79-95b1-1cea50df157c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,
         20.0,  17.5,  15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,
         -5.0,  -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5,
        -30.0, -32.5, -35.0, -37.5, -40.0, -42.5, -45.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d91a9bd4-a2a2-4751-bab2-e952add38895' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d91a9bd4-a2a2-4751-bab2-e952add38895' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9eae1efc-b7a7-4fab-a89b-d2e8db3045be' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9eae1efc-b7a7-4fab-a89b-d2e8db3045be' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>我們先直接把風畫出來看看。</p>
 <div class="cell docutils container">
@@ -1188,7 +1334,19 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5be5378f1fda629a7853869b23939e27069086d9a0671689d365aaf7615c1971.png" src="_images/5be5378f1fda629a7853869b23939e27069086d9a0671689d365aaf7615c1971.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/5a5cf5da60c3ecd2a11c73dc887b06bb72c2032bfcf3dfaae1796b97538ecdfd.png" src="_images/5a5cf5da60c3ecd2a11c73dc887b06bb72c2032bfcf3dfaae1796b97538ecdfd.png" />
 </div>
 </div>
 <p>以上的圖，箭頭太密，都擠在一起。怎麼調整呢？風場可以每兩格經度和緯度選一次，這樣的話就只會畫在有選資料的網格上。</p>
@@ -1214,7 +1372,17 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/daab774520486af9e3ef1fd1d7fa2c72cfebc643f9d0792768428c4cda613acc.png" src="_images/daab774520486af9e3ef1fd1d7fa2c72cfebc643f9d0792768428c4cda613acc.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/014cc0996b912ca6ee734042da3aa32633e4b714690b5aebaa34352e7eeb5372.png" src="_images/014cc0996b912ca6ee734042da3aa32633e4b714690b5aebaa34352e7eeb5372.png" />
 </div>
 </div>
 <p>如果跟OLR疊在一起看：</p>
@@ -1263,7 +1431,27 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b27f4874b7fbcda25ae701976e87aabd9a809e2d40434b1b8167c8c3e3cf7a0c.png" src="_images/b27f4874b7fbcda25ae701976e87aabd9a809e2d40434b1b8167c8c3e3cf7a0c.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/62445eb74a274b5d362ac8485413972862047538ff6249cda38353d24a32c131.png" src="_images/62445eb74a274b5d362ac8485413972862047538ff6249cda38353d24a32c131.png" />
 </div>
 </div>
 <p>注意上圖<code class="docutils literal notranslate"><span class="pre">olrm.plot.contourf()</span></code>和<code class="docutils literal notranslate"><span class="pre">wnd.plot.quiver()</span></code>的<code class="docutils literal notranslate"><span class="pre">ax</span></code>引數都是<code class="docutils literal notranslate"><span class="pre">ax=ax</span></code>，表示這兩個圖共用一個子圖，所以可以將風場疊在OLR上。</p>
@@ -1274,7 +1462,7 @@ Data variables:
 <p>也就是在<code class="docutils literal notranslate"><span class="pre">Q</span></code>指定要畫哪一張圖的風標，然後給定繪製風標的位置，以及風標的參考數值。在<code class="docutils literal notranslate"><span class="pre">wnd.plot.quiver()</span></code>函數中加上<code class="docutils literal notranslate"><span class="pre">add_guide=False</span></code>，可以去除xarray Quiverplot預設的參考風標。</p>
 </section>
 <section id="id5">
-<h2>繪製流線場<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>繪製流線場<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p>方法基本上跟畫風場一模一樣，只是將<code class="docutils literal notranslate"><span class="pre">plot.quiver()</span></code>改為<code class="docutils literal notranslate"><span class="pre">plot.streamplot()</span></code>。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1313,7 +1501,27 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dba45702959b61da49c80454bde7778c2aeed0b752d606e560192ba30ed3e5ac.png" src="_images/dba45702959b61da49c80454bde7778c2aeed0b752d606e560192ba30ed3e5ac.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/fc5f11494a7cd350af9e663874a8fe46e0883ce811bd40a5b4f983680513f5f2.png" src="_images/fc5f11494a7cd350af9e663874a8fe46e0883ce811bd40a5b4f983680513f5f2.png" />
 </div>
 </div>
 <div class="admonition caution">
@@ -1326,10 +1534,10 @@ Data variables:
 </div>
 </section>
 <section id="panel-plots-facet-grid">
-<h2>多格子圖 (Panel Plots/Facet Grid)<a class="headerlink" href="#panel-plots-facet-grid" title="Permalink to this headline">#</a></h2>
+<h2>多格子圖 (Panel Plots/Facet Grid)<a class="headerlink" href="#panel-plots-facet-grid" title="Permalink to this heading">#</a></h2>
 <p><strong>Example 5:</strong> 繪製2017年12月的候 (pentad) 平均OLR和850-hPa風場，畫成2欄 (columns) 3列 (rows) 共6個子圖，其中排列順序由上到下、再從左到右。</p>
 <section id="xarrayplot-facetgrid">
-<h3>使用<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的<code class="docutils literal notranslate"><span class="pre">plot.FacetGrid</span></code>函數<a class="headerlink" href="#xarrayplot-facetgrid" title="Permalink to this headline">#</a></h3>
+<h3>使用<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的<code class="docutils literal notranslate"><span class="pre">plot.FacetGrid</span></code>函數<a class="headerlink" href="#xarrayplot-facetgrid" title="Permalink to this heading">#</a></h3>
 <p>在以上的單元已經學過如何利用xarray畫2維的地圖，但如果資料是3維，也就是多包含了時間軸，利用xarray畫圖函數的Faceting方法可以直接一次畫多格的圖。以等值圖為例，<code class="docutils literal notranslate"><span class="pre">xarray.plot.contourf()</span></code>的<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>中有</p>
 <ul class="simple">
 <li><p>row (string, optional) – If passed, make row faceted plots on this dimension name.</p></li>
@@ -1758,7 +1966,7 @@ Attributes:
     standard_name:  toa_outgoing_longwave_flux
     long_name:      NOAA Climate Data Record of Daily Mean Upward Longwave Fl...
     units:          W m-2
-    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9181a3ef-8550-42a2-b59a-d421f623ca72' class='xr-array-in' type='checkbox' checked><label for='section-9181a3ef-8550-42a2-b59a-d421f623ca72' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
+    cell_methods:   time: mean area: mean</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 6</li><li><span class='xr-has-index'>lat</span>: 90</li><li><span class='xr-has-index'>lon</span>: 180</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-9b4a13c4-d6a9-4f96-a440-65bd49deef84' class='xr-array-in' type='checkbox' checked><label for='section-9b4a13c4-d6a9-4f96-a440-65bd49deef84' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>224.9 226.4 224.4 225.1 226.8 226.2 ... 207.6 202.8 202.4 208.6 213.9</span></div><div class='xr-array-data'><pre>array([[[224.86111, 226.3981 , 224.41855, ..., 229.07529, 228.11858,
          225.66814],
         [227.775  , 230.82764, 233.42639, ..., 229.67593, 228.94986,
          231.03325],
@@ -1798,10 +2006,10 @@ Attributes:
         [225.14436, 224.89417, 225.91891, ..., 212.57788, 215.19876,
          223.09372],
         [224.86201, 224.81381, 223.41829, ..., 202.36899, 208.63791,
-         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-2ba2f983-41f3-45ad-ac3f-f2d3971ae223' class='xr-section-summary-in' type='checkbox'  checked><label for='section-2ba2f983-41f3-45ad-ac3f-f2d3971ae223' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-bb4658bd-e2fd-4e0d-880b-25f5364e2ea1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bb4658bd-e2fd-4e0d-880b-25f5364e2ea1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3bfc758a-0418-4bbe-b9f5-245068b5f677' class='xr-var-data-in' type='checkbox'><label for='data-3bfc758a-0418-4bbe-b9f5-245068b5f677' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
+         213.91812]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-aa7881be-4210-449d-a80c-eb7cb983556e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-aa7881be-4210-449d-a80c-eb7cb983556e' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-12-01 ... 2017-12-26</div><input id='attrs-257fed7e-23d5-4786-aff9-eb6ff024925a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-257fed7e-23d5-4786-aff9-eb6ff024925a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-39adc81f-4446-438d-8e49-0088694b7d9a' class='xr-var-data-in' type='checkbox'><label for='data-39adc81f-4446-438d-8e49-0088694b7d9a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-12-01T00:00:00.000000000&#x27;, &#x27;2017-12-06T00:00:00.000000000&#x27;,
        &#x27;2017-12-11T00:00:00.000000000&#x27;, &#x27;2017-12-16T00:00:00.000000000&#x27;,
        &#x27;2017-12-21T00:00:00.000000000&#x27;, &#x27;2017-12-26T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-d5a1bc2f-ea68-4f89-8fec-94f75b4870bf' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d5a1bc2f-ea68-4f89-8fec-94f75b4870bf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d8e9cfa6-9b22-43d1-8a9b-0d5ef131ac72' class='xr-var-data-in' type='checkbox'><label for='data-d8e9cfa6-9b22-43d1-8a9b-0d5ef131ac72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.5 31.5 32.5 ... 208.5 209.5</div><input id='attrs-6ab64eee-7249-4bec-89b7-f20f40dae6bb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6ab64eee-7249-4bec-89b7-f20f40dae6bb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-de6b29e0-1a22-489f-b8a1-968d070e9502' class='xr-var-data-in' type='checkbox'><label for='data-de6b29e0-1a22-489f-b8a1-968d070e9502' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
         40.5,  41.5,  42.5,  43.5,  44.5,  45.5,  46.5,  47.5,  48.5,  49.5,
         50.5,  51.5,  52.5,  53.5,  54.5,  55.5,  56.5,  57.5,  58.5,  59.5,
         60.5,  61.5,  62.5,  63.5,  64.5,  65.5,  66.5,  67.5,  68.5,  69.5,
@@ -1819,7 +2027,7 @@ Attributes:
        180.5, 181.5, 182.5, 183.5, 184.5, 185.5, 186.5, 187.5, 188.5, 189.5,
        190.5, 191.5, 192.5, 193.5, 194.5, 195.5, 196.5, 197.5, 198.5, 199.5,
        200.5, 201.5, 202.5, 203.5, 204.5, 205.5, 206.5, 207.5, 208.5, 209.5],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-dc188ca7-c6bd-4af9-ad39-8930fe63577c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc188ca7-c6bd-4af9-ad39-8930fe63577c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-987ef09b-df80-4a22-84c9-f7791be0e2b0' class='xr-var-data-in' type='checkbox'><label for='data-987ef09b-df80-4a22-84c9-f7791be0e2b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-44.5 -43.5 -42.5 ... 43.5 44.5</div><input id='attrs-f92a634d-2ed4-4792-a4f9-e513cc571d87' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f92a634d-2ed4-4792-a4f9-e513cc571d87' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6ecf6a9d-6ce1-498e-b848-2ed92518ec13' class='xr-var-data-in' type='checkbox'><label for='data-6ecf6a9d-6ce1-498e-b848-2ed92518ec13' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
        -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
        -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
        -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
@@ -1828,12 +2036,12 @@ Attributes:
         15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
         25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
         35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-61075506-e155-4026-835c-ba5d4e9c8efc' class='xr-section-summary-in' type='checkbox'  ><label for='section-61075506-e155-4026-835c-ba5d4e9c8efc' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-443c65b4-968f-4486-b7cc-6950f3785d20' class='xr-index-data-in' type='checkbox'/><label for='index-443c65b4-968f-4486-b7cc-6950f3785d20' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-12-01&#x27;, &#x27;2017-12-06&#x27;, &#x27;2017-12-11&#x27;, &#x27;2017-12-16&#x27;,
+      dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c2d7ec18-d8dd-4101-8065-104b28e34ced' class='xr-section-summary-in' type='checkbox'  ><label for='section-c2d7ec18-d8dd-4101-8065-104b28e34ced' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-72aafc03-56fa-4157-bcc9-de4762b28e27' class='xr-index-data-in' type='checkbox'/><label for='index-72aafc03-56fa-4157-bcc9-de4762b28e27' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-12-01&#x27;, &#x27;2017-12-06&#x27;, &#x27;2017-12-11&#x27;, &#x27;2017-12-16&#x27;,
                &#x27;2017-12-21&#x27;, &#x27;2017-12-26&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-426e05d9-7c5c-4181-80d8-bd47d3267f33' class='xr-index-data-in' type='checkbox'/><label for='index-426e05d9-7c5c-4181-80d8-bd47d3267f33' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-74d5301a-6585-4413-bab6-e95f3fcdb9fa' class='xr-index-data-in' type='checkbox'/><label for='index-74d5301a-6585-4413-bab6-e95f3fcdb9fa' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.5,  31.5,  32.5,  33.5,  34.5,  35.5,  36.5,  37.5,  38.5,  39.5,
        ...
        200.5, 201.5, 202.5, 203.5, 204.5, 205.5, 206.5, 207.5, 208.5, 209.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=180))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-db594b04-3fa3-4258-9d89-cd290bb4d9ce' class='xr-index-data-in' type='checkbox'/><label for='index-db594b04-3fa3-4258-9d89-cd290bb4d9ce' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=180))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cd1ced82-8b2a-44ce-bff5-1259c519a45c' class='xr-index-data-in' type='checkbox'/><label for='index-cd1ced82-8b2a-44ce-bff5-1259c519a45c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-44.5, -43.5, -42.5, -41.5, -40.5, -39.5, -38.5, -37.5, -36.5, -35.5,
        -34.5, -33.5, -32.5, -31.5, -30.5, -29.5, -28.5, -27.5, -26.5, -25.5,
        -24.5, -23.5, -22.5, -21.5, -20.5, -19.5, -18.5, -17.5, -16.5, -15.5,
        -14.5, -13.5, -12.5, -11.5, -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,
@@ -1842,7 +2050,7 @@ Attributes:
         15.5,  16.5,  17.5,  18.5,  19.5,  20.5,  21.5,  22.5,  23.5,  24.5,
         25.5,  26.5,  27.5,  28.5,  29.5,  30.5,  31.5,  32.5,  33.5,  34.5,
         35.5,  36.5,  37.5,  38.5,  39.5,  40.5,  41.5,  42.5,  43.5,  44.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-29b9fcec-a0e9-4728-9ef3-0c04bbe66789' class='xr-section-summary-in' type='checkbox'  checked><label for='section-29b9fcec-a0e9-4728-9ef3-0c04bbe66789' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a1984d91-dc8f-4d14-a41c-a91930b1cf15' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a1984d91-dc8f-4d14-a41c-a91930b1cf15' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>toa_outgoing_longwave_flux</dd><dt><span>long_name :</span></dt><dd>NOAA Climate Data Record of Daily Mean Upward Longwave Flux at Top of the Atmosphere</dd><dt><span>units :</span></dt><dd>W m-2</dd><dt><span>cell_methods :</span></dt><dd>time: mean area: mean</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1857,16 +2065,36 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/opt/anaconda3/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1662: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
   result = super().contourf(*args, **kwargs)
 </pre></div>
 </div>
-<img alt="_images/03c47cf975c3f789f225fa138c7d45d2c78fdbf6e334fb5b6d0e81f51a729642.png" src="_images/03c47cf975c3f789f225fa138c7d45d2c78fdbf6e334fb5b6d0e81f51a729642.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+  result = super().contourf(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+  result = super().contourf(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+  result = super().contourf(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+  result = super().contourf(*args, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/cartopy/mpl/geoaxes.py:1655: UserWarning: The following kwargs were not used by contour: &#39;msg&#39;
+  result = super().contourf(*args, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/10417d431f58e875ef8798b2dda5af1a77caa33f68a77cc0cac049d3f993ad36.png" src="_images/10417d431f58e875ef8798b2dda5af1a77caa33f68a77cc0cac049d3f993ad36.png" />
 </div>
 </div>
 </section>
 <section id="axes">
-<h3>展開並操控子圖<code class="docutils literal notranslate"><span class="pre">axes</span></code><a class="headerlink" href="#axes" title="Permalink to this headline">#</a></h3>
+<h3>展開並操控子圖<code class="docutils literal notranslate"><span class="pre">axes</span></code><a class="headerlink" href="#axes" title="Permalink to this heading">#</a></h3>
 <p>以上的圖有一些問題。</p>
 <ol class="arabic">
 <li><p>Color bar: FacetGrid有方法函數<code class="docutils literal notranslate"><span class="pre">add_colorbar()</span></code>。</p></li>
@@ -1958,13 +2186,125 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5edc468dc9aba0ef3262f0c2dd54a189407d787e20ca6d2f348c0d0d8865f0a1.png" src="_images/5edc468dc9aba0ef3262f0c2dd54a189407d787e20ca6d2f348c0d0d8865f0a1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/set_operations.py:133: RuntimeWarning: invalid value encountered in intersection
+  return lib.intersection(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/constructive.py:181: RuntimeWarning: invalid value encountered in buffer
+  return lib.buffer(
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/8d7cc03615c9d096159f5f6e5300c3369f0ef97063a85a9ec1f2feadaf7d9eb5.png" src="_images/8d7cc03615c9d096159f5f6e5300c3369f0ef97063a85a9ec1f2feadaf7d9eb5.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="homework-2">
-<h2>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this headline">#</a></h2>
+<h2>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this heading">#</a></h2>
 <div class="seealso admonition">
 <p class="admonition-title">Homework #2</p>
 <p>(三選一)</p>
@@ -2005,11 +2345,10 @@ Attributes:
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="08_plotting_1d.html"
@@ -2029,10 +2368,7 @@ Attributes:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2073,7 +2409,7 @@ Attributes:
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -2097,7 +2433,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -2111,8 +2447,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

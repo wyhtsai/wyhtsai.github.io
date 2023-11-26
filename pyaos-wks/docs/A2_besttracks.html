@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>颱風資料庫與路徑繪製 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Lanczos 時間序列帶通濾波 (Bandpass Filter)" href="A3_bandpass_filter.html" />
     <link rel="prev" title="不規則形狀的網格選擇" href="A4_ireg_grid_sel.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -406,9 +418,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>颱風資料庫與路徑繪製<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>颱風資料庫與路徑繪製<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="id2">
-<h2>前言<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>前言<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>世界上颱風路徑資料 (Tropical Cyclone Best Tracks) 是由各個氣象作業單位所管理的，這些單位包含：</p>
 <ul class="simple">
 <li><p><strong>海軍聯合颱風預警中心 Joint Typhoon Warning Center (JTWC), Naval Oceanography Portal:</strong> 擁有除北大西洋之外的所有洋盆之颱風路徑資料，包含西北太平洋、北印度洋、南半球等區域。 <a class="reference external" href="https://www.metoc.navy.mil/jtwc/jtwc.html?best-tracks">https://www.metoc.navy.mil/jtwc/jtwc.html?best-tracks</a></p></li>
@@ -420,7 +432,7 @@ document.write(`
 <p>然而，每一家作業單位整理颱風路徑的資料規格都有所不同，因此<code class="docutils literal notranslate"><span class="pre">besttracks</span></code>這個套件就是希望發展一套介面，將作業單位的颱風資料讀入整理成一個固定的格式，方便大家取用。這個資料格式就是我們在第十單元所介紹的pandas。接下來會教讀者如何安裝和使用這個套件來分析颱風資料。</p>
 </section>
 <section id="id3">
-<h2>安裝套件<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<h2>安裝套件<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
 <p>如果電腦有git套件，可以直接利用以下指令將套件下載到資料夾。</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">miniufo</span><span class="o">/</span><span class="n">besttracks</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
@@ -428,7 +440,7 @@ document.write(`
 <p>或是進入套件的網頁 (<a class="github reference external" href="https://github.com/miniufo/besttracks">miniufo/besttracks</a>) ，點選Code按鈕，選擇下載為Zip壓縮檔。解壓縮後，把其中的<code class="docutils literal notranslate"><span class="pre">besttracks/</span></code>這個資料夾移出來 (包含__init__.py、<a class="reference external" href="http://core.py">core.py</a>、<a class="reference external" href="http://io.py">io.py</a>、utils.py等檔案)，放在欲執行的程式的目錄下。</p>
 </section>
 <section id="id4">
-<h2>讀取資料<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<h2>讀取資料<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
 <p>我們以JMA資料為例。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -474,7 +486,7 @@ document.write(`
 <p>這樣就可以只選擇2017年的所有颱風。</p>
 </section>
 <section id="id5">
-<h2>資料過濾及繪圖<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<h2>資料過濾及繪圖<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
 <p><strong>Example 1:</strong> 選取並繪製2017年12月所有颱風路徑資料。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -526,7 +538,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a708bd90f7cb8f3f3dd85cbffd514a9c6be86f2ff0f8934daf1c62450515d2e1.png" src="_images/a708bd90f7cb8f3f3dd85cbffd514a9c6be86f2ff0f8934daf1c62450515d2e1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+/Users/waynetsai/micromamba/envs/p3/lib/python3.10/site-packages/shapely/predicates.py:798: RuntimeWarning: invalid value encountered in intersects
+  return lib.intersects(a, b, **kwargs)
+</pre></div>
+</div>
+<img alt="_images/e571320a31b0d294f97e795373425bf2684be94cd2f09ce8e148677250c7444e.png" src="_images/e571320a31b0d294f97e795373425bf2684be94cd2f09ce8e148677250c7444e.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1200x750 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -566,11 +584,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="A4_ireg_grid_sel.html"
@@ -590,10 +607,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -626,7 +640,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -650,7 +664,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -664,8 +678,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

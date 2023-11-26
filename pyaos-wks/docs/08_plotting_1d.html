@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>8. xarray繪圖 (1)：繪製1D資料 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="9.xarray繪圖 (2)：繪製2D資料" href="09_plotting_2d.html" />
     <link rel="prev" title="7. 進階運算與統計方法" href="07_statistics_calc.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -407,7 +419,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="xarray-1-1d">
-<h1>8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (1)：繪製1D資料<a class="headerlink" href="#xarray-1-1d" title="Permalink to this headline">#</a></h1>
+<h1>8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (1)：繪製1D資料<a class="headerlink" href="#xarray-1-1d" title="Permalink to this heading">#</a></h1>
 <p>能開啟資料、進行資料分析和統計後，接著要用清晰的圖示來表現計算的結果。而用<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖非常簡單，將計算的結果儲存成DataArray和Dataset後，有內建的plot method可以運用。各種繪圖的方法總結如下，並且可以點進連結查詢各引數之詳細說明。</p>
 <p><strong>單變數資料：</strong> <code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot</span></code></p>
 <ul class="simple">
@@ -428,10 +440,10 @@ document.write(`
 </ul>
 <p>xarray的函數都包裝了matplotlib的繪圖功能，因此只要是matplotlib使用到的引數，在<code class="docutils literal notranslate"><span class="pre">xarray.plot</span></code>的方法中也都可以引用 (即**kwargs  – Additional keyword arguments to wrapped Matplotlib function.)。</p>
 <section id="time-series">
-<h2>繪製時序圖 (time series)<a class="headerlink" href="#time-series" title="Permalink to this headline">#</a></h2>
+<h2>繪製時序圖 (time series)<a class="headerlink" href="#time-series" title="Permalink to this heading">#</a></h2>
 <p>利用 <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.plot.line.html"><code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot.line</span></code></a>就可以直接繪製，xarray官網上就有很清楚的範例。不過在這單元我們會補充一些進階用法。</p>
 <section id="fill-between">
-<h3>Fill-between<a class="headerlink" href="#fill-between" title="Permalink to this headline">#</a></h3>
+<h3>Fill-between<a class="headerlink" href="#fill-between" title="Permalink to this heading">#</a></h3>
 <p><strong>Example 1:</strong> 繪製台灣－北南海區域 (18˚-24N, 116˚-126˚E) 降雨的候時間序列，其中以灰色的陰影代表氣候上的最大、最小值，粗黑線代表氣候上的中位數。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -475,6 +487,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
+</div>
 </div>
 <p>對<code class="docutils literal notranslate"><span class="pre">pcp_max</span></code>、<code class="docutils literal notranslate"><span class="pre">pcp_med</span></code>、<code class="docutils literal notranslate"><span class="pre">pcp_min</span></code>做<code class="docutils literal notranslate"><span class="pre">plot.line()</span></code>，會得到三條線。那如何將最大最小值的範圍塗色呢？這時我們可以利用<code class="docutils literal notranslate"><span class="pre">matplotlib.axes.Axes.fill_between</span></code>：</p>
 <blockquote>
@@ -513,7 +531,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/511c0e2c09ffae327bf190e78d155370202b44a3da3ba8c057b5e05b137b20e0.png" src="_images/511c0e2c09ffae327bf190e78d155370202b44a3da3ba8c057b5e05b137b20e0.png" />
+<img alt="_images/7d03ee89df5c514a31c1eb55ce7fcc7bc38df6922307c606e9243295d99ffa34.png" src="_images/7d03ee89df5c514a31c1eb55ce7fcc7bc38df6922307c606e9243295d99ffa34.png" />
 </div>
 </div>
 <div class="tip admonition">
@@ -522,7 +540,7 @@ document.write(`
 </div>
 </section>
 <section id="twin-axes">
-<h3>Twin axes<a class="headerlink" href="#twin-axes" title="Permalink to this headline">#</a></h3>
+<h3>Twin axes<a class="headerlink" href="#twin-axes" title="Permalink to this heading">#</a></h3>
 <p>有時候一張圖上會畫兩種不同的變數，而這兩種變數的量值相差很大時，就需要用twin axis設定兩個不同的y軸 (或x軸)。我們看以下澳洲季風時間序列圖的例子。</p>
 <p><strong>Example 2: 繪製澳洲季風指標時間序列：</strong> 以<a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/10.1256/qj.02.191">Hung and Yanai (2004)</a>的澳洲季風指標為例。</p>
 <p>Step 1: 讀入850-hPa緯向風場 (zonal wind) 和OLR資料，選擇時空範圍。</p>
@@ -1390,7 +1408,7 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0b4f0d9eb85c6c58fe1c18d07cc2e4206ef491e31d589afe1e4197a5887b4529.png" src="_images/0b4f0d9eb85c6c58fe1c18d07cc2e4206ef491e31d589afe1e4197a5887b4529.png" />
+<img alt="_images/00095b7d960434558c4aeeba8eec1e6db8b613154d5b149592bd16a0c7edaf88.png" src="_images/00095b7d960434558c4aeeba8eec1e6db8b613154d5b149592bd16a0c7edaf88.png" />
 </div>
 </div>
 </section>
@@ -1422,11 +1440,10 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="07_statistics_calc.html"
@@ -1446,10 +1463,7 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1483,7 +1497,7 @@ HDF5-DIAG: Error detected in HDF5 (1.12.2) thread 0:
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -1507,7 +1521,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -1521,8 +1535,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

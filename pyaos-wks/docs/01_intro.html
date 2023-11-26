@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>1. 導論 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +75,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="2. 讀取netCDF和GRIB資料" href="02_open_nc_files.html" />
     <link rel="prev" title="電腦環境設置與Python安裝" href="00_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -82,6 +84,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -142,13 +153,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -352,10 +364,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -363,7 +375,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -405,9 +417,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1. 導論<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<h1>1. 導論<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 <section id="pyaos">
-<h2>PyAOS簡介<a class="headerlink" href="#pyaos" title="Permalink to this headline">#</a></h2>
+<h2>PyAOS簡介<a class="headerlink" href="#pyaos" title="Permalink to this heading">#</a></h2>
 <p>PyAOS是一套Python的程式套件，按照<a class="reference external" href="https://pyaos.github.io/">PyAOS官方網站</a>的定義，PyAOS是</p>
 <blockquote>
 <div><p>Python libraries stack used by the AOS community. A group of programs that works in tandem to produce a result or achieve a common goal is often referred to as a software stack.</p>
@@ -426,13 +438,13 @@ document.write(`
 <p>然而，以上的幾個套件雖然就可以幫助我們完成研究，用起來也彈性，但也因為功能較為基礎，簡單的工作可能就需要寫比較長的程式碼。為了讓這些工作可以簡化，Python社群就開發了高階的套件，雖然彈性可能沒那麼大，但是可以完成很多事情，讓科學家的研究工作變得更有效率。這些高階的PyAOS套件包含xarray、iris等。本次的工作坊會以xarray為學習的主軸。</p>
 </section>
 <section id="xarray">
-<h2>xarray簡介<a class="headerlink" href="#xarray" title="Permalink to this headline">#</a></h2>
+<h2>xarray簡介<a class="headerlink" href="#xarray" title="Permalink to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code>是由The Climate Corporation的科學家Stephan Hoyer、Alex Kleeman、Eugene Brevdo開發的工具，2014年以開放取用資源的方式釋出，2018年起由NumFOCUS贊助。這套工具專門為多維陣列的資料所設計，用以讀取netCDF資料、進行資料處理、範圍選取、統計運算和繪圖，並且把這些功能整合在一起，使得工作流程變得簡潔流暢。</p>
 <p>因此，本文將按照讀檔、資料分析、視覺化三個步驟，以<code class="docutils literal notranslate"><span class="pre">xarray</span></code>函式庫為主要資料處理、統計計算和繪圖的核心，以氣候分析的角度介紹常使用的Python函式庫以及程式技巧，以建立資料分析流程。本文的目的不在建立一個嚴謹的<code class="docutils literal notranslate"><span class="pre">xarray</span></code>使用說明，而是從氣候分析的實例出發，說明<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的用法，因此若需要函數或引數的相關細節，請參見<a class="reference external" href="http://xarray.pydata.org/en/stable/index.html#"><code class="docutils literal notranslate"><span class="pre">xarray</span></code>網頁</a>。</p>
 <p><strong>小提示：</strong> 如果對Python的基本指令還不熟悉 (e.g. 變數種類、變數定義、if分支結構、for迴圈、函數/副程式⋯⋯等)，可以先上網站搜尋入門教學，再來學習本文的內容喔！(例如：<a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/">一小時Python入門網頁</a>，其實網路上資源非常多也容易讀)</p>
 </section>
 <section id="id2">
-<h2>引入函式庫<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<h2>引入函式庫<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
 <p>在本文中，需要的函式庫有 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>、<code class="docutils literal notranslate"><span class="pre">xarray</span></code>、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>……等，在空白的Python程式 (<a class="reference external" href="http://xn--ker42bk66b.py">副檔名.py</a>) 加入以下指令，就可以引入所需要的資源庫。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -471,11 +483,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_setup.html"
@@ -495,10 +506,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -530,7 +538,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -554,7 +562,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -568,8 +576,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

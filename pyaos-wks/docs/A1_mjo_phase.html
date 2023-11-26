@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>馬登－朱利安震盪 (MJO) 氣候變異分析 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,12 +38,14 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -75,7 +77,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="熱帶波動判識與分析" href="A6_tropical_waves.html" />
     <link rel="prev" title="Lanczos 時間序列帶通濾波 (Bandpass Filter)" href="A3_bandpass_filter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -84,6 +86,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -144,13 +155,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
+    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
   
   
 </a></div>
@@ -354,10 +366,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -365,7 +377,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -410,9 +422,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mjo">
-<h1>馬登－朱利安震盪 (MJO) 氣候變異分析<a class="headerlink" href="#mjo" title="Permalink to this headline">#</a></h1>
+<h1>馬登－朱利安震盪 (MJO) 氣候變異分析<a class="headerlink" href="#mjo" title="Permalink to this heading">#</a></h1>
 <section id="mjo-phase-diagram">
-<h2>MJO相位圖 (Phase diagram)<a class="headerlink" href="#mjo-phase-diagram" title="Permalink to this headline">#</a></h2>
+<h2>MJO相位圖 (Phase diagram)<a class="headerlink" href="#mjo-phase-diagram" title="Permalink to this heading">#</a></h2>
 <p>先自己寫一個函數，繪製MJO相位圖的背景。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -505,10 +517,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_WORD, expecting &#39;;&#39; or &#39;,&#39;
-context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1682726400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1682726400; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;;}}
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/__init__.py:83: UserWarning: dlopen(/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so, 0x0002): tried: &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;)), &#39;/System/Volumes/Preboot/Cryptexes/OS/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (no such file), &#39;/Users/waynetsai/.local/lib/python3.10/site-packages/ecmwflibs/_ecmwflibs.cpython-310-darwin.so&#39; (mach-o file, but is an incompatible architecture (have &#39;x86_64&#39;, need &#39;arm64&#39;))
+  warnings.warn(str(e))
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>syntax error, unexpected WORD_STRING, expecting &#39;;&#39; or &#39;,&#39;
+context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1700870400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1700870400; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;;}}
 Illegal attribute
-context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1682726400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1682726400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1682726400; URL summary from BoM^ &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;; URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;;}}
+context: Attributes { T { String standard_name &quot;time&quot;; Float32 pointwidth 1.0; String calendar &quot;standard&quot;; Int32 expires 1700870400; Int32 gridtype 0; String units &quot;julian_day&quot;; } amplitude { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } phase { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 999.0; } RMM1 { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; } RMM2 { Int32 expires 1700870400; String units &quot;unitless&quot;; Float32 missing_value 9.99999962E35; }NC_GLOBAL { URL data source &quot;http://www.bom.gov.au/climate/mjo/graphics/rmm.74toRealtime.txt&quot;^; URL Wheeler and Hendon (2004) Monthly Weather Review article &quot;http://journals.ametsoc.org/doi/abs/10.1175/1520-0493(2004)132%3C1917:AARMMI%3E2.0.CO;2&quot;; String Conventions &quot;IRIDL&quot;; String references &quot;Wheeler_Hendon2004&quot;; Int32 expires 1700870400; URL summary from BoM &quot;http://www.bom.gov.au/climate/mjo/&quot;; String description &quot;Real-time Multivariate MJO Index (with components of interannual variability removed)&quot;;}}
 </pre></div>
 </div>
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
@@ -875,24 +891,24 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (T: 17863)
+Dimensions:    (T: 18073)
 Coordinates:
-  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2023-04-27
+  * T          (T) datetime64[ns] 1974-06-01 1974-06-02 ... 2023-11-23
 Data variables:
     amplitude  (T) float32 ...
     phase      (T) float32 ...
     RMM1       (T) float32 ...
-    RMM2       (T) float32 ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-973d1fba-4f58-4e53-9347-04918eecfe58' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-973d1fba-4f58-4e53-9347-04918eecfe58' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 17863</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a522bf1c-4d92-460b-9a14-2c064aee9c86' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a522bf1c-4d92-460b-9a14-2c064aee9c86' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2023-04-27</div><input id='attrs-ecb09293-58c6-4bbb-bb95-7d3699b9073b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ecb09293-58c6-4bbb-bb95-7d3699b9073b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1ed7a85d-61a4-4592-a307-2bde2a6b2193' class='xr-var-data-in' type='checkbox'><label for='data-1ed7a85d-61a4-4592-a307-2bde2a6b2193' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
-       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2023-04-25T00:00:00.000000000&#x27;,
-       &#x27;2023-04-26T00:00:00.000000000&#x27;, &#x27;2023-04-27T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-23917fa1-3dc4-4cb8-b821-87cb3bf204f4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-23917fa1-3dc4-4cb8-b821-87cb3bf204f4' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-acf4ff24-495e-4043-aaff-6ca8d1da221a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-acf4ff24-495e-4043-aaff-6ca8d1da221a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f32fb38b-d096-4d0e-9ca4-adf48a141536' class='xr-var-data-in' type='checkbox'><label for='data-f32fb38b-d096-4d0e-9ca4-adf48a141536' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-29e64c95-e372-44c4-9146-0a52b70a72ea' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-29e64c95-e372-44c4-9146-0a52b70a72ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6bdf7f18-9e13-4615-88d0-47cc246ca53b' class='xr-var-data-in' type='checkbox'><label for='data-6bdf7f18-9e13-4615-88d0-47cc246ca53b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8400d2e5-01fb-41ac-85f3-2a13cc72055b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8400d2e5-01fb-41ac-85f3-2a13cc72055b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b56c54cc-6f5b-4fd4-aff3-5809bec625a7' class='xr-var-data-in' type='checkbox'><label for='data-b56c54cc-6f5b-4fd4-aff3-5809bec625a7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9c409941-12d0-48ac-8a83-a89e7ea2588a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9c409941-12d0-48ac-8a83-a89e7ea2588a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f71a284a-d0af-4767-b1f4-a69f5005878d' class='xr-var-data-in' type='checkbox'><label for='data-f71a284a-d0af-4767-b1f4-a69f5005878d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[17863 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5bd8ee20-9a46-4417-adbf-15c613cb60f6' class='xr-section-summary-in' type='checkbox'  ><label for='section-5bd8ee20-9a46-4417-adbf-15c613cb60f6' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>T</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-31188367-a1c1-4be3-89fc-d32ceb631358' class='xr-index-data-in' type='checkbox'/><label for='index-31188367-a1c1-4be3-89fc-d32ceb631358' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1974-06-01&#x27;, &#x27;1974-06-02&#x27;, &#x27;1974-06-03&#x27;, &#x27;1974-06-04&#x27;,
+    RMM2       (T) float32 ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-b624ec5d-8b5e-4868-afa5-46590e74776d' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b624ec5d-8b5e-4868-afa5-46590e74776d' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>T</span>: 18073</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-dcdb3dd4-727b-4190-bf49-40fec9445825' class='xr-section-summary-in' type='checkbox'  checked><label for='section-dcdb3dd4-727b-4190-bf49-40fec9445825' class='xr-section-summary' >Coordinates: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>T</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1974-06-01 ... 2023-11-23</div><input id='attrs-2dc7d859-b277-4363-89fe-e88104ca199e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2dc7d859-b277-4363-89fe-e88104ca199e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d4e1d7da-6a25-4898-a49e-92ce353b1096' class='xr-var-data-in' type='checkbox'><label for='data-d4e1d7da-6a25-4898-a49e-92ce353b1096' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1974-06-01T00:00:00.000000000&#x27;, &#x27;1974-06-02T00:00:00.000000000&#x27;,
+       &#x27;1974-06-03T00:00:00.000000000&#x27;, ..., &#x27;2023-11-21T00:00:00.000000000&#x27;,
+       &#x27;2023-11-22T00:00:00.000000000&#x27;, &#x27;2023-11-23T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9b34716c-aa67-4e80-bbcd-6d4dfe580372' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9b34716c-aa67-4e80-bbcd-6d4dfe580372' class='xr-section-summary' >Data variables: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>amplitude</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d52e65fb-c4a9-44e3-96c2-9061870fd22a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d52e65fb-c4a9-44e3-96c2-9061870fd22a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d35c8ff5-b615-47ac-8bc3-2287b70ceccc' class='xr-var-data-in' type='checkbox'><label for='data-d35c8ff5-b615-47ac-8bc3-2287b70ceccc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[18073 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>phase</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a75c2e89-291d-40f3-b3e4-9c658536e041' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a75c2e89-291d-40f3-b3e4-9c658536e041' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-08e649a3-c1aa-4266-b5e8-72d253940926' class='xr-var-data-in' type='checkbox'><label for='data-08e649a3-c1aa-4266-b5e8-72d253940926' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[18073 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM1</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-54397259-50e7-45af-ae6f-8b9eeb3a2073' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-54397259-50e7-45af-ae6f-8b9eeb3a2073' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9970087b-44f8-4124-beea-77b4177d5c86' class='xr-var-data-in' type='checkbox'><label for='data-9970087b-44f8-4124-beea-77b4177d5c86' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[18073 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RMM2</span></div><div class='xr-var-dims'>(T)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-96d5e0c7-3e36-401e-8335-bc71d1694dd1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-96d5e0c7-3e36-401e-8335-bc71d1694dd1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fcc15c61-b9a5-4cf7-9b71-2306907a7f21' class='xr-var-data-in' type='checkbox'><label for='data-fcc15c61-b9a5-4cf7-9b71-2306907a7f21' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[18073 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a20c5178-c82d-4e5f-be61-ebd761a17fdc' class='xr-section-summary-in' type='checkbox'  ><label for='section-a20c5178-c82d-4e5f-be61-ebd761a17fdc' class='xr-section-summary' >Indexes: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>T</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c413bc5c-b797-4d2f-bd62-91cc7369ea8a' class='xr-index-data-in' type='checkbox'/><label for='index-c413bc5c-b797-4d2f-bd62-91cc7369ea8a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1974-06-01&#x27;, &#x27;1974-06-02&#x27;, &#x27;1974-06-03&#x27;, &#x27;1974-06-04&#x27;,
                &#x27;1974-06-05&#x27;, &#x27;1974-06-06&#x27;, &#x27;1974-06-07&#x27;, &#x27;1974-06-08&#x27;,
                &#x27;1974-06-09&#x27;, &#x27;1974-06-10&#x27;,
                ...
-               &#x27;2023-04-18&#x27;, &#x27;2023-04-19&#x27;, &#x27;2023-04-20&#x27;, &#x27;2023-04-21&#x27;,
-               &#x27;2023-04-22&#x27;, &#x27;2023-04-23&#x27;, &#x27;2023-04-24&#x27;, &#x27;2023-04-25&#x27;,
-               &#x27;2023-04-26&#x27;, &#x27;2023-04-27&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;T&#x27;, length=17863, freq=&#x27;D&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-285ec74e-1e3f-4dfb-934b-cd6cfd2904f4' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-285ec74e-1e3f-4dfb-934b-cd6cfd2904f4' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+               &#x27;2023-11-14&#x27;, &#x27;2023-11-15&#x27;, &#x27;2023-11-16&#x27;, &#x27;2023-11-17&#x27;,
+               &#x27;2023-11-18&#x27;, &#x27;2023-11-19&#x27;, &#x27;2023-11-20&#x27;, &#x27;2023-11-21&#x27;,
+               &#x27;2023-11-22&#x27;, &#x27;2023-11-23&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;T&#x27;, length=18073, freq=&#x27;D&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-776a10ed-4a72-4ba2-96da-9705cfb79620' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-776a10ed-4a72-4ba2-96da-9705cfb79620' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">mjo_ds</span></code>包含振幅 (amplitude)、相位 (phase，從1至8)、RMM1和RMM2，我們會用到的是後兩者。</p>
 <div class="cell docutils container">
@@ -916,21 +932,21 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/19e85bb5b914912436e825aba95a80f0cd198a71072b5235b1e7cb18fce139a5.png" src="_images/19e85bb5b914912436e825aba95a80f0cd198a71072b5235b1e7cb18fce139a5.png" />
+<img alt="_images/bec45b37d1dc0a42b3fa87c73f0cd64e73bf05e6ee062f03884bac36af40fe44.png" src="_images/bec45b37d1dc0a42b3fa87c73f0cd64e73bf05e6ee062f03884bac36af40fe44.png" />
 </div>
 </div>
 </section>
 <section id="mjo-composite">
-<h2>MJO各相位的合成 (Composite) 分析<a class="headerlink" href="#mjo-composite" title="Permalink to this headline">#</a></h2>
+<h2>MJO各相位的合成 (Composite) 分析<a class="headerlink" href="#mjo-composite" title="Permalink to this heading">#</a></h2>
 <p>在Wheeler and Kiladis (2004) 年有關MJO RMM index的論文中，使用到了合成分析的技巧，將8個相位分別挑出來，繪製風場和對流 (OLR) 隨相位的變化。在合成分析中，為了確定平均出來的訊號有意義，通常會使用 <strong>統計檢定</strong> 的技巧。在接下來的範例中，會示範如何將冬季 (DJF) 8個相位的MJO做降雨的合成分析以及統計檢定。</p>
 <section id="t-test">
-<h3>T test 簡介<a class="headerlink" href="#t-test" title="Permalink to this headline">#</a></h3>
+<h3>T test 簡介<a class="headerlink" href="#t-test" title="Permalink to this heading">#</a></h3>
 <p>This function uses the Student’s t-test to test the null hypothesis that the sample means are from the same population (i.e. <span class="math notranslate nohighlight">\(H_{0}\)</span> : ave1=ave2). Rejection of the null hypothesis (i.e. acceptance of the alternative hypothesis) indicates that the sample means are from two different populations.</p>
 <p>An option is provided to allow for testing when the population variances are assumed to be equal or different. The value(s) returned by <code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code> represent estimates of the statistical significance. Commonly, values of 0.10 or less are used as critical levels of significance. As with any test, caution is advised when interpreting results when there are few samples. Note: the user should specify the critical significance level prior to the calculation.</p>
 <p>Source: <a class="reference external" href="https://www.ncl.ucar.edu/Document/Functions/Built-in/ttest.shtml">NCL website</a>.</p>
 </section>
 <section id="stats-ttest">
-<h3><code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code>用法<a class="headerlink" href="#stats-ttest" title="Permalink to this headline">#</a></h3>
+<h3><code class="docutils literal notranslate"><span class="pre">stats.ttest</span></code>用法<a class="headerlink" href="#stats-ttest" title="Permalink to this heading">#</a></h3>
 <p>最重要的是前面三個引數。</p>
 <blockquote>
 <div><p><code class="docutils literal notranslate"><span class="pre">scipy.stats.ttest_ind(a,</span> <span class="pre">b,</span> <span class="pre">axis=0,...)</span></code></p>
@@ -1069,11 +1085,10 @@ Data variables:
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="A3_bandpass_filter.html"
@@ -1093,10 +1108,7 @@ Data variables:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1131,7 +1143,7 @@ Data variables:
   <div class="footer-item">
     
 <p class="component-author">
-By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
+By Wayne Yuan-Huai Tsai, University of Oklahoma
 </p>
 
   </div>
@@ -1155,7 +1167,7 @@ By Wayne Yuan-Huai Tsai, 國立台灣大學大氣科學系
     
 <div class="extra_footer">
   <p>
-Last updated: 2023-07-10
+Last updated: 2023-11-26
 </p>
 </div>
   </div>
@@ -1169,8 +1181,8 @@ Last updated: 2023-07-10
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
