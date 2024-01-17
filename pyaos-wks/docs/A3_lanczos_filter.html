@@ -543,7 +543,7 @@ document.write(`
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: 資料的DataArray。</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">nwts</span></code>: 帶通濾波的權重 (weights)，必須滿足 <code class="docutils literal notranslate"><span class="pre">nwts</span></code> <span class="math notranslate nohighlight">\(\ge \)</span> 3。數值越大時，濾波效果越好，但也會有越多資料損失 (NaN)。一般而言，對於Lanczos的濾波，<code class="docutils literal notranslate"><span class="pre">nwts=201</span></code>。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">fca</span></code>, <code class="docutils literal notranslate"><span class="pre">fcb</span></code>: 帶通濾波的兩個截止頻率，必須滿足 0 &lt; <code class="docutils literal notranslate"><span class="pre">fca</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">fcb</span></code> &lt; 0.5。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fca</span></code>, <code class="docutils literal notranslate"><span class="pre">fcb</span></code>: 帶通濾波的兩個截止頻率，必須滿足 0 &lt; <code class="docutils literal notranslate"><span class="pre">fca</span></code> &lt; <code class="docutils literal notranslate"><span class="pre">fcb</span></code> &lt; 0.5。(如果是高通和低通濾波，只需要考慮<code class="docutils literal notranslate"><span class="pre">fca</span></code>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">srate</span></code>: 資料的時間解析度，即一天有幾個資料點。</p></li>
 </ul>
 <p><strong>Example 1:</strong> 計算冬季 (DJF) OLR在10天以下、10-30天、30-60天、120天以上的variance佔total variance的比例。</p>
@@ -612,7 +612,6 @@ document.write(`
 <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="c1"># 繪圖</span>
-<span class="n">clevs</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.15</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">cmaps</span><span class="o">.</span><span class="n">precip3_16lev</span>
 <span class="n">cf_10d_hp</span> <span class="o">=</span> <span class="n">djf_10hp_var_rt</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="s2">&quot;lon&quot;</span><span class="p">,</span><span class="s2">&quot;lat&quot;</span><span class="p">,</span>  
                                             <span class="n">transform</span><span class="o">=</span><span class="n">proj</span><span class="p">,</span>     
