@@ -73,8 +73,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = '11_cdo';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="12. 大型資料處理" href="12_large_ds.html" />
-    <link rel="prev" title="10. pandas和seaborn: 統計圖表繪製" href="10_pandas_seaborn.html" />
+    <link rel="next" title="12. dask and Large Datasets Computations" href="12_large_ds.html" />
+    <link rel="prev" title="10. pandas and seaborn: Statistical Plots" href="10_pandas_seaborn.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -194,7 +194,7 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentals in xarray</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="00_setup.html">電腦環境設置與Python安裝</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_setup.html">Python Installation and Environment Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. NetCDF and GRIB Datasets I/O</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. Basic Workflow Demo: Plotting A Monthly Mean Map</a></li>
@@ -204,26 +204,27 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Fundamentals in climate analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="06_clim_anml.html">6. Climatology and Anomaly</a></li>
-<li class="toctree-l1"><a class="reference internal" href="07_statistics_calc.html">7. Advanced Calculation and Stistical Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_statistics_calc.html">7. Advanced Calculation and Statistical Methods</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced plotting</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="08_plotting_1d.html">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (1)：繪製1D資料</a></li>
-<li class="toctree-l1"><a class="reference internal" href="09_plotting_2d.html">9.<code class="docutils literal notranslate"><span class="pre">xarray</span></code>繪圖 (2)：繪製2D資料</a></li>
-<li class="toctree-l1"><a class="reference internal" href="10_pandas_seaborn.html">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_plotting_1d.html">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (I): Plotting 1-Dimensional Data</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="09_plotting_2d.html">9. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (II): Plotting Data with More Than 2 Dimensions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_pandas_seaborn.html">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: Statistical Plots</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other topics</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Climate Data Operator (CDO)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. 大型資料處理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. <code class="docutils literal notranslate"><span class="pre">dask</span></code> and Large Datasets Computations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">不規則形狀的網格選擇</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A3_lanczos_filter.html">Lanczos 時間序列濾波</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">馬登－朱利安震盪 (MJO) 氣候變異分析</a></li>
-<li class="toctree-l2"><a class="reference internal" href="A6_tropical_waves.html">熱帶波動判識與分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">Slicing Iregular Grids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A3_lanczos_filter.html">Lanczos Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">Climate Variability Analysis: Madden–Julian Oscillation (MJO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="A6_tropical_waves.html">Tropical Waves Identification and Analysis</a></li>
 </ul>
 </details></li>
 </ul>
@@ -280,7 +281,7 @@
       
       
       
-      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks-eng/docs" target="_blank"
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos_eng/docs" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -297,7 +298,7 @@
       
       
       
-      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos-wks-eng/docs/issues/new?title=Issue%20on%20page%20%2F11_cdo.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/wyhtsai/wyhtsai.github.io/tree/main/pyaos_eng/docs/issues/new?title=Issue%20on%20page%20%2F11_cdo.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -823,7 +824,7 @@ ENDVARS
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code>和<code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: 統計圖表繪製</p>
+        <p class="prev-next-title">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: Statistical Plots</p>
       </div>
     </a>
     <a class="right-next"
@@ -831,7 +832,7 @@ ENDVARS
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">12. 大型資料處理</p>
+        <p class="prev-next-title">12. <code class="docutils literal notranslate"><span class="pre">dask</span></code> and Large Datasets Computations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -907,7 +908,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-07-16
+Last updated: 2024-07-18
 </p>
 </div>
   </div>
