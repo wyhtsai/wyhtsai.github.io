@@ -209,7 +209,6 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Advanced plotting</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (I): Plotting 1-Dimensional Data</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="09_plotting_2d.html">9. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (II): Plotting Data with More Than 2 Dimensions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="10_pandas_seaborn.html">10. <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">seaborn</span></code>: Statistical Plots</a></li>
 </ul>
@@ -422,14 +421,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (I): Plotting 1-Dimensional Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot">Time Series Plot</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-between">Fill-Between</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-axes">Twin Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot">Time Series Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-between">Fill-Between</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-axes">Twin Axes</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -440,7 +437,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="xarray-plotting-i-plotting-1-dimensional-data">
+  <section class="tex2jax_ignore mathjax_ignore" id="xarray-plotting-i-plotting-1-dimensional-data">
 <h1>8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (I): Plotting 1-Dimensional Data<a class="headerlink" href="#xarray-plotting-i-plotting-1-dimensional-data" title="Link to this heading">#</a></h1>
 <p>Visualizing data with clear and aesthetic figures is crucial for demonstrating results. xarray provides convenient methods to plot DataArray and Dataset objects directly. Below are various plotting options for different types of data:</p>
 <p><strong>Single Variable Data (<code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot</span></code>):</strong></p>
@@ -461,12 +458,11 @@ document.write(`
 <li><p><strong>Streamplot:</strong> <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.Dataset.plot.streamplot.html"><code class="docutils literal notranslate"><span class="pre">xarray.Dataset.plot.streamplot</span></code></a></p></li>
 </ul>
 <p>All xarray plotting methods support additional Matplotlib keyword arguments (<code class="docutils literal notranslate"><span class="pre">**kwargs</span></code>) for further customization.</p>
-</section>
 <section id="time-series-plot">
-<h1>Time Series Plot<a class="headerlink" href="#time-series-plot" title="Link to this heading">#</a></h1>
+<h2>Time Series Plot<a class="headerlink" href="#time-series-plot" title="Link to this heading">#</a></h2>
 <p>Plot using <a class="reference external" href="http://xarray.pydata.org/en/stable/generated/xarray.DataArray.plot.line.html"><code class="docutils literal notranslate"><span class="pre">xarray.DataArray.plot.line</span></code></a>. The xarray website provides clear instructions, but we will cover some advanced usage here.</p>
 <section id="fill-between">
-<h2>Fill-Between<a class="headerlink" href="#fill-between" title="Link to this heading">#</a></h2>
+<h3>Fill-Between<a class="headerlink" href="#fill-between" title="Link to this heading">#</a></h3>
 <p><strong>Example 1:</strong> Calculate the pentad rainfall time series over the box area of Taiwan-North South China Sea (18˚-24˚N, 116˚-126˚E). Use a gray shaded area to represent the climatological maxima and minima, and use a thick black line to represent the climatological median.</p>
 <p>We first read data, convert daily data to pentad, and calculate the maxima, minima, and median over 1998-2020.</p>
 <div class="cell docutils container">
@@ -553,7 +549,7 @@ document.write(`
 </div>
 </section>
 <section id="twin-axes">
-<h2>Twin Axes<a class="headerlink" href="#twin-axes" title="Link to this heading">#</a></h2>
+<h3>Twin Axes<a class="headerlink" href="#twin-axes" title="Link to this heading">#</a></h3>
 <p>Sometimes we need to plot two variables on a single plot. However, if the magnitudes of these two variables are very different, we use twin axes to set two different y (or x) axes. Below is an example from Hung and Yanai (2004) on the Australian summer monsoon.</p>
 <p><strong>Example 2: Plot the Time Series of Australian Summer Monsoon Indices.</strong>
 The indices from <a class="reference external" href="https://rmets.onlinelibrary.wiley.com/doi/10.1256/qj.02.191">Hung and Yanai (2004, QJRMS)</a> use 850-hPa zonal wind and OLR to estimate the monsoon onset. Since the magnitudes of wind and OLR are very different, we can plot them on the same figure using twin axes.</p>
@@ -647,6 +643,7 @@ The indices from <a class="reference external" href="https://rmets.onlinelibrary
 </div>
 </section>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -712,14 +709,12 @@ The indices from <a class="reference external" href="https://rmets.onlinelibrary
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">8. <code class="docutils literal notranslate"><span class="pre">xarray</span></code> Plotting (I): Plotting 1-Dimensional Data</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot">Time Series Plot</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-between">Fill-Between</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-axes">Twin Axes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-series-plot">Time Series Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-between">Fill-Between</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#twin-axes">Twin Axes</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
