@@ -219,7 +219,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">Appendix: Useful Examples for Climate Analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">Slicing Iregular Grids</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A3_lanczos_filter.html">Lanczos Filter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">Climate Variability Analysis: Madden–Julian Oscillation (MJO)</a></li>
@@ -421,14 +421,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">安裝VS Code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micromamba">安裝Micromamba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaospython">安裝PyAOS所需Python套件庫</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">用Visual Studio Code撰寫程式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">撰寫測試程式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">套件版本檢查</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小結</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-code">Installing VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-vs-code-to-a-remote-server">Connecting VS Code to a Remote Server</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-ssh-key-authentication-for-passwordless-login">Setting Up SSH Key Authentication for Passwordless Login</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-micromamba">Installing Micromamba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pyaos-packages">Installing PyAOS Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code-with-vs-code">Writing Code with VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-a-test-code">Writing a Test Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-package-versions">Checking Package Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
             </nav>
         </div>
@@ -443,31 +446,66 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="python-installation-and-environment-setup">
 <h1>Python Installation and Environment Setup<a class="headerlink" href="#python-installation-and-environment-setup" title="Link to this heading">#</a></h1>
 <p>In this unit, we will learn how to install Python and packages using <strong>Micromamba</strong>, and how to use <strong>Visual Studio Code (VS Code)</strong> to write Python code. The tutorial will be based on MacOS or a remote Linux server.</p>
-<section id="vs-code">
-<h2>安裝VS Code<a class="headerlink" href="#vs-code" title="Link to this heading">#</a></h2>
-<p>Visual Studio Code (簡稱VS Code) 是一款由微軟開發且跨平台的免費整合式開發環境。該軟體支援在本機上撰寫本機或遠端工作站的各式程式，支援程式碼上色、補齊等編輯功能，還內建終端機，能夠在VS Code上呼叫核心來執行本機或遠端的程式碼，是相當強大的開發工具。接下來將示範如何以VS Code安裝所需要的Python套件，以及撰寫程式，請點入<a class="reference external" href="https://code.visualstudio.com">Visual Studio Code官方網站</a>下載並安裝VS Code。</p>
-<p>下載後打開VS Code，點選「延伸模組」按鈕。</p>
-<p><img alt="" src="images/fig0.2.png" /></p>
-<p>在搜尋欄輸入Python，選擇後按安裝。</p>
+<section id="installing-vs-code">
+<h2>Installing VS Code<a class="headerlink" href="#installing-vs-code" title="Link to this heading">#</a></h2>
+<p>Visual Studio Code (VS Code) is a free <strong>integrated development environment (IDE)</strong> developed by Microsoft. VS Code supports writing code on a local computer or a remote server. In this section, we will learn how to install VS Code, add relevant extensions for Python, and start writing code.</p>
+<p>First, visit the <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code official website</a> to download and install VS Code.</p>
+<p>After opening VS Code, click on “Extensions” in the sidebar, then search for and install the “Python” extension.</p>
+<p><img alt="" src="_images/fig0.2.png" /></p>
+<p><img alt="" src="_images/fig0.3.png" /></p>
 </section>
-<section id="micromamba">
-<h2>安裝Micromamba<a class="headerlink" href="#micromamba" title="Link to this heading">#</a></h2>
-<p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先進入 <a class="reference external" href="https://www.anaconda.com">Mamba官方網站</a>，在 Installation / Micromamba / Mamba-org releases / Install script 的子節，複製安裝的shell script程式碼到自己的終端機上安裝，即</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;$</span><span class="si">{SHELL}</span><span class="s2">&quot;</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">micro</span><span class="o">.</span><span class="n">mamba</span><span class="o">.</span><span class="n">pm</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span><span class="p">)</span>
+<section id="connecting-vs-code-to-a-remote-server">
+<h2>Connecting VS Code to a Remote Server<a class="headerlink" href="#connecting-vs-code-to-a-remote-server" title="Link to this heading">#</a></h2>
+<p>First, install the “<strong>Remote Development</strong>” extension in VS Code. This extension allows you to open any folder on a remote machine using SSH and take advantage of VS Code’s full feature set.</p>
+<p>To connect to the remote server, use the following command in your terminal, replacing <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;</span></code> with your actual username:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>&lt;username&gt;@tsubaki.som.nor.ou.edu
+</pre></div>
+</div>
+<p>After entering your password, you should be successfully logged in to the server. Once connected, click “Open…” to select and open your working directory.</p>
+<p><img alt="" src="_images/fig0.4.png" /></p>
+<section id="setting-up-ssh-key-authentication-for-passwordless-login">
+<h3>Setting Up SSH Key Authentication for Passwordless Login<a class="headerlink" href="#setting-up-ssh-key-authentication-for-passwordless-login" title="Link to this heading">#</a></h3>
+<p>To simplify the login process and avoid entering your password each time you connect to the server, you can set up SSH key authentication. Follow these steps to configure it:</p>
+<ol class="arabic">
+<li><p><strong>Generate an SSH Key Pair:</strong><br />
+Open a terminal on your <strong>local machine</strong> and run the following command to generate a new SSH key pair:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-keygen<span class="w"> </span>-t<span class="w"> </span>rsa<span class="w"> </span>-b<span class="w"> </span><span class="m">4096</span><span class="w"> </span>-C<span class="w"> </span><span class="s2">&quot;your_email@example.com&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>When prompted, you can press Enter to accept the default file location and leave the passphrase blank for convenience. This will create a private and a public key in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory.</p>
+<ol class="arabic" start="2">
+<li><p><strong>Copy the Public Key to the Remote Server:</strong><br />
+Use the ssh-copy-id command to copy your public key to the remote server: (also execute on the <strong>local machine</strong>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-copy-id<span class="w"> </span>&lt;username&gt;@tsubaki.som.nor.ou.edu
+</pre></div>
+</div>
+<p>Enter your password when prompted. This command appends your public key to the <code class="docutils literal notranslate"><span class="pre">~/.ssh/authorized_keys</span></code> file on the server.</p>
+</li>
+</ol>
+<p>Now you should be able to connect without entering a password.</p>
+</section>
+</section>
+<section id="installing-micromamba">
+<h2>Installing Micromamba<a class="headerlink" href="#installing-micromamba" title="Link to this heading">#</a></h2>
+<p>Micromamba is a commonly used package manager. To install it, click on <a class="reference external" href="https://www.anaconda.com">Micromamba Installation</a> and enter the following command in the <strong>remote server</strong> (e.g., on Tsubaki):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">SHELL</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&lt;<span class="o">(</span>curl<span class="w"> </span>-L<span class="w"> </span>micro.mamba.pm/install.sh<span class="o">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>一般也很常使用conda作為套件管理軟體，但Mamba在初始解析環境、檢查套件相容性時，有極高的效率，且所有操作幾乎都和conda一樣，因此在此推薦使用mamba來安裝Python。</p>
+<ol class="arabic simple">
+<li><p>Although Conda is also common, Micromamba is more efficient. Additionally, the commands for installing Python packages are essentially the same. Therefore, I recommend using Micromamba instead of Conda.</p></li>
+<li><p>You can first connect to the remote server using VS Code and then open a terminal within VS Code.</p></li>
+<li><p>If you use a Mac, you can also install Micromamba in your local directory using the same method.</p></li>
+</ol>
 </div>
 </section>
-<section id="pyaospython">
-<h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Link to this heading">#</a></h2>
-<p>安裝好Micromamba後，請打開終端機。</p>
-<ul class="simple">
-<li><p>可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Micromamba會自動安裝一些基本套件，這個套件環境預設稱為base。然而Micromamba預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">micromamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">xeofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">cfgrib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">pip</span> <span class="n">bpytop</span> <span class="n">flox</span> <span class="n">esmpy</span> <span class="n">xesmf</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span>
+<section id="installing-pyaos-packages">
+<h2>Installing PyAOS Packages<a class="headerlink" href="#installing-pyaos-packages" title="Link to this heading">#</a></h2>
+<p>After installing Micromamba, open a terminal. You will see <code class="docutils literal notranslate"><span class="pre">(base)</span></code> in the prompt because Micromamba installs some basic packages, and the default environment is named <code class="docutils literal notranslate"><span class="pre">base</span></code>. However, the base environment is not sufficient for PyAOS computations. Therefore, we need to create a new environment for PyAOS. The following command includes the installation processes and a list of the packages that will be used in this workshop. Please copy the command, paste it into the terminal, and execute it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>p3<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ipython<span class="w"> </span>numpy<span class="w"> </span>metpy<span class="w"> </span>scipy<span class="w"> </span>netCDF4<span class="w"> </span>cfgrib<span class="w"> </span>matplotlib<span class="w"> </span>eofs<span class="w"> </span>xeofs<span class="w"> </span>cartopy<span class="w"> </span>nco<span class="w"> </span>cdo<span class="w"> </span>python-cdo<span class="w"> </span>xarray<span class="w"> </span>cfgrib<span class="w"> </span>pandas<span class="w"> </span>seaborn<span class="w"> </span>cmaps<span class="w"> </span>scikit-learn<span class="w"> </span>dask<span class="w"> </span>bottleneck<span class="w"> </span>jupyter<span class="w"> </span>notebook<span class="w"> </span>pip<span class="w"> </span>bpytop<span class="w"> </span>flox<span class="w"> </span>esmpy<span class="w"> </span>xesmf<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
 </pre></div>
 </div>
 <div class="admonition caution">
@@ -476,34 +514,29 @@ document.write(`
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">p3</span></code>是這個新的conda環境的名稱，也可以自己取新的名稱。</p>
+<p><code class="docutils literal notranslate"><span class="pre">p3</span></code> is the name of the new micromamba environment. You are welcome to rename it.</p>
 </div>
-</section>
-<section id="visual-studio-code">
-<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
-<p>撰寫Python程式，按照檔名可區分為</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">.py</span></code>：屬於Python程式的scipt，也就是把完整的程式寫好了以後，由Python逐行執行。</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>：為Jupyter Notebook的格式，是互動式的程式介面，以窗格 (cell) 為單位，逐格執行Python程式。</p></li>
-</ul>
-<p>而工具的部分也有很多種，</p>
-<ul>
-<li><p>Vim editor: 在終端機直接用vim開啟一個新檔案，就可以編寫程式。例如：</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vi</span> <span class="n">test</span><span class="o">.</span><span class="n">py</span>
+<p>Then activate the <code class="docutils literal notranslate"><span class="pre">p3</span></code> encironment by executing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>micromamba<span class="w"> </span>activate<span class="w"> </span>p3
 </pre></div>
 </div>
-</li>
-<li><p>Visual Studio Code (可以撰寫.py或.ipynb檔案)</p></li>
-<li><p>Jupyter Notebook (撰寫.ipynb檔案，互動式介面)。Anaconda的Home可以直接呼叫Jupyter Notebook介面。</p></li>
-</ul>
-<p>點選「檔案總管」按鈕，按「開啟資料夾」按鈕來選擇一個存放程式碼的資料夾位置，以後就可以在這裡寫程式。</p>
-<p><img alt="" src="images/fig0.4.png" /></p>
-<p>在檔案總管資料夾中，右鍵 (兩指點按) 並選擇「新增檔案」，或是在最上方選單列「檔案→新增檔案」。注意python的檔案要以.py作為副檔名，就可以撰寫程式了。</p>
-<p><img alt="" src="images/fig0.5.png" /></p>
 </section>
-<section id="id1">
-<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p><strong>Example 1:</strong> 請用import將xarray套件輸入，並且印出xarray套件的版本資訊。</p>
+<section id="writing-code-with-vs-code">
+<h2>Writing Code with VS Code<a class="headerlink" href="#writing-code-with-vs-code" title="Link to this heading">#</a></h2>
+<p>There are two common types of script files you can write:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.py</span></code> is a Python script file. Python will execute the entire script line by line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> is a <strong>Jupyter Notebook</strong> format. It provides an interactive interface where code is separated into <strong>cells</strong>, and each cell can be executed independently. Variables defined in one cell can be used in other cells.</p></li>
+</ul>
+<p>To start writing code, open a working folder in “Explorer.”</p>
+<p><img alt="Explorer" src="_images/fig0.4.png" /></p>
+<p>Right-click (or double-click on Mac) in the Explorer pane to create a new file. Make sure to specify the file extension as <code class="docutils literal notranslate"><span class="pre">.py</span></code> or <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>.</p>
+<p><img alt="Create a New File" src="_images/fig0.5.png" /></p>
+</section>
+<section id="writing-a-test-code">
+<h2>Writing a Test Code<a class="headerlink" href="#writing-a-test-code" title="Link to this heading">#</a></h2>
+<p><strong>Example 1:</strong> Import <code class="docutils literal notranslate"><span class="pre">xarray</span></code> and print its version.</p>
+<p>First, create a new file named <code class="docutils literal notranslate"><span class="pre">test.py</span></code> or <code class="docutils literal notranslate"><span class="pre">test.ipynb</span></code>, then copy and paste the following code into it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
@@ -517,19 +550,28 @@ document.write(`
 </div>
 </div>
 </div>
-<p>在最上方選單列選「執行」→「啟動偵錯」，或是在左側選擇「執行與偵錯」選單，偵錯設定檔選擇「Python檔案」，在「選取核心」窗格點選剛剛安裝的conda環境「p3」，接著就會開始偵錯並執行了。</p>
-<p><img alt="" src="images/fig0.6.png" /></p>
+<p>To run the script, follow these steps:</p>
+<ol class="arabic simple">
+<li><p><strong>For Python Scripts (.py):</strong></p>
+<ul class="simple">
+<li><p>In VS Code, navigate to the top menu and click on <strong>“Run”</strong>.</p></li>
+<li><p>Select <strong>“Run Without Debugging”</strong> from the dropdown menu. This will execute your script without entering debug mode.</p></li>
+<li><p>Alternatively, you can use the shortcut <strong>Ctrl + F5</strong> (Windows/Linux) or <strong>Cmd + F5</strong> (Mac) to run the script quickly.</p></li>
+</ul>
+</li>
+<li><p><strong>For Jupyter Notebooks (.ipynb):</strong></p>
+<ul class="simple">
+<li><p>Click on the “▷” play button located on the left side of the Jupyter Notebook cell to run the specific cell.</p></li>
+<li><p>If this is the first time running a Jupyter Notebook in this environment, you may be prompted to select a Python kernel. Choose the <code class="docutils literal notranslate"><span class="pre">p3</span></code> Python kernel that we just installed.</p></li>
+<li><p>You can run all cells sequentially by clicking <strong>“Run All Cells”</strong> in the toolbar at the top.</p></li>
+</ul>
+</li>
+</ol>
+<p>By following these steps, you’ll be able to execute your test code and see the output directly in the terminal or notebook interface.</p>
 </section>
-<section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
-<p>Jupyter Notebook是在網頁上操作的Python互動性介面，可以開啟窗格 (cells) 寫筆記、註解、撰寫程式，程式也可以按照個人需求分段撰寫和執行。</p>
-<p>在VS Code 工作資料夾下新增一個<code class="docutils literal notranslate"><span class="pre">test.ipynb</span></code>的檔案。注意Jupyter Notebook的副檔名為<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>。</p>
-<p>請在VS Code中按「+程式碼」，然後撰寫跟剛剛一樣的測試程式，並且按儲存格 (Cell) 旁邊的「執行」按鈕。接著會跳出一個視窗，詢問ipynb檔案的核心，請選擇<code class="docutils literal notranslate"><span class="pre">p3</span></code>的核心，按一下就會開始執行了。</p>
-<p><img alt="" src="images/fig0.10.png" /></p>
-</section>
-<section id="id2">
-<h2>套件版本檢查<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
-<p>為了避免版本不相容，因此在開始閱讀本文前，建議先檢查各個套件的版本。本章的Example 1就是Python檢查套件的版本的方式，版本是以<code class="docutils literal notranslate"><span class="pre">__version__</span></code>這個attribute中儲存，因此可以print出來檢查。</p>
+<section id="checking-package-versions">
+<h2>Checking Package Versions<a class="headerlink" href="#checking-package-versions" title="Link to this heading">#</a></h2>
+<p>To avoid compatibility issues, it is recommended to check the versions of the packages before starting. Example 1 in this chapter demonstrates how to check package versions in Python. The version is stored in the <code class="docutils literal notranslate"><span class="pre">__version__</span></code> attribute, so you can print it to check.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
@@ -551,9 +593,9 @@ Cartopy version: 0.23.0
 </div>
 </div>
 </section>
-<section id="id3">
-<h2>小結<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>以上的方法都是幫助我們方便地撰寫和執行Python程式，當然還有很多不同的方法、執行工具，可以再探索和熟悉。現在，Python運算環境設置好，接著就可以開始學習用PyAOS寫程式了。</p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>For convenience, this guide focuses only on writing and executing Python scripts or Jupyter Notebooks using Micromamba and VS Code. There are many other tools available for coding, but with the computation environment set up, we are now ready to start learning how to write code for PyAOS analysis!</p>
 </section>
 </section>
 
@@ -621,14 +663,17 @@ Cartopy version: 0.23.0
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs-code">安裝VS Code</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#micromamba">安裝Micromamba</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyaospython">安裝PyAOS所需Python套件庫</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-studio-code">用Visual Studio Code撰寫程式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">撰寫測試程式</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-notebook">Jupyter Notebook</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">套件版本檢查</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">小結</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vs-code">Installing VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-vs-code-to-a-remote-server">Connecting VS Code to a Remote Server</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-ssh-key-authentication-for-passwordless-login">Setting Up SSH Key Authentication for Passwordless Login</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-micromamba">Installing Micromamba</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-pyaos-packages">Installing PyAOS Packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code-with-vs-code">Writing Code with VS Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-a-test-code">Writing a Test Code</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-package-versions">Checking Package Versions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
 </ul>
   </nav></div>
 
@@ -668,7 +713,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-07-21
+Last updated: 2024-08-06
 </p>
 </div>
   </div>
