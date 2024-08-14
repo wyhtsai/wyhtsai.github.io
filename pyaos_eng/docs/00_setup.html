@@ -450,6 +450,10 @@ document.write(`
 <h2>Installing VS Code<a class="headerlink" href="#installing-vs-code" title="Link to this heading">#</a></h2>
 <p>Visual Studio Code (VS Code) is a free <strong>integrated development environment (IDE)</strong> developed by Microsoft. VS Code supports writing code on a local computer or a remote server. In this section, we will learn how to install VS Code, add relevant extensions for Python, and start writing code.</p>
 <p>First, visit the <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code official website</a> to download and install VS Code.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>VS Code now doesn’t support old version of OS. For users on Tsubaki and Ume, please install the <a class="reference external" href="https://code.visualstudio.com/updates/v1_85">November 2023 version</a>, and turn off auto updates in VS Code.</p>
+</div>
 <p>After opening VS Code, click on “Extensions” in the sidebar, then search for and install the “Python” extension.</p>
 <p><img alt="" src="_images/fig0.2.png" /></p>
 <p><img alt="" src="_images/fig0.3.png" /></p>
@@ -475,7 +479,7 @@ Open a terminal on your <strong>local machine</strong> and run the following com
 </li>
 </ol>
 <p>When prompted, you can press Enter to accept the default file location and leave the passphrase blank for convenience. This will create a private and a public key in the <code class="docutils literal notranslate"><span class="pre">~/.ssh</span></code> directory.</p>
-<ol class="arabic" start="2">
+<ol class="arabic">
 <li><p><strong>Copy the Public Key to the Remote Server:</strong><br />
 Use the ssh-copy-id command to copy your public key to the remote server: (also execute on the <strong>local machine</strong>)</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh-copy-id<span class="w"> </span>&lt;username&gt;@tsubaki.som.nor.ou.edu
@@ -713,7 +717,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-08-06
+Last updated: 2024-08-14
 </p>
 </div>
   </div>
