@@ -684,6 +684,124 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</div>
+<p>接著，建立各個波段的空DataArray，然後設定各個波段的波數、週期、equivalent depth參數。其中，equivalent depth只適用有頻散關係理論解的波動 (Kelvin, ER, MRG)，其他波動的請設定為<code class="docutils literal notranslate"><span class="pre">mis</span></code>。</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wave filter</span>
+<span class="n">mis</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.</span>
+<span class="n">obsPerDay</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">lf</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+<span class="n">mjo</span>    <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+<span class="n">er</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+<span class="n">kelvin</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+<span class="n">mt</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+<span class="n">mrg</span>    <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
+
+<span class="c1"># lf parameters </span>
+<span class="n">lf_filter</span><span class="o">=</span><span class="s2">&quot;above 120 days&quot;</span>
+<span class="n">lf_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">lf_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">120</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">lf_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="o">*-</span><span class="mf">1.</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="c1"># mjo parameters </span>
+<span class="n">mjo_filter</span><span class="o">=</span><span class="s2">&quot;Kiladis et al. (2005 JAS) for 20-100&quot;</span>
+<span class="n">mjo_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mjo_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">96</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mjo_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+    
+<span class="c1"># er parameters </span>
+<span class="n">er_filter</span><span class="o">=</span><span class="s2">&quot;Kiladis et al. (2009 Rev. Geophys.)&quot;</span>
+<span class="n">er_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">er_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">9.7</span><span class="p">,</span><span class="mi">48</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">er_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="c1"># kw parameters</span>
+<span class="n">kelvin_filter</span><span class="o">=</span><span class="s2">&quot;Straub &amp; Kiladis (2002) to 20 days&quot;</span>
+<span class="n">kelvin_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">kelvin_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">kelvin_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="c1"># mt parameters</span>
+<span class="n">mt_filter</span><span class="o">=</span><span class="s2">&quot;MRG-TD type wave filter (Frank &amp; Roundy 2006)&quot;</span>
+<span class="n">mt_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mt_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mt_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+
+<span class="c1"># mrg parameters</span>
+<span class="n">mrg_filter</span><span class="o">=</span><span class="s2">&quot;MRG-TD type wave filter&quot;</span>
+<span class="n">mrg_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mrg_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mf">9.6</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="n">mrg_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>接著一個緯度一個緯度進行2D-FFT的濾波。</p>
+<p>其中，<code class="docutils literal notranslate"><span class="pre">kf_filter</span> <span class="pre">(inData,obsPerDay,tMin,tMax,kMin,kMax,hMin,hMax,waveName)</span></code>。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">inData</span></code>代表輸入的資料，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obsPerDay</span></code> 代表一天有幾筆觀測資料 (即資料的取樣頻率)，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tMin</span></code>、<code class="docutils literal notranslate"><span class="pre">tMax</span></code>代表濾波頻段週期的最小最大值，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">kMin</span></code>、<code class="docutils literal notranslate"><span class="pre">kMax</span></code>代表波數範圍最小最大值，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hMin</span></code>、<code class="docutils literal notranslate"><span class="pre">hMax</span></code>代表equivalent depth的最小最大值，</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">waveName</span></code>是波動的名稱，如果Kelvin, ER, MRG以外的系統，由於程式中沒有設定好的頻散關係，請直接寫<code class="docutils literal notranslate"><span class="pre">none</span></code>即可。</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">lat</span><span class="p">:</span> 
+    <span class="c1">#print(&#39;latitude: &#39; + str(y))</span>
+    <span class="c1">#################################################</span>
+    <span class="c1"># Filter</span>
+    <span class="c1">#################################################</span>
+    <span class="c1">#lf</span>
+    <span class="n">lf</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                        <span class="n">obsPerDay</span><span class="p">,</span>
+                        <span class="n">lf_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">lf_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#mjo</span>
+    <span class="n">mjo</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                        <span class="n">obsPerDay</span><span class="p">,</span>
+                        <span class="n">mjo_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">mjo_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#er </span>
+    <span class="n">er</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                       <span class="n">obsPerDay</span><span class="p">,</span>
+                       <span class="n">er_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">er_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;er&quot;</span><span class="p">)</span>
+    
+    <span class="c1">## kw</span>
+    <span class="n">kelvin</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                           <span class="n">obsPerDay</span><span class="p">,</span>
+                           <span class="n">kelvin_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;kelvin&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># mt </span>
+    <span class="n">mt</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                       <span class="n">obsPerDay</span><span class="p">,</span>
+                       <span class="n">mt_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                       <span class="n">mt_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+        
+    <span class="c1"># mrg </span>
+    <span class="n">mrg</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                        <span class="n">obsPerDay</span><span class="p">,</span>
+                        <span class="n">mrg_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">mrg_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="n">mrg_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;mrg&quot;</span><span class="p">)</span>
+    
+<span class="n">er</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
 <defs>
@@ -1048,265 +1166,116 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;olr&#x27; (time: 730, lat: 40, lon: 360)&gt; Size: 42MB
-array([[[ 16.380737  ,  17.168976  ,  17.851715  , ...,  17.053497  ,
-          16.067688  ,  15.664856  ],
-        [ 16.75711   ,  17.412567  ,  17.013672  , ...,  12.450287  ,
-          13.341797  ,  15.062714  ],
-        [ 14.054718  ,  14.679474  ,  14.075836  , ...,   9.722412  ,
-          11.569977  ,  12.888275  ],
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray (time: 730, lat: 40, lon: 360)&gt;
+array([[[ 0.41869953,  0.74632704,  1.07617247, ..., -0.48732913,
+         -0.20450903,  0.09961336],
+        [ 0.16254583,  0.38559777,  0.6125918 , ..., -0.44736761,
+         -0.25748172, -0.05300589],
+        [ 0.1102673 ,  0.26533216,  0.4232206 , ..., -0.31864047,
+         -0.18367998, -0.0400544 ],
         ...,
-        [ 11.100403  ,  10.695862  ,  10.360992  , ...,  11.227478  ,
-          12.538239  ,  10.187195  ],
-        [  8.687775  ,   9.050079  ,   7.7844543 , ...,  11.915253  ,
-          11.584717  ,  10.397156  ],
-        [ 11.788086  ,   8.504059  ,   6.5397644 , ...,  16.114624  ,
-          14.831299  ,  11.902313  ]],
+        [-5.61130285, -5.43971968, -5.16630745, ..., -5.5121479 ,
+         -5.64538622, -5.67955065],
+        [-6.04585648, -5.95039845, -5.75541639, ..., -5.74995708,
+         -5.9418354 , -6.04211521],
+        [-6.54671526, -6.63207436, -6.63014841, ..., -5.81441212,
+         -6.13140631, -6.37794161]],
 
-       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198883  ,
-          16.867859  ,  16.242859  ],
-        [ 15.078796  ,  13.773102  ,  13.533112  , ...,  20.839447  ,
-          17.823395  ,  15.5312195 ],
-        [ 11.530273  ,  12.067505  ,  15.291046  , ...,  14.027985  ,
-          11.882843  ,  10.712891  ],
+       [[ 0.76235485,  1.1360811 ,  1.49986124, ..., -0.35526246,
+          0.00991862,  0.38476983],
+        [ 0.05015931,  0.32514107,  0.60003805, ..., -0.73913151,
+         -0.48576149, -0.22138192],
+        [-0.28530368, -0.08856484,  0.11314388, ..., -0.82769424,
+         -0.6566962 , -0.47528636],
 ...
-        [-34.450195  , -43.519882  , -34.36876   , ..., -13.596405  ,
-         -18.143631  , -31.10968   ],
-        [-18.831161  , -26.859772  , -31.448883  , ...,  10.565292  ,
-          -2.8655548 , -10.68837   ],
-        [  6.0747986 ,  -3.823471  , -15.938919  , ...,  18.611649  ,
-          17.26979   ,  11.514557  ]],
+        [-4.84334517, -5.02544785, -5.14676905, ..., -4.01491976,
+         -4.32888174, -4.60822058],
+        [-5.2019372 , -5.39951229, -5.54685974, ..., -4.38925982,
+         -4.68813229, -4.96198225],
+        [-5.03971434, -5.30969191, -5.55134392, ..., -4.13197279,
+         -4.44375563, -4.74866533]],
 
-       [[ -9.893219  ,  -7.201172  ,  -0.78356934, ...,  -1.2973328 ,
-          -3.3666992 ,  -6.482971  ],
-        [-19.12323   , -15.406616  ,  -9.28949   , ...,  -7.4835205 ,
-          -9.953247  , -10.572845  ],
-        [-23.6315    , -27.043625  , -16.556519  , ..., -11.582275  ,
-         -13.263733  , -13.371033  ],
+       [[ 0.36513716,  0.63959444,  0.92730278, ..., -0.32453212,
+         -0.12197281,  0.10952018],
+        [ 0.52740246,  0.72218305,  0.9244988 , ...,  0.02059937,
+          0.17357652,  0.34348166],
+        [ 0.65549105,  0.81336552,  0.97305393, ...,  0.21653658,
+          0.35472208,  0.50181794],
         ...,
-        [ -7.89328   ,  -5.9326477 ,  -5.8309326 , ..., -25.945755  ,
-         -13.093399  , -12.713745  ],
-        [-10.086914  ,  -4.398468  ,  -7.0507355 , ..., -11.004013  ,
-         -10.912903  ,  -6.5914    ],
-        [ -3.9571838 ,  -2.9132996 ,   3.1249695 , ..., -12.475006  ,
-          -5.3866425 ,  -1.2779846 ]]], dtype=float32)
+        [-5.3761735 , -5.42974091, -5.39585304, ..., -4.74491978,
+         -5.02649164, -5.23962402],
+        [-5.70784616, -5.81145811, -5.83556461, ..., -4.9854064 ,
+         -5.28673029, -5.53047705],
+        [-5.8078804 , -6.04300451, -6.21886206, ..., -4.82505178,
+         -5.19027758, -5.52087641]]])
 Coordinates:
-  * time       (time) datetime64[ns] 6kB 2017-01-01 2017-01-02 ... 2018-12-31
-  * lon        (lon) float32 1kB 0.5 1.5 2.5 3.5 4.5 ... 356.5 357.5 358.5 359.5
-  * lat        (lat) float32 160B -19.5 -18.5 -17.5 -16.5 ... 17.5 18.5 19.5
-    dayofyear  (time) int64 6kB 1 2 3 4 5 6 7 8 ... 359 360 361 362 363 364 365</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'olr'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 730</li><li><span class='xr-has-index'>lat</span>: 40</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-a5b3c35e-3c42-4024-8a73-1df7edd5d2a1' class='xr-array-in' type='checkbox' checked><label for='section-a5b3c35e-3c42-4024-8a73-1df7edd5d2a1' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>16.38 17.17 17.85 17.11 14.47 ... -7.822 -7.169 -12.48 -5.387 -1.278</span></div><div class='xr-array-data'><pre>array([[[ 16.380737  ,  17.168976  ,  17.851715  , ...,  17.053497  ,
-          16.067688  ,  15.664856  ],
-        [ 16.75711   ,  17.412567  ,  17.013672  , ...,  12.450287  ,
-          13.341797  ,  15.062714  ],
-        [ 14.054718  ,  14.679474  ,  14.075836  , ...,   9.722412  ,
-          11.569977  ,  12.888275  ],
+  * time     (time) datetime64[ns] 2017-01-01 2017-01-02 ... 2018-12-31
+  * lat      (lat) float32 -19.5 -18.5 -17.5 -16.5 -15.5 ... 16.5 17.5 18.5 19.5
+  * lon      (lon) float32 0.5 1.5 2.5 3.5 4.5 ... 355.5 356.5 357.5 358.5 359.5</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'></div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 730</li><li><span class='xr-has-index'>lat</span>: 40</li><li><span class='xr-has-index'>lon</span>: 360</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5bffa78b-ef3b-4cb1-80a9-bbdb4527e624' class='xr-array-in' type='checkbox' checked><label for='section-5bffa78b-ef3b-4cb1-80a9-bbdb4527e624' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>0.4187 0.7463 1.076 1.402 1.719 ... -4.029 -4.435 -4.825 -5.19 -5.521</span></div><div class='xr-array-data'><pre>array([[[ 0.41869953,  0.74632704,  1.07617247, ..., -0.48732913,
+         -0.20450903,  0.09961336],
+        [ 0.16254583,  0.38559777,  0.6125918 , ..., -0.44736761,
+         -0.25748172, -0.05300589],
+        [ 0.1102673 ,  0.26533216,  0.4232206 , ..., -0.31864047,
+         -0.18367998, -0.0400544 ],
         ...,
-        [ 11.100403  ,  10.695862  ,  10.360992  , ...,  11.227478  ,
-          12.538239  ,  10.187195  ],
-        [  8.687775  ,   9.050079  ,   7.7844543 , ...,  11.915253  ,
-          11.584717  ,  10.397156  ],
-        [ 11.788086  ,   8.504059  ,   6.5397644 , ...,  16.114624  ,
-          14.831299  ,  11.902313  ]],
+        [-5.61130285, -5.43971968, -5.16630745, ..., -5.5121479 ,
+         -5.64538622, -5.67955065],
+        [-6.04585648, -5.95039845, -5.75541639, ..., -5.74995708,
+         -5.9418354 , -6.04211521],
+        [-6.54671526, -6.63207436, -6.63014841, ..., -5.81441212,
+         -6.13140631, -6.37794161]],
 
-       [[ 16.882385  ,  16.851288  ,  17.246857  , ...,  18.198883  ,
-          16.867859  ,  16.242859  ],
-        [ 15.078796  ,  13.773102  ,  13.533112  , ...,  20.839447  ,
-          17.823395  ,  15.5312195 ],
-        [ 11.530273  ,  12.067505  ,  15.291046  , ...,  14.027985  ,
-          11.882843  ,  10.712891  ],
+       [[ 0.76235485,  1.1360811 ,  1.49986124, ..., -0.35526246,
+          0.00991862,  0.38476983],
+        [ 0.05015931,  0.32514107,  0.60003805, ..., -0.73913151,
+         -0.48576149, -0.22138192],
+        [-0.28530368, -0.08856484,  0.11314388, ..., -0.82769424,
+         -0.6566962 , -0.47528636],
 ...
-        [-34.450195  , -43.519882  , -34.36876   , ..., -13.596405  ,
-         -18.143631  , -31.10968   ],
-        [-18.831161  , -26.859772  , -31.448883  , ...,  10.565292  ,
-          -2.8655548 , -10.68837   ],
-        [  6.0747986 ,  -3.823471  , -15.938919  , ...,  18.611649  ,
-          17.26979   ,  11.514557  ]],
+        [-4.84334517, -5.02544785, -5.14676905, ..., -4.01491976,
+         -4.32888174, -4.60822058],
+        [-5.2019372 , -5.39951229, -5.54685974, ..., -4.38925982,
+         -4.68813229, -4.96198225],
+        [-5.03971434, -5.30969191, -5.55134392, ..., -4.13197279,
+         -4.44375563, -4.74866533]],
 
-       [[ -9.893219  ,  -7.201172  ,  -0.78356934, ...,  -1.2973328 ,
-          -3.3666992 ,  -6.482971  ],
-        [-19.12323   , -15.406616  ,  -9.28949   , ...,  -7.4835205 ,
-          -9.953247  , -10.572845  ],
-        [-23.6315    , -27.043625  , -16.556519  , ..., -11.582275  ,
-         -13.263733  , -13.371033  ],
+       [[ 0.36513716,  0.63959444,  0.92730278, ..., -0.32453212,
+         -0.12197281,  0.10952018],
+        [ 0.52740246,  0.72218305,  0.9244988 , ...,  0.02059937,
+          0.17357652,  0.34348166],
+        [ 0.65549105,  0.81336552,  0.97305393, ...,  0.21653658,
+          0.35472208,  0.50181794],
         ...,
-        [ -7.89328   ,  -5.9326477 ,  -5.8309326 , ..., -25.945755  ,
-         -13.093399  , -12.713745  ],
-        [-10.086914  ,  -4.398468  ,  -7.0507355 , ..., -11.004013  ,
-         -10.912903  ,  -6.5914    ],
-        [ -3.9571838 ,  -2.9132996 ,   3.1249695 , ..., -12.475006  ,
-          -5.3866425 ,  -1.2779846 ]]], dtype=float32)</pre></div></div></li><li class='xr-section-item'><input id='section-43d81e2a-f00b-44b2-bc2b-51b8841f093b' class='xr-section-summary-in' type='checkbox'  checked><label for='section-43d81e2a-f00b-44b2-bc2b-51b8841f093b' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-01-01 ... 2018-12-31</div><input id='attrs-48bab3cb-d327-4e22-a5b9-5c3eabddcb7e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-48bab3cb-d327-4e22-a5b9-5c3eabddcb7e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e90163ce-ca5e-470e-b113-e7f2c007ffa5' class='xr-var-data-in' type='checkbox'><label for='data-e90163ce-ca5e-470e-b113-e7f2c007ffa5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-01-01T00:00:00.000000000&#x27;, &#x27;2017-01-02T00:00:00.000000000&#x27;,
+        [-5.3761735 , -5.42974091, -5.39585304, ..., -4.74491978,
+         -5.02649164, -5.23962402],
+        [-5.70784616, -5.81145811, -5.83556461, ..., -4.9854064 ,
+         -5.28673029, -5.53047705],
+        [-5.8078804 , -6.04300451, -6.21886206, ..., -4.82505178,
+         -5.19027758, -5.52087641]]])</pre></div></div></li><li class='xr-section-item'><input id='section-d2e8f37f-d552-49c6-8b29-78d07ab23233' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d2e8f37f-d552-49c6-8b29-78d07ab23233' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2017-01-01 ... 2018-12-31</div><input id='attrs-64491b79-8518-4cab-9b12-e4f52ce65d09' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-64491b79-8518-4cab-9b12-e4f52ce65d09' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3256d89f-b846-49a8-8e54-fbb63790cc36' class='xr-var-data-in' type='checkbox'><label for='data-3256d89f-b846-49a8-8e54-fbb63790cc36' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>reference time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2017-01-01T00:00:00.000000000&#x27;, &#x27;2017-01-02T00:00:00.000000000&#x27;,
        &#x27;2017-01-03T00:00:00.000000000&#x27;, ..., &#x27;2018-12-29T00:00:00.000000000&#x27;,
        &#x27;2018-12-30T00:00:00.000000000&#x27;, &#x27;2018-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-c29c77d7-c8bf-4959-a662-9eda632a94d4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c29c77d7-c8bf-4959-a662-9eda632a94d4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ecbe128-db1a-4697-9c48-261f6e781fb9' class='xr-var-data-in' type='checkbox'><label for='data-7ecbe128-db1a-4697-9c48-261f6e781fb9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-19.5 -18.5 -17.5 ... 18.5 19.5</div><input id='attrs-95d57bc7-af0f-418b-8339-b15ccb439059' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-95d57bc7-af0f-418b-8339-b15ccb439059' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6d87de44-9cc3-41cb-b4c8-4655a1245436' class='xr-var-data-in' type='checkbox'><label for='data-6d87de44-9cc3-41cb-b4c8-4655a1245436' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-19.5 -18.5 -17.5 ... 18.5 19.5</div><input id='attrs-fbe50696-8b95-458a-824c-3ba692d6315d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fbe50696-8b95-458a-824c-3ba692d6315d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5be7bf94-d359-43db-9f37-3722798a005a' class='xr-var-data-in' type='checkbox'><label for='data-5be7bf94-d359-43db-9f37-3722798a005a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd></dl></div><div class='xr-var-data'><pre>array([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
         -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
          0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
         10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>dayofyear</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 361 362 363 364 365</div><input id='attrs-0cde7ca4-f234-45cb-bb32-236628bf994c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0cde7ca4-f234-45cb-bb32-236628bf994c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9eb1c05c-4bce-499d-86c9-a1d16fb37a65' class='xr-var-data-in' type='checkbox'><label for='data-9eb1c05c-4bce-499d-86c9-a1d16fb37a65' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3, ..., 363, 364, 365])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-15f96103-9004-4dc9-83e8-828c0da67b83' class='xr-section-summary-in' type='checkbox'  ><label for='section-15f96103-9004-4dc9-83e8-828c0da67b83' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-8f260b89-fe03-4678-b75e-00d1341de757' class='xr-index-data-in' type='checkbox'/><label for='index-8f260b89-fe03-4678-b75e-00d1341de757' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-01-01&#x27;, &#x27;2017-01-02&#x27;, &#x27;2017-01-03&#x27;, &#x27;2017-01-04&#x27;,
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.5 1.5 2.5 ... 357.5 358.5 359.5</div><input id='attrs-923e8e45-c393-4961-a5ab-13b7db1a76b0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-923e8e45-c393-4961-a5ab-13b7db1a76b0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b512369a-6172-4c93-9f5f-3504682bad30' class='xr-var-data-in' type='checkbox'><label for='data-b512369a-6172-4c93-9f5f-3504682bad30' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd></dl></div><div class='xr-var-data'><pre>array([  0.5,   1.5,   2.5, ..., 357.5, 358.5, 359.5], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-fa5e2901-be20-4b34-ae2a-04eaad9a183e' class='xr-section-summary-in' type='checkbox'  ><label for='section-fa5e2901-be20-4b34-ae2a-04eaad9a183e' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d94a91de-e4d1-4943-a3a8-5f5dbf997d2d' class='xr-index-data-in' type='checkbox'/><label for='index-d94a91de-e4d1-4943-a3a8-5f5dbf997d2d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;2017-01-01&#x27;, &#x27;2017-01-02&#x27;, &#x27;2017-01-03&#x27;, &#x27;2017-01-04&#x27;,
                &#x27;2017-01-05&#x27;, &#x27;2017-01-06&#x27;, &#x27;2017-01-07&#x27;, &#x27;2017-01-08&#x27;,
                &#x27;2017-01-09&#x27;, &#x27;2017-01-10&#x27;,
                ...
                &#x27;2018-12-22&#x27;, &#x27;2018-12-23&#x27;, &#x27;2018-12-24&#x27;, &#x27;2018-12-25&#x27;,
                &#x27;2018-12-26&#x27;, &#x27;2018-12-27&#x27;, &#x27;2018-12-28&#x27;, &#x27;2018-12-29&#x27;,
                &#x27;2018-12-30&#x27;, &#x27;2018-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=730, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e64b4132-345a-4a9c-8e36-ad3df3c9e622' class='xr-index-data-in' type='checkbox'/><label for='index-e64b4132-345a-4a9c-8e36-ad3df3c9e622' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
-       ...
-       350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5, 359.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-bbabca28-04c3-4c33-bc2f-49d0d0429972' class='xr-index-data-in' type='checkbox'/><label for='index-bbabca28-04c3-4c33-bc2f-49d0d0429972' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5, -10.5,
-        -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,  -1.5,  -0.5,
-         0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,   9.5,
-        10.5,  11.5,  12.5,  13.5,  14.5,  15.5,  16.5,  17.5,  18.5,  19.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c5b250f8-e9b6-4aa6-8ffc-7eb1f66588c2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c5b250f8-e9b6-4aa6-8ffc-7eb1f66588c2' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
-</div>
-<p>接著，建立各個波段的空DataArray，然後設定各個波段的波數、週期、equivalent depth參數。其中，equivalent depth只適用有頻散關係理論解的波動 (Kelvin, ER, MRG)，其他波動的請設定為<code class="docutils literal notranslate"><span class="pre">mis</span></code>。</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wave filter</span>
-<span class="n">mis</span> <span class="o">=</span> <span class="o">-</span><span class="mf">999.</span>
-<span class="n">obsPerDay</span> <span class="o">=</span> <span class="mf">1.</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="o">.</span><span class="n">values</span>
-
-<span class="n">lf</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-<span class="n">mjo</span>    <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-<span class="n">er</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-<span class="n">kelvin</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-<span class="n">mt</span>     <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-<span class="n">mrg</span>    <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span><span class="n">coords</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">time</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span><span class="n">lon</span><span class="o">=</span><span class="n">olra</span><span class="o">.</span><span class="n">lon</span><span class="p">))</span>
-
-<span class="c1"># lf parameters </span>
-<span class="n">lf_filter</span><span class="o">=</span><span class="s2">&quot;above 120 days&quot;</span>
-<span class="n">lf_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">lf_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">120</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">lf_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="o">*-</span><span class="mf">1.</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-
-<span class="c1"># mjo parameters </span>
-<span class="n">mjo_filter</span><span class="o">=</span><span class="s2">&quot;Kiladis et al. (2005 JAS) for 20-100&quot;</span>
-<span class="n">mjo_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mjo_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span><span class="mi">96</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mjo_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-    
-<span class="c1"># er parameters </span>
-<span class="n">er_filter</span><span class="o">=</span><span class="s2">&quot;Kiladis et al. (2009 Rev. Geophys.)&quot;</span>
-<span class="n">er_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">er_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">9.7</span><span class="p">,</span><span class="mi">48</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">er_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-
-<span class="c1"># kw parameters</span>
-<span class="n">kelvin_filter</span><span class="o">=</span><span class="s2">&quot;Straub &amp; Kiladis (2002) to 20 days&quot;</span>
-<span class="n">kelvin_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">14</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">kelvin_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">30</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">kelvin_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-
-<span class="c1"># mt parameters</span>
-<span class="n">mt_filter</span><span class="o">=</span><span class="s2">&quot;MRG-TD type wave filter (Frank &amp; Roundy 2006)&quot;</span>
-<span class="n">mt_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mt_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mt_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">mis</span><span class="p">,</span><span class="n">mis</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-
-<span class="c1"># mrg parameters</span>
-<span class="n">mrg_filter</span><span class="o">=</span><span class="s2">&quot;MRG-TD type wave filter&quot;</span>
-<span class="n">mrg_wavenumber</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mrg_period</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mf">9.6</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="n">mrg_depth</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">8</span><span class="p">,</span><span class="mi">90</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>接著一個緯度一個緯度進行2D-FFT的濾波。</p>
-<p>其中，<code class="docutils literal notranslate"><span class="pre">kf_filter</span> <span class="pre">(inData,obsPerDay,tMin,tMax,kMin,kMax,hMin,hMax,waveName)</span></code>。</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">inData</span></code>代表輸入的資料，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">obsPerDay</span></code> 代表一天有幾筆觀測資料 (即資料的取樣頻率)，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">tMin</span></code>、<code class="docutils literal notranslate"><span class="pre">tMax</span></code>代表濾波頻段週期的最小最大值，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">kMin</span></code>、<code class="docutils literal notranslate"><span class="pre">kMax</span></code>代表波數範圍最小最大值，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hMin</span></code>、<code class="docutils literal notranslate"><span class="pre">hMax</span></code>代表equivalent depth的最小最大值，</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">waveName</span></code>是波動的名稱，如果Kelvin, ER, MRG以外的系統，由於程式中沒有設定好的頻散關係，請直接寫<code class="docutils literal notranslate"><span class="pre">none</span></code>即可。</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">lat</span><span class="p">:</span> 
-    <span class="c1">#print(&#39;latitude: &#39; + str(y))</span>
-    <span class="c1">#################################################</span>
-    <span class="c1"># Filter</span>
-    <span class="c1">#################################################</span>
-    <span class="c1">#lf</span>
-    <span class="n">lf</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                        <span class="n">obsPerDay</span><span class="p">,</span>
-                        <span class="n">lf_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">lf_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-    
-    <span class="c1">#mjo</span>
-    <span class="n">mjo</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                        <span class="n">obsPerDay</span><span class="p">,</span>
-                        <span class="n">mjo_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">mjo_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-    
-    <span class="c1">#er </span>
-    <span class="n">er</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                       <span class="n">obsPerDay</span><span class="p">,</span>
-                       <span class="n">er_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">er_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">er_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;er&quot;</span><span class="p">)</span>
-    
-    <span class="c1">## kw</span>
-    <span class="n">kelvin</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                           <span class="n">obsPerDay</span><span class="p">,</span>
-                           <span class="n">kelvin_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                           <span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                           <span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">kelvin_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;kelvin&quot;</span><span class="p">)</span>
-    
-    <span class="c1"># mt </span>
-    <span class="n">mt</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                       <span class="n">obsPerDay</span><span class="p">,</span>
-                       <span class="n">mt_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                       <span class="n">mt_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mt_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-        
-    <span class="c1"># mrg </span>
-    <span class="n">mrg</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-                        <span class="n">obsPerDay</span><span class="p">,</span>
-                        <span class="n">mrg_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">mrg_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                        <span class="n">mrg_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mrg_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;mrg&quot;</span><span class="p">)</span>
-    
-<span class="n">er</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">lat</span><span class="p">:</span> 
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="c1">#print(&#39;latitude: &#39; + str(y))</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="c1">#################################################</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Filter</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="c1">#################################################</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="c1">#lf</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">lf</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>                         <span class="n">obsPerDay</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>                         <span class="n">lf_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>                         <span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>                         <span class="n">lf_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">lf_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="c1">#mjo</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">mjo</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">kf_filter</span><span class="p">(</span><span class="n">olra</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">y</span><span class="p">,:]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span>                         <span class="n">obsPerDay</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span>                         <span class="n">mjo_period</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_period</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span>                         <span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_wavenumber</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span>                         <span class="n">mjo_depth</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">mjo_depth</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
-
-<span class="nn">Cell In[1], line 29,</span> in <span class="ni">kf_filter</span><span class="nt">(inData, obsPerDay, tMin, tMax, kMin, kMax, hMin, hMax, waveName)</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span>     <span class="n">detrendData</span><span class="p">[</span><span class="n">counterX</span><span class="p">,:]</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">detrend</span><span class="p">(</span><span class="n">originalData</span><span class="p">[</span><span class="n">counterX</span><span class="p">,:])</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="c1"># Taper </span>
-<span class="ne">---&gt; </span><span class="mi">29</span> <span class="n">taper</span><span class="o">=</span><span class="n">signal</span><span class="o">.</span><span class="n">tukey</span><span class="p">(</span><span class="n">timeDim</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="n">taperData</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">lonDim</span><span class="p">,</span><span class="n">timeDim</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">for</span> <span class="n">counterX</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lonDim</span><span class="p">):</span>
-
-<span class="ne">AttributeError</span>: module &#39;scipy.signal&#39; has no attribute &#39;tukey&#39;
-</pre></div>
-</div>
-</div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=730, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ef001a9e-c9a1-4fec-aeaa-e96b1b5eb4e8' class='xr-index-data-in' type='checkbox'/><label for='index-ef001a9e-c9a1-4fec-aeaa-e96b1b5eb4e8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([-19.5, -18.5, -17.5, -16.5, -15.5, -14.5, -13.5, -12.5, -11.5,
+              -10.5,  -9.5,  -8.5,  -7.5,  -6.5,  -5.5,  -4.5,  -3.5,  -2.5,
+               -1.5,  -0.5,   0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,
+                7.5,   8.5,   9.5,  10.5,  11.5,  12.5,  13.5,  14.5,  15.5,
+               16.5,  17.5,  18.5,  19.5],
+             dtype=&#x27;float64&#x27;, name=&#x27;lat&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9c0c5815-57f2-494e-8614-19e9a7dcce83' class='xr-index-data-in' type='checkbox'/><label for='index-9c0c5815-57f2-494e-8614-19e9a7dcce83' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Float64Index([  0.5,   1.5,   2.5,   3.5,   4.5,   5.5,   6.5,   7.5,   8.5,
+                9.5,
+              ...
+              350.5, 351.5, 352.5, 353.5, 354.5, 355.5, 356.5, 357.5, 358.5,
+              359.5],
+             dtype=&#x27;float64&#x27;, name=&#x27;lon&#x27;, length=360))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4b6fbef5-7e8f-4e81-bb46-91d516bb7e55' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-4b6fbef5-7e8f-4e81-bb46-91d516bb7e55' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>最後可以輸出資料：</p>
 <div class="cell docutils container">
@@ -2066,7 +2035,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-08-14
+Last updated: 2024-08-23
 </p>
 </div>
   </div>
