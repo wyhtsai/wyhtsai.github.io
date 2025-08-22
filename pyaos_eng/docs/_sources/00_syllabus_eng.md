@@ -23,12 +23,13 @@ The tentative schedule and outline are as follows:
 3. xarray Plotting (I): plot the monthly mean OLR in December 2017 (40 mins).
 9. xarray plotting (III): n-D data - global map, maps with various projection methods, Hovmöller diagrams, contour plots, quiver plots, streamline, FacetGrid objects, etc. (50 mins)。
 
-*Read by yourself*
-4. datetime object and datetime conditional control.
-5. Manually creation of DataArray.
-6. Calculate monthly climatology and anomaly.
-7. Advanced calculations and analysis methods: regridding, correlation coefficients, vorticity, divergence.
-8. xarray plotting (II): 1-D data.
+*Read by yourself*  
+
+4. datetime object and datetime conditional control.  
+5. Manually creation of DataArray.  
+6. Calculate monthly climatology and anomaly.  
+7. Advanced calculations and analysis methods: regridding, correlation coefficients, vorticity, divergence.  
+8. xarray plotting (II): 1-D data.  
 
 **2024/11 (TBD): Other Topics on PyAOS**
 

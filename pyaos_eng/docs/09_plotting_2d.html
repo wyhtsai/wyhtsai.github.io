@@ -16,19 +16,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -79,6 +82,7 @@
     <link rel="prev" title="8. xarray Plotting (I): Plotting 1-Dimensional Data" href="08_plotting_1d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -94,19 +98,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -114,7 +107,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -122,8 +114,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -139,7 +131,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -169,21 +162,17 @@
     
     
     <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python for Atmosphere and Ocean Science (PyAOS) - Home"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python for Atmosphere and Ocean Science (PyAOS) - Home"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark pst-js-only" alt="Python for Atmosphere and Ocean Science (PyAOS) - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -217,7 +206,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Other topics</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="11_cdo.html">11. Climate Data Operator (CDO)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. <code class="docutils literal notranslate"><span class="pre">dask</span></code> and Large Datasets Computations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. <code class="docutils literal notranslate"><span class="pre">dask</span></code>: Parallel Computations for Large Datasets</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
@@ -236,9 +225,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -382,24 +376,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -448,10 +434,10 @@ document.write(`
 <p>When plotting global maps on the Plate Carrée projection using <code class="docutils literal notranslate"><span class="pre">cartopy</span></code>, the default central meridian is 0˚ and the map extent is from -180˚ to 180˚ (see details in this <a class="reference external" href="https://stackoverflow.com/questions/13856123/setting-up-a-map-which-crosses-the-dateline-in-cartopy#_=_">StackOverflow post</a>). Below is an example of a map with the default projection setting of the Plate Carrée projection.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">from</span> <span class="nn">cartopy</span> <span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>   
-<span class="kn">from</span> <span class="nn">cartopy.mpl.gridliner</span> <span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy</span><span class="w"> </span><span class="kn">import</span> <span class="n">crs</span> <span class="k">as</span> <span class="n">ccrs</span>   
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy.mpl.gridliner</span><span class="w"> </span><span class="kn">import</span> <span class="n">LONGITUDE_FORMATTER</span><span class="p">,</span> <span class="n">LATITUDE_FORMATTER</span>
 
 <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
 
@@ -462,10 +448,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f2cc2c87910&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7fb5f46e9a80&gt;
 </pre></div>
 </div>
-<img alt="_images/b632adb831b66cc63e9b68c329fae8b712a5623bf660b6e76154231033c7ea4a.png" src="_images/b632adb831b66cc63e9b68c329fae8b712a5623bf660b6e76154231033c7ea4a.png" />
+<img alt="_images/4c9c5f5f431f9d76c78a10b5f9323b953b3588d499703289ddaabbf411a29031.png" src="_images/4c9c5f5f431f9d76c78a10b5f9323b953b3588d499703289ddaabbf411a29031.png" />
 </div>
 </div>
 <p>If we want to plot the map where the central meridian is at 180˚ longitude, we should set <code class="docutils literal notranslate"><span class="pre">central_longitude=180</span></code> for <code class="docutils literal notranslate"><span class="pre">ccrs.PlateCarree()</span></code>.</p>
@@ -478,10 +464,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7f2ad5647a00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.feature_artist.FeatureArtist at 0x7fb3b2dde6e0&gt;
 </pre></div>
 </div>
-<img alt="_images/1b07bdeb9dba0ed213a75bbe331b972187d65a5538da0667110894200a781dca.png" src="_images/1b07bdeb9dba0ed213a75bbe331b972187d65a5538da0667110894200a781dca.png" />
+<img alt="_images/b9df079e72a290161a00909a278caea8f561ac02391dc96d4e4828882962996b.png" src="_images/b9df079e72a290161a00909a278caea8f561ac02391dc96d4e4828882962996b.png" />
 </div>
 </div>
 <p>To plot a filled contour map, it is important to consider the projection type of the <strong>data</strong> and the subplot <code class="docutils literal notranslate"><span class="pre">ax</span></code>.</p>
@@ -493,13 +479,13 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">cmaps</span>
-<span class="kn">from</span> <span class="nn">cartopy.mpl.ticker</span> <span class="kn">import</span> <span class="n">LongitudeFormatter</span><span class="p">,</span> <span class="n">LatitudeFormatter</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">cmaps</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">cartopy.mpl.ticker</span><span class="w"> </span><span class="kn">import</span> <span class="n">LongitudeFormatter</span><span class="p">,</span> <span class="n">LatitudeFormatter</span>
 
-<span class="k">def</span> <span class="nf">smthClmDay</span><span class="p">(</span><span class="n">clmDay</span><span class="p">,</span> <span class="n">nHarm</span><span class="p">):</span>
-    <span class="kn">from</span> <span class="nn">scipy.fft</span> <span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">smthClmDay</span><span class="p">(</span><span class="n">clmDay</span><span class="p">,</span> <span class="n">nHarm</span><span class="p">):</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.fft</span><span class="w"> </span><span class="kn">import</span> <span class="n">rfft</span><span class="p">,</span> <span class="n">irfft</span>
     <span class="n">nt</span><span class="p">,</span> <span class="n">ny</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">clmDay</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">cf</span> <span class="o">=</span> <span class="n">rfft</span><span class="p">(</span><span class="n">clmDay</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>     <span class="c1"># xarray.DataArray.values: convert to numpy.ndarray first. </span>
     <span class="n">cf</span><span class="p">[</span><span class="n">nHarm</span><span class="p">,:,:]</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">cf</span><span class="p">[</span><span class="n">nHarm</span><span class="p">,:,:]</span>    <span class="c1"># mini-taper.</span>
@@ -553,7 +539,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/7c14dbb208b1339c7cc8376ff4000c41aae70974b6450c12d9e5b22d62e558a4.png" src="_images/7c14dbb208b1339c7cc8376ff4000c41aae70974b6450c12d9e5b22d62e558a4.png" />
+<img alt="_images/112c5238e7ab3fa6bad7481e371ebcd283b09f4fe2a8fb02916da53f7ef7c92f.png" src="_images/112c5238e7ab3fa6bad7481e371ebcd283b09f4fe2a8fb02916da53f7ef7c92f.png" />
 </div>
 </div>
 <p>To sum up, the <code class="docutils literal notranslate"><span class="pre">fig</span></code>, subplot <code class="docutils literal notranslate"><span class="pre">ax</span></code>, and data each have their own projection, and these projection systems may not be the same. We set the map projection when we create the subplot <code class="docutils literal notranslate"><span class="pre">ax</span></code> initially, and we set <code class="docutils literal notranslate"><span class="pre">transform</span></code> for the data projection in the plot method. In the next example, we will illustrate this concept again by plotting the 500-hPa geopotential height on a polar map.</p>
@@ -590,13 +576,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cd607be04050b7c25a356e44ad1de460c23be85bd007599bb223554360c6fbaa.png" src="_images/cd607be04050b7c25a356e44ad1de460c23be85bd007599bb223554360c6fbaa.png" />
+<img alt="_images/760aac32ea23445541745d4de4092443423e044e064abd7bd041927c19eebfbd.png" src="_images/760aac32ea23445541745d4de4092443423e044e064abd7bd041927c19eebfbd.png" />
 </div>
 </div>
 <p>The method requires to plot the entire hemisphere latitude. If we only plot a certain latitude range, see the solution below using <code class="docutils literal notranslate"><span class="pre">ccrs.NorthPolarStereo()</span></code>. However, it is rather complicated.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.path</span> <span class="k">as</span> <span class="nn">mpath</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.path</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpath</span>
 
 <span class="n">z</span> <span class="o">=</span> <span class="n">zds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span><span class="n">time2</span><span class="p">),</span>
             <span class="n">lat</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span>
@@ -629,7 +615,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/02f7e516b70773c9335bdd9eda2ceeedc62cf7429cc901a4fac2cffc2e25429d.png" src="_images/02f7e516b70773c9335bdd9eda2ceeedc62cf7429cc901a4fac2cffc2e25429d.png" />
+<img alt="_images/14192889698da3664c3506c62380b92859dc02bd84c407a9b282cad373d86609.png" src="_images/14192889698da3664c3506c62380b92859dc02bd84c407a9b282cad373d86609.png" />
 </div>
 </div>
 <p>Again, when we create the subplot <code class="docutils literal notranslate"><span class="pre">ax</span></code>, we set the map projection type (e.g., <code class="docutils literal notranslate"><span class="pre">ccrs.Orthographic</span></code> or <code class="docutils literal notranslate"><span class="pre">ccrs.NorthPolarStereo()</span></code>) using <code class="docutils literal notranslate"><span class="pre">subplot_kw</span></code>. When we plot the geopotential height <code class="docutils literal notranslate"><span class="pre">zm</span></code>, we specify the data’s projection type with <code class="docutils literal notranslate"><span class="pre">transform=ccrs.PlateCarree()</span></code> because the netCDF file with latitude and longitude grids is equirectangular. This allows Python to properly transform the data coordinates onto the map projection type.</p>
@@ -640,7 +626,7 @@ document.write(`
 <p><strong>Example 3:</strong> Plot a Hovmöller diagram of daily OLR averaged over 5˚S to 5˚N for December 2017.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
 <span class="n">lats</span><span class="p">,</span> <span class="n">latn</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span>
 
@@ -672,7 +658,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6d134dfefc0f730f06a1c2b3d151507bf25124ed5e45b4f44711dc40b153749c.png" src="_images/6d134dfefc0f730f06a1c2b3d151507bf25124ed5e45b4f44711dc40b153749c.png" />
+<img alt="_images/13558730c3627dc9be0335f6dd8cefeddb8d20ff407e95f7c07b6692e6a50a95.png" src="_images/13558730c3627dc9be0335f6dd8cefeddb8d20ff407e95f7c07b6692e6a50a95.png" />
 </div>
 </div>
 <div class="admonition note">
@@ -749,7 +735,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/27c582b336373f54bc93c8b459f86029f9157a93d4350878b427f37b7c464149.png" src="_images/27c582b336373f54bc93c8b459f86029f9157a93d4350878b427f37b7c464149.png" />
+<img alt="_images/30de1a1f330da8272ec3ff139dbcf0d66abc5a18110907b0dfef88d2d02a9458.png" src="_images/30de1a1f330da8272ec3ff139dbcf0d66abc5a18110907b0dfef88d2d02a9458.png" />
 </div>
 </div>
 </section>
@@ -813,13 +799,14 @@ document.write(`
   --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
 }
 
-html[theme=dark],
-body[data-theme=dark],
+html[theme="dark"],
+html[data-theme="dark"],
+body[data-theme="dark"],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
   --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
+  --xr-border-color: #1f1f1f;
   --xr-disabled-color: #515151;
   --xr-background-color: #111111;
   --xr-background-color-row-even: #111111;
@@ -864,7 +851,7 @@ body.vscode-dark {
 .xr-sections {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
+  grid-template-columns: 150px auto auto 1fr 0 20px 0 20px;
 }
 
 .xr-section-item {
@@ -872,7 +859,9 @@ body.vscode-dark {
 }
 
 .xr-section-item input {
-  display: none;
+  display: inline-block;
+  opacity: 0;
+  height: 0;
 }
 
 .xr-section-item input + label {
@@ -882,6 +871,10 @@ body.vscode-dark {
 .xr-section-item input:enabled + label {
   cursor: pointer;
   color: var(--xr-font-color2);
+}
+
+.xr-section-item input:focus + label {
+  border: 2px solid var(--xr-font-color0);
 }
 
 .xr-section-item input:enabled + label:hover {
@@ -905,7 +898,7 @@ body.vscode-dark {
 
 .xr-section-summary-in + label:before {
   display: inline-block;
-  content: '►';
+  content: "►";
   font-size: 11px;
   width: 15px;
   text-align: center;
@@ -916,7 +909,7 @@ body.vscode-dark {
 }
 
 .xr-section-summary-in:checked + label:before {
-  content: '▼';
+  content: "▼";
 }
 
 .xr-section-summary-in:checked + label > span {
@@ -988,15 +981,15 @@ body.vscode-dark {
 }
 
 .xr-dim-list:before {
-  content: '(';
+  content: "(";
 }
 
 .xr-dim-list:after {
-  content: ')';
+  content: ")";
 }
 
 .xr-dim-list li:not(:last-child):after {
-  content: ',';
+  content: ",";
   padding-right: 5px;
 }
 
@@ -1154,17 +1147,17 @@ Coordinates:
     level    float32 4B 850.0
 Data variables:
     uwnd     (lat, lon) float32 11kB 9.181 9.696 9.499 ... 4.067 4.576 5.064
-    vwnd     (lat, lon) float32 11kB 2.825 4.076 4.622 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1a786324-d607-4e12-8f1a-af610cf67074' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1a786324-d607-4e12-8f1a-af610cf67074' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f3dd6d4a-1a6d-4d75-9dd2-2ccdc97aaa84' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f3dd6d4a-1a6d-4d75-9dd2-2ccdc97aaa84' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-e1664090-41a5-42bf-8894-4b1038e36ad6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e1664090-41a5-42bf-8894-4b1038e36ad6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7ec231b9-d77e-4a35-8ce7-0d60f3f407a1' class='xr-var-data-in' type='checkbox'><label for='data-7ec231b9-d77e-4a35-8ce7-0d60f3f407a1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
+    vwnd     (lat, lon) float32 11kB 2.825 4.076 4.622 ... 2.835 2.263 1.643</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-8649f5f8-2e25-4347-a784-5a5524e19283' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8649f5f8-2e25-4347-a784-5a5524e19283' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lon</span>: 73</li><li><span class='xr-has-index'>lat</span>: 37</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-c8a8570f-db6c-4290-b789-89457edf3dfa' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c8a8570f-db6c-4290-b789-89457edf3dfa' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>30.0 32.5 35.0 ... 207.5 210.0</div><input id='attrs-64f1ac34-b02f-4029-bff5-438d47f1f2eb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-64f1ac34-b02f-4029-bff5-438d47f1f2eb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7b87d6f-b17e-4a3b-a205-6ea025d18f87' class='xr-var-data-in' type='checkbox'><label for='data-f7b87d6f-b17e-4a3b-a205-6ea025d18f87' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([ 30. ,  32.5,  35. ,  37.5,  40. ,  42.5,  45. ,  47.5,  50. ,  52.5,
         55. ,  57.5,  60. ,  62.5,  65. ,  67.5,  70. ,  72.5,  75. ,  77.5,
         80. ,  82.5,  85. ,  87.5,  90. ,  92.5,  95. ,  97.5, 100. , 102.5,
        105. , 107.5, 110. , 112.5, 115. , 117.5, 120. , 122.5, 125. , 127.5,
        130. , 132.5, 135. , 137.5, 140. , 142.5, 145. , 147.5, 150. , 152.5,
        155. , 157.5, 160. , 162.5, 165. , 167.5, 170. , 172.5, 175. , 177.5,
        180. , 182.5, 185. , 187.5, 190. , 192.5, 195. , 197.5, 200. , 202.5,
-       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-5e6eb57b-e4e8-4158-a99d-83c92a2bd96d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5e6eb57b-e4e8-4158-a99d-83c92a2bd96d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a531a426-13ff-4c22-b636-96ceef85f07b' class='xr-var-data-in' type='checkbox'><label for='data-a531a426-13ff-4c22-b636-96ceef85f07b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
+       205. , 207.5, 210. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>45.0 42.5 40.0 ... -42.5 -45.0</div><input id='attrs-c00a4e87-deaa-4b88-b680-12cbd09da556' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c00a4e87-deaa-4b88-b680-12cbd09da556' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0cf7d19e-9323-4add-9194-09ccbe794624' class='xr-var-data-in' type='checkbox'><label for='data-0cf7d19e-9323-4add-9194-09ccbe794624' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 45. ,  42.5,  40. ,  37.5,  35. ,  32.5,  30. ,  27.5,  25. ,  22.5,
         20. ,  17.5,  15. ,  12.5,  10. ,   7.5,   5. ,   2.5,   0. ,  -2.5,
         -5. ,  -7.5, -10. , -12.5, -15. , -17.5, -20. , -22.5, -25. , -27.5,
-       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-a5f0e52f-5a49-49f3-b800-da461e6f92f5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a5f0e52f-5a49-49f3-b800-da461e6f92f5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3f7403d1-ca7b-48fd-aa8c-d078eeff8d68' class='xr-var-data-in' type='checkbox'><label for='data-3f7403d1-ca7b-48fd-aa8c-d078eeff8d68' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7f914631-8107-481d-9163-0d89e2ce7878' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7f914631-8107-481d-9163-0d89e2ce7878' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-8930843a-528f-4cee-a3f5-b182f1196815' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8930843a-528f-4cee-a3f5-b182f1196815' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-78b4d9f5-cb2f-40ce-a3fc-7788dceddefb' class='xr-var-data-in' type='checkbox'><label for='data-78b4d9f5-cb2f-40ce-a3fc-7788dceddefb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
+       -30. , -32.5, -35. , -37.5, -40. , -42.5, -45. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>level</span></div><div class='xr-var-dims'>()</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>850.0</div><input id='attrs-c8be2a32-2950-47da-97b3-21c7e18a06d0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c8be2a32-2950-47da-97b3-21c7e18a06d0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-45cb671e-8fb7-432d-9efa-8b8f00083a2a' class='xr-var-data-in' type='checkbox'><label for='data-45cb671e-8fb7-432d-9efa-8b8f00083a2a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>Level</dd><dt><span>units :</span></dt><dd>millibar</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd><dt><span>actual_range :</span></dt><dd>[1000.   10.]</dd><dt><span>GRIB_id :</span></dt><dd>100</dd><dt><span>GRIB_name :</span></dt><dd>hPa</dd><dt><span>coordinate_defines :</span></dt><dd>point</dd></dl></div><div class='xr-var-data'><pre>array(850., dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b03154e9-ca47-4d36-8ba2-d5f4b92d6239' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b03154e9-ca47-4d36-8ba2-d5f4b92d6239' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>uwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>9.181 9.696 9.499 ... 4.576 5.064</div><input id='attrs-22da22e1-db39-431a-b4fd-db7432b323ef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-22da22e1-db39-431a-b4fd-db7432b323ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c9b37f37-9e0a-4ec5-aab8-fcdedfb0e176' class='xr-var-data-in' type='checkbox'><label for='data-c9b37f37-9e0a-4ec5-aab8-fcdedfb0e176' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 9.181286  ,  9.69645   ,  9.499029  , ...,  7.4567723 ,
          6.7912884 ,  6.418386  ],
        [ 6.917741  ,  6.8645134 ,  6.2838697 , ...,  8.779029  ,
          7.800321  ,  7.0541925 ],
@@ -1176,7 +1169,7 @@ Data variables:
        [14.433544  , 14.42548   , 14.407093  , ...,  1.5222566 ,
          2.1535463 ,  2.7658052 ],
        [16.458708  , 16.649675  , 16.723223  , ...,  4.0667725 ,
-         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-3bff65d6-02fd-491a-8ca5-b96386ef4727' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3bff65d6-02fd-491a-8ca5-b96386ef4727' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e8397352-3b75-4f4c-9fac-9084bc2430de' class='xr-var-data-in' type='checkbox'><label for='data-e8397352-3b75-4f4c-9fac-9084bc2430de' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
+         4.575806  ,  5.063869  ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>vwnd</span></div><div class='xr-var-dims'>(lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>2.825 4.076 4.622 ... 2.263 1.643</div><input id='attrs-ab6bb269-5aee-4c31-8942-bb6c73a66717' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ab6bb269-5aee-4c31-8942-bb6c73a66717' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96c05ba1-b1b8-4379-a22f-ab7f89864e83' class='xr-var-data-in' type='checkbox'><label for='data-96c05ba1-b1b8-4379-a22f-ab7f89864e83' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[ 2.824515  ,  4.0764494 ,  4.6216106 , ...,  4.1993527 ,
          6.5370936 ,  8.240643  ],
        [ 3.8196745 ,  4.480966  ,  4.487416  , ...,  3.0641913 ,
          5.598386  ,  7.5722566 ],
@@ -1188,7 +1181,7 @@ Data variables:
        [ 1.2238691 ,  1.3500007 ,  1.4132242 , ...,  1.9729018 ,
          1.3761266 ,  0.75645006],
        [ 1.6329001 ,  1.6435454 ,  1.5754813 , ...,  2.834838  ,
-         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9444253a-80b0-4eec-acb5-5d2b697ae676' class='xr-section-summary-in' type='checkbox'  ><label for='section-9444253a-80b0-4eec-acb5-5d2b697ae676' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9f643dcf-dc38-46e3-872b-33c89c1805d1' class='xr-index-data-in' type='checkbox'/><label for='index-9f643dcf-dc38-46e3-872b-33c89c1805d1' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.0,  32.5,  35.0,  37.5,  40.0,  42.5,  45.0,  47.5,  50.0,  52.5,
+         2.262902  ,  1.6432229 ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-06d3ecf8-4dc2-420e-83a8-a380c049fea2' class='xr-section-summary-in' type='checkbox'  ><label for='section-06d3ecf8-4dc2-420e-83a8-a380c049fea2' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>lon</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-6c09c73d-aec1-4b2d-ac1c-8c5a3fbc195f' class='xr-index-data-in' type='checkbox'/><label for='index-6c09c73d-aec1-4b2d-ac1c-8c5a3fbc195f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 30.0,  32.5,  35.0,  37.5,  40.0,  42.5,  45.0,  47.5,  50.0,  52.5,
         55.0,  57.5,  60.0,  62.5,  65.0,  67.5,  70.0,  72.5,  75.0,  77.5,
         80.0,  82.5,  85.0,  87.5,  90.0,  92.5,  95.0,  97.5, 100.0, 102.5,
        105.0, 107.5, 110.0, 112.5, 115.0, 117.5, 120.0, 122.5, 125.0, 127.5,
@@ -1196,11 +1189,11 @@ Data variables:
        155.0, 157.5, 160.0, 162.5, 165.0, 167.5, 170.0, 172.5, 175.0, 177.5,
        180.0, 182.5, 185.0, 187.5, 190.0, 192.5, 195.0, 197.5, 200.0, 202.5,
        205.0, 207.5, 210.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-42ec2dbb-54c8-4c4f-a13e-b297fad806d6' class='xr-index-data-in' type='checkbox'/><label for='index-42ec2dbb-54c8-4c4f-a13e-b297fad806d6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;lon&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>lat</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-4157d95b-fb08-49bf-833b-549c3140a042' class='xr-index-data-in' type='checkbox'/><label for='index-4157d95b-fb08-49bf-833b-549c3140a042' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 45.0,  42.5,  40.0,  37.5,  35.0,  32.5,  30.0,  27.5,  25.0,  22.5,
         20.0,  17.5,  15.0,  12.5,  10.0,   7.5,   5.0,   2.5,   0.0,  -2.5,
         -5.0,  -7.5, -10.0, -12.5, -15.0, -17.5, -20.0, -22.5, -25.0, -27.5,
        -30.0, -32.5, -35.0, -37.5, -40.0, -42.5, -45.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3d7dc83a-d8ac-4477-807c-9062a0a8dd73' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3d7dc83a-d8ac-4477-807c-9062a0a8dd73' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;lat&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8a44d8ca-4646-4d68-8b96-d8f988c853b2' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-8a44d8ca-4646-4d68-8b96-d8f988c853b2' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>We first plot the wind field.</p>
 <div class="cell docutils container">
@@ -1221,7 +1214,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2a949898f017acb125069176fee7ce48951bb88e185ad31b762ea01508ceed4b.png" src="_images/2a949898f017acb125069176fee7ce48951bb88e185ad31b762ea01508ceed4b.png" />
+<img alt="_images/a65a8eb28f3d99908298a3503e33729a8fe0caa5ae2abaadb502226501511a6f.png" src="_images/a65a8eb28f3d99908298a3503e33729a8fe0caa5ae2abaadb502226501511a6f.png" />
 </div>
 </div>
 <p>The arrows in the above chart are too dense and bunched together. How can we adjust this? We can plot vectors every 2 grids (or 5˚), or coarsen the wind field resolution.</p>
@@ -1246,7 +1239,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6a71f3b5cfc9a060ca3cf068abf309c985b98c950d1e5a96f09e6f9f94dc1dec.png" src="_images/6a71f3b5cfc9a060ca3cf068abf309c985b98c950d1e5a96f09e6f9f94dc1dec.png" />
+<img alt="_images/23172072ac8ba904d938cb4fdc0f044bd992f278238617967a2db53526c78602.png" src="_images/23172072ac8ba904d938cb4fdc0f044bd992f278238617967a2db53526c78602.png" />
 </div>
 </div>
 <p>Overlay wind field on the OLR map:</p>
@@ -1299,7 +1292,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9ce2928c0ae29dc6ec49b8401d5a721599fec44d63881b21c548342874e36280.png" src="_images/9ce2928c0ae29dc6ec49b8401d5a721599fec44d63881b21c548342874e36280.png" />
+<img alt="_images/6b75fd4738abf732ddf9ad1ae68010421459de859447c446c8d244652355982b.png" src="_images/6b75fd4738abf732ddf9ad1ae68010421459de859447c446c8d244652355982b.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1365,7 +1358,7 @@ Data variables:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1350x900 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/b40bb5846edde0a9c930f89152a323b2bb3e116b9fa67515db3f9b6e59e60122.png" src="_images/b40bb5846edde0a9c930f89152a323b2bb3e116b9fa67515db3f9b6e59e60122.png" />
+<img alt="_images/8bac76c14426e5cb3c4ab04c25e4a20c8887040e183838582139e9e1ee8ea6cd.png" src="_images/8bac76c14426e5cb3c4ab04c25e4a20c8887040e183838582139e9e1ee8ea6cd.png" />
 </div>
 </div>
 <div class="admonition caution">
@@ -1453,7 +1446,7 @@ Data variables:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/62d8909ea2a0f32cc4304fcf7037ddf8ea9b5d239a0c8182f045b8fd003a5893.png" src="_images/62d8909ea2a0f32cc4304fcf7037ddf8ea9b5d239a0c8182f045b8fd003a5893.png" />
+<img alt="_images/563ff3755ae89662a6d0a7cf663a607c59dcf5b3957645bd7e5644179df2ceb5.png" src="_images/563ff3755ae89662a6d0a7cf663a607c59dcf5b3957645bd7e5644179df2ceb5.png" />
 </div>
 </div>
 </section>
@@ -1514,7 +1507,8 @@ Data variables:
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1554,7 +1548,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
 
   <p class="copyright">
     
-      © Copyright 2021-2024.
+      © Copyright 2021-2025.
       <br/>
     
   </p>
@@ -1569,7 +1563,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-08-23
+Last updated: 2025-08-21
 </p>
 </div>
   </div>
@@ -1583,8 +1577,8 @@ Last updated: 2024-08-23
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
