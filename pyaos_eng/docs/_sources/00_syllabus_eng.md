@@ -34,8 +34,9 @@ The tentative schedule and outline are as follows:
 **2024/11 (TBD): Other Topics on PyAOS**
 
 10.   `pandas` and `seaborn`: visualization of statistical results.
-11.   Climate Data Operator (CDO).
-12.   Large Datasets Processing.
+11.   `flox`: Advanced Tools for GroupBy and Resample
+12.   Climate Data Operator (CDO).
+13.   Large Datasets Processing.
 
 ### Evaluation 
 Two assignments.
