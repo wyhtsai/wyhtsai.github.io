@@ -6,6 +6,8 @@
 **Time:** 2024/09/06 (Fri.)   
 **Place:** NWC 4140.
 
+**中文版講義 (Mandarin version):** https://wyhtsai.github.io/pyaos-wks/docs/index.html
+
 ### Course Objectives
 1. Participants can understand the fundamental methods and functions in PyAOS libraries.  
 2. Participants can be familiar with reading netCDF files, analysis and plotting methods using xarray. 
