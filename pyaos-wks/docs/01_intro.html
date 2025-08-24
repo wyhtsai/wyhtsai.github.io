@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1. 導論 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -15,47 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -63,19 +63,24 @@
                 gtag('js', new Date());
                 gtag('config', 'G-HKB5C6NRJC');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-HKB5C6NRJC');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '01_intro';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="2. 讀取netCDF和GRIB資料" href="02_open_nc_files.html" />
+    <link rel="next" title="2. 讀取和寫入netCDF和GRIB檔案" href="02_open_nc_files.html" />
     <link rel="prev" title="電腦環境設置與Python安裝" href="00_setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,32 +88,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -116,7 +105,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -124,16 +112,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -146,6 +143,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="00_syllabus.html">
@@ -160,11 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark pst-js-only" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -178,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="00_setup.html">電腦環境設置與Python安裝</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. 導論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取netCDF和GRIB資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取和寫入netCDF和GRIB檔案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. 繪製月平均地圖及輸出計算結果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_xr_datetime.html">4. 時間條件控制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_da_create.html">5. 手動創建DataArray</a></li>
@@ -196,19 +203,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">其他重要議題</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="11_cdo.html">11. Climate Data Operator (CDO)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. 大型資料處理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_flox.html">11. <code class="docutils literal notranslate"><span class="pre">flox</span></code>：進階的分組與重抽樣套件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_cdo.html">11. Climate Data Operator (CDO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_large_ds.html">13. 大型資料處理</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">附錄</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">不規則形狀的網格選擇</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2_besttracks.html">颱風資料庫與路徑繪製</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A3_lanczos_filter.html">Lanczos 時間序列濾波</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">馬登－朱利安震盪 (MJO) 氣候變異分析</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A6_tropical_waves.html">熱帶波動判識與分析</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -217,14 +225,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -233,14 +246,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -362,26 +375,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -414,12 +421,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>1. 導論<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
+<h1>1. 導論<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
 <section id="pyaos">
-<h2>PyAOS簡介<a class="headerlink" href="#pyaos" title="Permalink to this heading">#</a></h2>
+<h2>PyAOS簡介<a class="headerlink" href="#pyaos" title="Link to this heading">#</a></h2>
 <p>PyAOS是一套Python的程式套件，按照<a class="reference external" href="https://pyaos.github.io/">PyAOS官方網站</a>的定義，PyAOS是</p>
 <blockquote>
 <div><p>Python libraries stack used by the AOS community. A group of programs that works in tandem to produce a result or achieve a common goal is often referred to as a software stack.</p>
@@ -438,19 +445,19 @@ document.write(`
 <p>然而，以上的幾個套件雖然就可以幫助我們完成研究，用起來也彈性，但也因為功能較為基礎，簡單的工作可能就需要寫比較長的程式碼。為了讓這些工作可以簡化，Python社群就開發了高階的套件，雖然彈性可能沒那麼大，但是可以完成很多事情，讓科學家的研究工作變得更有效率。這些高階的PyAOS套件包含xarray、iris等。本次的工作坊會以xarray為學習的主軸。</p>
 </section>
 <section id="xarray">
-<h2>xarray簡介<a class="headerlink" href="#xarray" title="Permalink to this heading">#</a></h2>
+<h2>xarray簡介<a class="headerlink" href="#xarray" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">xarray</span></code>是由The Climate Corporation的科學家Stephan Hoyer、Alex Kleeman、Eugene Brevdo開發的工具，2014年以開放取用資源的方式釋出，2018年起由NumFOCUS贊助。這套工具專門為多維陣列的資料所設計，用以讀取netCDF資料、進行資料處理、範圍選取、統計運算和繪圖，並且把這些功能整合在一起，使得工作流程變得簡潔流暢。</p>
 <p>因此，本文將按照讀檔、資料分析、視覺化三個步驟，以<code class="docutils literal notranslate"><span class="pre">xarray</span></code>函式庫為主要資料處理、統計計算和繪圖的核心，以氣候分析的角度介紹常使用的Python函式庫以及程式技巧，以建立資料分析流程。本文的目的不在建立一個嚴謹的<code class="docutils literal notranslate"><span class="pre">xarray</span></code>使用說明，而是從氣候分析的實例出發，說明<code class="docutils literal notranslate"><span class="pre">xarray</span></code>的用法，因此若需要函數或引數的相關細節，請參見<a class="reference external" href="http://xarray.pydata.org/en/stable/index.html#"><code class="docutils literal notranslate"><span class="pre">xarray</span></code>網頁</a>。</p>
 <p><strong>小提示：</strong> 如果對Python的基本指令還不熟悉 (e.g. 變數種類、變數定義、if分支結構、for迴圈、函數/副程式⋯⋯等)，可以先上網站搜尋入門教學，再來學習本文的內容喔！(例如：<a class="reference external" href="https://kopu.chat/2017/01/18/%E4%B8%80%E5%B0%8F%E6%99%82python%E5%85%A5%E9%96%80-part-1/">一小時Python入門網頁</a>，其實網路上資源非常多也容易讀)</p>
 </section>
 <section id="id2">
-<h2>引入函式庫<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>引入函式庫<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>在本文中，需要的函式庫有 <code class="docutils literal notranslate"><span class="pre">numpy</span></code>、<code class="docutils literal notranslate"><span class="pre">xarray</span></code>、<code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>……等，在空白的Python程式 (<a class="reference external" href="http://xn--ker42bk66b.py">副檔名.py</a>) 加入以下指令，就可以引入所需要的資源庫。例如：</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span> 
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -485,8 +492,8 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_setup.html"
@@ -502,7 +509,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">2. 讀取netCDF和GRIB資料</p>
+        <p class="prev-next-title">2. 讀取和寫入netCDF和GRIB檔案</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -513,7 +520,9 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -545,9 +554,10 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2021-2024.
+      © Copyright 2021-2025.
       <br/>
     
   </p>
@@ -562,7 +572,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-01-16
+Last updated: 2025-08-23
 </p>
 </div>
   </div>
@@ -576,8 +586,8 @@ Last updated: 2024-01-16
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

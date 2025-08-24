@@ -3,6 +3,8 @@
 ## Python在大氣和海洋科學上的應用 
 **國立台灣大學大氣科學系 蔡元懷**  
 
+English version: https://wyhtsai.github.io/pyaos_eng/docs/index.html
+
 ### 教學目標
 1. 認識以xarray為主的PyAOS工具的基本指令。
 2. 熟練用xarray套件讀取netCDF檔案、分析資料及繪圖。 
@@ -33,8 +35,9 @@ PyAOS (Python for Atmosphere and Ocean Science) 是一套高階的Python程式�
 
 **其他重要議題**
 
-11.  Climate Data Operator (CDO)。
-12.  大型資料處理。
+11.  `flox`: 進階的分組與重抽樣套件。
+12.  Climate Data Operator (CDO)。
+13.  `dask`：大型資料處理。
 
 ### 評量方法
 請完成指定習題 (共1次)，將結果的圖以及程式碼上傳到Moodle學習平台。  

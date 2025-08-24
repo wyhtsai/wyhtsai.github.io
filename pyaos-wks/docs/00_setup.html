@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>電腦環境設置與Python安裝 &#8212; Python在大氣和海洋科學上的應用 (PyAOS)</title>
   
@@ -15,47 +14,48 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-HKB5C6NRJC"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -63,12 +63,16 @@
                 gtag('js', new Date());
                 gtag('config', 'G-HKB5C6NRJC');
             </script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'G-HKB5C6NRJC');
+            </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = '00_setup';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -76,6 +80,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="prev" title="教學綱要（中文）" href="00_syllabus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,32 +88,16 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -116,7 +105,6 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -124,16 +112,25 @@ const thebe_selector_output = ".output, .cell_output"
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -146,6 +143,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="00_syllabus.html">
@@ -160,11 +160,18 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/PyAOS_gray_logo.png" class="logo__image only-light" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
-    <script>document.write(`<img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>`);</script>
+    <img src="_static/PyAOS_gray_logo.png" class="logo__image only-dark pst-js-only" alt="Python在大氣和海洋科學上的應用 (PyAOS) - Home"/>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -178,7 +185,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">電腦環境設置與Python安裝</a></li>
 <li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. 導論</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取netCDF和GRIB資料</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_open_nc_files.html">2. 讀取和寫入netCDF和GRIB檔案</a></li>
 <li class="toctree-l1"><a class="reference internal" href="03_plotting_basics.html">3. 繪製月平均地圖及輸出計算結果</a></li>
 <li class="toctree-l1"><a class="reference internal" href="04_xr_datetime.html">4. 時間條件控制</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_da_create.html">5. 手動創建DataArray</a></li>
@@ -196,19 +203,20 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">其他重要議題</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="11_cdo.html">11. Climate Data Operator (CDO)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="12_large_ds.html">12. 大型資料處理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_flox.html">11. <code class="docutils literal notranslate"><span class="pre">flox</span></code>：進階的分組與重抽樣套件</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_cdo.html">11. Climate Data Operator (CDO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_large_ds.html">13. 大型資料處理</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">附錄</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="appendix-main.html">附錄：實用氣候分析程式範例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="A4_ireg_grid_sel.html">不規則形狀的網格選擇</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A2_besttracks.html">颱風資料庫與路徑繪製</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A3_lanczos_filter.html">Lanczos 時間序列濾波</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A1_mjo_phase.html">馬登－朱利安震盪 (MJO) 氣候變異分析</a></li>
 <li class="toctree-l2"><a class="reference internal" href="A6_tropical_waves.html">熱帶波動判識與分析</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -217,14 +225,19 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -233,14 +246,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -362,26 +375,20 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script>
 
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -424,13 +431,13 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>電腦環境設置與Python安裝<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
+<h1>電腦環境設置與Python安裝<a class="headerlink" href="#python" title="Link to this heading">#</a></h1>
 <p>本篇教學如何利用 <strong>Micromamba</strong> 安裝Python、管理Python套件和環境，以及如何使用 <strong>Visual Studio Code (VS Code)</strong> 編寫程式。編寫Python程式的方法有很多，這裡示範的是筆者常用的方法，使用者可參考自己的需求而調整。</p>
 <section id="vs-code">
-<h2>安裝VS Code<a class="headerlink" href="#vs-code" title="Permalink to this heading">#</a></h2>
+<h2>安裝VS Code<a class="headerlink" href="#vs-code" title="Link to this heading">#</a></h2>
 <p>Visual Studio Code (簡稱VS Code) 是一款由微軟開發且跨平台的免費整合式開發環境。該軟體支援在本機上撰寫本機或遠端工作站的各式程式，支援程式碼上色、補齊等編輯功能，還內建終端機，能夠在VS Code上呼叫核心來執行本機或遠端的程式碼，是相當強大的開發工具。接下來將示範如何以VS Code安裝所需要的Python套件，以及撰寫程式，請點入<a class="reference external" href="https://code.visualstudio.com">Visual Studio Code官方網站</a>下載並安裝VS Code。</p>
 <p>下載後打開VS Code，點選「延伸模組」按鈕。</p>
 <p><img alt="" src="_images/fig0.2.png" /></p>
@@ -439,7 +446,7 @@ document.write(`
 <p><img alt="" src="_images/fig0.3.png" /></p>
 </section>
 <section id="micromamba">
-<h2>安裝Micromamba<a class="headerlink" href="#micromamba" title="Permalink to this heading">#</a></h2>
+<h2>安裝Micromamba<a class="headerlink" href="#micromamba" title="Link to this heading">#</a></h2>
 <p>Anaconda 是常用的Python套件管理軟體，優點是擁有大量的Python套件，且容易安裝和學習。請先進入 <a class="reference external" href="https://www.anaconda.com">Mamba官方網站</a>，在 Installation / Micromamba / Mamba-org releases / Install script 的子節，複製安裝的shell script程式碼到自己的終端機上安裝，即</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;$</span><span class="si">{SHELL}</span><span class="s2">&quot;</span> <span class="o">&lt;</span><span class="p">(</span><span class="n">curl</span> <span class="o">-</span><span class="n">L</span> <span class="n">micro</span><span class="o">.</span><span class="n">mamba</span><span class="o">.</span><span class="n">pm</span><span class="o">/</span><span class="n">install</span><span class="o">.</span><span class="n">sh</span><span class="p">)</span>
 </pre></div>
@@ -453,7 +460,7 @@ document.write(`
 </ul>
 </section>
 <section id="pyaospython">
-<h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Permalink to this heading">#</a></h2>
+<h2>安裝PyAOS所需Python套件庫<a class="headerlink" href="#pyaospython" title="Link to this heading">#</a></h2>
 <p>安裝好Micromamba後，請打開終端機。</p>
 <ul class="simple">
 <li><p>Mac使用者：可以直接使用Mac內建終端機。這時會發現多了<code class="docutils literal notranslate"><span class="pre">(base)</span></code>字樣，這是因為Micromamba會自動安裝一些基本套件，這個套件環境預設稱為base。然而Micromamba預設安裝好的base套件不能滿足我們進行PyAOS運算的環境，因此要額外安裝套件。接下來我們安裝PyAOS需要的套件，請將以下指令複製到終端機並執行：</p></li>
@@ -466,7 +473,7 @@ document.write(`
 <img alt="" src="_images/fig_n4.png" />
 由於Windows環境能支援的Python套件有限，因此我們會安裝較少但必要的套件庫。請將以下指令複製貼上VS Code的終端機。</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">micromamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">matplotlib</span> <span class="n">cartopy</span> <span class="n">xarray</span> <span class="n">pandas</span> <span class="n">seaborn</span>  <span class="n">jupyterlab</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">hvplot</span> <span class="n">pip</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">micromamba</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">p3</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">ipython</span> <span class="n">numpy</span> <span class="n">metpy</span> <span class="n">scipy</span> <span class="n">netCDF4</span> <span class="n">cfgrib</span> <span class="n">matplotlib</span> <span class="n">eofs</span> <span class="n">xeofs</span> <span class="n">cartopy</span> <span class="n">nco</span> <span class="n">cdo</span> <span class="n">python</span><span class="o">-</span><span class="n">cdo</span> <span class="n">xarray</span> <span class="n">cfgrib</span> <span class="n">pandas</span> <span class="n">seaborn</span> <span class="n">cmaps</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">dask</span> <span class="n">bottleneck</span> <span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">pip</span> <span class="n">bpytop</span> <span class="n">flox</span> <span class="n">esmpy</span> <span class="n">xesmf</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.10</span> 
 </pre></div>
 </div>
 <div class="admonition caution">
@@ -481,7 +488,7 @@ document.write(`
 <p><img alt="" src="_images/fig0.1.png" /></p>
 </section>
 <section id="visual-studio-code">
-<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Permalink to this heading">#</a></h2>
+<h2>用Visual Studio Code撰寫程式<a class="headerlink" href="#visual-studio-code" title="Link to this heading">#</a></h2>
 <p>撰寫Python程式，按照檔名可區分為</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">.py</span></code>：屬於Python程式的scipt，也就是把完整的程式寫好了以後，由Python逐行執行。</p></li>
@@ -503,17 +510,17 @@ document.write(`
 <p><img alt="" src="_images/fig0.5.png" /></p>
 </section>
 <section id="id1">
-<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>撰寫測試程式<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p><strong>Example 1:</strong> 請用import將xarray套件輸入，並且印出xarray套件的版本資訊。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Xarray version: &#39;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.11.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2025.1.2
 </pre></div>
 </div>
 </div>
@@ -522,20 +529,20 @@ document.write(`
 <p><img alt="" src="_images/fig0.6.png" /></p>
 </section>
 <section id="jupyter-notebook">
-<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Permalink to this heading">#</a></h2>
+<h2>Jupyter Notebook<a class="headerlink" href="#jupyter-notebook" title="Link to this heading">#</a></h2>
 <p>Jupyter Notebook是在網頁上操作的Python互動性介面，可以開啟窗格 (cells) 寫筆記、註解、撰寫程式，程式也可以按照個人需求分段撰寫和執行。</p>
 <p>在VS Code 工作資料夾下新增一個<code class="docutils literal notranslate"><span class="pre">test.ipynb</span></code>的檔案。注意Jupyter Notebook的副檔名為<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>。</p>
 <p>請在VS Code中按「+程式碼」，然後撰寫跟剛剛一樣的測試程式，並且按儲存格 (Cell) 旁邊的「執行」按鈕。接著會跳出一個視窗，詢問ipynb檔案的核心，請選擇<code class="docutils literal notranslate"><span class="pre">p3</span></code>的核心，按一下就會開始執行了。</p>
 <p><img alt="" src="_images/fig0.10.png" /></p>
 </section>
 <section id="id2">
-<h2>套件版本檢查<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>套件版本檢查<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>為了避免版本不相容，因此在開始閱讀本文前，建議先檢查各個套件的版本。本章的Example 1就是Python檢查套件的版本的方式，版本是以<code class="docutils literal notranslate"><span class="pre">__version__</span></code>這個attribute中儲存，因此可以print出來檢查。</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span> 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-<span class="kn">import</span> <span class="nn">cartopy</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span> 
+<span class="kn">import</span><span class="w"> </span><span class="nn">cartopy</span> 
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Xarray version: &quot;</span> <span class="o">+</span> <span class="n">xr</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Numpy version: &quot;</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
@@ -544,23 +551,23 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2023.11.0
-Numpy version: 1.26.2
-Cartopy version: 0.22.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Xarray version: 2025.1.2
+Numpy version: 2.1.3
+Cartopy version: 0.24.0
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="id3">
-<h2>小結<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>小結<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>以上的方法都是幫助我們方便地撰寫和執行Python程式，當然還有很多不同的方法、執行工具，可以再探索和熟悉。現在，Python運算環境設置好，接著就可以開始學習用PyAOS寫程式了。</p>
 </section>
 <section id="windows">
-<h2>Windows使用者的語言設定<a class="headerlink" href="#windows" title="Permalink to this heading">#</a></h2>
+<h2>Windows使用者的語言設定<a class="headerlink" href="#windows" title="Link to this heading">#</a></h2>
 <p>(Mac使用者請略過此部分) 由於xarray在讀取檔案時，路徑不允許中文字，因此請調整以下設定：</p>
 <section id="windows-11">
-<h3>Windows 11<a class="headerlink" href="#windows-11" title="Permalink to this heading">#</a></h3>
+<h3>Windows 11<a class="headerlink" href="#windows-11" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
 <img alt="" src="_images/win11_01.png" /></p></li>
@@ -575,7 +582,7 @@ Cartopy version: 0.22.0
 </ol>
 </section>
 <section id="windows-10">
-<h3>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this heading">#</a></h3>
+<h3>Windows 10<a class="headerlink" href="#windows-10" title="Link to this heading">#</a></h3>
 <p>步驟和Windows 11類似。</p>
 <ol class="arabic simple">
 <li><p>在開始工作列右方的日期與時間，右鍵點選「調整日期和時間」。<br />
@@ -628,8 +635,8 @@ Cartopy version: 0.22.0
               
               
               
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="prev-next-footer d-print-none">
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_syllabus.html"
@@ -656,7 +663,9 @@ Cartopy version: 0.22.0
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -698,9 +707,10 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
-      © Copyright 2021-2024.
+      © Copyright 2021-2025.
       <br/>
     
   </p>
@@ -715,7 +725,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
     
 <div class="extra_footer">
   <p>
-Last updated: 2024-01-16
+Last updated: 2025-08-23
 </p>
 </div>
   </div>
@@ -729,8 +739,8 @@ Last updated: 2024-01-16
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
