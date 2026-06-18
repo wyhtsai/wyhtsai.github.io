@@ -15,4 +15,4 @@ sphinx:
     - sphinx_sitemap
 
 html:
-  baseurl: "https://wyhtsai.github.io/pyaos_eng/"
+  baseurl: "https://wyhtsai.github.io/pyaos_eng/doc/"
