@@ -76,6 +76,7 @@
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'A3_lanczos_filter';</script>
+    <link rel="canonical" href="https://wyhtsai.github.io/pyaos_eng/A3_lanczos_filter.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Climate Variability Analysis: Madden–Julian Oscillation (MJO)" href="A1_mjo_phase.html" />
@@ -582,111 +583,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># 將OLR送進濾波函數</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">olr_10_hp</span>    <span class="o">=</span> <span class="n">lanczos_hp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">10.</span><span class="p">)</span>             <span class="p">,</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">olr_30_60_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">60.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">30.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">olr_10_30_bp</span> <span class="o">=</span> <span class="n">lanczos_bp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">20.</span><span class="p">),</span><span class="n">fcb</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">10.</span><span class="p">),</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">olr_120_lp</span>   <span class="o">=</span> <span class="n">lanczos_lp_filter</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">olr</span><span class="p">,</span> <span class="n">nwts</span><span class="o">=</span><span class="mi">201</span><span class="p">,</span><span class="n">fca</span><span class="o">=</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">120.</span><span class="p">)</span>            <span class="p">,</span><span class="n">srate</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="nn">Cell In[1], line 117,</span> in <span class="ni">lanczos_bp_filter</span><span class="nt">(data, nwts, fca, fcb, srate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">114</span> <span class="n">weight_low</span>  <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">lfw</span><span class="p">,</span> <span class="n">dims</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;window&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">    </span><span class="mi">116</span> <span class="c1"># apply the filters using the rolling method with the weights</span>
-<span class="ne">--&gt; </span><span class="mi">117</span> <span class="n">lowpass_hf</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">hfw</span><span class="p">),</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weight_high</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="n">lowpass_lf</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lfw</span><span class="p">),</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weight_low</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="c1"># the bandpass is the difference of two lowpass filters.</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/util/deprecation_helpers.py:143,</span> in <span class="ni">deprecate_dims.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="n">emit_user_level_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="sa">f</span><span class="s2">&quot;The `</span><span class="si">{</span><span class="n">old_name</span><span class="si">}</span><span class="s2">` argument has been renamed to `dim`, and will be removed &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="s2">&quot;in the future. This renaming is taking place throughout xarray over the &quot;</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;dim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">143</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/dataarray.py:5110,</span> in <span class="ni">DataArray.dot</span><span class="nt">(self, other, dim)</span>
-<span class="g g-Whitespace">   </span><span class="mi">5107</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">other</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">5108</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;dot only operates on DataArrays.&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">5110</span> <span class="k">return</span> <span class="n">computation</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/util/deprecation_helpers.py:143,</span> in <span class="ni">deprecate_dims.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">135</span>     <span class="n">emit_user_level_warning</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">136</span>         <span class="sa">f</span><span class="s2">&quot;The `</span><span class="si">{</span><span class="n">old_name</span><span class="si">}</span><span class="s2">` argument has been renamed to `dim`, and will be removed &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">137</span>         <span class="s2">&quot;in the future. This renaming is taking place throughout xarray over the &quot;</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">140</span>         <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">141</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">142</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;dim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_name</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">143</span> <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/computation.py:1872,</span> in <span class="ni">dot</span><span class="nt">(dim, *arrays, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1869</span> <span class="c1"># subscripts should be passed to np.einsum as arg, not as kwargs. We need</span>
-<span class="g g-Whitespace">   </span><span class="mi">1870</span> <span class="c1"># to construct a partial function for apply_ufunc to work.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1871</span> <span class="n">func</span> <span class="o">=</span> <span class="n">functools</span><span class="o">.</span><span class="n">partial</span><span class="p">(</span><span class="n">duck_array_ops</span><span class="o">.</span><span class="n">einsum</span><span class="p">,</span> <span class="n">subscripts</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1872</span> <span class="n">result</span> <span class="o">=</span> <span class="n">apply_ufunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1873</span>     <span class="n">func</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1874</span>     <span class="o">*</span><span class="n">arrays</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1875</span>     <span class="n">input_core_dims</span><span class="o">=</span><span class="n">input_core_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1876</span>     <span class="n">output_core_dims</span><span class="o">=</span><span class="n">output_core_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1877</span>     <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="n">dask</span><span class="o">=</span><span class="s2">&quot;allowed&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1880</span> <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">*</span><span class="n">all_dims</span><span class="p">,</span> <span class="n">missing_dims</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/computation.py:1271,</span> in <span class="ni">apply_ufunc</span><span class="nt">(func, input_core_dims, output_core_dims, exclude_dims, vectorize, join, dataset_join, dataset_fill_value, keep_attrs, kwargs, dask, output_dtypes, output_sizes, meta, dask_gufunc_kwargs, on_missing_core_dim, *args)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1269</span> <span class="c1"># feed DataArray apply_variable_ufunc through apply_dataarray_vfunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1270</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1271</span>     <span class="k">return</span> <span class="n">apply_dataarray_vfunc</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1272</span>         <span class="n">variables_vfunc</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1273</span>         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1274</span>         <span class="n">signature</span><span class="o">=</span><span class="n">signature</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1275</span>         <span class="n">join</span><span class="o">=</span><span class="n">join</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1276</span>         <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1277</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1278</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="c1"># feed Variables directly through apply_variable_ufunc</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span> <span class="k">elif</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">Variable</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">):</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/computation.py:313,</span> in <span class="ni">apply_dataarray_vfunc</span><span class="nt">(func, signature, join, exclude_dims, keep_attrs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span> <span class="n">result_coords</span><span class="p">,</span> <span class="n">result_indexes</span> <span class="o">=</span> <span class="n">build_output_coords_and_indexes</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>     <span class="n">args</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="p">,</span> <span class="n">combine_attrs</span><span class="o">=</span><span class="n">keep_attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="n">data_vars</span> <span class="o">=</span> <span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">313</span> <span class="n">result_var</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">data_vars</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">315</span> <span class="n">out</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">DataArray</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="n">DataArray</span>
-<span class="g g-Whitespace">    </span><span class="mi">316</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/computation.py:824,</span> in <span class="ni">apply_variable_ufunc</span><span class="nt">(func, signature, exclude_dims, dask, output_dtypes, vectorize, keep_attrs, dask_gufunc_kwargs, *args)</span>
-<span class="g g-Whitespace">    </span><span class="mi">819</span>     <span class="k">if</span> <span class="n">vectorize</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">820</span>         <span class="n">func</span> <span class="o">=</span> <span class="n">_vectorize</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span>             <span class="n">func</span><span class="p">,</span> <span class="n">signature</span><span class="p">,</span> <span class="n">output_dtypes</span><span class="o">=</span><span class="n">output_dtypes</span><span class="p">,</span> <span class="n">exclude_dims</span><span class="o">=</span><span class="n">exclude_dims</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">824</span> <span class="n">result_data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">input_data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">826</span> <span class="k">if</span> <span class="n">signature</span><span class="o">.</span><span class="n">num_outputs</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">827</span>     <span class="n">result_data</span> <span class="o">=</span> <span class="p">(</span><span class="n">result_data</span><span class="p">,)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/xarray/core/duck_array_ops.py:59,</span> in <span class="ni">einsum</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">58</span>     <span class="n">xp</span> <span class="o">=</span> <span class="n">get_array_namespace</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">59</span>     <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/numpy/_core/einsumfunc.py:1429,</span> in <span class="ni">einsum</span><span class="nt">(out, optimize, *operands, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1427</span>     <span class="k">if</span> <span class="n">specified_out</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1428</span>         <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;out&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span>
-<span class="ne">-&gt; </span><span class="mi">1429</span>     <span class="k">return</span> <span class="n">c_einsum</span><span class="p">(</span><span class="o">*</span><span class="n">operands</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1431</span> <span class="c1"># Check the kwargs to avoid a more cryptic error later, without having to</span>
-<span class="g g-Whitespace">   </span><span class="mi">1432</span> <span class="c1"># repeat default values here</span>
-<span class="g g-Whitespace">   </span><span class="mi">1433</span> <span class="n">valid_einsum_kwargs</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">,</span> <span class="s1">&#39;order&#39;</span><span class="p">,</span> <span class="s1">&#39;casting&#39;</span><span class="p">]</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -883,6 +779,7 @@ By Wayne Yuan-Huai Tsai, University of Oklahoma
   <p>
 Last updated: 2026-06-17
 </p>
+
 </div>
   </div>
   

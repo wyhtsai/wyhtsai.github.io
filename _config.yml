@@ -9,3 +9,10 @@ description: > # your text below (remove <br> elements if you don't need line br
   
 theme: maxant
 google_analytics: UA-000000-0 # your Google Analytics tracking ID here
+
+sphinx:
+  extra_extensions:
+    - sphinx_sitemap
+
+html:
+  baseurl: "https://wyhtsai.github.io/pyaos_eng/"
