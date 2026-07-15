@@ -454,13 +454,13 @@
 <span class="n">hgt</span> 
 </pre></div>
 </div>
-<p>The process takes 7 minutes and 21 seconds, and consumes up to 110GB of RAM on our server. What worse, if executing the above code on a server without enough RAM, it can lead to system overload. You may see the following error message:</p>
+<p>The process takes 7 minutes and 21 seconds, and consumes up to 110GB of RAM on our server. What’s worse, if executing the above code on a server without enough RAM, it can lead to system overload. You may see the following error message:</p>
 <p><code class="docutils literal notranslate"><span class="pre">MemoryError:</span> <span class="pre">Unable</span> <span class="pre">to</span> <span class="pre">allocate</span> <span class="pre">52.2</span> <span class="pre">GiB</span> <span class="pre">for</span> <span class="pre">an</span> <span class="pre">array</span> <span class="pre">with</span> <span class="pre">shape</span> <span class="pre">(365,</span> <span class="pre">37,</span> <span class="pre">721,</span> <span class="pre">1440)</span> <span class="pre">and</span> <span class="pre">data</span> <span class="pre">type</span> <span class="pre">float32</span></code></p>
 <p>This error message appears because the data size has exceeded the RAM capacity. How should we avoid this situation?</p>
 <section id="dask-arrays">
 <h2>Dask Arrays<a class="headerlink" href="#dask-arrays" title="Link to this heading">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">Dask</span></code> is a flexible library for parallel computing in Python. It can scale up to operate on large datasets and perform computations that cannot fit into memory. <code class="docutils literal notranslate"><span class="pre">Dask</span></code> achieves this by breaking down large computations into smaller tasks, which are then executed in parallel. This can avoid consuming large amount of RAM.</p>
-<p>To understand the usage of dask, with demonstrate first with a 1000 × 4000 array size.</p>
+<p>To understand the usage of dask, we demonstrate first with a 1000 × 4000 array size.</p>
 <p><strong>1. Numpy Array:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -553,7 +553,7 @@
 </table></div></div>
 </div>
 <p><img alt="" src="https://docs.dask.org/en/latest/_images/dask-array.svg" /></p>
-<p>Dask devides the entire array into sub-arrays named “chunk”. In <code class="docutils literal notranslate"><span class="pre">dask</span></code>, we can specify the size of a chunk.</p>
+<p>Dask divides the entire array into sub-arrays named “chunk”. In <code class="docutils literal notranslate"><span class="pre">dask</span></code>, we can specify the size of a chunk.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">chunk_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
@@ -696,7 +696,7 @@
     <div style="width: 24px; height: 24px; background-color: #e1e1e1; border: 3px solid #9D9D9D; border-radius: 5px; position: absolute;"> </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px;">Client</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-1e44c064-808e-11f1-961f-e43d1aa7f14b</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">Client-38d0b315-8092-11f1-9b43-e43d1aa7f14b</p>
         <table style="width: 100%; text-align: left;">
 
         <tr>
@@ -727,7 +727,7 @@
     </div>
     <div style="margin-left: 48px;">
         <h3 style="margin-bottom: 0px; margin-top: 0px;">LocalCluster</h3>
-        <p style="color: #9D9D9D; margin-bottom: 0px;">19072b34</p>
+        <p style="color: #9D9D9D; margin-bottom: 0px;">c3f7aeb3</p>
         <table style="width: 100%; text-align: left;">
             <tr>
                 <td style="text-align: left;">
@@ -764,11 +764,11 @@
         <div style="width: 24px; height: 24px; background-color: #FFF7E5; border: 3px solid #FF6132; border-radius: 5px; position: absolute;"> </div>
         <div style="margin-left: 48px;">
             <h3 style="margin-bottom: 0px;">Scheduler</h3>
-            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-470e6999-d332-4d80-aa89-349b7f0d12b9</p>
+            <p style="color: #9D9D9D; margin-bottom: 0px;">Scheduler-92d05797-57e6-4240-87b5-d1be30afb9b9</p>
             <table style="width: 100%; text-align: left;">
                 <tr>
                     <td style="text-align: left;">
-                        <strong>Comm:</strong> tcp://127.0.0.1:41881
+                        <strong>Comm:</strong> tcp://127.0.0.1:45855
                     </td>
                     <td style="text-align: left;">
                         <strong>Workers:</strong> 8
@@ -810,7 +810,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41897
+                            <strong>Comm: </strong> tcp://127.0.0.1:43649
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -818,7 +818,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:36961/status" target="_blank">http://127.0.0.1:36961/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:42439/status" target="_blank">http://127.0.0.1:42439/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -826,13 +826,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:40833
+                            <strong>Nanny: </strong> tcp://127.0.0.1:45681
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-ukrbp6_y
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-uvecdjcc
                         </td>
                     </tr>
 
@@ -855,7 +855,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:43135
+                            <strong>Comm: </strong> tcp://127.0.0.1:33993
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -863,7 +863,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38491/status" target="_blank">http://127.0.0.1:38491/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:43899/status" target="_blank">http://127.0.0.1:43899/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -871,13 +871,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:33593
+                            <strong>Nanny: </strong> tcp://127.0.0.1:36883
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-vyjz_g5k
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-s3wnl092
                         </td>
                     </tr>
 
@@ -900,7 +900,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:40091
+                            <strong>Comm: </strong> tcp://127.0.0.1:34625
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -908,7 +908,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35677/status" target="_blank">http://127.0.0.1:35677/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45323/status" target="_blank">http://127.0.0.1:45323/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -916,13 +916,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:44501
+                            <strong>Nanny: </strong> tcp://127.0.0.1:36177
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-xuq1d9fc
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-1cek62ud
                         </td>
                     </tr>
 
@@ -945,7 +945,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:39771
+                            <strong>Comm: </strong> tcp://127.0.0.1:35895
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -953,7 +953,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37591/status" target="_blank">http://127.0.0.1:37591/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:44609/status" target="_blank">http://127.0.0.1:44609/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -961,13 +961,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:42617
+                            <strong>Nanny: </strong> tcp://127.0.0.1:39397
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-ynyt6h8k
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-06ow1ch4
                         </td>
                     </tr>
 
@@ -990,7 +990,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:44441
+                            <strong>Comm: </strong> tcp://127.0.0.1:34535
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -998,7 +998,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:39969/status" target="_blank">http://127.0.0.1:39969/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:37265/status" target="_blank">http://127.0.0.1:37265/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -1006,13 +1006,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:41357
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34769
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-cxor_mjo
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-4dz18oyn
                         </td>
                     </tr>
 
@@ -1035,7 +1035,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:38139
+                            <strong>Comm: </strong> tcp://127.0.0.1:42269
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1043,7 +1043,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:38883/status" target="_blank">http://127.0.0.1:38883/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:46343/status" target="_blank">http://127.0.0.1:46343/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -1051,13 +1051,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:33753
+                            <strong>Nanny: </strong> tcp://127.0.0.1:37261
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-l9s3low2
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-52h4wqso
                         </td>
                     </tr>
 
@@ -1080,7 +1080,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:41941
+                            <strong>Comm: </strong> tcp://127.0.0.1:41533
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1088,7 +1088,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:34917/status" target="_blank">http://127.0.0.1:34917/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:33961/status" target="_blank">http://127.0.0.1:33961/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -1096,13 +1096,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:34923
+                            <strong>Nanny: </strong> tcp://127.0.0.1:34497
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-o1lg06xt
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-vxl1dfe0
                         </td>
                     </tr>
 
@@ -1125,7 +1125,7 @@
                 <table style="width: 100%; text-align: left;">
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Comm: </strong> tcp://127.0.0.1:33653
+                            <strong>Comm: </strong> tcp://127.0.0.1:37967
                         </td>
                         <td style="text-align: left;">
                             <strong>Total threads: </strong> 1
@@ -1133,7 +1133,7 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:45155/status" target="_blank">http://127.0.0.1:45155/status</a>
+                            <strong>Dashboard: </strong> <a href="http://127.0.0.1:35061/status" target="_blank">http://127.0.0.1:35061/status</a>
                         </td>
                         <td style="text-align: left;">
                             <strong>Memory: </strong> 29.80 GiB
@@ -1141,13 +1141,13 @@
                     </tr>
                     <tr>
                         <td style="text-align: left;">
-                            <strong>Nanny: </strong> tcp://127.0.0.1:34663
+                            <strong>Nanny: </strong> tcp://127.0.0.1:43063
                         </td>
                         <td style="text-align: left;"></td>
                     </tr>
                     <tr>
                         <td colspan="2" style="text-align: left;">
-                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-7fea74uu
+                            <strong>Local directory: </strong> /tmp/dask-scratch-space/worker-25ngn2ah
                         </td>
                     </tr>
 
@@ -1176,7 +1176,7 @@
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">LocalCluster</span></code>: Used to start multiple workers on the local machine for parallel computation</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">Client</span></code>: Connects to the scheduler and handles communication between your Python session and the cluster. Every computation job is submitted to the workers through the client.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">cluster</span> <span class="pre">=</span> <span class="pre">LocalCluster(n_workers=32,</span> <span class="pre">threads_per_worker=1,</span> <span class="pre">memory_limit=0)</span></code>: Creates a local cluster where each worker runs on a single thread. Our server, for example, has 64 CPU (32 physical cores, you can see from <code class="docutils literal notranslate"><span class="pre">bpytop</span></code> on Linux) — one worker per physical core works best for numerical computations. The memory limit can be set to 0, meaning no restriction. Be cautious: if the dataset is too large or the workflow is poorly designed, this may overload the available RAM. In practice, you can set the memory limit explicitly (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;4GB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;8GB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;16GB&quot;</span></code>) to protect your system.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cluster</span> <span class="pre">=</span> <span class="pre">LocalCluster(n_workers=8,</span> <span class="pre">threads_per_worker=1,</span> <span class="pre">memory_limit='32GB')</span></code>: Creates a local cluster where each worker runs on a single thread. Our server, for example, has 64 CPU (32 physical cores, you can see from <code class="docutils literal notranslate"><span class="pre">bpytop</span></code> on Linux) — one worker per physical core works best for numerical computations. The memory limit can be set to 0, meaning no restriction. Be cautious: if the dataset is too large or the workflow is poorly designed, this may overload the available RAM. In practice, you can set the memory limit explicitly (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;4GB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;8GB&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;16GB&quot;</span></code>) to protect your system.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">client</span> <span class="pre">=</span> <span class="pre">Client(cluster)</span></code>: Initializes a client object that communicates with the cluster. This ensures all Dask operations (e.g., loading large NetCDF/GRIB files with xarray, or delayed computations) are distributed to the workers via the scheduler.</p></li>
 </ul>
 <p>There is also a link to the Client Dashboard. You can click to monitor your LocalCluster in real time.</p>
@@ -1579,7 +1579,7 @@ Coordinates:
 Attributes:
     standard_name:  geopotential_height
     long_name:      geopotential height
-    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 14440</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e1f33375-0ad7-4321-9927-710aea794ee2' class='xr-array-in' type='checkbox' checked><label for='section-e1f33375-0ad7-4321-9927-710aea794ee2' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 14440</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-11392d82-1875-441f-bdb8-984025c79dbe' class='xr-array-in' type='checkbox' checked><label for='section-11392d82-1875-441f-bdb8-984025c79dbe' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(1, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -1706,10 +1706,10 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-bdbd2dd0-070d-43d3-b0c1-93c9b025afaf' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bdbd2dd0-070d-43d3-b0c1-93c9b025afaf' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1981-12-01 ... 2021-02-28T18:00:00</div><input id='attrs-086116a0-cc48-477a-bdfc-d6f32c028b96' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-086116a0-cc48-477a-bdfc-d6f32c028b96' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2e027cd8-1457-42d8-bb69-9df9809a085d' class='xr-var-data-in' type='checkbox'><label for='data-2e027cd8-1457-42d8-bb69-9df9809a085d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1981-12-01T00:00:00.000000000&#x27;, &#x27;1981-12-01T06:00:00.000000000&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-d5235eaf-1ab5-47f6-a620-49aab3672159' class='xr-section-summary-in' type='checkbox'  checked><label for='section-d5235eaf-1ab5-47f6-a620-49aab3672159' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1981-12-01 ... 2021-02-28T18:00:00</div><input id='attrs-e9076685-9f22-43a1-9160-a7e2359b75a7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e9076685-9f22-43a1-9160-a7e2359b75a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2f03cab-08b2-487c-9d8a-7042cfea24ad' class='xr-var-data-in' type='checkbox'><label for='data-a2f03cab-08b2-487c-9d8a-7042cfea24ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1981-12-01T00:00:00.000000000&#x27;, &#x27;1981-12-01T06:00:00.000000000&#x27;,
        &#x27;1981-12-01T12:00:00.000000000&#x27;, ..., &#x27;2021-02-28T06:00:00.000000000&#x27;,
        &#x27;2021-02-28T12:00:00.000000000&#x27;, &#x27;2021-02-28T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-a0efed02-7491-4642-be64-d8aa24d23052' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a0efed02-7491-4642-be64-d8aa24d23052' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8832ed7d-b324-4b64-a5ac-4e2561aee98f' class='xr-var-data-in' type='checkbox'><label for='data-8832ed7d-b324-4b64-a5ac-4e2561aee98f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-0ca07b31-7dc8-41e2-a21b-2e506f840607' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0ca07b31-7dc8-41e2-a21b-2e506f840607' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32d57272-a77f-4b05-91dd-d3e3db9ea2e3' class='xr-var-data-in' type='checkbox'><label for='data-32d57272-a77f-4b05-91dd-d3e3db9ea2e3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-abd1caa5-1e5f-4cfd-bf69-ffba90030925' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-abd1caa5-1e5f-4cfd-bf69-ffba90030925' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-97089297-675b-41a8-b52d-4a892bd6201a' class='xr-var-data-in' type='checkbox'><label for='data-97089297-675b-41a8-b52d-4a892bd6201a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-663b4400-b173-4d0e-851a-ab7948617a91' class='xr-section-summary-in' type='checkbox'  ><label for='section-663b4400-b173-4d0e-851a-ab7948617a91' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-67006012-708c-4f29-9c66-f698d8f86e0b' class='xr-index-data-in' type='checkbox'/><label for='index-67006012-708c-4f29-9c66-f698d8f86e0b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1981-12-01 00:00:00&#x27;, &#x27;1981-12-01 06:00:00&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-fbfe227c-485d-4ca4-a106-83810eaf139f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fbfe227c-485d-4ca4-a106-83810eaf139f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4a7ebb37-03a4-43ac-a071-ff5508cf6fc5' class='xr-var-data-in' type='checkbox'><label for='data-4a7ebb37-03a4-43ac-a071-ff5508cf6fc5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-1a451d6a-82de-4938-ae6c-848be14e3590' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1a451d6a-82de-4938-ae6c-848be14e3590' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1694c2eb-d233-4a74-802a-37ef285f0330' class='xr-var-data-in' type='checkbox'><label for='data-1694c2eb-d233-4a74-802a-37ef285f0330' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-3d106051-d655-4878-8e3b-cc3e83b8463a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3d106051-d655-4878-8e3b-cc3e83b8463a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8396e1d9-8502-4e7f-a570-f3430c03588f' class='xr-var-data-in' type='checkbox'><label for='data-8396e1d9-8502-4e7f-a570-f3430c03588f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2d485867-fdb5-4218-89c0-610516fdd12d' class='xr-section-summary-in' type='checkbox'  ><label for='section-2d485867-fdb5-4218-89c0-610516fdd12d' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-05bb226f-bae1-40a3-99a3-57a27beaafae' class='xr-index-data-in' type='checkbox'/><label for='index-05bb226f-bae1-40a3-99a3-57a27beaafae' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1981-12-01 00:00:00&#x27;, &#x27;1981-12-01 06:00:00&#x27;,
                &#x27;1981-12-01 12:00:00&#x27;, &#x27;1981-12-01 18:00:00&#x27;,
                &#x27;1981-12-02 00:00:00&#x27;, &#x27;1981-12-02 06:00:00&#x27;,
                &#x27;1981-12-02 12:00:00&#x27;, &#x27;1981-12-02 18:00:00&#x27;,
@@ -1720,13 +1720,13 @@ Attributes:
                &#x27;2021-02-27 12:00:00&#x27;, &#x27;2021-02-27 18:00:00&#x27;,
                &#x27;2021-02-28 00:00:00&#x27;, &#x27;2021-02-28 06:00:00&#x27;,
                &#x27;2021-02-28 12:00:00&#x27;, &#x27;2021-02-28 18:00:00&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=14440, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-58baff3c-781d-4ad1-9fb6-db7becbcc718' class='xr-index-data-in' type='checkbox'/><label for='index-58baff3c-781d-4ad1-9fb6-db7becbcc718' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=14440, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-4e2fe365-5fbf-482d-83fd-61c37eae0df2' class='xr-index-data-in' type='checkbox'/><label for='index-4e2fe365-5fbf-482d-83fd-61c37eae0df2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
        ...
        355.0, 355.5, 356.0, 356.5, 357.0, 357.5, 358.0, 358.5, 359.0, 359.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a804bd34-7d13-4209-8793-d75994814f13' class='xr-index-data-in' type='checkbox'/><label for='index-a804bd34-7d13-4209-8793-d75994814f13' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-74cefb29-38b1-4710-806a-43e3c5a5b1c8' class='xr-index-data-in' type='checkbox'/><label for='index-74cefb29-38b1-4710-806a-43e3c5a5b1c8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
        ...
        -85.5, -86.0, -86.5, -87.0, -87.5, -88.0, -88.5, -89.0, -89.5, -90.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-a028830d-f832-4978-b5f0-3b1e1d956f34' class='xr-index-data-in' type='checkbox'/><label for='index-a028830d-f832-4978-b5f0-3b1e1d956f34' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3eed48a2-d587-4e2d-ab68-9f0bff7c9a7e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3eed48a2-d587-4e2d-ab68-9f0bff7c9a7e' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-3fba8842-519b-43d9-9ce5-4317cfabed1b' class='xr-index-data-in' type='checkbox'/><label for='index-3fba8842-519b-43d9-9ce5-4317cfabed1b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c8c5f65d-e2c6-437e-b5f6-6e4aa667a2ac' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c8c5f65d-e2c6-437e-b5f6-6e4aa667a2ac' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>At this point, <code class="docutils literal notranslate"><span class="pre">hgt</span></code> is a <strong>Dask-backed DataArray</strong>, not a full in-memory NumPy array. At this point, no actual data is read into RAM yet. The DataArray only stores metadata: dimensions, coordinates, data type, chunking info. Hence, the <code class="docutils literal notranslate"><span class="pre">u</span></code> array is very small (only a few MB regardless of how big your NetCDF files).</p>
 <p>Although xarray automatically chunks the dataset when using <code class="docutils literal notranslate"><span class="pre">xr.open_mfdataset()</span></code>, you can rechunk manually as follow:</p>
@@ -2118,7 +2118,7 @@ Coordinates:
 Attributes:
     standard_name:  geopotential_height
     long_name:      geopotential height
-    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 14440</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-e6aa3542-022b-42bb-a05b-893594cca8fd' class='xr-array-in' type='checkbox' checked><label for='section-e6aa3542-022b-42bb-a05b-893594cca8fd' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(150, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 14440</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-0af4deb5-1a8b-4283-8df5-d8eefeacbe46' class='xr-array-in' type='checkbox' checked><label for='section-0af4deb5-1a8b-4283-8df5-d8eefeacbe46' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(150, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2245,10 +2245,10 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-60707408-066b-4c1c-aa05-1349b10cf294' class='xr-section-summary-in' type='checkbox'  checked><label for='section-60707408-066b-4c1c-aa05-1349b10cf294' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1981-12-01 ... 2021-02-28T18:00:00</div><input id='attrs-13747b08-4594-42ed-ad9d-9aab0d3737e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-13747b08-4594-42ed-ad9d-9aab0d3737e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-351cfd05-48f4-4899-94e3-2d4a73f008ea' class='xr-var-data-in' type='checkbox'><label for='data-351cfd05-48f4-4899-94e3-2d4a73f008ea' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1981-12-01T00:00:00.000000000&#x27;, &#x27;1981-12-01T06:00:00.000000000&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-6ec8e707-6132-4956-99bd-801297bd9bd9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6ec8e707-6132-4956-99bd-801297bd9bd9' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1981-12-01 ... 2021-02-28T18:00:00</div><input id='attrs-a726a609-d853-4266-915b-46d0aa38ec8d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a726a609-d853-4266-915b-46d0aa38ec8d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ef99e7a-5621-4579-8d2f-63676d2fdbae' class='xr-var-data-in' type='checkbox'><label for='data-5ef99e7a-5621-4579-8d2f-63676d2fdbae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1981-12-01T00:00:00.000000000&#x27;, &#x27;1981-12-01T06:00:00.000000000&#x27;,
        &#x27;1981-12-01T12:00:00.000000000&#x27;, ..., &#x27;2021-02-28T06:00:00.000000000&#x27;,
        &#x27;2021-02-28T12:00:00.000000000&#x27;, &#x27;2021-02-28T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-1abdbec2-29a8-4e36-9c73-000bc54e3df3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1abdbec2-29a8-4e36-9c73-000bc54e3df3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ef00a793-81fe-44ab-a74f-4cb25f055b57' class='xr-var-data-in' type='checkbox'><label for='data-ef00a793-81fe-44ab-a74f-4cb25f055b57' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-3814c2df-d253-4ecc-890c-3af0e2e802c9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3814c2df-d253-4ecc-890c-3af0e2e802c9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-368a83b5-eb07-4fba-8efd-31f8f1709495' class='xr-var-data-in' type='checkbox'><label for='data-368a83b5-eb07-4fba-8efd-31f8f1709495' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-bba86d6d-ff3b-4e74-80b7-83556fd5b54e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bba86d6d-ff3b-4e74-80b7-83556fd5b54e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15b3178f-fde0-44ee-a0a3-3b11a71dc932' class='xr-var-data-in' type='checkbox'><label for='data-15b3178f-fde0-44ee-a0a3-3b11a71dc932' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-52d41678-542f-47e1-bce0-ddd38a93f9a5' class='xr-section-summary-in' type='checkbox'  ><label for='section-52d41678-542f-47e1-bce0-ddd38a93f9a5' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-97d6edbb-611f-42d2-906e-1483d56f9785' class='xr-index-data-in' type='checkbox'/><label for='index-97d6edbb-611f-42d2-906e-1483d56f9785' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1981-12-01 00:00:00&#x27;, &#x27;1981-12-01 06:00:00&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-aa0be75d-5cf5-465c-b53d-21239afdc82f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-aa0be75d-5cf5-465c-b53d-21239afdc82f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cfcf0958-7d38-49b1-adce-ce88e8097221' class='xr-var-data-in' type='checkbox'><label for='data-cfcf0958-7d38-49b1-adce-ce88e8097221' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-82c4896f-8c1c-4b89-919a-f6462001b34c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-82c4896f-8c1c-4b89-919a-f6462001b34c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f715107c-22b9-4719-8eef-0f6e876f5420' class='xr-var-data-in' type='checkbox'><label for='data-f715107c-22b9-4719-8eef-0f6e876f5420' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-a0300519-7f84-4078-bede-39a8fc4d4401' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a0300519-7f84-4078-bede-39a8fc4d4401' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7985cebc-dddb-4e9e-9dca-c528b9152fec' class='xr-var-data-in' type='checkbox'><label for='data-7985cebc-dddb-4e9e-9dca-c528b9152fec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f82ca1ca-ce56-42eb-b8b4-2b1eb8aa4cd2' class='xr-section-summary-in' type='checkbox'  ><label for='section-f82ca1ca-ce56-42eb-b8b4-2b1eb8aa4cd2' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-efbefe7f-d8c8-4191-8de3-d50291952857' class='xr-index-data-in' type='checkbox'/><label for='index-efbefe7f-d8c8-4191-8de3-d50291952857' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1981-12-01 00:00:00&#x27;, &#x27;1981-12-01 06:00:00&#x27;,
                &#x27;1981-12-01 12:00:00&#x27;, &#x27;1981-12-01 18:00:00&#x27;,
                &#x27;1981-12-02 00:00:00&#x27;, &#x27;1981-12-02 06:00:00&#x27;,
                &#x27;1981-12-02 12:00:00&#x27;, &#x27;1981-12-02 18:00:00&#x27;,
@@ -2259,13 +2259,13 @@ Attributes:
                &#x27;2021-02-27 12:00:00&#x27;, &#x27;2021-02-27 18:00:00&#x27;,
                &#x27;2021-02-28 00:00:00&#x27;, &#x27;2021-02-28 06:00:00&#x27;,
                &#x27;2021-02-28 12:00:00&#x27;, &#x27;2021-02-28 18:00:00&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=14440, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-c84a7e35-b624-4d01-a48c-5ccc6babcf07' class='xr-index-data-in' type='checkbox'/><label for='index-c84a7e35-b624-4d01-a48c-5ccc6babcf07' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=14440, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-5e997c5d-fd0d-4074-b21f-0a8c47759237' class='xr-index-data-in' type='checkbox'/><label for='index-5e997c5d-fd0d-4074-b21f-0a8c47759237' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
        ...
        355.0, 355.5, 356.0, 356.5, 357.0, 357.5, 358.0, 358.5, 359.0, 359.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-deae7f40-b8b0-4944-86e2-00acb212300a' class='xr-index-data-in' type='checkbox'/><label for='index-deae7f40-b8b0-4944-86e2-00acb212300a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-4cacc44e-e44f-4222-a8ab-ded4152dd0f8' class='xr-index-data-in' type='checkbox'/><label for='index-4cacc44e-e44f-4222-a8ab-ded4152dd0f8' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
        ...
        -85.5, -86.0, -86.5, -87.0, -87.5, -88.0, -88.5, -89.0, -89.5, -90.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-33c7e3cc-76c7-4098-98e1-feefe7cc5f48' class='xr-index-data-in' type='checkbox'/><label for='index-33c7e3cc-76c7-4098-98e1-feefe7cc5f48' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4e97f3d0-b03e-4b93-9a0a-53bd67be0312' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4e97f3d0-b03e-4b93-9a0a-53bd67be0312' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-22440a7a-7a50-49d9-af27-8116ae1a400d' class='xr-index-data-in' type='checkbox'/><label for='index-22440a7a-7a50-49d9-af27-8116ae1a400d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3296c387-e696-4c27-94ea-ee5dfd59b31a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3296c387-e696-4c27-94ea-ee5dfd59b31a' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Manual rechunking is particularly useful when the dataset is very large and the automatic chunking produces too many small chunks, which can lead to high scheduling overhead in Dask.</p>
 <p>Practical guidelines for chunk sizing:</p>
@@ -2665,7 +2665,7 @@ Coordinates:
 Attributes:
     standard_name:  geopotential_height
     long_name:      geopotential height
-    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>dayofyear</span>: 92</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-14a56056-28c4-4672-8f76-e61f06279220' class='xr-array-in' type='checkbox' checked><label for='section-14a56056-28c4-4672-8f76-e61f06279220' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(92, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    units:          m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'hgt'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>dayofyear</span>: 92</li><li><span class='xr-has-index'>level</span>: 2</li><li><span class='xr-has-index'>latitude</span>: 361</li><li><span class='xr-has-index'>longitude</span>: 720</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-7634269d-6a8c-47db-9a39-dcab3f8d80e9' class='xr-array-in' type='checkbox' checked><label for='section-7634269d-6a8c-47db-9a39-dcab3f8d80e9' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(92, 1, 361, 720), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -2761,26 +2761,26 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-26c131f2-ec83-44e1-81df-f03cdc9488e7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-26c131f2-ec83-44e1-81df-f03cdc9488e7' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-11dc71a8-ee2e-46c5-b125-f320ee9bbb96' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-11dc71a8-ee2e-46c5-b125-f320ee9bbb96' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1b91f080-89d9-4aa7-acff-3211155909b5' class='xr-var-data-in' type='checkbox'><label for='data-1b91f080-89d9-4aa7-acff-3211155909b5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-60d548f0-d5c2-480c-ab0a-e55d9fef2695' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-60d548f0-d5c2-480c-ab0a-e55d9fef2695' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d07dcea0-19a4-4d3c-8e4d-2b70a3d40e14' class='xr-var-data-in' type='checkbox'><label for='data-d07dcea0-19a4-4d3c-8e4d-2b70a3d40e14' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-926e25dc-8ee6-4b33-a66b-663a0daf62a7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-926e25dc-8ee6-4b33-a66b-663a0daf62a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38cb1e75-dab0-45e9-a9eb-6f94b16c14c4' class='xr-var-data-in' type='checkbox'><label for='data-38cb1e75-dab0-45e9-a9eb-6f94b16c14c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dayofyear</span></div><div class='xr-var-dims'>(dayofyear)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 362 363 364 365 366</div><input id='attrs-5b15de13-9803-4967-9d7d-a2ade79c94a1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5b15de13-9803-4967-9d7d-a2ade79c94a1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e3aa50d2-26ee-4ee6-82f8-27532bec64df' class='xr-var-data-in' type='checkbox'><label for='data-e3aa50d2-26ee-4ee6-82f8-27532bec64df' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
+</table></div></div></li><li class='xr-section-item'><input id='section-b74127eb-ed12-4766-8234-1c71efe18aa1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b74127eb-ed12-4766-8234-1c71efe18aa1' class='xr-section-summary' >Coordinates: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>longitude</span></div><div class='xr-var-dims'>(longitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>0.0 0.5 1.0 ... 358.5 359.0 359.5</div><input id='attrs-4f7f6b9b-6f5b-48db-99fc-d9f3cde54ced' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f7f6b9b-6f5b-48db-99fc-d9f3cde54ced' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-286a3e64-aa9d-429d-a8af-1664d89c3056' class='xr-var-data-in' type='checkbox'><label for='data-286a3e64-aa9d-429d-a8af-1664d89c3056' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>long_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd></dl></div><div class='xr-var-data'><pre>array([  0. ,   0.5,   1. , ..., 358.5, 359. , 359.5], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>latitude</span></div><div class='xr-var-dims'>(latitude)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>90.0 89.5 89.0 ... -89.5 -90.0</div><input id='attrs-159efa48-6bb3-47dc-ad44-6e4b41bf6908' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-159efa48-6bb3-47dc-ad44-6e4b41bf6908' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bbcf2f72-3d17-4a02-a9a5-f8d7dd19419a' class='xr-var-data-in' type='checkbox'><label for='data-bbcf2f72-3d17-4a02-a9a5-f8d7dd19419a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>long_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd></dl></div><div class='xr-var-data'><pre>array([ 90. ,  89.5,  89. , ..., -89. , -89.5, -90. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>level</span></div><div class='xr-var-dims'>(level)</div><div class='xr-var-dtype'>int32</div><div class='xr-var-preview xr-preview'>200 850</div><input id='attrs-0016558a-3f0c-4724-8b25-f193204beff6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0016558a-3f0c-4724-8b25-f193204beff6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2aa24497-95fb-4c58-9fd4-ed923b10cf37' class='xr-var-data-in' type='checkbox'><label for='data-2aa24497-95fb-4c58-9fd4-ed923b10cf37' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>air_pressure</dd><dt><span>long_name :</span></dt><dd>pressure_level</dd><dt><span>units :</span></dt><dd>millibars</dd><dt><span>positive :</span></dt><dd>down</dd><dt><span>axis :</span></dt><dd>Z</dd></dl></div><div class='xr-var-data'><pre>array([200, 850], dtype=int32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dayofyear</span></div><div class='xr-var-dims'>(dayofyear)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 ... 362 363 364 365 366</div><input id='attrs-ade18487-2ce5-4f26-905c-c083364d7c6b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ade18487-2ce5-4f26-905c-c083364d7c6b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cc1927e6-ad11-423c-a4af-eba26c76d6a3' class='xr-var-data-in' type='checkbox'><label for='data-cc1927e6-ad11-423c-a4af-eba26c76d6a3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
         15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,  28,
         29,  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,  42,
         43,  44,  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,  56,
         57,  58,  59,  60, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344,
        345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358,
-       359, 360, 361, 362, 363, 364, 365, 366])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-27ee964a-d9e2-4e8e-8fc2-1104cf053270' class='xr-section-summary-in' type='checkbox'  ><label for='section-27ee964a-d9e2-4e8e-8fc2-1104cf053270' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-26a0af95-6ae3-4196-8a96-0fca9ac4cf9a' class='xr-index-data-in' type='checkbox'/><label for='index-26a0af95-6ae3-4196-8a96-0fca9ac4cf9a' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
+       359, 360, 361, 362, 363, 364, 365, 366])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f4250fa8-5ef6-46a3-b25c-c2237df69c43' class='xr-section-summary-in' type='checkbox'  ><label for='section-f4250fa8-5ef6-46a3-b25c-c2237df69c43' class='xr-section-summary' >Indexes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>longitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-2ec17868-baff-4766-97dc-39189f2eb268' class='xr-index-data-in' type='checkbox'/><label for='index-2ec17868-baff-4766-97dc-39189f2eb268' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  0.0,   0.5,   1.0,   1.5,   2.0,   2.5,   3.0,   3.5,   4.0,   4.5,
        ...
        355.0, 355.5, 356.0, 356.5, 357.0, 357.5, 358.0, 358.5, 359.0, 359.5],
-      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-0a48c5d9-a3b0-4a26-9b46-18de79d23c23' class='xr-index-data-in' type='checkbox'/><label for='index-0a48c5d9-a3b0-4a26-9b46-18de79d23c23' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
+      dtype=&#x27;float32&#x27;, name=&#x27;longitude&#x27;, length=720))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>latitude</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-510a3f83-a528-4822-b5c3-7be6b40334ca' class='xr-index-data-in' type='checkbox'/><label for='index-510a3f83-a528-4822-b5c3-7be6b40334ca' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([ 90.0,  89.5,  89.0,  88.5,  88.0,  87.5,  87.0,  86.5,  86.0,  85.5,
        ...
        -85.5, -86.0, -86.5, -87.0, -87.5, -88.0, -88.5, -89.0, -89.5, -90.0],
-      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-819b9ad7-e52f-44d1-99ff-45d0a306898e' class='xr-index-data-in' type='checkbox'/><label for='index-819b9ad7-e52f-44d1-99ff-45d0a306898e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dayofyear</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-2d29200d-2b5a-42d0-b68e-d9d6efd1b878' class='xr-index-data-in' type='checkbox'/><label for='index-2d29200d-2b5a-42d0-b68e-d9d6efd1b878' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
+      dtype=&#x27;float32&#x27;, name=&#x27;latitude&#x27;, length=361))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>level</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-feb8f66d-83a7-487d-a8ca-6b4cd31fb0ac' class='xr-index-data-in' type='checkbox'/><label for='index-feb8f66d-83a7-487d-a8ca-6b4cd31fb0ac' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([200, 850], dtype=&#x27;int32&#x27;, name=&#x27;level&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>dayofyear</div></div><div class='xr-index-preview'>PandasIndex</div><input type='checkbox' disabled/><label></label><input id='index-9d6d7251-d3fc-4027-bb1c-18c146206c2b' class='xr-index-data-in' type='checkbox'/><label for='index-9d6d7251-d3fc-4027-bb1c-18c146206c2b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([  1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,  13,  14,
         15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,  26,  27,  28,
         29,  30,  31,  32,  33,  34,  35,  36,  37,  38,  39,  40,  41,  42,
         43,  44,  45,  46,  47,  48,  49,  50,  51,  52,  53,  54,  55,  56,
         57,  58,  59,  60, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344,
        345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358,
        359, 360, 361, 362, 363, 364, 365, 366],
-      dtype=&#x27;int64&#x27;, name=&#x27;dayofyear&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c6f5625d-cdbb-4a56-aea1-858239fa2cf3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c6f5625d-cdbb-4a56-aea1-858239fa2cf3' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;int64&#x27;, name=&#x27;dayofyear&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-87dbf95f-b616-4f4c-9d41-dd43a0348d7c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-87dbf95f-b616-4f4c-9d41-dd43a0348d7c' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>geopotential_height</dd><dt><span>long_name :</span></dt><dd>geopotential height</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>The whole array is reduced to only 364.88 MB. Now we can trigger the computation and execute task graphs and load into a DataArray.</p>
 <div class="cell docutils container">
@@ -2799,17 +2799,75 @@ See also https://docs.dask.org/en/stable/best-practices.html#load-data-with-dask
   warnings.warn(
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-15 15:46:04,696 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;rechunk-merge-429d52b56644f40e357626ae93996106&#39;, 47, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,696 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-simple-reduce-partial-571acf909c19eebbfaeacc0c403307a9&#39;, 1, 0, 0, 9))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,696 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-chunk-90dc251600049312159fe1ee46300a2d&#39;, 1, 0, 0, 33))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,696 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;open_dataset-hgt-concatenate-cc67ba4027ded70fa5bbcbf692a9eb2c&#39;, 6936, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,696 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;open_dataset-hgt-concatenate-cc67ba4027ded70fa5bbcbf692a9eb2c&#39;, 6935, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,697 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;rechunk-merge-429d52b56644f40e357626ae93996106&#39;, 32, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
-2026-07-15 15:46:04,698 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;open_dataset-hgt-concatenate-cc67ba4027ded70fa5bbcbf692a9eb2c&#39;, 6939, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-15 16:15:27,379 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-chunk-8c62f2b7891394c6aec9538807300abb&#39;, 1, 0, 0, 38))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,379 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;open_dataset-hgt-concatenate-cc67ba4027ded70fa5bbcbf692a9eb2c&#39;, 5200, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,379 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-chunk-8c62f2b7891394c6aec9538807300abb&#39;, 1, 0, 0, 37))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,380 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;open_dataset-hgt-concatenate-cc67ba4027ded70fa5bbcbf692a9eb2c&#39;, 5204, 1, 0, 0))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,380 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-chunk-8c62f2b7891394c6aec9538807300abb&#39;, 1, 0, 0, 52))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,380 - distributed.worker.state_machine - WARNING - Async instruction for &lt;Task cancelled name=&quot;execute((&#39;groupby_nanmean-chunk-8c62f2b7891394c6aec9538807300abb&#39;, 1, 0, 0, 49))&quot; coro=&lt;Worker.execute() done, defined at /data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_state_machine.py:3607&gt;&gt; ended with CancelledError
+2026-07-15 16:15:27,386 - distributed.worker_memory - ERROR - 
+Traceback (most recent call last):
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 491, in wrapper
+    ret = self._cache[fun]
+AttributeError: &#39;Process&#39; object has no attribute &#39;_cache&#39;
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/utils.py&quot;, line 805, in wrapper
+    return await func(*args, **kwargs)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_memory.py&quot;, line 213, in memory_monitor
+    memory = worker.monitor.get_process_memory()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/system_monitor.py&quot;, line 150, in get_process_memory
+    return self.proc.memory_info().rss
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 495, in wrapper
+    return fun(self)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/__init__.py&quot;, line 1102, in memory_info
+    return self._proc.memory_info()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_pslinux.py&quot;, line 1714, in wrapper
+    return fun(self, *args, **kwargs)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_pslinux.py&quot;, line 1967, in memory_info
+    with open_binary(&quot;%s/%s/statm&quot; % (self._procfs_path, self.pid)) as f:
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 788, in open_binary
+    return open(fname, &quot;rb&quot;, buffering=FILE_READ_BUFFER_SIZE)
+KeyboardInterrupt
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-15 15:46:06,697 - distributed.nanny - ERROR - Worker process died unexpectedly
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-15 16:15:28,415 - distributed.worker - ERROR - Failed to communicate with scheduler during heartbeat.
+Traceback (most recent call last):
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 226, in read
+    frames_nosplit_nbytes_bin = await stream.read_bytes(fmt_size)
+tornado.iostream.StreamClosedError: Stream is closed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker.py&quot;, line 1269, in heartbeat
+    response = await retry_operation(
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/utils_comm.py&quot;, line 416, in retry_operation
+    return await retry(
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/utils_comm.py&quot;, line 395, in retry
+    return await coro()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/core.py&quot;, line 1259, in send_recv_from_rpc
+    return await send_recv(comm=comm, op=key, **kwargs)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/core.py&quot;, line 1018, in send_recv
+    response = await comm.read(deserializers=deserializers)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 237, in read
+    convert_stream_closed_error(self, e)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 137, in convert_stream_closed_error
+    raise CommClosedError(f&quot;in {obj}: {exc}&quot;) from exc
+distributed.comm.core.CommClosedError: in &lt;TCP (closed) ConnectionPool.heartbeat_worker local=tcp://127.0.0.1:57578 remote=tcp://127.0.0.1:45855&gt;: Stream is closed
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2026-07-15 16:15:29,387 - distributed.nanny - ERROR - Worker process died unexpectedly
 Process Dask Worker process (from Nanny):
+Traceback (most recent call last):
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 491, in wrapper
+    ret = self._cache[fun]
+AttributeError: &#39;Process&#39; object has no attribute &#39;_cache&#39;
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/multiprocessing/process.py&quot;, line 314, in _bootstrap
     self.run()
@@ -2835,18 +2893,26 @@ Traceback (most recent call last):
     lambda f: self._run_callback(functools.partial(callback, f))
   File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/ioloop.py&quot;, line 750, in _run_callback
     ret = callback()
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/gen.py&quot;, line 824, in inner
-    self.ctx_run(self.run)
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/gen.py&quot;, line 766, in run
-    value = future.result()
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/comm/tcp.py&quot;, line 304, in write
-    stream.write(b&quot;&quot;)
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/iostream.py&quot;, line 539, in write
-    self._handle_write()
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/iostream.py&quot;, line 983, in _handle_write
-    future_set_result_unless_cancelled(future, None)
-  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/concurrent.py&quot;, line 182, in future_set_result_unless_cancelled
-    def future_set_result_unless_cancelled(
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/ioloop.py&quot;, line 774, in _discard_future_result
+    future.result()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/tornado/ioloop.py&quot;, line 939, in _run
+    await val
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/utils.py&quot;, line 805, in wrapper
+    return await func(*args, **kwargs)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/worker_memory.py&quot;, line 213, in memory_monitor
+    memory = worker.monitor.get_process_memory()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/distributed/system_monitor.py&quot;, line 150, in get_process_memory
+    return self.proc.memory_info().rss
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 495, in wrapper
+    return fun(self)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/__init__.py&quot;, line 1102, in memory_info
+    return self._proc.memory_info()
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_pslinux.py&quot;, line 1714, in wrapper
+    return fun(self, *args, **kwargs)
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_pslinux.py&quot;, line 1967, in memory_info
+    with open_binary(&quot;%s/%s/statm&quot; % (self._procfs_path, self.pid)) as f:
+  File &quot;/data/wtsai/micromamba/p3t/lib/python3.10/site-packages/psutil/_common.py&quot;, line 788, in open_binary
+    return open(fname, &quot;rb&quot;, buffering=FILE_READ_BUFFER_SIZE)
 KeyboardInterrupt
 </pre></div>
 </div>
@@ -2856,7 +2922,7 @@ KeyboardInterrupt
 </section>
 <section id="persist">
 <h3><code class="docutils literal notranslate"><span class="pre">.persist()</span></code><a class="headerlink" href="#persist" title="Link to this heading">#</a></h3>
-<p>Every <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> triggers the <em>entire</em> task graph from beginning: reading the original NetCDF/GRIB files from disk, chunking the data, performing intermediate computations, and producing the final results. If you plan to use a intermediate product multiple times, you can <strong>persist</strong> it before the following calculations. For example, we now calculate the <span class="math notranslate nohighlight">\(Z_{200}\)</span> anomaly:</p>
+<p>Every <code class="docutils literal notranslate"><span class="pre">.compute()</span></code> triggers the <em>entire</em> task graph from beginning: reading the original NetCDF/GRIB files from disk, chunking the data, performing intermediate computations, and producing the final results. If you plan to use an intermediate product multiple times, you can <strong>persist</strong> it before the following calculations. For example, we now calculate the <span class="math notranslate nohighlight">\(Z_{200}\)</span> anomaly:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hgtDay</span> <span class="o">=</span> <span class="n">hgt</span><span class="o">.</span><span class="n">coarsen</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="n">coord_func</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="c1"># Convert to daily mean </span>
@@ -4613,7 +4679,7 @@ Data variables:
 <p><strong>Step 2</strong>: Calculate the regression coefficient <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> using the following equation:</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{A} = \dfrac{\mathrm{Cov}(X,Y)}{\mathrm{Cov}(X,X)}\]</div>
-<p>where <span class="math notranslate nohighlight">\(X\)</span> is predictand data (in this case, RMM index), and <span class="math notranslate nohighlight">\(Y\)</span> is predictor matrix (in this case, <code class="docutils literal notranslate"><span class="pre">za</span></code>).</p>
+<p>where <span class="math notranslate nohighlight">\(X\)</span> is predictor data (in this case, the RMM index), and <span class="math notranslate nohighlight">\(Y\)</span> is predictand data (in this case, <code class="docutils literal notranslate"><span class="pre">za</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_rmm1_slope</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">za200</span><span class="p">,</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">RMM1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="o">/</span> <span class="n">xr</span><span class="o">.</span><span class="n">cov</span><span class="p">(</span><span class="n">mjo_ds</span><span class="o">.</span><span class="n">RMM1</span><span class="p">,</span> <span class="n">mjo_ds</span><span class="o">.</span><span class="n">RMM1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
